@@ -94,7 +94,7 @@ const routes: Routes = [
   },
 
   {
-    path: '**', redirectTo: '/Home', data: { breadcrumb: 'Home' },
+    path: '**', redirectTo: '/home', data: { breadcrumb: 'Home' },
   }
 ];
 

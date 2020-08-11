@@ -30,6 +30,8 @@ import { PanCardComponent } from './document-doctor/pan-card/pan-card.component'
 import { GazetteCertificateComponent } from './document-doctor/gazette-certificate/gazette-certificate.component';
 import { OthersComponent } from './document-doctor/others/others.component';
 import { CategoryDetailComponent } from './category-detail/category-detail.component';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { ViewDetailComponent } from './category-detail/view-detail/view-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +47,8 @@ import { CategoryDetailComponent } from './category-detail/category-detail.compo
     PanCardComponent,
     GazetteCertificateComponent,
     OthersComponent,
-    CategoryDetailComponent
+    CategoryDetailComponent,
+    ViewDetailComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -57,9 +60,11 @@ import { CategoryDetailComponent } from './category-detail/category-detail.compo
     CarouselModule.forRoot(),
     DropdownModule,
     SlickCarouselModule
- 
+
   ],
-  providers: [],
+  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

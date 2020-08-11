@@ -16,6 +16,15 @@ body {
   margin-top: 40px;
   min-height: 48px;
 }
+a {
+  cursor: pointer;
+}
+button:focus{
+  outline: 0!important;
+}
+.bg-white{
+ background: #fff;
+}
 .btn-black:hover {
   color: #fff;
 }
@@ -43,6 +52,9 @@ body {
 }
 .fs-16 {
   font-size: 16px;
+}
+.fs-18 {
+  font-size: 18px;
 }
 .logo {
   font-family: "Roboto", sans-serif;
@@ -524,5 +536,5 @@ button:not(:disabled) {
       }
     }
   }
-  
+
 }

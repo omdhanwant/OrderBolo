@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./category-detail.component.scss']
 })
 export class CategoryDetailComponent implements OnInit {
-
+  viewDetails: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  showDetails() {
+    this.viewDetails = false;
+    setTimeout(() => {
+        this.viewDetails = true;
+    }, 1000);
   }
 
 }

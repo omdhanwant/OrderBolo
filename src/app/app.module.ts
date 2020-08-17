@@ -32,6 +32,10 @@ import { OthersComponent } from './document-doctor/others/others.component';
 import { CategoryDetailComponent } from './category-detail/category-detail.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { ViewDetailComponent } from './category-detail/view-detail/view-detail.component';
+
+// material
+import {MatSelectModule} from '@angular/material/select';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +63,10 @@ import { ViewDetailComponent } from './category-detail/view-detail/view-detail.c
     BsDatepickerModule.forRoot(),
     CarouselModule.forRoot(),
     DropdownModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+
+    //material
+    MatSelectModule
 
   ],
   providers: [

@@ -1,6 +1,6 @@
 <div class="container-fluid p-0">
     <section class="home-banner">
-        <carousel [interval]="10000" [isAnimated]="true">
+        <carousel [interval]='0'>
             <slide class="home-banner">
                 <div class="home-banner-opacity">&nbsp;</div>
                 <div class="text-center text-white height-500"
@@ -8,9 +8,9 @@
                     <h1 class="banner_h1">Home services, on demand.</h1>
                     <div class="lead">
                         <div class="row">
-                            <div class="col-md-1"></div>
-                            <div class="col-md-2 ml-4">
-                                <p-dropdown [options]="city" [(ngModel)]="selectedCity" filter="true" appendTo="body">
+
+                            <div class="col-lg-4 col-md-4">
+                                <!-- <p-dropdown [options]="city" [(ngModel)]="selectedCity" filter="true" appendTo="body">
                                     <ng-template let-item pTemplate="selectedItem">
                                         <img src="https://www.primefaces.org/primeng/showcase/assets/showcase/images/demo/car/{{item.label}}.png"
                                             style="width:16px;vertical-align:middle" />
@@ -23,19 +23,27 @@
                                             <div style="font-size:14px;float:right;margin-top:4px">{{car.label}}</div>
                                         </div>
                                     </ng-template>
-                                </p-dropdown>
+                                </p-dropdown> -->
+                                <mat-form-field appearance="fill">
+                                  <mat-label>Select Area</mat-label>
+                                  <mat-select [(ngModel)]="selectedArea" (ngModelChange)="!$event ? selectedArea = '' : ''" name="area">
+                                    <mat-option *ngFor="let area of areas" [value]="area.value">
+                                      {{area.viewValue}}
+                                    </mat-option>
+                                  </mat-select>
+                                </mat-form-field>
                             </div>
-                            <div class="col-md-7 pl-4">
+                            <div class="col-lg-8 col-md-8 pl-4">
                                 <form>
                                     <div class="form-group">
                                         <input type="email" class="form-control" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp" placeholder="Search for a service">
+                                            aria-describedby="emailHelp" placeholder="Search for a service" style="height: 42px;">
                                         <small id="emailHelp" class="form-text text-left">Electricians, Carpenters,
                                             Salon at Home etc.</small>
                                     </div>
                                 </form>
                             </div>
-                            <div class="col-md-1"></div>
+
                         </div>
                     </div>
                 </div>
@@ -201,16 +209,16 @@
     </section>
 
     <section class="home_page_border_seperator">&nbsp;</section>
-    
+
     <section class="feature-category text-center">
         <div class="row p-5">
             <div class="col-md-12">
                 <h1 class="feature_h1">Customer safety is our priority</h1>
                 <span class="feature_sub_title pb-5">What customers are saying about our safety standards</span>
-                <div class="feature_category_img_caption_section"> 
-                    <ngx-slick-carousel class="carousel" 
-                                #slickModal="slick-carousel" 
-                                [config]="slideConfig" 
+                <div class="feature_category_img_caption_section">
+                    <ngx-slick-carousel class="carousel"
+                                #slickModal="slick-carousel"
+                                [config]="slideConfig"
                                 (init)="slickInit($event)"
                                 (breakpoint)="breakpoint($event)"
                                 (afterChange)="afterChange($event)"

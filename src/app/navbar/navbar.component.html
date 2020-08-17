@@ -1,6 +1,6 @@
 <nav class="bg-dark navbar navbar-dark navbar-expand-lg pl-5 pr-5">
-  <a class="navbar-brand" href="#">OrderBolo</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+  <a @fadeInLeftTrigger class="navbar-brand" href="#">OrderBolo</a>
+  <button @fadeInLeftTrigger class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
     aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -25,16 +25,16 @@
         <a class="nav-link">Register As Professional <span class="sr-only">Register As Professional</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" (click)="openNav()">Login/Sign Up <span class="sr-only">(Login/Sign Up)</span></a>
+        <a class="nav-link" (click)="toggle()">Login/Sign Up <span class="sr-only">(Login/Sign Up)</span></a>
       </li>
     </ul>
   </div>
 </nav>
 
-<div id="mySidenav" class="sidenav box-shadow">
+<div [@sideNavTrigger]="toggleSideNav ? 'open' : 'close'" id="mySidenav" class="sidenav box-shadow">
   <!-- <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a> -->
   <div style="display: inline-flex;padding:15px;width: 100%;margin-bottom: 1rem;border-bottom: 1px solid #ced4da">
-    <span style="font-size: 20px;padding-right: 10px;cursor: pointer;"  (click)="closeNav()">X</span>
+    <span style="font-size: 20px;padding-right: 10px;cursor: pointer;padding-top: 1px;"  (click)="toggle()">X</span>
     <p style="font-size: 22px; margin: 0;">Please login to continue</p>
   </div>
   <div class="container">

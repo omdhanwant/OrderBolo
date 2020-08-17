@@ -31,6 +31,7 @@ import { trigger, transition, style, animate, state } from '@angular/animations'
 export class NavbarComponent implements OnInit {
   myForm:string = 'login'
   toggleSideNav = false;
+  rememberMe = false;
   constructor() { }
 
   ngOnInit(): void {
@@ -45,6 +46,10 @@ export class NavbarComponent implements OnInit {
 
   closeNav() {
     // document.getElementById("mySidenav").style.width = "0";
+  }
+
+  check(event){
+    console.log(event);
   }
 
 }

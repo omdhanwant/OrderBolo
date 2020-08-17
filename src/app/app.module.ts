@@ -35,6 +35,7 @@ import { ViewDetailComponent } from './category-detail/view-detail/view-detail.c
 
 // material
 import {MatSelectModule} from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import {MatSelectModule} from '@angular/material/select';
     SlickCarouselModule,
 
     //material
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule
 
   ],
   providers: [

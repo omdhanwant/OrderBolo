@@ -26,7 +26,8 @@
                                 </p-dropdown> -->
                                 <mat-form-field appearance="fill">
                                   <mat-label>Select Area</mat-label>
-                                  <mat-select [(ngModel)]="selectedArea" (ngModelChange)="!$event ? selectedArea = '' : ''" name="area">
+                                  <mat-select [(ngModel)]="selectedArea" name="area">
+                                    <mat-option>None</mat-option>
                                     <mat-option *ngFor="let area of areas" [value]="area.value">
                                       {{area.viewValue}}
                                     </mat-option>

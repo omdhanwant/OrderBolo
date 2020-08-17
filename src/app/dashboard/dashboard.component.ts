@@ -12,7 +12,7 @@ export class DashboardComponent implements OnInit {
 
   constructor() {
     this.areas = [
-      {value: '', viewValue: 'None'},
+      // {value: '', viewValue: 'None'},
       {value: 'pratap-nagar', viewValue: 'Pratap Nagar'},
     {value: 'jaitala', viewValue: 'Jaitala'},
     {value: 'manish-nagar', viewValue: 'Manish Nagar'}

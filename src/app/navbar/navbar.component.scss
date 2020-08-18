@@ -43,3 +43,12 @@
     -moz-box-shadow: -8px 0px 8px -2px rgba(0,0,0,0.75);
     box-shadow: -8px 0px 8px -2px rgba(0,0,0,0.75);
   }
+
+  .matContinueButton{
+    background-color: #000;
+    color: #fff;
+  }
+
+  .form-group mat-form-field ,.form-group button{
+    width: 100%;
+  }

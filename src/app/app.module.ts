@@ -36,6 +36,9 @@ import { ViewDetailComponent } from './category-detail/view-detail/view-detail.c
 // material
 import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -68,7 +71,10 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 
     //material
     MatSelectModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule
 
   ],
   providers: [

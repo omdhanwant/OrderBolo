@@ -51,6 +51,9 @@ a {
 button:focus{
   outline: 0!important;
 }
+input:focus{
+  outline: 0!important;
+}
 .bg-white{
  background: #fff;
 }
@@ -98,6 +101,8 @@ button:focus{
 }
 .home-banner {
   background-image: url("https://res.cloudinary.com/urbanclap/image/upload/categories/category_v2/category_3fcf50f0.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .home-banner-opacity {
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.8));
@@ -177,12 +182,27 @@ button:focus{
     width: 160px;
     height: 112px;
     cursor: pointer;
-    padding: 24px 16px 16px;
+    padding: 16px 16px 16px;
     overflow: hidden;
     cursor: pointer;
     &:hover {
       border-radius: 4px;
       background-color: #f5f5f5;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .category-grid{
+      padding: 16px 16px 16px!important;
+    }
+    .category-section{
+      padding: 15px!important;
+    }
+    .category-section ul {
+      display: flex!important;
+      justify-content: center!important;
+      margin: 0!important;
+      padding: 0 10px !important;
     }
   }
 
@@ -211,17 +231,17 @@ button:focus{
     height: 100%;
     width: 100%;
     object-fit: cover;
-    height: 315px;
-    width: 552px;
+    // height: 315px;
+    // width: 552px;
     border-radius: 4px;
     overflow: hidden;
     transition: transform 0.3s cubic-bezier(0.16, 0.61, 1, 1.15);
     transform-origin: center;
     cursor: pointer;
     &:hover {
-      transform: scale(1.07);
-      height: 315px;
-      width: 552px;
+      transform: scale(1.05);
+      // height: 315px;
+      // width: 552px;
       border-radius: 4px;
       overflow: hidden;
       transition: transform 0.3s cubic-bezier(0.16, 0.61, 1, 1.15);
@@ -566,6 +586,14 @@ button:not(:disabled) {
     }
   }
 
+}
+
+.areas_dropdown {
+  .ui-dropdown{
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+  }
 }
 
 html, body { height: 100%; }

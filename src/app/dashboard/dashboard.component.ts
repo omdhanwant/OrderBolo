@@ -13,9 +13,9 @@ export class DashboardComponent implements OnInit {
   constructor() {
     this.areas = [
       // {value: '', viewValue: 'None'},
-      {value: 'pratap-nagar', viewValue: 'Pratap Nagar'},
-    {value: 'jaitala', viewValue: 'Jaitala'},
-    {value: 'manish-nagar', viewValue: 'Manish Nagar'}
+      {label: 'pratap-nagar', value: 'Pratap Nagar'},
+    {label: 'jaitala', value: 'Jaitala'},
+    {label: 'manish-nagar', value: 'Manish Nagar'}
     ]
   }
 

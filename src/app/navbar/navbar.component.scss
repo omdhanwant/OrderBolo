@@ -1,6 +1,15 @@
+.sticky_nav{
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+  left: 0;
+  text-align: 0;
+  top: 0;
+}
+
 .sidenav {
     height: 100%;
-    width: 25rem;
+    // width: 25rem;
     position: fixed;
     z-index: 9999;
     top: 0;
@@ -51,7 +60,7 @@
     top: 0;
     right: 0;
     height: 100%;
-    width: 25rem;
+    // width: 25rem;
   }
 
   .otp_info_text_container{

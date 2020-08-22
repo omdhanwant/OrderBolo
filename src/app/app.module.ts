@@ -34,11 +34,11 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { ViewDetailComponent } from './category-detail/view-detail/view-detail.component';
 import { NgOtpInputModule } from  'ng-otp-input';
 
-// material
-import {MatSelectModule} from '@angular/material/select';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+// // material
+// import {MatSelectModule} from '@angular/material/select';
+// import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
+// import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
@@ -73,10 +73,10 @@ import {MatIconModule} from '@angular/material/icon';
 
 
     //material
-    MatSelectModule,
-    MatCheckboxModule,
+    // MatSelectModule,
+    // MatCheckboxModule,
     MatInputModule,
-    MatButtonModule,
+    // MatButtonModule,
     MatIconModule
 
   ],

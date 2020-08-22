@@ -9,22 +9,10 @@
                     <div class="lead">
                         <div class="row">
 
-                            <div class="col-lg-4 col-md-4">
-                                <!-- <p-dropdown [options]="city" [(ngModel)]="selectedCity" filter="true" appendTo="body">
-                                    <ng-template let-item pTemplate="selectedItem">
-                                        <img src="https://www.primefaces.org/primeng/showcase/assets/showcase/images/demo/car/{{item.label}}.png"
-                                            style="width:16px;vertical-align:middle" />
-                                        <span style="vertical-align:middle; margin-left: .5em">{{item.label}}</span>
-                                    </ng-template>
-                                    <ng-template let-car pTemplate="item">
-                                        <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
-                                            <img src="https://www.primefaces.org/primeng/showcase/assets/showcase/images/demo/car/{{car.label}}.png"
-                                                style="width:24px;position:absolute;top:1px;left:5px" />
-                                            <div style="font-size:14px;float:right;margin-top:4px">{{car.label}}</div>
-                                        </div>
-                                    </ng-template>
-                                </p-dropdown> -->
-                                <mat-form-field appearance="fill">
+                            <div class="col-lg-4 col-md-4 p-0 areas_dropdown">
+                                <p-dropdown [options]="areas" [(ngModel)]="selectedArea" filter="true" appendTo="body">
+                                </p-dropdown>
+                                <!-- <mat-form-field appearance="fill">
                                   <mat-label>Select Area</mat-label>
                                   <mat-select [(ngModel)]="selectedArea" name="area">
                                     <mat-option>None</mat-option>
@@ -32,13 +20,14 @@
                                       {{area.viewValue}}
                                     </mat-option>
                                   </mat-select>
-                                </mat-form-field>
+                                </mat-form-field> -->
+
                             </div>
                             <div class="col-lg-8 col-md-8 pl-4">
                                 <form>
                                     <div class="form-group">
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp" placeholder="Search for a service" style="height: 42px;">
+                                        <input type="text" class="form-control" id="exampleInputEmail1"
+                                            aria-describedby="emailHelp" placeholder="Search for a service" style="height: 40px;">
                                         <small id="emailHelp" class="form-text text-left">Electricians, Carpenters,
                                             Salon at Home etc.</small>
                                     </div>
@@ -163,21 +152,21 @@
             </div>
         </div>
     </section>
-    <section>
+    <!-- <section>
         <div class="row">
             <div class="col-md-12">
                 <img src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_2160/t_high_res_template,q_auto:low,f_auto/categories/category_v2/category_f072a650.jpeg"
                     alt="" title="advertise" style="cursor: inherit; width: 1440px; height: 78.9907px;">
             </div>
         </div>
-    </section>
+    </section> -->
 
     <section class="feature-category text-center">
         <div class="row p-5">
             <div class="col-md-12">
                 <h1 class="feature_h1">Low-contact AC service &amp; repair</h1>
                 <span class="feature_sub_title">Technicians trained in WHO hygiene guidelines</span>
-                <p class="pt-4">
+                <p class="pt-4 service_image">
                     <img class="feature_category_img"
                         src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_1180/t_high_res_category,q_auto:low,f_auto/categories/category_v2/category_dba813a0.jpeg"
                         alt="">
@@ -196,7 +185,7 @@
             <div class="col-md-12">
                 <h1 class="feature_h1">Low-contact AC service &amp; repair</h1>
                 <span class="feature_sub_title">Technicians trained in WHO hygiene guidelines</span>
-                <p class="pt-4">
+                <p class="pt-4 service_image">
                     <img class="feature_category_img"
                         src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_1180/t_high_res_category,q_auto:low,f_auto/categories/category_v2/category_dba813a0.jpeg"
                         alt="">

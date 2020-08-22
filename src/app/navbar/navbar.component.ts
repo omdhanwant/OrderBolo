@@ -16,10 +16,15 @@ import { trigger, transition, style, animate, state } from '@angular/animations'
     ]),
 
     trigger('sideNavTrigger', [
-      state('open',style({})),
+      state('open',style({
+        // width: '*',
+        // height:  '*',
+        opacity: 1
+      })),
     state('close',style({
-
-      transform: 'translateX(500px)'
+      transform: 'translateX(500px)',
+      // width: '0',
+      opacity: '0'
   })),
 
   transition('open => close' ,animate(300)),

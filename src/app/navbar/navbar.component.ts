@@ -22,34 +22,43 @@ import { trigger, transition, style, animate, state } from '@angular/animations'
       transform: 'translateX(500px)'
   })),
 
-  transition('open => close' ,animate(500)),
-  transition('close => open' ,animate(500))
+  transition('open => close' ,animate(300)),
+  transition('close => open' ,animate(300))
     ])
 
   ]
 })
 export class NavbarComponent implements OnInit {
   myForm:string = 'login'
-  toggleSideNav = false;
+  isSideNav = false;
+  isOTPNav = false;
   rememberMe = false;
+  otp
+  config = {
+    allowNumbersOnly: false,
+    length: 4,
+    isPasswordInput: false,
+    disableAutoFocus: false,
+    placeholder: '',
+    inputStyles: {
+      'width': '50px',
+      'height': '50px'
+    }
+  };
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  toggle(){
-    this.toggleSideNav = !this.toggleSideNav;
+  validateNumber(){
+    this.isOTPNav = true;
   }
-  openNav() {
-    // document.getElementById("mySidenav").style.width = "350px";
-  }
-
-  closeNav() {
-    // document.getElementById("mySidenav").style.width = "0";
-  }
-
   check(event){
     console.log(event);
   }
 
+
+  onOtpChange(otp) {
+    this.otp = otp;
+  }
 }

@@ -32,6 +32,7 @@ import { OthersComponent } from './document-doctor/others/others.component';
 import { CategoryDetailComponent } from './category-detail/category-detail.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { ViewDetailComponent } from './category-detail/view-detail/view-detail.component';
+import { NgOtpInputModule } from  'ng-otp-input';
 
 // material
 import {MatSelectModule} from '@angular/material/select';
@@ -68,6 +69,8 @@ import {MatIconModule} from '@angular/material/icon';
     CarouselModule.forRoot(),
     DropdownModule,
     SlickCarouselModule,
+    NgOtpInputModule,
+
 
     //material
     MatSelectModule,

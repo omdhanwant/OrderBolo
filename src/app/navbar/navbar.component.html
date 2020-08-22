@@ -25,31 +25,28 @@
         <a class="nav-link">Register As Professional <span class="sr-only">Register As Professional</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" (click)="toggle()">Login/Sign Up <span class="sr-only">(Login/Sign Up)</span></a>
+        <a class="nav-link" (click)="isSideNav = true">Login / Sign Up <span class="sr-only">(Login/Sign Up)</span></a>
       </li>
     </ul>
   </div>
 </nav>
 
-<div [@sideNavTrigger]="toggleSideNav ? 'open' : 'close'" id="mySidenav" class="sidenav">
-  <!-- <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a> -->
+<div [@sideNavTrigger]="isSideNav ? 'open' : 'close'" id="mySidenav" class="sidenav">
   <div style="display: inline-flex;padding:15px;width: 100%;border-bottom: 1px solid #ced4da">
-    <span style="font-size: 20px;padding-right: 10px;cursor: pointer;padding-top: 1px;margin-top: 4px;height: 23px;"  (click)="toggle()">
+    <span style="font-size: 20px;padding-right: 10px;cursor: pointer;padding-top: 1px;margin-top: 4px;height: 23px;"  (click)="isSideNav = false; isOTPNav = false;">
       <mat-icon aria-hidden="false" aria-label="Example close icon">close</mat-icon>
     </span>
     <p style="font-size: 22px; margin: 0;">Please login to continue</p>
   </div>
-  <div class="container">
+  <div class="container position-relative" style="height: 100%;">
     <div class="row">
       <div class="col-md-12">
 
         <form class="p-4">
           <div class="form-group">
-            <!-- <input type="phone" class="form-control" id="phone" aria-describedby="phonenumber"
-              placeholder="Your phone number"> -->
               <mat-form-field #mat appearance="standard">
                 <mat-label>Your Phone Number</mat-label>
-                <input matInput ngModel type="text" maxlength="10" pattern="[0-9]*" name="phone" #phone="ngModel" placeholder="" required>
+                <input matInput ngModel type="text" maxlength="10" pattern="[0-9]*" name="phone" #phone="ngModel" placeholder="" autocomplete="off" required>
                 <span matPrefix>+91 &nbsp;</span>
                 <mat-hint>Enter your mobile number to get an OTP for login.</mat-hint>
                 <mat-error *ngIf="phone.hasError('pattern') && !phone.hasError('required')">
@@ -58,43 +55,49 @@
               </mat-form-field>
           </div>
           <div class="form-group">
-            <button mat-flat-button class="matContinueButton">Continue</button>
+            <button (click)="validateNumber()" mat-flat-button class="matContinueButton">Continue</button>
           </div>
-          <!-- <div class="form-group">
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-          </div> -->
-          <!-- <div class="form-check"> -->
-            <!-- <input type="checkbox" class="form-check-input" id="exampleCheck1"> -->
-            <!-- <mat-checkbox [(ngModel)]="rememberMe" name="rememberMe" (ngModelChange)="check($event)">Remember me?</mat-checkbox> -->
-            <!-- <label class="form-check-label" for="exampleCheck1">Remember me?</label> -->
-          <!-- </div> -->
-          <!-- <button type="submit" class="btn btn-black btn-block mb-3">Login</button> -->
-          <!-- <p class="text-center" style="cursor: pointer;" (click)="myForm = 'register'">Not Register yet?</p> -->
-        </form>
 
-        <!-- <form *ngIf="myForm === 'register'" class="p-4">
-          <h5 class="text-center">Register</h5>
-          <div class="form-group">
-            <input type="Full Name" class="form-control" id="exampleInputFull Name1" aria-describedby="Full NameHelp"
-              placeholder="Full Name">
-          </div>
-          <div class="form-group">
-            <input type="Email" class="form-control" id="exampleInputEmail1" aria-describedby="EmailHelp"
-              placeholder="Email">
-          </div>
-          <div class="form-group">
-            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="EmailHelp"
-              placeholder="Mobile">
-          </div>
-          <div class="form-group">
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-          </div>
-          <div class="form-group">
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password">
-          </div>
-          <p class="text-center" style="cursor: pointer;" (click)="myForm = 'login'">Click here to Login</p>
-        </form> -->
+        </form>
       </div>
     </div>
+
+    <div [@sideNavTrigger]="isOTPNav ? 'open' : 'close'" class="cred_container">
+      <div style="display: inline-flex;padding:15px;width: 100%;">
+        <span (click)="isOTPNav = false" style="font-size: 20px;padding-right: 10px;cursor: pointer;padding-top: 1px;margin-top: 2px;height: 23px;">
+          <mat-icon aria-hidden="false" aria-label="back icon">keyboard_backspace</mat-icon>
+        </span>
+        <p style="font-size: 18px; margin: 0;font-weight: 600;">Enter Verification Code</p>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="otp_info_text_container">
+              <p class="inner_info_text">We have sent you a 4 digit OTP</p>
+              <p class="inner_info_text" style="margin: 0px;">on {{phone.value}}
+                <span class="number_edit" (click)="isOTPNav = false;">Edit</span>
+              </p>
+            </div>
+
+            <form class="p-4">
+              <div class="form-group text-center">
+                <ng-otp-input #ngOtpInput (onInputChange)="onOtpChange($event)" [config]="config"></ng-otp-input>
+              </div>
+              <div class="form-group text-center" style="color: #304ffe;cursor: pointer;">
+                Resend OTP
+              </div>
+              <div class="form-group">
+                <button (click)="validateNumber()" mat-flat-button class="matContinueButton">Login</button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
+
+
 </div>

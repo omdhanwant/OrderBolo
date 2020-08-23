@@ -197,12 +197,10 @@ input:focus{
     }
     .category-section{
       padding: 15px!important;
-    }
-    .category-section ul {
-      display: flex!important;
-      justify-content: center!important;
-      margin: 0!important;
-      padding: 0 10px !important;
+      ul {
+        display: flex!important;
+        margin: 0!important;
+      }
     }
   }
 

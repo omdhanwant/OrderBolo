@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { DataService } from './service/data.service';
+import { take } from 'rxjs/operators';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,12 +12,16 @@ export class AppComponent implements OnInit {
   fileLists: any = [];
   sendOption = false;
   sendRadio = 'emailTransfer';
-  constructor(){
+  constructor(private dataService: DataService){
 
   }
 
   ngOnInit() {
     console.log('oninit');
+    this.dataService.getUserInformation().pipe(take(1))
+      .subscribe(response => {
+        console.log(response);
+      })
   }
 
   // file upload event
@@ -30,7 +36,7 @@ export class AppComponent implements OnInit {
     // const ext = file.toString().split('/')[1];
     // return ext;
   }
-  
+
   // convert file size
   niceBytes(x){
     const units = ['bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
@@ -42,7 +48,7 @@ export class AppComponent implements OnInit {
     return(n.toFixed(n < 10 && l > 0 ? 1 : 0) + ' ' + units[l]);
   }
 
-  // remove file 
+  // remove file
   deleteFile(file, i){
     const index = i;
     this.fileLists[0].splice(index, 1);

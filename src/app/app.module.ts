@@ -6,6 +6,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+
+// http services
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './service/http.interceptor';
+import { HttpClientModule } from '@angular/common/http';
+
 //ngx bootstrap
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
@@ -40,6 +46,9 @@ import { NgOtpInputModule } from  'ng-otp-input';
 import {MatInputModule} from '@angular/material/input';
 // import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import { UtilService } from './service/util.service';
+import { DataService } from './service/data.service';
+
 
 @NgModule({
   declarations: [
@@ -70,6 +79,7 @@ import {MatIconModule} from '@angular/material/icon';
     DropdownModule,
     SlickCarouselModule,
     NgOtpInputModule,
+    HttpClientModule,
 
 
     //material
@@ -81,7 +91,10 @@ import {MatIconModule} from '@angular/material/icon';
 
   ],
   providers: [
+    DataService,
+    UtilService,
     { provide: LocationStrategy, useClass: HashLocationStrategy },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

@@ -16,7 +16,7 @@ import { CategoryDetailComponent } from './category-detail/category-detail.compo
 // const routes: Routes = [];
 const routes: Routes = [
   {
-    path: '', redirectTo: '/home',
+    path: '', redirectTo: '/document-doctor',
     data: { breadcrumb: 'Home' },
     pathMatch: 'full'
   },

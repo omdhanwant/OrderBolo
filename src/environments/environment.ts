@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  base_url:'https://ipwhois.app/json/'
+  base_url:'http://documentdoctor.in/orderbolo/api'
 };
 
 /*

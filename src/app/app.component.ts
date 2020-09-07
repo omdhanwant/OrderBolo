@@ -12,16 +12,16 @@ export class AppComponent implements OnInit {
   fileLists: any = [];
   sendOption = false;
   sendRadio = 'emailTransfer';
-  constructor(private dataService: DataService){
+  constructor(){
 
   }
 
   ngOnInit() {
     console.log('oninit');
-    this.dataService.getUserInformation().pipe(take(1))
-      .subscribe(response => {
-        console.log(response);
-      })
+    // this.dataService.getUserInformation().pipe(take(1))
+    //   .subscribe(response => {
+    //     console.log(response);
+    //   })
   }
 
   // file upload event

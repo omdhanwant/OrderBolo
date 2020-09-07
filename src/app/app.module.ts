@@ -48,6 +48,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import { UtilService } from './service/util.service';
 import { DataService } from './service/data.service';
+import { AuthService } from './service/auth.service';
 
 
 @NgModule({
@@ -91,6 +92,7 @@ import { DataService } from './service/data.service';
 
   ],
   providers: [
+    AuthService,
     DataService,
     UtilService,
     { provide: LocationStrategy, useClass: HashLocationStrategy },

@@ -1,13 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
 
 
 @Injectable()
 export class DataService{
   constructor(private http: HttpClient){}
 
-  getUserInformation(){
-      return this.http.get(environment.base_url);
+  getData(url) {
+    return this.http.get(url);
   }
+
+  postData(url, body) {
+    return this.http.post(url, body)
+  }
+  // getUserInformation(){
+  //     return this.http.get(environment.base_url);
+  // }
 }

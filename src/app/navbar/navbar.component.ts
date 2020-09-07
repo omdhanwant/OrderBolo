@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { trigger, transition, style, animate, state } from '@angular/animations';
+import { AuthService } from '../service/auth.service';
+import { OtpData, VerifyOtpData } from '../models/authData';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-navbar',
@@ -34,6 +37,8 @@ import { trigger, transition, style, animate, state } from '@angular/animations'
   ]
 })
 export class NavbarComponent implements OnInit {
+  @ViewChild('phone' ,{static: false}) mobileNumber: FormControl;
+
   myForm:string = 'login'
   isSideNav = false;
   isOTPNav = false;
@@ -41,7 +46,7 @@ export class NavbarComponent implements OnInit {
   otp
   config = {
     allowNumbersOnly: false,
-    length: 4,
+    length: 6,
     isPasswordInput: false,
     disableAutoFocus: false,
     placeholder: '',
@@ -50,20 +55,47 @@ export class NavbarComponent implements OnInit {
       'height': '50px'
     }
   };
-  constructor() { }
+  constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
   }
 
-  validateNumber(){
-    this.isOTPNav = true;
-  }
+  // validateNumber(){
+  //   this.isOTPNav = true;
+  // }
   check(event){
     console.log(event);
   }
 
-
   onOtpChange(otp) {
     this.otp = otp;
+  }
+
+  // generate OTP
+  getOtp(mobileNumber){
+    // vlaidations
+    if(!mobileNumber){
+      //handle error by giving alert
+      return
+    }
+    this.auth.generateOtp({mobile: mobileNumber})
+      .subscribe( (authData: OtpData) => {
+         console.log(authData);
+         this.isOTPNav = true;
+      });
+  }
+
+  confirmOtp(mobileNumber){
+      if(!mobileNumber || !this.otp){
+        //handle error by giving alert
+        return
+      }
+    this.auth.verifyOtp({mobile: mobileNumber, otp: this.otp})
+    .subscribe( (data) => {
+       console.log(data);
+       this.isOTPNav = false;
+       this.mobileNumber.setValue(null);
+       this.isSideNav = false;
+    });
   }
 }

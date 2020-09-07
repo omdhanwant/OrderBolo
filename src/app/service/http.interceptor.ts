@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
 import {HttpInterceptor, HttpHandler, HttpRequest, HttpEvent, HttpResponse, HttpErrorResponse} from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import { UtilService } from './util.service';
-import { Observable } from 'rxjs';
 // const config = require('../../assets/config.json');
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {

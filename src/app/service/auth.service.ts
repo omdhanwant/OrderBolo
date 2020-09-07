@@ -15,6 +15,6 @@ export class AuthService extends DataService{
   }
 
   verifyOtp(data: {mobile: string, otp: string;}){
-    return this.postData(`${environment.base_url}/v1/verifyOtp`,data);
+    return this.postData(`${environment.base_url}/verifyOtp`,data);
    }
 }

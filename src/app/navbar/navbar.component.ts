@@ -1,8 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { trigger, transition, style, animate, state } from '@angular/animations';
 import { AuthService } from '../service/auth.service';
-import { OtpData, VerifyOtpData } from '../models/authData';
-import { FormControl } from '@angular/forms';
+import { OtpData, User } from '../models/authData';
+import { NgModel } from '@angular/forms';
+import { take } from 'rxjs/operators';
+import { AlertService } from '../service/alertService';
+import { DataService } from '../service/data.service';
 
 @Component({
   selector: 'app-navbar',
@@ -37,13 +40,13 @@ import { FormControl } from '@angular/forms';
   ]
 })
 export class NavbarComponent implements OnInit {
-  @ViewChild('phone' ,{static: false}) mobileNumber: FormControl;
+  @ViewChild('phone' ,{static: false}) mobileNumber: NgModel;
 
   myForm:string = 'login'
   isSideNav = false;
   isOTPNav = false;
   rememberMe = false;
-  otp
+  otp = null;
   config = {
     allowNumbersOnly: false,
     length: 6,
@@ -51,18 +54,21 @@ export class NavbarComponent implements OnInit {
     disableAutoFocus: false,
     placeholder: '',
     inputStyles: {
-      'width': '50px',
-      'height': '50px'
+      'width': '30px',
+      'height': '30px'
     }
   };
-  constructor(private auth: AuthService) { }
+  userData:string;
+  isAuthenticated = false;
+  alert;
+  constructor(private auth: AuthService, private alertService: AlertService, public dataService: DataService) {
+    this.isAuthenticated = this.auth.isAuthenticated();
+    this.alert = this.alertService.getAlertInstance();
+  }
 
   ngOnInit(): void {
   }
 
-  // validateNumber(){
-  //   this.isOTPNav = true;
-  // }
   check(event){
     console.log(event);
   }
@@ -91,11 +97,38 @@ export class NavbarComponent implements OnInit {
         return
       }
     this.auth.verifyOtp({mobile: mobileNumber, otp: this.otp})
-    .subscribe( (data) => {
-       console.log(data);
-       this.isOTPNav = false;
-       this.mobileNumber.setValue(null);
-       this.isSideNav = false;
+    .pipe(take(1))
+    .subscribe( (user: User) => {
+       console.log(user);
+       this.userData = user.mobile
+       this.isAuthenticated = this.auth.isAuthenticated();
+       console.log(this.isAuthenticated);
+       this.initDataAfterLogin();
+
+       this.showAlert("Successfully Logged In");
     });
+  }
+
+  logOut(){
+      this.auth.logOut();
+      this.isAuthenticated = this.auth.isAuthenticated();
+      this.showAlert("Successfully Logged Out");
+  }
+
+  showAlert(message){
+    this.alert({
+      buttons: ["OK"],
+       icon: 'success',
+       text: message,
+       timer: 2000,
+       closeOnClickOutside: false,
+     })
+  }
+
+
+  initDataAfterLogin() {
+    this.mobileNumber.control.setValue(null);
+    this.isSideNav = false;
+    this.isOTPNav = false;
   }
 }

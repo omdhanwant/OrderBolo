@@ -49,7 +49,8 @@ import {MatIconModule} from '@angular/material/icon';
 import { UtilService } from './service/util.service';
 import { DataService } from './service/data.service';
 import { AuthService } from './service/auth.service';
-
+import { AlertService } from './service/alertService';
+import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,12 @@ import { AuthService } from './service/auth.service';
     SlickCarouselModule,
     NgOtpInputModule,
     HttpClientModule,
-
+    NgxLoadingModule.forRoot({
+      animationType: ngxLoadingAnimationTypes.circle,
+      fullScreenBackdrop: true,
+      primaryColour: '#000',
+      backdropBackgroundColour: 'rgba(172, 166, 166, 0.2)'
+    }),
 
     //material
     // MatSelectModule,
@@ -93,6 +99,7 @@ import { AuthService } from './service/auth.service';
   ],
   providers: [
     AuthService,
+    AlertService,
     DataService,
     UtilService,
     { provide: LocationStrategy, useClass: HashLocationStrategy },

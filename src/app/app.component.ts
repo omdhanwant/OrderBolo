@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DataService } from './service/data.service';
 import { take } from 'rxjs/operators';
+import { AuthService } from './service/auth.service';
+import { UtilService } from './service/util.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,16 +14,11 @@ export class AppComponent implements OnInit {
   fileLists: any = [];
   sendOption = false;
   sendRadio = 'emailTransfer';
-  constructor(){
+  constructor(public utilService: UtilService){
 
   }
 
   ngOnInit() {
-    console.log('oninit');
-    // this.dataService.getUserInformation().pipe(take(1))
-    //   .subscribe(response => {
-    //     console.log(response);
-    //   })
   }
 
   // file upload event

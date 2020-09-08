@@ -4,13 +4,14 @@ import { Injectable } from '@angular/core';
 import {HttpInterceptor, HttpHandler, HttpRequest, HttpEvent, HttpResponse, HttpErrorResponse} from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import { UtilService } from './util.service';
+import { AuthService } from './auth.service';
 // const config = require('../../assets/config.json');
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   timestamp :number
 
 
-  constructor(private service: UtilService) { }
+  constructor(private service: UtilService, private auth: AuthService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     this.timestamp = new Date().getTime();
@@ -21,7 +22,7 @@ export class AuthInterceptor implements HttpInterceptor {
     const authReq = req.clone({
 
       setHeaders: {
-        // 'Authorization' : 'Bearer',
+        'Authorization' : this.auth.isAuthenticated() ? `Bearer ${this.auth.getToken()}` : '' ,
         'Content-Type': 'application/json'
       }
     });

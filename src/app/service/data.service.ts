@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class DataService{
+  loading = false;
   constructor(private http: HttpClient){}
 
   getData(url) {

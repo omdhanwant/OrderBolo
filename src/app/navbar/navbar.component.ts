@@ -60,10 +60,10 @@ export class NavbarComponent implements OnInit {
   };
   userData:string;
   isAuthenticated = false;
-  alert;
+  // alert;
   constructor(private auth: AuthService, private alertService: AlertService, public dataService: DataService) {
     this.isAuthenticated = this.auth.isAuthenticated();
-    this.alert = this.alertService.getAlertInstance();
+    // this.alert = this.alertService.getAlertInstance();
   }
 
   ngOnInit(): void {
@@ -116,13 +116,14 @@ export class NavbarComponent implements OnInit {
   }
 
   showAlert(message){
-    this.alert({
-      buttons: ["OK"],
-       icon: 'success',
-       text: message,
-       timer: 2000,
-       closeOnClickOutside: false,
-     })
+    alert(message);
+    // this.alert({
+    //   buttons: ["OK"],
+    //    icon: 'success',
+    //    text: message,
+    //    timer: 2000,
+    //    closeOnClickOutside: false,
+    //  })
   }
 
 

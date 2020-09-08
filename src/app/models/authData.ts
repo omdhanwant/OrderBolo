@@ -25,3 +25,8 @@ export interface User {
   name: string;
   id: number;
 }
+
+export interface AuthUser {
+  user: User;
+  isAuthenticated: boolean;
+}

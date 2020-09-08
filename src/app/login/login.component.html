@@ -1,0 +1,71 @@
+<div [style.display] ="!isOTPNav ? '' : 'none'"  [@sideNavTrigger]="isSideNav ? 'open' : 'close'" id="mySidenav" class="sidenav">
+  <div style="display: inline-flex;padding:15px;width: 100%;border-bottom: 1px solid #ced4da">
+    <!-- <span style="font-size: 20px;padding-right: 10px;cursor: pointer;padding-top: 1px;margin-top: 4px;height: 23px;"  (click)="isSideNav = false; isOTPNav = false;">
+      <mat-icon aria-hidden="false" aria-label="Example close icon">close</mat-icon>
+    </span> -->
+    <p style="font-size: 20px; margin: 0;width: 300px;">Please login to continue</p>
+  </div>
+  <div class="position-relative p-3" style="height: 100%;">
+    <div class="row" style="margin: auto 30%;">
+      <div class="col-md-12">
+
+        <!-- <form class="p-4"> -->
+          <div class="form-group">
+              <mat-form-field #mat appearance="standard">
+                <!-- <mat-label>Your Phone Number</mat-label> -->
+                <input matInput ngModel type="text" maxlength="10" pattern="[0-9]*" name="phone" #phone="ngModel" placeholder="Enter You Mobile Number" autocomplete="off" required>
+                <span matPrefix>+91 &nbsp;</span>
+                <mat-hint>Enter your mobile number to get an OTP for login.</mat-hint>
+                <mat-error *ngIf="phone.hasError('pattern') && !phone.hasError('required')">
+                  Please enter a valid phone number
+                </mat-error>
+              </mat-form-field>
+              <!-- <input class="form-control" ngModel #phone="ngModel" placeholder="Enter Your Mobile Number" required> -->
+          </div>
+          <div class="form-group">
+            <button (click)="getOtp(phone.value)" class="btn btn-primary matContinueButton">Continue</button>
+          </div>
+
+        <!-- </form> -->
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+
+<div [style.display] ="!isSideNav ? '' : 'none'"  [@sideNavTrigger]="isOTPNav ? 'open' : 'close'" class="cred_container">
+  <div style="display: inline-flex;padding:15px;width: 100%;">
+    <span (click)="isOTPNav = false; otp = null;" style="font-size: 20px;padding-right: 10px;cursor: pointer;padding-top: 1px;margin-top: 2px;height: 23px;">
+      <mat-icon aria-hidden="false" aria-label="back icon">keyboard_backspace</mat-icon>
+    </span>
+    <p style="font-size: 18px; margin: 0;font-weight: 600;width: 300px;">Enter Verification Code</p>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="otp_info_text_container">
+          <p class="inner_info_text">We have sent you a 4 digit OTP</p>
+          <p class="inner_info_text" style="margin: 0px;">on {{phone.value}}
+            <span class="number_edit" (click)="isOTPNav = false;">Edit</span>
+          </p>
+        </div>
+
+        <!-- <form class="p-4"> -->
+          <div class="form-group text-center">
+            <ng-otp-input #ngOtpInput (onInputChange)="onOtpChange($event)" [config]="config"></ng-otp-input>
+          </div>
+          <div (click)="getOtp(phone.value)" class="form-group text-center" style="color: #304ffe;cursor: pointer;">
+            Resend OTP
+          </div>
+          <div class="form-group">
+            <button (click)="confirmOtp(phone.value)" class="btn btn-primary matContinueButton">Login</button>
+          </div>
+
+        <!-- </form> -->
+      </div>
+    </div>
+  </div>
+</div>

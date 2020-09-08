@@ -52,6 +52,8 @@ import { AuthService } from './service/auth.service';
 import { AlertService } from './service/alertService';
 import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
 import { BlogsComponent } from './blogs/blogs.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './service/authGaurd';
 
 @NgModule({
   declarations: [
@@ -70,7 +72,8 @@ import { BlogsComponent } from './blogs/blogs.component';
     OthersComponent,
     CategoryDetailComponent,
     ViewDetailComponent,
-    BlogsComponent
+    BlogsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -101,6 +104,7 @@ import { BlogsComponent } from './blogs/blogs.component';
   ],
   providers: [
     AuthService,
+    AuthGuard,
     AlertService,
     DataService,
     UtilService,

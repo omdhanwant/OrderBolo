@@ -12,6 +12,8 @@ import { RationCardComponent } from './document-doctor/ration-card/ration-card.c
 import { OthersComponent } from './document-doctor/others/others.component';
 import { CategoryDetailComponent } from './category-detail/category-detail.component';
 import { BlogsComponent } from './blogs/blogs.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './service/authGaurd';
 
 
 // const routes: Routes = [];
@@ -25,8 +27,14 @@ const routes: Routes = [
     path: 'home',
     data: { breadcrumb: 'home' },
     component: DashboardComponent,
-    // canActivate: [AuthGuard]
   },
+  {
+    path: 'login',
+    data: { breadcrumb: 'Login' },
+    component: LoginComponent,
+    pathMatch: 'full'
+  },
+
   {
     path: 'category-details',
     data: { breadcrumb: 'category details' },
@@ -40,7 +48,7 @@ const routes: Routes = [
   },
   {
     path: 'document-doctor',
-    data: { breadcrumb: 'Product' },
+    data: { breadcrumb: 'Document Doctor' },
     children: [
       {
         path: '',
@@ -52,49 +60,49 @@ const routes: Routes = [
         path: 'aadhar-card',
         data: { breadcrumb: 'Aadhar Card' },
         component: AadharCardComponent,
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'ration-card',
         data: { breadcrumb: 'Ration Card' },
         component: RationCardComponent,
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'gazette-certificate',
         data: { breadcrumb: 'Gazette Certificate' },
         component: GazetteCertificateComponent,
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'caste-validity',
         data: { breadcrumb: 'Caste Validity' },
         component: CasteValidityComponent,
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'pan-card',
         data: { breadcrumb: 'Pan Card' },
         component: PanCardComponent,
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'food-licience',
         data: { breadcrumb: 'Food Licience' },
         component: FoodLicienceComponent,
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'others',
         data: { breadcrumb: 'Others' },
         component: OthersComponent,
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'police-verification',
         data: { breadcrumb: 'Police Verification' },
         component: PoliceVerificationComponent,
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
     ]
   },

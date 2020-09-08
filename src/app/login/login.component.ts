@@ -1,16 +1,17 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { trigger, transition, style, animate, state } from '@angular/animations';
 import { AuthService } from '../service/auth.service';
-import { OtpData, User, AuthUser } from '../models/authData';
-import { NgModel } from '@angular/forms';
-import { take } from 'rxjs/operators';
 import { AlertService } from '../service/alertService';
 import { DataService } from '../service/data.service';
+import { OtpData, User, AuthUser } from '../models/authData';
+import { take } from 'rxjs/operators';
+import { NgModel } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss'],
   animations: [
     trigger('fadeInLeftTrigger',[
       transition(':enter', [
@@ -39,11 +40,9 @@ import { DataService } from '../service/data.service';
 
   ]
 })
-export class NavbarComponent implements OnInit {
+export class LoginComponent implements OnInit {
   @ViewChild('phone' ,{static: false}) mobileNumber: NgModel;
-
-  myForm:string = 'login'
-  isSideNav = false;
+  isSideNav = true;
   isOTPNav = false;
   rememberMe = false;
   otp = null;
@@ -59,33 +58,19 @@ export class NavbarComponent implements OnInit {
     }
   };
   userData:string;
-  authUser: AuthUser;
-  // alert;
-  constructor(private auth: AuthService, private alertService: AlertService, public dataService: DataService) {
+  authUser: AuthUser = null;
+  constructor(private auth: AuthService, private alertService: AlertService, public dataService: DataService, private route: Router, private activated:ActivatedRoute) {
     // this.isAuthenticated = this.auth.isAuthenticated();
     // this.alert = this.alertService.getAlertInstance();
 
-    this.auth.peekAuthentication()
-    .subscribe(auth => {
-      if(auth){
-        this.authUser = auth
-      } else {
-        this.authUser = {
-          user: null,
-          isAuthenticated: false
-        };
-      }
-
-    });
+    if(this.auth.isAuthenticated()) {
+      this.route.navigateByUrl('/home')
+    }
   }
 
   ngOnInit(): void {
+    window.scroll(0,0);
   }
-
-  check(event){
-    console.log(event);
-  }
-
   onOtpChange(otp) {
     this.otp = otp;
   }
@@ -101,6 +86,7 @@ export class NavbarComponent implements OnInit {
       .subscribe( (authData: OtpData) => {
          console.log(authData);
          this.isOTPNav = true;
+         this.isSideNav = false;
       });
   }
 
@@ -115,9 +101,13 @@ export class NavbarComponent implements OnInit {
        console.log(user);
        this.userData = user.mobile
       //  this.isAuthenticated = this.auth.isAuthenticated();
-       this.initDataAfterLogin();
 
-       this.showAlert("Successfully Logged In");
+
+      this.initDataAfterLogin();
+      this.showAlert("Successfully Logged In");
+
+      let returnUrl = this.activated.snapshot.queryParamMap.get('returnUrl') || '/'
+      this.navigate(returnUrl);
     });
   }
 
@@ -143,5 +133,9 @@ export class NavbarComponent implements OnInit {
     this.mobileNumber.control.setValue(null);
     this.isSideNav = false;
     this.isOTPNav = false;
+  }
+
+  navigate(url) {
+      this.route.navigateByUrl(url);
   }
 }

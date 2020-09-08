@@ -34,6 +34,7 @@ export class AuthInterceptor implements HttpInterceptor {
         }
       }, (err: any) => {
         if (err instanceof HttpErrorResponse) {
+          this.service.isLoading = false;
           this.handleError(err);
         }
       })

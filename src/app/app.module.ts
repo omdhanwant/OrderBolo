@@ -51,6 +51,7 @@ import { DataService } from './service/data.service';
 import { AuthService } from './service/auth.service';
 import { AlertService } from './service/alertService';
 import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
+import { BlogsComponent } from './blogs/blogs.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
     GazetteCertificateComponent,
     OthersComponent,
     CategoryDetailComponent,
-    ViewDetailComponent
+    ViewDetailComponent,
+    BlogsComponent
   ],
   imports: [
     BrowserAnimationsModule,

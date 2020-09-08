@@ -11,6 +11,7 @@ import { CasteValidityComponent } from './document-doctor/caste-validity/caste-v
 import { RationCardComponent } from './document-doctor/ration-card/ration-card.component';
 import { OthersComponent } from './document-doctor/others/others.component';
 import { CategoryDetailComponent } from './category-detail/category-detail.component';
+import { BlogsComponent } from './blogs/blogs.component';
 
 
 // const routes: Routes = [];
@@ -30,6 +31,11 @@ const routes: Routes = [
     path: 'category-details',
     data: { breadcrumb: 'category details' },
     component: CategoryDetailComponent,
+    // canActivate: [AuthGuard]
+  }, {
+    path: 'blogs',
+    data: { breadcrumb: 'category details' },
+    component: BlogsComponent,
     // canActivate: [AuthGuard]
   },
   {

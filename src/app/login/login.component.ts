@@ -84,7 +84,7 @@ export class LoginComponent implements OnInit {
     }
     this.auth.generateOtp({mobile: mobileNumber})
       .subscribe( (authData: OtpData) => {
-         console.log(authData);
+        //  console.log(authData);
          this.isOTPNav = true;
          this.isSideNav = false;
       });
@@ -98,7 +98,7 @@ export class LoginComponent implements OnInit {
     this.auth.verifyOtp({mobile: mobileNumber, otp: this.otp})
     .pipe(take(1))
     .subscribe( (user: User) => {
-       console.log(user);
+      //  console.log(user);
        this.userData = user.mobile
       //  this.isAuthenticated = this.auth.isAuthenticated();
 

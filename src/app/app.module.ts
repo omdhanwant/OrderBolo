@@ -54,6 +54,7 @@ import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
 import { BlogsComponent } from './blogs/blogs.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './service/authGaurd';
+import { DocumentService } from './service/document.service';
 
 @NgModule({
   declarations: [
@@ -108,6 +109,7 @@ import { AuthGuard } from './service/authGaurd';
     AlertService,
     DataService,
     UtilService,
+    DocumentService,
     { provide: LocationStrategy, useClass: HashLocationStrategy },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],

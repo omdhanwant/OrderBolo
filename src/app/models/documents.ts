@@ -9,3 +9,15 @@ export interface GazetteCertificate {
    reason_of_change_name: string;
    birth_date: string;
  }
+
+ export interface AdharCard {
+   user_id: number;
+   full_name: string;
+   pan_card: string;
+   full_address: string;
+   city: string;
+   state: string;
+   pin_code: string;
+   birth_date: string;
+   filenames: File[];
+ }

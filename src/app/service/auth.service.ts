@@ -45,11 +45,10 @@ export class AuthService{
   }
 
   getToken(){
-    console.log(this.token);
     return this.token;
   }
 
-  setToken(token){
+  private setToken(token){
     if(token) {
       this.token = token;
       sessionStorage.setItem(TOKEN, token);

@@ -596,3 +596,30 @@ button:not(:disabled) {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+// pills
+.pill{
+  background: #e6e6e6;
+  padding: 4px;
+  border-radius: 10px;
+  margin: auto 12px;
+  position: relative;
+}
+
+.close-icon {
+  position: absolute;
+  font-size: 18px;
+  background: #000;
+  color: #fff;
+  top: -8px;
+  right: -8px;
+  border-radius: 50%;
+  width: 20px!important;
+  height: 20px!important;
+  cursor: pointer;
+}
+.close-icon:hover{
+  background: red;
+}
+// pills

@@ -10,4 +10,8 @@ export class DocumentService extends DataService{
   saveGezetteDocument(data) {
     return this.postData(`${environment.base_url}/v1/gezeette-add`, data)
   }
+
+  saveAdharCardDocument(data){
+    return this.postData(`${environment.base_url}/v1/adhar-add`, data)
+  }
 }

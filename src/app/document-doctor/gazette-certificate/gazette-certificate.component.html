@@ -37,7 +37,7 @@
                           </div>
                           <div class="form-group">
                               <label for="address">Full Address</label>
-                              <textarea name="address" ngModel #address="ngModel" class="form-control" id="inputAddress" maxlength="255" placeholder="Apartment, studio, or floor" required></textarea>
+                              <textarea name="address" ngModel #address="ngModel" class="form-control"  maxlength="255" placeholder="Apartment, studio, or floor" required></textarea>
                               <div *ngIf="address.touched && address.hasError('required')" class="invalid-feedback" style="display: inline-block;">
                                 Address is required
                               </div>
@@ -68,6 +68,13 @@
                                 </div>
                             </div>
                           </div>
+                          <div class="form-group">
+                            <label for="address">Reason Of Name Change</label>
+                            <textarea name="reason_of_change_name" ngModel #reason_of_change_name="ngModel" class="form-control"  maxlength="255" required></textarea>
+                            <div *ngIf="reason_of_change_name.touched && reason_of_change_name.hasError('required')" class="invalid-feedback" style="display: inline-block;">
+                              Reason is required
+                            </div>
+                        </div>
                           <div class="text-center">
                             <button type="submit" class="btn btn-primary">Submit</button>
                           </div>

@@ -13,7 +13,7 @@ export class AuthService{
   private token: string = null;
   private peekAuth = new BehaviorSubject<AuthUser>(null);
 
-  userInfo: User = {
+  private userInfo: User = {
     mobile: '',
     name: '',
     id: null
@@ -45,11 +45,13 @@ export class AuthService{
   }
 
   getToken(){
+    console.log(this.token);
     return this.token;
   }
 
   setToken(token){
     if(token) {
+      this.token = token;
       sessionStorage.setItem(TOKEN, token);
       this.authenticated = true;
       this.refreshAuth();

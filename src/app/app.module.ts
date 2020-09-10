@@ -55,6 +55,7 @@ import { BlogsComponent } from './blogs/blogs.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './service/authGaurd';
 import { DocumentService } from './service/document.service';
+import { UdyogAadharComponent } from './document-doctor/udyog-aadhar/udyog-aadhar.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { DocumentService } from './service/document.service';
     CategoryDetailComponent,
     ViewDetailComponent,
     BlogsComponent,
-    LoginComponent
+    LoginComponent,
+    UdyogAadharComponent
   ],
   imports: [
     BrowserAnimationsModule,

@@ -1,0 +1,133 @@
+<div class="container">
+  <div class="row">
+      <div class="col-md-12">
+          <nav aria-label="breadcrumb no-bg">
+              <ol class="breadcrumb no-bg">
+                <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+                <li class="breadcrumb-item"><a routerLink="/document-doctor">Document Doctor</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Udhyog Aadhar</li>
+              </ol>
+            </nav>
+      </div>
+      <div class="col-md-12">
+          <section class="feature-category">
+              <div class="row p-5">
+                  <div class="col-md-12">
+                      <h1 class="feature_h1 text-center">Udhyog Aadhar</h1>
+                      <span class="feature_sub_title text-center">Fill bellow form details</span>
+                      <br>
+                      <form #form="ngForm" (ngSubmit)="save(form)">
+                          <div class="form-row">
+                            <div class="form-group col-md-6">
+                              <label>Name Of Shop</label>
+                              <input type="text" name="name_of_shop" ngModel #name_of_shop="ngModel" class="form-control"  placeholder="Name Of Shop" required autocomplete="off">
+                              <div *ngIf="name_of_shop.touched && name_of_shop.hasError('required')" class="invalid-feedback" style="display: inline-block;">
+                                Name is required
+                              </div>
+                          </div>
+                              <div class="form-group col-md-6">
+                              <label>Pan Card</label>
+                              <input type="text" name="pan_card" ngModel #pan_card="ngModel" class="form-control"  placeholder="Pan Card" required autocomplete="off">
+                              <div *ngIf="pan_card.touched && pan_card.hasError('required')" class="invalid-feedback" style="display: inline-block;">
+                                Pan Card is required
+                              </div>
+                          </div>
+                          </div>
+                          <div class="form-row">
+                            <div class="form-group col-md-6">
+                              <label>Nature Of Business</label>
+                              <input type="text" name="nature_of_business" ngModel #nature_of_business="ngModel" class="form-control"  placeholder="Nature Of Business" required autocomplete="off">
+                              <div *ngIf="nature_of_business.touched && nature_of_business.hasError('required')" class="invalid-feedback" style="display: inline-block;">
+                                Field is required
+                              </div>
+                          </div>
+                              <div class="form-group col-md-6">
+                              <label>Aadhar Card</label>
+                              <input type="text" name="aadhar_card" ngModel #aadhar_card="ngModel" class="form-control"  placeholder="Aadhar Card" required autocomplete="off">
+                              <div *ngIf="aadhar_card.touched && aadhar_card.hasError('required')" class="invalid-feedback" style="display: inline-block;">
+                                Aadhar Card is required
+                              </div>
+                          </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="address">Address</label>
+                            <textarea name="address" ngModel #address="ngModel" class="form-control"  maxlength="255" placeholder="Apartment, studio, or floor" required></textarea>
+                            <div *ngIf="address.touched && address.hasError('required')" class="invalid-feedback" style="display: inline-block;">
+                              Address is required
+                            </div>
+                        </div>
+                          <div class="form-row">
+                            <div class="form-group col-md-6">
+                              <label for="mobile">Mobile Number</label>
+                              <input type="text" maxlength="10" name="mobile" ngModel #mobile="ngModel" class="form-control" placeholder="Mobile Number" required autocomplete="off">
+                              <div *ngIf="mobile.touched && mobile.hasError('required')" class="invalid-feedback" style="display: inline-block;">
+                                Mobile number is required
+                              </div>
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label>Name Of Owner</label>
+                            <input type="text" name="name_of_owner" ngModel #name_of_owner="ngModel" class="form-control"  placeholder="City" required autocomplete="off">
+                            <div *ngIf="name_of_owner.touched && name_of_owner.hasError('required')" class="invalid-feedback" style="display: inline-block;">
+                              Name is required
+                            </div>
+                        </div>
+                          </div>
+                          <div class="form-row">
+                            <div class="form-group col-md-6">
+                              <label>How Many Workers</label>
+                              <input type="number" name="how_many_workers" ngModel #how_many_workers="ngModel" class="form-control"  placeholder="Number Of Workers" required autocomplete="off">
+                              <div *ngIf="how_many_workers.touched && how_many_workers.hasError('required')" class="invalid-feedback" style="display: inline-block;">
+                                Field is required
+                              </div>
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="pin">Pin Code</label>
+                            <input type="text" name="pin_code" ngModel #pin_code="ngModel" maxlength="6" class="form-control"  placeholder="Pin Code" required autocomplete="off">
+                            <div *ngIf="pin_code.touched && pin_code.hasError('required')" class="invalid-feedback" style="display: inline-block;">
+                              Pincode is required
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="date">Opening Date</label>
+                          <input type="text" name="opening_date" ngModel #opening_date="ngModel" placeholder="Select Opening Date" class="form-control" bsDatepicker [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY', containerClass: 'theme-default' }" required autocomplete="off">
+                          <div *ngIf="opening_date.touched && opening_date.hasError('required')" class="invalid-feedback" style="display: inline-block;">
+                            Date is required
+                          </div>
+                      </div>
+
+                      <div class="form-group col-md-6">
+                        <label for="date">Email</label>
+                        <input type="email" name="email" ngModel #email="ngModel"  class="form-control"  placeholder="Pin Code" required autocomplete="off">
+                        <div *ngIf="email.touched && email.hasError('required')" class="invalid-feedback" style="display: inline-block;">
+                          Email is required
+                        </div>
+                        <div *ngIf="email.invalid && email.hasError('pattern')" class="invalid-feedback" style="display: inline-block;">
+                          Enter Valid Email
+                        </div>
+                    </div>
+                          </div>
+                          <div class="form-group">
+                              <div class="custom-file" style="width: 20%;">
+                                  <input  multiple (change)="onFileChange($event)" type="file" class="custom-file-input" id="customFile">
+                                  <label class="custom-file-label" for="customFile">Upload Files</label>
+                              </div>
+                          </div>
+                          <div class="row">
+                            <div style="display: flex;">
+                             <div *ngFor="let file of myFiles;let i=index;" class="pill">
+                               {{ file.name }}
+                               <mat-icon class="close-icon" (click)="myFiles.splice(i,1)" aria-hidden="false" aria-label="Example close icon">close</mat-icon>
+                             </div>
+                            </div>
+                          </div>
+                          <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </section>
+
+      </div>
+  </div>
+</div>

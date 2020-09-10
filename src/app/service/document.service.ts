@@ -16,4 +16,8 @@ export class DocumentService extends DataService{
     return this.postData(`${environment.base_url}/v1/aadhar-add`, data,
     {headers:headers} )
   }
+
+  saveUdhyogAadharDocument(data){
+    return this.postData(`${environment.base_url}/v1/udyog-adhar-add`, data)
+  }
 }

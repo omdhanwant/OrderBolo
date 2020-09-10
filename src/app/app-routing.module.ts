@@ -14,6 +14,7 @@ import { CategoryDetailComponent } from './category-detail/category-detail.compo
 import { BlogsComponent } from './blogs/blogs.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './service/authGaurd';
+import { UdyogAadharComponent } from './document-doctor/udyog-aadhar/udyog-aadhar.component';
 
 
 // const routes: Routes = [];
@@ -60,6 +61,12 @@ const routes: Routes = [
         path: 'aadhar-card',
         data: { breadcrumb: 'Aadhar Card' },
         component: AadharCardComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'udhyog-aadhar',
+        data: { breadcrumb: 'Udhyog Aadhar' },
+        component: UdyogAadharComponent,
         canActivate: [AuthGuard]
       },
       {

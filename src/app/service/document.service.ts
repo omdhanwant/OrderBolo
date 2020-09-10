@@ -12,6 +12,8 @@ export class DocumentService extends DataService{
   }
 
   saveAdharCardDocument(data){
-    return this.postData(`${environment.base_url}/v1/adhar-add`, data)
+    const headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'})
+    return this.postData(`${environment.base_url}/v1/aadhar-add`, data,
+    {headers:headers} )
   }
 }

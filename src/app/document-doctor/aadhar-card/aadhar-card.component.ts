@@ -27,7 +27,7 @@ export class AadharCardComponent implements OnInit {
 
   onFileChange(event) {
     for (var i = 0; i < event.target.files.length; i++) {
-      this.myFiles.push(event.target.files[i]);
+      this.myFiles.push(event.target.files[i].name);
 
         // File Preview
         // const reader = new FileReader();

@@ -12,6 +12,6 @@ export class DocumentService extends DataService{
   }
 
   saveAdharCardDocument(data){
-    return this.postData(`${environment.base_url}/v1/adhar-add`, data)
+    return this.postData(`${environment.base_url}/v1/aadhar-add`, data)
   }
 }

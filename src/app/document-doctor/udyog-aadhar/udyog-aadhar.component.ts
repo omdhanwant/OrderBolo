@@ -57,9 +57,9 @@ export class UdyogAadharComponent implements OnInit {
   }
 
   saveForm(payload){
-    for (var key of payload.entries()) {
-			console.log(key[0] + ', ' + key[1])
-		}
+    // for (var key of payload.entries()) {
+		// 	console.log(key[0] + ', ' + key[1])
+		// }
     this.service.saveUdhyogAadharDocument(payload)
       .subscribe((response) => {
         console.log(response)

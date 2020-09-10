@@ -20,4 +20,8 @@ export class DocumentService extends DataService{
   saveUdhyogAadharDocument(data){
     return this.postData(`${environment.base_url}/v1/udyog-adhar-add`, data)
   }
+
+  savePoliceVerificationDocument(data){
+    return this.postData(`${environment.base_url}/v1/police-verification-add`, data)
+  }
 }

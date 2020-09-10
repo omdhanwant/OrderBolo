@@ -11,8 +11,8 @@ export class DataService{
     return this.http.get(url);
   }
 
-  postData(url, body) {
-    return this.http.post(url, body)
+  postData(url, body,options?) {
+    return this.http.post(url, body, options)
   }
   // getUserInformation(){
   //     return this.http.get(environment.base_url);

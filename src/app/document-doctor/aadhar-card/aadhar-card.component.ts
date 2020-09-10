@@ -43,20 +43,35 @@ export class AadharCardComponent implements OnInit {
 
 
   save(form: NgForm){
-    // const formData = new FormData();
-    // for (var i = 0; i < this.myFiles.length; i++) {
-    //   formData.append("filenames[]", this.myFiles[i]);
-    // }
+    let formData = new FormData();
+    for (var i = 0; i < this.myFiles.length; i++) {
+      formData.append("filenames[]", this.myFiles[i]);
+    }
+    // formData.append("filenames[]", []);
+
       const birth_date_format = this.getDate(form.control.get('birth_date').value)
       form.control.get('birth_date').setValue(birth_date_format)
-      let payload = {user_id: this.user_id, filenames: this.myFiles, ...form.value}
-      this.saveForm(payload);
+
+      formData.append('user_id', this.user_id.toString())
+      formData.append('full_name', form.control.get('full_name').value)
+      formData.append('birth_date', form.control.get('birth_date').value)
+      formData.append('pin_code', form.control.get('pin_code').value)
+      formData.append('pan_card', form.control.get('pan_card').value)
+      formData.append('full_address', form.control.get('full_address').value)
+      formData.append('state', form.control.get('state').value)
+      formData.append('city', form.control.get('city').value)
+      // let payload = {user_id: this.user_id, filenames: this.myFiles, ...form.value}
+      this.saveForm(formData);
   }
 
   saveForm(payload){
-    console.log(payload);
+    for (var key of payload.entries()) {
+			console.log(key[0] + ', ' + key[1])
+		}
+    // let options = { content: payload };
     this.service.saveAdharCardDocument(payload)
-      .subscribe(() => {
+      .subscribe((response) => {
+        console.log(response)
         alert('Successfully Saved!')
         this.route.navigateByUrl('/document-doctor')
       })

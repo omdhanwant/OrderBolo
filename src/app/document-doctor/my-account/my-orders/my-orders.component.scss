@@ -1,3 +1,7 @@
+.breadcrumb{
+  padding: 6px 0px!important;
+}
+
 .list_container {
   max-height: calc(100vh - 222px);
   overflow: scroll;
@@ -15,11 +19,6 @@
     box-shadow: 0 5px 10px #f1f1f1;
     border-radius: 5px;
     border-left:3px solid #353a40;
-}
-.list_details .actions {
-  display: flex;
-  width: 100px;
-  justify-content: space-evenly;
 }
 
 .list_details .actions i {

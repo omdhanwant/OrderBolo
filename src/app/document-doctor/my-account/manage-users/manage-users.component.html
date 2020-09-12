@@ -1,5 +1,5 @@
 <!-- list detail container -->
-
+<ng-container *ngIf="!showAddScreen">
 <div class="row">
   <div class="col-md-12">
     <nav aria-label="breadcrumb no-bg">
@@ -10,6 +10,10 @@
           <li class="breadcrumb-item active" aria-current="page">Users</li>
         </ol>
       </nav>
+</div>
+
+<div class="col-12 text-right mb-3">
+  <button (click)="showDetailScreen()" class="btn btn-primary">Create New User</button>
 </div>
 
   <div class="col-12">
@@ -29,46 +33,18 @@
         </div>
         <div class="actions">
           <i class="pi pi-minus-circle" style="color: red;"></i>
-        <i class="pi pi-pencil"></i>
-        </div>
-      </div>
-      <div class="list_details">
-        <div class="list_info">
-          <div>
-            <span class="name">
-              <strong> User 2: </strong>
-              <span style="color: rgb(169, 167, 167);"> Common </span>
-            </span>
-            <span class="code">
-              Email:
-              <span style="color: rgb(169, 167, 167);"> test </span>
-            </span>
-          </div>
-        </div>
-        <div class="actions">
-          <i class="pi pi-minus-circle" style="color: red;"></i>
-        <i class="pi pi-pencil"></i>
-        </div>
-      </div>
-
-      <div class="list_details">
-        <div class="list_info">
-          <div>
-            <span class="name">
-              <strong> User 3: </strong>
-              <span style="color: rgb(169, 167, 167);"> Common </span>
-            </span>
-            <span class="code">
-              Email:
-              <span style="color: rgb(169, 167, 167);"> test </span>
-            </span>
-          </div>
-        </div>
-        <div class="actions">
-          <i class="pi pi-minus-circle" style="color: red;"></i>
-        <i class="pi pi-pencil"></i>
+          <i (click)="showDetails()" class="pi pi-pencil"></i>
         </div>
       </div>
     </div>
   </div>
 </div>
+</ng-container>
+
+
+<!-- add edit form -->
+<ng-container *ngIf="showAddScreen">
+  <add-user
+  (onBackClick)="showAddScreen = $event"
+  ></add-user>
+</ng-container>

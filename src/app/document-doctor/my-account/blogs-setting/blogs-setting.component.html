@@ -1,15 +1,19 @@
 <!-- list detail container -->
-
+<ng-container *ngIf="!showAddScreen">
 <div class="row">
   <div class="col-md-12">
     <nav aria-label="breadcrumb no-bg">
-        <ol class="breadcrumb no-bg">
+        <ol class="breadcrumb no-bg m-0">
           <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
           <li class="breadcrumb-item"><a routerLink="/document-doctor">Document Doctor</a></li>
           <li class="breadcrumb-item active" aria-current="page">My Account</li>
           <li class="breadcrumb-item active" aria-current="page">Blogs</li>
         </ol>
       </nav>
+</div>
+
+<div class="col-12 text-right mb-3">
+  <button (click)="showDetailScreen()" class="btn btn-primary">Create New Blog</button>
 </div>
 
   <div class="col-12">
@@ -28,43 +32,18 @@
         </div>
         <div class="actions">
           <i class="pi pi-minus-circle" style="color: red;"></i>
-        <i class="pi pi-pencil"></i>
-        </div>
-      </div>
-      <div class="list_details">
-        <div class="list_info">
-          <div>
-            <strong class="name">
-              Blog 2
-            </strong>
-            <span class="code">
-              Description:
-              <span style="color: rgb(169, 167, 167);"> test </span>
-            </span>
-          </div>
-        </div>
-        <div class="actions">
-          <i class="pi pi-minus-circle" style="color: red;"></i>
-        <i class="pi pi-pencil"></i>
-        </div>
-      </div>
-      <div class="list_details">
-        <div class="list_info">
-          <div>
-            <strong class="name">
-              Blog 3
-            </strong>
-            <span class="code">
-              Description:
-              <span style="color: rgb(169, 167, 167);"> test </span>
-            </span>
-          </div>
-        </div>
-        <div class="actions">
-          <i class="pi pi-minus-circle" style="color: red;"></i>
-        <i class="pi pi-pencil"></i>
+          <i (click)="showDetails()" class="pi pi-pencil"></i>
         </div>
       </div>
     </div>
   </div>
 </div>
+</ng-container>
+
+
+<!-- add edit form -->
+<ng-container *ngIf="showAddScreen">
+  <add-blog
+  (onBackClick)="showAddScreen = $event"
+  ></add-blog>
+</ng-container>

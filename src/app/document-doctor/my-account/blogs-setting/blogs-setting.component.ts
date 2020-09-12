@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./blogs-setting.component.scss']
 })
 export class BlogsSettingComponent implements OnInit {
-
+  showAddScreen: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  showDetailScreen(){
+    this.showAddScreen = true;
+  }
+
+  showDetails(){
+    this.showAddScreen = true;
   }
 
 }

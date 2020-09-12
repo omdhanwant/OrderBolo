@@ -1,3 +1,7 @@
+.breadcrumb{
+  padding: 6px 0px!important;
+}
+
 .list_container {
   max-height: calc(100vh - 222px);
   overflow: scroll;
@@ -31,7 +35,6 @@
     align-items: center;
     padding: 10px;
     flex: 4;
-    cursor: pointer;
 }
 .list_info div{
     display: flex;

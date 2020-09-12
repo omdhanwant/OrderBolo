@@ -63,6 +63,8 @@ import { RequestedDocumentsComponent } from './document-doctor/my-account/reques
 import { BlogsSettingComponent } from './document-doctor/my-account/blogs-setting/blogs-setting.component';
 import { ManageUsersComponent } from './document-doctor/my-account/manage-users/manage-users.component';
 import { MyOrdersComponent } from './document-doctor/my-account/my-orders/my-orders.component';
+import { AddBlogComponent } from './document-doctor/my-account/blogs-setting/add-blog/add-blog.component';
+import { AddUserComponent } from './document-doctor/my-account/manage-users/add-user/add-user.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +92,9 @@ import { MyOrdersComponent } from './document-doctor/my-account/my-orders/my-ord
     RequestedDocumentsComponent,
     BlogsSettingComponent,
     ManageUsersComponent,
-    MyOrdersComponent
+    MyOrdersComponent,
+    AddBlogComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserAnimationsModule,

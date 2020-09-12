@@ -65,6 +65,7 @@ import { ManageUsersComponent } from './document-doctor/my-account/manage-users/
 import { MyOrdersComponent } from './document-doctor/my-account/my-orders/my-orders.component';
 import { AddBlogComponent } from './document-doctor/my-account/blogs-setting/add-blog/add-blog.component';
 import { AddUserComponent } from './document-doctor/my-account/manage-users/add-user/add-user.component';
+import {ChipsModule} from 'primeng/chips';
 
 @NgModule({
   declarations: [
@@ -120,7 +121,8 @@ import { AddUserComponent } from './document-doctor/my-account/manage-users/add-
     // MatCheckboxModule,
     MatInputModule,
     // MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    ChipsModule
 
   ],
   providers: [

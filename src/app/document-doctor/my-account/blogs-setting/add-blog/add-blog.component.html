@@ -31,7 +31,8 @@
 
                               <div class="form-group col-md-6">
                                 <label for="inputEmail4">Add Tags</label>
-                                <input name="tags" ngModel #tags="ngModel"  type="tags" class="form-control"  placeholder="Add Tags" required autocomplete="off">
+                                <!-- <input name="tags" ngModel #tags="ngModel"  type="tags" class="form-control"  placeholder="Add Tags" required autocomplete="off"> -->
+                                <p-chips class="tags-container" name="tags" ngModel #tags="ngModel" [allowDuplicate]="false" placeholder="Add Tags" required></p-chips>
                                 <div *ngIf="tags.touched && tags.hasError('required')" class="invalid-feedback" style="display: inline-block;">
                                   Tags are required
                                 </div>

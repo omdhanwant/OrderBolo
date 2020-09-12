@@ -17,7 +17,7 @@ export class AddBlogComponent implements OnInit {
   }
 
   save(form){
-
+    console.log(form.value);
   }
   onFileChange(event){
     this.myFile = event.target.files[0];

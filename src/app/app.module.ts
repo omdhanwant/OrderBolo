@@ -56,6 +56,13 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './service/authGaurd';
 import { DocumentService } from './service/document.service';
 import { UdyogAadharComponent } from './document-doctor/udyog-aadhar/udyog-aadhar.component';
+import { AlertPopupComponent } from './common/alert-popup/alert-popup.component';
+import { MyAccountComponent } from './document-doctor/my-account/my-account.component';
+import { ProfileComponent } from './document-doctor/my-account/profile/profile.component';
+import { RequestedDocumentsComponent } from './document-doctor/my-account/requested-documents/requested-documents.component';
+import { BlogsSettingComponent } from './document-doctor/my-account/blogs-setting/blogs-setting.component';
+import { ManageUsersComponent } from './document-doctor/my-account/manage-users/manage-users.component';
+import { MyOrdersComponent } from './document-doctor/my-account/my-orders/my-orders.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +83,14 @@ import { UdyogAadharComponent } from './document-doctor/udyog-aadhar/udyog-aadha
     ViewDetailComponent,
     BlogsComponent,
     LoginComponent,
-    UdyogAadharComponent
+    UdyogAadharComponent,
+    AlertPopupComponent,
+    MyAccountComponent,
+    ProfileComponent,
+    RequestedDocumentsComponent,
+    BlogsSettingComponent,
+    ManageUsersComponent,
+    MyOrdersComponent
   ],
   imports: [
     BrowserAnimationsModule,

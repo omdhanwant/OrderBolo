@@ -15,6 +15,12 @@ import { BlogsComponent } from './blogs/blogs.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './service/authGaurd';
 import { UdyogAadharComponent } from './document-doctor/udyog-aadhar/udyog-aadhar.component';
+import { MyAccountComponent } from './document-doctor/my-account/my-account.component';
+import { ProfileComponent } from './document-doctor/my-account/profile/profile.component';
+import { RequestedDocumentsComponent } from './document-doctor/my-account/requested-documents/requested-documents.component';
+import { BlogsSettingComponent } from './document-doctor/my-account/blogs-setting/blogs-setting.component';
+import { ManageUsersComponent } from './document-doctor/my-account/manage-users/manage-users.component';
+import { MyOrdersComponent } from './document-doctor/my-account/my-orders/my-orders.component';
 
 
 // const routes: Routes = [];
@@ -111,6 +117,38 @@ const routes: Routes = [
         component: PoliceVerificationComponent,
         canActivate: [AuthGuard]
       },
+    ]
+  },
+  {
+    path: 'my-account',
+    component: MyAccountComponent,
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: 'profile',
+        component: ProfileComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'requested-documents',
+        component: RequestedDocumentsComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'blogs-setting',
+        component: BlogsSettingComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'manage-users',
+        component: ManageUsersComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'my-orders',
+        component: MyOrdersComponent,
+        canActivate: [AuthGuard]
+      }
     ]
   },
 

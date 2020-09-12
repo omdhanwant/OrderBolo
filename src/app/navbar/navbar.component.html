@@ -27,12 +27,26 @@
       <li *ngIf="!authUser?.isAuthenticated" class="nav-item active">
         <a class="nav-link" (click)="isSideNav = true">Login / Sign Up <span class="sr-only">(Login/Sign Up)</span></a>
       </li>
-      <li *ngIf="authUser?.isAuthenticated" class="nav-item active">
+      <!-- <li *ngIf="authUser?.isAuthenticated" class="nav-item active">
         <a class="nav-link">{{ authUser?.user.mobile }}</a>
+      </li> -->
+      <li ngbDropdown *ngIf="authUser?.isAuthenticated" class="nav-item dropdown">
+        <a ngbDropdownToggle class="nav-link dropdown-toggle" style="color: #fff;"  id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{ authUser?.user.mobile }}
+        </a>
+        <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" routerLink="/my-account">My Account</a>
+          <!-- <ng-container *ngIf="authUser?.isAuthenticated">
+            <a class="dropdown-item" routerLinkActive="active" routerLink="/admin/orders">Manage Orders</a>
+            <a class="dropdown-item" routerLinkActive="active" routerLink="/admin/products">Manage Products </a>
+          </ng-container> -->
+
+          <a class="dropdown-item" data-toggle="modal" data-target="#alertPopup">Log Out </a>
+        </div>
       </li>
-      <li *ngIf="authUser?.isAuthenticated" class="nav-item active">
+      <!-- <li *ngIf="authUser?.isAuthenticated" class="nav-item active">
         <a class="nav-link" (click)="logOut()"> Logout <span class="sr-only">(LogOut)</span></a>
-      </li>
+      </li> -->
     </ul>
   </div>
 </nav>
@@ -81,7 +95,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="otp_info_text_container">
-              <p class="inner_info_text">We have sent you a 4 digit OTP</p>
+              <p class="inner_info_text">We have sent you a {{ config.length}} digit OTP</p>
               <p class="inner_info_text" style="margin: 0px;">on {{phone.value}}
                 <span class="number_edit" (click)="isOTPNav = false;">Edit</span>
               </p>
@@ -108,3 +122,16 @@
 
 
 </div>
+
+
+<alert-popup
+title="Alert!"
+[showOkbutton]="true"
+[showCancelbutton]="true"
+okButtonName="Confirm"
+cancelButtonName="No"
+okButtonColor="red"
+cancelButtonColor="#000"
+message="Are you sure you want to logout ?"
+(onOkButtonClick)="logOut()"
+></alert-popup>

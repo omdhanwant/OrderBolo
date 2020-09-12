@@ -6,7 +6,7 @@ import { NgModel } from '@angular/forms';
 import { take } from 'rxjs/operators';
 import { AlertService } from '../service/alertService';
 import { DataService } from '../service/data.service';
-
+// declare var $;
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -124,7 +124,7 @@ export class NavbarComponent implements OnInit {
   logOut(){
       this.auth.logOut();
       // this.isAuthenticated = this.auth.isAuthenticated();
-      this.showAlert("Successfully Logged Out");
+      // this.showAlert("Successfully Logged Out");
   }
 
   showAlert(message){
@@ -137,6 +137,10 @@ export class NavbarComponent implements OnInit {
     //    closeOnClickOutside: false,
     //  })
   }
+
+  // closeAlertModal(){
+  //   $("#alertPopup").modal("close");
+  // }
 
 
   initDataAfterLogin() {

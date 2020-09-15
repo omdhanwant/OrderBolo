@@ -651,3 +651,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background: red;
 }
 // pills
+
+
+// custom dialog
+.mydialog {
+  width: 40vw;
+}
+.mydialog .ui-dialog-titlebar {
+  background-color: #0B0633!important;
+}
+// custom dialog

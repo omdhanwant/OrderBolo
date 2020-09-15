@@ -14,6 +14,7 @@ export class AuthService{
   private peekAuth = new BehaviorSubject<AuthUser>(null);
 
   private userInfo: User = {
+    userType: '',
     mobile: '',
     name: '',
     id: null
@@ -31,6 +32,10 @@ export class AuthService{
 
   isAuthenticated(){
     return this.authenticated;
+  }
+
+  getUserType(){
+    return this.userInfo.userType;
   }
 
   peekAuthentication() {
@@ -66,7 +71,9 @@ export class AuthService{
     .pipe(
       map((response) => {
         let res = response[0] as VerifyOtpData
+        console.log(res);
         this.userInfo = {
+          userType: res.user_type,
           mobile: res.mobile,
           name: res.name,
           id: res.user_id

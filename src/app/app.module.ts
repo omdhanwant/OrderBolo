@@ -65,7 +65,12 @@ import { ManageUsersComponent } from './document-doctor/my-account/manage-users/
 import { MyOrdersComponent } from './document-doctor/my-account/my-orders/my-orders.component';
 import { AddBlogComponent } from './document-doctor/my-account/blogs-setting/add-blog/add-blog.component';
 import { AddUserComponent } from './document-doctor/my-account/manage-users/add-user/add-user.component';
+import { MessageDialogComponent } from './common/message-dialog/message-dialog.component';
 import {ChipsModule} from 'primeng/chips';
+import {DialogModule} from 'primeng/dialog';
+import { AdminGaurd } from './service/adminGaurd';
+
+
 
 @NgModule({
   declarations: [
@@ -95,7 +100,8 @@ import {ChipsModule} from 'primeng/chips';
     ManageUsersComponent,
     MyOrdersComponent,
     AddBlogComponent,
-    AddUserComponent
+    AddUserComponent,
+    MessageDialogComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -115,19 +121,21 @@ import {ChipsModule} from 'primeng/chips';
       primaryColour: '#000',
       backdropBackgroundColour: 'rgba(172, 166, 166, 0.2)'
     }),
+    ChipsModule,
+    DialogModule,
 
     //material
     // MatSelectModule,
     // MatCheckboxModule,
     MatInputModule,
     // MatButtonModule,
-    MatIconModule,
-    ChipsModule
+    MatIconModule
 
   ],
   providers: [
     AuthService,
     AuthGuard,
+    AdminGaurd,
     AlertService,
     DataService,
     UtilService,

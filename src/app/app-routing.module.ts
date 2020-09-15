@@ -14,6 +14,7 @@ import { CategoryDetailComponent } from './category-detail/category-detail.compo
 import { BlogsComponent } from './blogs/blogs.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './service/authGaurd';
+import { AdminGaurd } from './service/adminGaurd';
 import { UdyogAadharComponent } from './document-doctor/udyog-aadhar/udyog-aadhar.component';
 import { MyAccountComponent } from './document-doctor/my-account/my-account.component';
 import { ProfileComponent } from './document-doctor/my-account/profile/profile.component';
@@ -122,7 +123,7 @@ const routes: Routes = [
   {
     path: 'my-account',
     component: MyAccountComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard,AdminGaurd],
     children: [
       {
         path: 'profile',

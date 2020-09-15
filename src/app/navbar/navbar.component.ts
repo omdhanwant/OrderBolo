@@ -60,6 +60,8 @@ export class NavbarComponent implements OnInit {
   };
   userData:string;
   authUser: AuthUser;
+  displayAlert: boolean = false;
+  message = ''
   // alert;
   constructor(private auth: AuthService, private alertService: AlertService, public dataService: DataService) {
     // this.isAuthenticated = this.auth.isAuthenticated();
@@ -123,19 +125,18 @@ export class NavbarComponent implements OnInit {
 
   logOut(){
       this.auth.logOut();
+
       // this.isAuthenticated = this.auth.isAuthenticated();
-      // this.showAlert("Successfully Logged Out");
+      this.showAlert("Successfully Logged Out");
   }
 
   showAlert(message){
-    alert(message);
-    // this.alert({
-    //   buttons: ["OK"],
-    //    icon: 'success',
-    //    text: message,
-    //    timer: 2000,
-    //    closeOnClickOutside: false,
-    //  })
+    // alert(message);
+    this.displayAlert = true;
+    this.message = message;
+    setTimeout(() => {
+        this.displayAlert = false;
+    }, 2000);
   }
 
   // closeAlertModal(){

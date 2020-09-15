@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   fileLists: any = [];
   sendOption = false;
   sendRadio = 'emailTransfer';
+
   constructor(public utilService: UtilService){
 
   }

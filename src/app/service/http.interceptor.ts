@@ -30,11 +30,22 @@ export class AuthInterceptor implements HttpInterceptor {
       tap((event: HttpEvent<any>) => {
         if (event instanceof HttpResponse) {
           this.service.isLoading = false;
-          console.log(event.statusText);
+          this.service.alertMessage = 'Success!'
+          this.service.displayDialog = true;
+          setTimeout(() => {
+            this.service.displayDialog = false;
+            this.service.alertMessage = ''
+          }, 2000);
         }
       }, (err: any) => {
         if (err instanceof HttpErrorResponse) {
           this.service.isLoading = false;
+          this.service.alertMessage = 'Failed!'
+          this.service.displayDialog = true;
+          setTimeout(() => {
+            this.service.displayDialog = false;
+            this.service.alertMessage = ''
+          }, 2000);
           this.handleError(err);
         }
       })

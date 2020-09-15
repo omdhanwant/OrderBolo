@@ -17,10 +17,12 @@ export interface VerifyOtpData{
   name: string;
   token: string;
   user_id: number;
+  user_type:string;
 }
 
 
 export interface User {
+  userType: string;
   mobile: string;
   name: string;
   id: number;

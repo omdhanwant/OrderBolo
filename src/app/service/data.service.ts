@@ -3,12 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Blogs } from '../models/blogs';
 
 
 @Injectable()
 export class DataService{
   loading = false;
   private userData$ = new BehaviorSubject<Object[]>(null);
+  private blogsData$ = new BehaviorSubject<Blogs[]>(null);
   constructor(private http: HttpClient){}
 
   getData(url) {
@@ -29,6 +31,16 @@ export class DataService{
         return userData
       }))
    }
+   getBlogs(){
+     if(this.blogsData$.value) {
+         return this.blogsData$.asObservable();
+     }
+     return this.http.get(`${environment.base_url}/v1/blogs`)
+       .pipe(map( blogsData => {
+         this.blogsData$.next(blogsData as Blogs[])
+         return blogsData
+       }))
+    }
 
    refreshUserData(){
      this.userData$.next(null);

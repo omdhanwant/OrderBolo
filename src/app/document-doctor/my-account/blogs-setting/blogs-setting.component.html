@@ -17,16 +17,16 @@
 </div>
 
   <div class="col-12">
-    <div class="list_container">
+    <div class="list_container" *ngFor="let blog of Blogs">
       <div class="list_details">
         <div class="list_info">
           <div>
             <strong class="name">
-              Blog 1
+             {{blog.title}}
             </strong>
             <span class="code">
               Description:
-              <span style="color: rgb(169, 167, 167);"> test </span>
+              <span style="color: rgb(169, 167, 167);"> {{blog.description}} </span>
             </span>
           </div>
         </div>

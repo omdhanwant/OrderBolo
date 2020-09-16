@@ -12,9 +12,10 @@ export class DocumentService extends DataService{
   }
 
   saveAdharCardDocument(data){
-    const headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'})
-    return this.postData(`${environment.base_url}/v1/aadhar-add`, data,
-    {headers:headers} )
+    // const headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'})
+    // return this.postData(`${environment.base_url}/v1/aadhar-add`, data,
+    // {headers:headers} );
+    return this.postData(`${environment.base_url}/v1/aadhar-add`, data);
   }
 
   saveUdhyogAadharDocument(data){
@@ -27,5 +28,8 @@ export class DocumentService extends DataService{
 
   saveUserProfile(data){
     return this.postData(`${environment.base_url}/v1/updateUser`, data)
+  }
+  saveBlog(data){
+    return this.postData(`${environment.base_url}/v1/blog`, data)
   }
 }

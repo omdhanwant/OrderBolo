@@ -14,15 +14,15 @@
           <section class="feature-category">
               <div class="row">
                   <div class="col-md-12">
-                      <!-- <h1 class="feature_h1 text-center">Gazette Certificate</h1>
-                      <span class="feature_sub_title text-center">Fill bellow form details</span> -->
-                      <!-- <br> -->
+                   <div *ngIf="imageUrl" class="mb-3" style="display: flex;justify-content: center;">
+                    <img [src]="imageUrl" alt="Avatar" class="avatar">
+                  </div>
                       <form #form="ngForm" (ngSubmit)="save(form)">
                           <div class="form-row">
                               <div class="form-group col-md-6">
                                   <label>Full Name</label>
-                                  <input type="text" name="old_name" ngModel #old_name="ngModel" class="form-control" placeholder="Full Name" required autocomplete="off">
-                                  <div *ngIf="old_name.touched && old_name.hasError('required')" class="invalid-feedback" style="display: inline-block;">
+                                  <input type="text" name="name" ngModel #name="ngModel" class="form-control" placeholder="Full Name" required autocomplete="off">
+                                  <div *ngIf="name.touched && name.hasError('required')" class="invalid-feedback" style="display: inline-block;">
                                     Full Name is required
                                   </div>
                               </div>
@@ -46,8 +46,8 @@
                           <div class="form-row">
                             <div class="form-group col-md-6">
                               <label for="date">Birth Date</label>
-                              <input type="text" name="birth_date" ngModel #birth_date="ngModel" placeholder="Select Birth Date" class="form-control" bsDatepicker [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY', containerClass: 'theme-default' }" required autocomplete="off">
-                              <div *ngIf="birth_date.touched && birth_date.hasError('required')" class="invalid-feedback" style="display: inline-block;">
+                              <input type="text" name="dob" ngModel #dob="ngModel" placeholder="Select Birth Date" class="form-control" bsDatepicker [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY', containerClass: 'theme-default' }" required autocomplete="off">
+                              <div *ngIf="dob.touched && dob.hasError('required')" class="invalid-feedback" style="display: inline-block;">
                                 Birth Date is required
                               </div>
                           </div>
@@ -67,7 +67,7 @@
                                   Pincode is required
                                 </div>
                             </div>
-                            <div class="form-group col-md-6">
+                            <!-- <div class="form-group col-md-6">
                               <label for="pin">City</label>
                               <input type="text" name="city" ngModel #city="ngModel" class="form-control" id="inputZip" placeholder="City" required autocomplete="off">
                               <div *ngIf="city.touched && city.hasError('required')" class="invalid-feedback" style="display: inline-block;">
@@ -80,7 +80,22 @@
                             <div *ngIf="state.touched && state.hasError('required')" class="invalid-feedback" style="display: inline-block;">
                               State is required
                             </div>
+                        </div> -->
+                          </div>
+
+                          <div class="form-group">
+                            <div class="custom-file" style="width: 20%;">
+                                <input  multiple (change)="onFileSelect($event)" type="file" class="custom-file-input" id="customFile">
+                                <label class="custom-file-label" for="customFile">profile image</label>
+                            </div>
                         </div>
+                          <div *ngIf="imageFile" class="row">
+                            <div style="display: flex;">
+                             <div class="pill">
+                               {{ imageFile.name }}
+                               <mat-icon class="close-icon" (click)="imageFile = null;" aria-hidden="false" aria-label="Example close icon">close</mat-icon>
+                             </div>
+                            </div>
                           </div>
                           <div class="text-center">
                             <button type="submit" class="btn btn-primary">Save</button>

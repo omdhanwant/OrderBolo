@@ -6,6 +6,7 @@ import { NgModel } from '@angular/forms';
 import { take } from 'rxjs/operators';
 import { AlertService } from '../service/alertService';
 import { DataService } from '../service/data.service';
+import { Router } from '@angular/router';
 // declare var $;
 @Component({
   selector: 'app-navbar',
@@ -63,7 +64,7 @@ export class NavbarComponent implements OnInit {
   displayAlert: boolean = false;
   message = ''
   // alert;
-  constructor(private auth: AuthService, private alertService: AlertService, public dataService: DataService) {
+  constructor(private auth: AuthService, public dataService: DataService, private route: Router) {
     // this.isAuthenticated = this.auth.isAuthenticated();
     // this.alert = this.alertService.getAlertInstance();
 
@@ -128,6 +129,7 @@ export class NavbarComponent implements OnInit {
 
       // this.isAuthenticated = this.auth.isAuthenticated();
       this.showAlert("Successfully Logged Out");
+      this.route.navigateByUrl('/document-doctor');
   }
 
   showAlert(message){

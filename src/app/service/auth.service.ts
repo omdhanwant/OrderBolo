@@ -10,19 +10,19 @@ const USER = 'USER';
 @Injectable()
 export class AuthService{
   private authenticated: boolean = false;
-  private token: string = null;
   private peekAuth = new BehaviorSubject<AuthUser>(null);
 
-  private userInfo: User = {
+   userInfo: User = {
     userType: '',
     mobile: '',
     name: '',
+    email: '',
+    profile_photo: '',
     id: null
   };
 
   constructor(private http: HttpClient){
     // check if user already logged in
-    this.token = sessionStorage.getItem(TOKEN);
     this.userInfo = JSON.parse(sessionStorage.getItem(USER)) as User;
     if(this.getToken()) {
       this.authenticated = true;
@@ -32,10 +32,6 @@ export class AuthService{
 
   isAuthenticated(){
     return this.authenticated;
-  }
-
-  getUserType(){
-    return this.userInfo.userType;
   }
 
   peekAuthentication() {
@@ -50,16 +46,19 @@ export class AuthService{
   }
 
   getToken(){
-    return this.token;
+    return sessionStorage.getItem(TOKEN);;
   }
 
   private setToken(token){
     if(token) {
-      this.token = token;
       sessionStorage.setItem(TOKEN, token);
       this.authenticated = true;
       this.refreshAuth();
     }
+  }
+
+  private setUser(user) {
+    sessionStorage.setItem(USER, JSON.stringify(user));
   }
 
   generateOtp(mobileNumber: {mobile: string}){
@@ -71,14 +70,16 @@ export class AuthService{
     .pipe(
       map((response) => {
         let res = response[0] as VerifyOtpData
-        console.log(res);
+        // console.log(res)
         this.userInfo = {
           userType: res.user_type,
           mobile: res.mobile,
           name: res.name,
+          email: res.email,
+          profile_photo: '',
           id: res.user_id
         }
-        sessionStorage.setItem(USER, JSON.stringify(this.userInfo));
+        this.setUser(this.userInfo);
         this.setToken(res.token)
         return this.userInfo
       })
@@ -89,7 +90,7 @@ export class AuthService{
      sessionStorage.removeItem(TOKEN);
      sessionStorage.removeItem(USER);
      this.authenticated = false;
-     this.refreshAuth();
      this.userInfo = null
+     this.refreshAuth();
    }
 }

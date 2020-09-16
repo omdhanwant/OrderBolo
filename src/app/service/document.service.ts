@@ -24,4 +24,8 @@ export class DocumentService extends DataService{
   savePoliceVerificationDocument(data){
     return this.postData(`${environment.base_url}/v1/police-verification-add`, data)
   }
+
+  saveUserProfile(data){
+    return this.postData(`${environment.base_url}/v1/updateUser`, data)
+  }
 }

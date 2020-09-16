@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class UtilService {
   private loading: boolean = false;
-  private displayAlert: boolean = false;
+  private displayAlert: boolean;
   private message: string = ''
   constructor(){}
 

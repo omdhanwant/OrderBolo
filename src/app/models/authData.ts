@@ -25,6 +25,8 @@ export interface User {
   userType: string;
   mobile: string;
   name: string;
+  email: string;
+  profile_photo: string;
   id: number;
 }
 

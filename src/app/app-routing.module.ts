@@ -123,7 +123,7 @@ const routes: Routes = [
   {
     path: 'my-account',
     component: MyAccountComponent,
-    canActivate: [AuthGuard,AdminGaurd],
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'profile',
@@ -138,12 +138,12 @@ const routes: Routes = [
       {
         path: 'blogs-setting',
         component: BlogsSettingComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard,AdminGaurd]
       },
       {
         path: 'manage-users',
         component: ManageUsersComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard,AdminGaurd]
       },
       {
         path: 'my-orders',

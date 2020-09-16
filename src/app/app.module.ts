@@ -69,6 +69,8 @@ import { MessageDialogComponent } from './common/message-dialog/message-dialog.c
 import {ChipsModule} from 'primeng/chips';
 import {DialogModule} from 'primeng/dialog';
 import { AdminGaurd } from './service/adminGaurd';
+import { GumastaComponent } from './document-doctor/gumasta/gumasta.component';
+import { GstComponent } from './document-doctor/gst/gst.component';
 
 
 
@@ -101,7 +103,9 @@ import { AdminGaurd } from './service/adminGaurd';
     MyOrdersComponent,
     AddBlogComponent,
     AddUserComponent,
-    MessageDialogComponent
+    MessageDialogComponent,
+    GumastaComponent,
+    GstComponent
   ],
   imports: [
     BrowserAnimationsModule,

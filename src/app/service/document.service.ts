@@ -21,6 +21,18 @@ export class DocumentService extends DataService{
   saveUdhyogAadharDocument(data){
     return this.postData(`${environment.base_url}/v1/udyog-adhar-add`, data)
   }
+  saveGumasta(data){
+    // const headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'})
+    // return this.postData(`${environment.base_url}/v1/gumasta-add`, data,
+    // {headers:headers} );
+    return this.postData(`${environment.base_url}/v1/gumasta-add`, data)
+  }
+  saveGst(data){
+    // const headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'})
+    // return this.postData(`${environment.base_url}/v1/gumasta-add`, data,
+    // {headers:headers} );
+    return this.postData(`${environment.base_url}/v1/gst-add`, data)
+  }
 
   savePoliceVerificationDocument(data){
     return this.postData(`${environment.base_url}/v1/police-verification-add`, data)

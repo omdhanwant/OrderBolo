@@ -22,4 +22,10 @@ export class BlogsComponent implements OnInit {
       this.Blogs = blogsData;
     })
   }
+  getImage(image){
+    if(image){
+    let img = JSON.parse(image);
+      return img[0].url;
+    }else return 'https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/pasta.jpg';
+  }
 }

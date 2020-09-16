@@ -22,6 +22,8 @@ import { RequestedDocumentsComponent } from './document-doctor/my-account/reques
 import { BlogsSettingComponent } from './document-doctor/my-account/blogs-setting/blogs-setting.component';
 import { ManageUsersComponent } from './document-doctor/my-account/manage-users/manage-users.component';
 import { MyOrdersComponent } from './document-doctor/my-account/my-orders/my-orders.component';
+import { GumastaComponent } from './document-doctor/gumasta/gumasta.component';
+import { GstComponent } from './document-doctor/gst/gst.component';
 
 
 // const routes: Routes = [];
@@ -68,6 +70,18 @@ const routes: Routes = [
         path: 'aadhar-card',
         data: { breadcrumb: 'Aadhar Card' },
         component: AadharCardComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'gumasta',
+        data: { breadcrumb: 'Gumasta' },
+        component: GumastaComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'gst',
+        data: { breadcrumb: 'GST' },
+        component: GstComponent,
         canActivate: [AuthGuard]
       },
       {

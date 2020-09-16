@@ -118,7 +118,7 @@ export class LoginComponent implements OnInit {
   }
 
   showAlert(message){
-    alert(message);
+    // alert(message);
     // this.alert({
     //   buttons: ["OK"],
     //    icon: 'success',

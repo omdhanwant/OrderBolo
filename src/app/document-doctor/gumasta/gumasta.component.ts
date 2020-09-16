@@ -4,15 +4,13 @@ import { DocumentService } from 'src/app/service/document.service';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
 import { take } from 'rxjs/operators';
-
 @Component({
-  selector: 'app-aadhar-card',
-  templateUrl: './aadhar-card.component.html',
-  styleUrls: ['./aadhar-card.component.scss']
+  selector: 'app-gumasta',
+  templateUrl: './gumasta.component.html',
+  styleUrls: ['./gumasta.component.scss']
 })
-export class AadharCardComponent implements OnInit {
+export class GumastaComponent implements OnInit {
   myFiles:File [] = [];
-  // previewFiles:string[] = [];
   user_id:number;
   constructor(private service: DocumentService, private route: Router, private auth: AuthService) { }
 
@@ -29,43 +27,45 @@ export class AadharCardComponent implements OnInit {
     for (var i = 0; i < event.target.files.length; i++) {
       this.myFiles.push(event.target.files[i]);
     }
-    console.log(this.myFiles);
-    // console.log(this.previewFiles);
-
   }
-
 
   save(form: NgForm){
     let formData = new FormData();
     for (var i = 0; i < this.myFiles.length; i++) {
       formData.append("filenames[]", this.myFiles[i]);
     }
-    // formData.append("filenames[]", []);
 
       const birth_date_format = this.getDate(form.control.get('birth_date').value)
       form.control.get('birth_date').setValue(birth_date_format)
 
       formData.append('user_id', this.user_id.toString())
-      formData.append('full_name', form.control.get('full_name').value)
+      formData.append('type_of_registration', form.control.get('type_of_registration').value)
+      formData.append('applicant_name', form.control.get('applicant_name').value)
+      formData.append('mobile', form.control.get('mobile').value)
       formData.append('birth_date', form.control.get('birth_date').value)
-      formData.append('pin_code', form.control.get('pin_code').value)
-      formData.append('pan_card', form.control.get('pan_card').value)
-      formData.append('full_address', form.control.get('full_address').value)
-      formData.append('state', form.control.get('state').value)
+      formData.append('email', form.control.get('email').value)
+      formData.append('name_of_business', form.control.get('name_of_business').value)
+      formData.append('full_business_address', form.control.get('full_business_address').value)
+      formData.append('district', form.control.get('district').value)
       formData.append('city', form.control.get('city').value)
-      // let payload = {user_id: this.user_id, filenames: this.myFiles, ...form.value}
+      formData.append('pin_code', form.control.get('pin_code').value)
+      formData.append('type_of_business', form.control.get('type_of_business').value)
+      formData.append('ownership_of_premises', form.control.get('ownership_of_premises').value)
+      formData.append('total_male_employee', form.control.get('total_male_employee').value)
+      formData.append('total_female_employee', form.control.get('total_female_employee').value)
+      formData.append('nature_of_business', form.control.get('nature_of_business').value)
+      formData.append('pan_card', form.control.get('pan_card').value)
+      formData.append('aadhar_number', form.control.get('aadhar_number').value)
       this.saveForm(formData);
   }
 
   saveForm(payload){
     for (var key of payload.entries()) {
-			console.log(key[0] + ', ' + key[1])
+			// console.log(key[0] + ', ' + key[1])
 		}
-    // let options = { content: payload };
-    this.service.saveAdharCardDocument(payload)
+    this.service.saveGumasta(payload)
       .subscribe((response) => {
-        console.log(response)
-        alert('Successfully Saved!')
+        console.log(response);
         this.route.navigateByUrl('/document-doctor')
       })
   }

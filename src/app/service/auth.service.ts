@@ -69,6 +69,7 @@ export class AuthService{
     return this.http.post(`${environment.base_url}/verifyOtp`,data)
     .pipe(
       map((response) => {
+        console.log(response);
         let res = response[0] as VerifyOtpData
         // console.log(res)
         this.userInfo = {

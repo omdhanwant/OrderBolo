@@ -7,7 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManageUsersComponent implements OnInit {
   showAddScreen: boolean = false;
-  constructor() { }
+  users = [];
+  constructor() {
+    this.users = [
+      { name: 'User1' , description : 'description'},
+      { name: 'User2' , description : 'description'},
+      { name: 'User3' , description : 'description'}
+    ]
+
+  }
 
   ngOnInit(): void {
   }

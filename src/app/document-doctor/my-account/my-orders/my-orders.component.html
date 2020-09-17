@@ -2,18 +2,18 @@
 
 <div class="row">
   <div class="col-md-12">
-    <nav aria-label="breadcrumb no-bg">
+    <!-- <nav aria-label="breadcrumb no-bg">
         <ol class="breadcrumb no-bg">
           <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
           <li class="breadcrumb-item"><a routerLink="/document-doctor">Document Doctor</a></li>
           <li class="breadcrumb-item active" aria-current="page">My Account</li>
           <li class="breadcrumb-item active" aria-current="page">Orders</li>
         </ol>
-      </nav>
+      </nav> -->
 </div>
 
   <div class="col-12">
-    <div class="list_container">
+    <!-- <div class="list_container">
       <div class="list_details">
         <div class="list_info">
           <div>
@@ -59,6 +59,23 @@
         </div>
 
       </div>
-    </div>
+    </div> -->
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col-3">Name</th>
+          <th scope="col">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders; let i =index;">
+          <th scope="row">{{ i + 1 }}</th>
+          <td class="table-col-wdith-20">{{ order.name }}</td>
+          <td> {{ order.description }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

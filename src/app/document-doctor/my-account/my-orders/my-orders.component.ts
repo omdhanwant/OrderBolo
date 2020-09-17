@@ -6,8 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-orders.component.scss']
 })
 export class MyOrdersComponent implements OnInit {
-
-  constructor() { }
+  orders =[];
+  constructor() {
+    this.orders = [
+      { name: 'Order1' , description : 'description'},
+      { name: 'Order2' , description : 'description'},
+      { name: 'Order3' , description : 'description'}
+    ]
+  }
 
   ngOnInit(): void {
   }

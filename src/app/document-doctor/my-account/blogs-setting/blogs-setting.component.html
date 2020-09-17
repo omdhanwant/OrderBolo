@@ -2,14 +2,14 @@
 <ng-container *ngIf="!showAddScreen">
 <div class="row">
   <div class="col-md-12">
-    <nav aria-label="breadcrumb no-bg">
+    <!-- <nav aria-label="breadcrumb no-bg">
         <ol class="breadcrumb no-bg m-0">
           <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
           <li class="breadcrumb-item"><a routerLink="/document-doctor">Document Doctor</a></li>
           <li class="breadcrumb-item active" aria-current="page">My Account</li>
           <li class="breadcrumb-item active" aria-current="page">Blogs</li>
         </ol>
-      </nav>
+      </nav> -->
 </div>
 
 <div class="col-12 text-right mb-3">
@@ -17,7 +17,7 @@
 </div>
 
   <div class="col-12">
-    <div class="list_container" *ngFor="let blog of Blogs">
+    <!-- <div class="list_container" *ngFor="let blog of Blogs">
       <div class="list_details">
         <div class="list_info">
           <div>
@@ -35,7 +35,31 @@
           <i (click)="showDetails()" class="pi pi-pencil"></i>
         </div>
       </div>
-    </div>
+    </div> -->
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col-3">Title</th>
+          <th scope="col">Description</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let blog of Blogs; let i =index;">
+          <th scope="row">{{ i + 1 }}</th>
+          <td class="table-col-wdith-20">{{ blog.title }}</td>
+          <td> {{ blog.description }}</td>
+          <td>
+            <div class="row-actions">
+              <i class="pi pi-minus-circle" style="color: red;"></i>
+              <i (click)="showDetails()" class="pi pi-pencil"></i>
+              </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 </ng-container>

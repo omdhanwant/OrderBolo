@@ -5,10 +5,14 @@
   width: 20%;
   height: 100%;
   background: #fff;
+  position: fixed;
+  top: 0;
+  padding-top: 77px;
+  border-right: 1px solid #e6e6e6;
 }
-.sticky-top{
-  top: 57px;
-}
+// .sticky-top{
+//   top: 57px;
+// }
 
 .list-group .active{
   background: #0B0633!important;
@@ -23,10 +27,13 @@
 
 .account_container {
   display: flex;
-  margin-top: 85px !important;
+  position: relative;
+  margin: 20px auto;
+  // margin-top: 85px !important;
 }
 
 .custom_container{
   padding: 0px 20px;
   width: 80%;
+  margin-left: 20%;
 }

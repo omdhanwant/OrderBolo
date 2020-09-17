@@ -625,6 +625,31 @@ button:not(:disabled) {
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+// account section
+.account_container .nav-items .list-group .list-group-item {
+  border: none!important;
+  border-radius: none!important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125)!important;
+}
+// account section
+
+// table
+
+.table-col-wdith-20 {
+  width: 20%!important;
+}
+
+.row-actions{
+  display: flex;
+  width: 100px;
+  justify-content: space-between;
+}
+
+.row-actions i {
+  cursor: pointer;
+  margin: auto 15px;
+}
+// table
 
 // pills
 .pill{

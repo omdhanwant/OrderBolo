@@ -102,7 +102,6 @@ export class NavbarComponent implements OnInit {
     }
     this.auth.generateOtp({mobile: mobileNumber})
       .subscribe( (authData: OtpData) => {
-         console.log(authData);
          this.isOTPNav = true;
       });
   }

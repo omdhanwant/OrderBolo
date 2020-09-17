@@ -1,4 +1,4 @@
-<div class="container-fluid p-0">
+<div class="container-fluid p-0" id="mydiv">
     <section>
         <carousel>
             <slide>
@@ -9,9 +9,19 @@
                         <div class="col-md-2">&nbsp;</div>
                         <div class="col-md-8">
                             <form>
+                                <p-autoComplete 
+                                    [(ngModel)]="selectedCountry" 
+                                    [suggestions]="filteredCountries"
+                                    (completeMethod)="filterCountry($event)" 
+                                    field="name" 
+                                    [minLength]="1"
+                                    [ngModelOptions]="{standalone: true}"
+                                    [style]="{'width':'100%'}" [inputStyle]="{'width':'100%'}"
+                                    [autoHighlight]="true"
+                                    placeholder="Search anything here..."></p-autoComplete>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="searchbar" aria-describedby="searchbar"
-                                        placeholder="Search..">
+                                    <!-- <input type="text" class="form-control" id="searchbar" aria-describedby="searchbar"
+                                        placeholder="Search.."> -->
                                     <small id="emailHelp" class="form-text search-bar">Search
                                         blogs/Categorys....</small>
                                 </div>

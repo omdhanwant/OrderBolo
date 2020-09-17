@@ -19,7 +19,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 //ng prime
 import {DropdownModule} from 'primeng/dropdown';
-
+import { AutoCompleteModule } from 'primeng/autocomplete';
 //components
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -116,6 +116,7 @@ import { GstComponent } from './document-doctor/gst/gst.component';
     BsDatepickerModule.forRoot(),
     CarouselModule.forRoot(),
     DropdownModule,
+    AutoCompleteModule,
     SlickCarouselModule,
     NgOtpInputModule,
     HttpClientModule,

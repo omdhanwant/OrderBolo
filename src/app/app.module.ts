@@ -71,6 +71,7 @@ import {DialogModule} from 'primeng/dialog';
 import { AdminGaurd } from './service/adminGaurd';
 import { GumastaComponent } from './document-doctor/gumasta/gumasta.component';
 import { GstComponent } from './document-doctor/gst/gst.component';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 
 
@@ -128,6 +129,7 @@ import { GstComponent } from './document-doctor/gst/gst.component';
     }),
     ChipsModule,
     DialogModule,
+    PaginationModule.forRoot(),
 
     //material
     // MatSelectModule,

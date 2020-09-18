@@ -13,54 +13,20 @@
 </div>
 
   <div class="col-12">
-    <!-- <div class="list_container">
-      <div class="list_details">
-        <div class="list_info">
-          <div>
-            <span class="name">
-              <strong> Order 1: </strong>
-              <span style="color: rgb(169, 167, 167);"> #123 </span>
-            </span>
-            <span class="code">
-              Description:
-              <span style="color: rgb(169, 167, 167);"> test </span>
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="list_details">
-        <div class="list_info">
-          <div>
-            <span class="name">
-              <strong> Order 2: </strong>
-              <span style="color: rgb(169, 167, 167);"> #123 </span>
-            </span>
-            <span class="code">
-              Description:
-              <span style="color: rgb(169, 167, 167);"> test </span>
-            </span>
-          </div>
-        </div>
+    <div style="display: flex; justify-content: space-between;">
+      <span><pre class="card card-block card-header mb-3">The selected page no: {{currentPage}}/{{lastPageCount}}</pre></span>
+      <pagination [boundaryLinks]="true"
+      style="margin-top: 7px;"
+      [rotate]='true'
+      [maxSize]='5'
+      [(ngModel)]="currentPage"
+      [totalItems]="contentData.length"
+      (numPages)="lastPageCount = $event"
+      (pageChanged)="pageChanged($event)"
+      previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
 
-      </div>
-
-      <div class="list_details">
-        <div class="list_info">
-          <div>
-            <span class="name">
-              <strong> Order 3: </strong>
-              <span style="color: rgb(169, 167, 167);"> #123 </span>
-            </span>
-            <span class="code">
-              Description:
-              <span style="color: rgb(169, 167, 167);"> test </span>
-            </span>
-          </div>
-        </div>
-
-      </div>
-    </div> -->
-
+      </pagination>
+    </div>
     <table class="table table-hover">
       <thead>
         <tr>
@@ -70,7 +36,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let order of orders; let i =index;">
+        <tr *ngFor="let order of paginatedData; let i =index;">
           <th scope="row">{{ i + 1 }}</th>
           <td class="table-col-wdith-20">{{ order.name }}</td>
           <td> {{ order.description }}</td>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 
 @Component({
   selector: 'app-manage-users',
@@ -7,15 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManageUsersComponent implements OnInit {
   showAddScreen: boolean = false;
-  users = [];
-  constructor() {
-    this.users = [
-      { name: 'User1' , description : 'description'},
-      { name: 'User2' , description : 'description'},
-      { name: 'User3' , description : 'description'}
-    ]
+   // pagination
+  // totalItems: number = 100;
+  currentPage: number = 1;
+  lastPageCount: number= 10;
 
-  }
+  contentData = []
+  paginatedData = []
+  constructor() {
+
+    for(let i = 0 ; i < 100 ; i++){
+      const appendNo = i+1
+      this.contentData.push({ name: 'User ' + appendNo , description : 'description'})
+    }
+    this.paginatedData = this.contentData.slice(0, 10);
+   }
 
   ngOnInit(): void {
   }
@@ -26,6 +33,12 @@ export class ManageUsersComponent implements OnInit {
 
   showDetails(){
     this.showAddScreen = true;
+  }
+
+  pageChanged(event: PageChangedEvent): void {
+    const startItem = (event.page - 1) * event.itemsPerPage;
+    const endItem = event.page * event.itemsPerPage;
+    this.paginatedData = this.contentData.slice(startItem, endItem);
   }
 
 }

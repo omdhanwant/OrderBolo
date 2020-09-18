@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/service/auth.service';
 import { DataService } from 'src/app/service/data.service';
 import { DocumentService } from 'src/app/service/document.service';
 import { Blogs } from 'src/app/models/blogs';
+import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 @Component({
   selector: 'app-blogs-setting',
   templateUrl: './blogs-setting.component.html',
@@ -14,9 +15,17 @@ import { Blogs } from 'src/app/models/blogs';
 export class BlogsSettingComponent implements OnInit {
   showAddScreen: boolean = false;
   Blogs: Blogs[];
+
+  currentPage: number = 1;
+  lastPageCount: number= 10;
+
+  // contentData = []
+  paginatedData:Blogs[] = []
   constructor(private auth: AuthService, private service: DocumentService, private dataService: DataService , private route: Router) { }
 
   ngOnInit(): void {
+    this.Blogs = [];
+    this.paginatedData = [];
     this.auth.peekAuthentication()
     .pipe(take(1)).subscribe(auth => {
       if(auth && auth.isAuthenticated){
@@ -25,17 +34,7 @@ export class BlogsSettingComponent implements OnInit {
         .subscribe((blogsData:Blogs[]) => {
           console.log(blogsData)
           this.Blogs = blogsData;
-          // setTimeout(() => {
-          //   this.form.setValue({
-          //     name: user['name'] ? user['name'] : '',
-          //     email: user['email'] ? user['email'] : '',
-          //     dob: user['dob'] ? new Date(user['dob']) : '',
-          //     pin_code: user['pin_code'] ? user['pin_code'] : '',
-          //     address: user['address'] ? user['address'] : '',
-          //     mobile: user['mobile'] ? user['mobile'] : ''
-          //   })
-          // }, 500);
-
+          this.paginatedData = this.Blogs.slice(0, 10);
         })
       }
     });
@@ -48,6 +47,12 @@ export class BlogsSettingComponent implements OnInit {
 
   showDetails(){
     this.showAddScreen = true;
+  }
+
+  pageChanged(event: PageChangedEvent): void {
+    const startItem = (event.page - 1) * event.itemsPerPage;
+    const endItem = event.page * event.itemsPerPage;
+    this.paginatedData = this.Blogs.slice(startItem, endItem);
   }
 
 }

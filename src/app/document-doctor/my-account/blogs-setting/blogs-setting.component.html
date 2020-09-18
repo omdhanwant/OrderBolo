@@ -17,25 +17,20 @@
 </div>
 
   <div class="col-12">
-    <!-- <div class="list_container" *ngFor="let blog of Blogs">
-      <div class="list_details">
-        <div class="list_info">
-          <div>
-            <strong class="name">
-             {{blog.title}}
-            </strong>
-            <span class="code">
-              Description:
-              <span style="color: rgb(169, 167, 167);"> {{blog.description}} </span>
-            </span>
-          </div>
-        </div>
-        <div class="actions">
-          <i class="pi pi-minus-circle" style="color: red;"></i>
-          <i (click)="showDetails()" class="pi pi-pencil"></i>
-        </div>
-      </div>
-    </div> -->
+    <div style="display: flex; justify-content: space-between;">
+      <span><pre class="card card-block card-header mb-3">The selected page no: {{currentPage}}/{{lastPageCount}}</pre></span>
+      <pagination [boundaryLinks]="true"
+      style="margin-top: 7px;"
+      [rotate]='true'
+      [maxSize]='5'
+      [(ngModel)]="currentPage"
+      [totalItems]="Blogs.length"
+      (numPages)="lastPageCount = $event"
+      (pageChanged)="pageChanged($event)"
+      previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+
+      </pagination>
+    </div>
 
     <table class="table table-hover">
       <thead>
@@ -47,7 +42,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let blog of Blogs; let i =index;">
+        <tr *ngFor="let blog of paginatedData; let i =index;">
           <th scope="row">{{ i + 1 }}</th>
           <td class="table-col-wdith-20">{{ blog.title }}</td>
           <td> {{ blog.description }}</td>

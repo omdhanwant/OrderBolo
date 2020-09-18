@@ -30,10 +30,14 @@ $filetransfer-theme: mat-light-theme($filetransfer-primary, $filetransfer-accent
 @import "~bootstrap/scss/bootstrap";
 body {
   //   font-family: "Roboto", sans-serif;
-  font-family: axiforma-regular, -apple-system, BlinkMacSystemFont, Segoe UI,
+  font-family:
     Roboto, Helvetica, Arial, sans-serif;
   font-weight: 300;
   overflow-x: hidden;
+  font-size:14px
+}
+label, section, div, p, a, input, ::placeholder, :-ms-input-placeholder, ::-webkit-input-placeholder{
+  font-size: 14px;
 }
 .btn-primary {
   background:#0B0633!important;
@@ -686,3 +690,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background-color: #0B0633!important;
 }
 // custom dialog
+.description-section{
+  background: #f5f4f4;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 14px;
+}

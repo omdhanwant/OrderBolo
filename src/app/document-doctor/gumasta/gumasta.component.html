@@ -9,13 +9,31 @@
                 </ol>
             </nav>
         </div>
+        
         <div class="col-md-12">
             <section class="feature-category">
-                <div class="row p-5">
+                <div class="row pb-3">
                     <div class="col-md-12">
                         <h1 class="feature_h1 text-center">Gumasta</h1>
                         <span class="feature_sub_title text-center">Fill bellow form details</span>
-                        <br>
+                        <hr>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="col-md-4">
+            <section class="feature-category description-section">
+                <div class="row">
+                    <div class="col-md-12">
+                        Descriptions
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="col-md-8">
+            <section class="feature-category description-section">
+                <div class="row">
+                    <div class="col-md-12">
                         <form #form="ngForm" (ngSubmit)="save(form)">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
@@ -29,9 +47,9 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Type of Registration</label>
-                                    <input type="text" name="type_of_registration" ngModel #type_of_registration="ngModel"
-                                        class="form-control" placeholder="type of registration" required
-                                        autocomplete="off">
+                                    <input type="text" name="type_of_registration" ngModel
+                                        #type_of_registration="ngModel" class="form-control"
+                                        placeholder="type of registration" required autocomplete="off">
                                     <div *ngIf="type_of_registration.touched && type_of_registration.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
                                         Type of Registration
@@ -91,8 +109,8 @@
                                     <label for="pin">city</label>
                                     <input type="text" name="city" ngModel #city="ngModel" maxlength="6"
                                         class="form-control" placeholder="Pin Code" required autocomplete="off">
-                                    <div *ngIf="city.touched && city.hasError('required')"
-                                        class="invalid-feedback" style="display: inline-block;">
+                                    <div *ngIf="city.touched && city.hasError('required')" class="invalid-feedback"
+                                        style="display: inline-block;">
                                         city is required
                                     </div>
                                 </div>
@@ -107,8 +125,9 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="pin">type_of_business</label>
-                                    <input type="text" name="type_of_business" ngModel #type_of_business="ngModel" maxlength="6"
-                                        class="form-control" placeholder="Pin Code" required autocomplete="off">
+                                    <input type="text" name="type_of_business" ngModel #type_of_business="ngModel"
+                                        maxlength="6" class="form-control" placeholder="Pin Code" required
+                                        autocomplete="off">
                                     <div *ngIf="type_of_business.touched && type_of_business.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
                                         type_of_business is required
@@ -116,8 +135,9 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="pin">ownership_of_premises</label>
-                                    <input type="text" name="ownership_of_premises" ngModel #ownership_of_premises="ngModel" maxlength="6"
-                                        class="form-control" placeholder="Pin Code" required autocomplete="off">
+                                    <input type="text" name="ownership_of_premises" ngModel
+                                        #ownership_of_premises="ngModel" maxlength="6" class="form-control"
+                                        placeholder="Pin Code" required autocomplete="off">
                                     <div *ngIf="ownership_of_premises.touched && ownership_of_premises.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
                                         ownership_of_premises is required
@@ -125,8 +145,9 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="pin">total_male_employee</label>
-                                    <input type="text" name="total_male_employee" ngModel #total_male_employee="ngModel" maxlength="6"
-                                        class="form-control" placeholder="Pin Code" required autocomplete="off">
+                                    <input type="text" name="total_male_employee" ngModel #total_male_employee="ngModel"
+                                        maxlength="6" class="form-control" placeholder="Pin Code" required
+                                        autocomplete="off">
                                     <div *ngIf="total_male_employee.touched && total_male_employee.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
                                         total_male_employee is required
@@ -134,8 +155,9 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="pin">total_female_employee</label>
-                                    <input type="text" name="total_female_employee" ngModel #total_female_employee="ngModel" maxlength="6"
-                                        class="form-control" placeholder="Pin Code" required autocomplete="off">
+                                    <input type="text" name="total_female_employee" ngModel
+                                        #total_female_employee="ngModel" maxlength="6" class="form-control"
+                                        placeholder="Pin Code" required autocomplete="off">
                                     <div *ngIf="total_female_employee.touched && total_female_employee.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
                                         total_female_employee is required
@@ -143,8 +165,9 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="pin">nature_of_business</label>
-                                    <input type="text" name="nature_of_business" ngModel #nature_of_business="ngModel" maxlength="6"
-                                        class="form-control" placeholder="Pin Code" required autocomplete="off">
+                                    <input type="text" name="nature_of_business" ngModel #nature_of_business="ngModel"
+                                        maxlength="6" class="form-control" placeholder="Pin Code" required
+                                        autocomplete="off">
                                     <div *ngIf="nature_of_business.touched && nature_of_business.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
                                         nature_of_business is required
@@ -161,14 +184,15 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="pin">aadhar_number</label>
-                                    <input type="text" name="aadhar_number" ngModel #aadhar_number="ngModel" maxlength="6"
-                                        class="form-control" placeholder="Pin Code" required autocomplete="off">
+                                    <input type="text" name="aadhar_number" ngModel #aadhar_number="ngModel"
+                                        maxlength="6" class="form-control" placeholder="Pin Code" required
+                                        autocomplete="off">
                                     <div *ngIf="aadhar_number.touched && aadhar_number.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
                                         aadhar_number is required
                                     </div>
                                 </div>
-                               
+
                                 <div class="form-group col-md-6">
                                     <label for="date">Birth Date</label>
                                     <input type="text" name="birth_date" ngModel #birth_date="ngModel"

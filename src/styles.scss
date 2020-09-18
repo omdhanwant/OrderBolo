@@ -696,3 +696,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   padding: 15px;
   font-size: 14px;
 }
+
+//pagination
+.pagination .page-item.active .page-link {
+  background-color: #0B0633!important;
+  border-color: #0B0633!important;
+  color: #fff!important;
+}
+
+.pagination .page-item .page-link {
+  color: #0B0633!important;
+}
+//pagination

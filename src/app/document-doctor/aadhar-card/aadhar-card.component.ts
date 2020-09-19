@@ -4,17 +4,18 @@ import { DocumentService } from 'src/app/service/document.service';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
 import { take } from 'rxjs/operators';
-
+import { WindowRefService } from '../../rozorpay-service/window-ref.service';
 @Component({
   selector: 'app-aadhar-card',
   templateUrl: './aadhar-card.component.html',
-  styleUrls: ['./aadhar-card.component.scss']
+  styleUrls: ['./aadhar-card.component.scss'],
+  providers: [WindowRefService]
 })
 export class AadharCardComponent implements OnInit {
   myFiles:File [] = [];
   // previewFiles:string[] = [];
   user_id:number;
-  constructor(private service: DocumentService, private route: Router, private auth: AuthService) { }
+  constructor(private winRef: WindowRefService, private service: DocumentService, private route: Router, private auth: AuthService) { }
 
   ngOnInit(): void {
     this.auth.peekAuthentication()
@@ -75,4 +76,43 @@ export class AadharCardComponent implements OnInit {
     return `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`
   }
 
+  //razorpay payment gatway
+  createRzpayOrder(data) {
+    console.log(data);
+    // call api to create order_id
+    this.payWithRazor('123123');
+  }
+  payWithRazor(val) {
+    const options: any = {
+      key: 'rzp_test_p0HxOFqgEsmvhR',
+      amount: 1200, // amount should be in paise format to display Rs 1255 without decimal point
+      currency: 'INR',
+      name: 'vit solutions', // company name or product name
+      description: '',  // product description
+      image: './assets/logo.png', // company logo or product image
+      order_id: '', // order_id created by you in backend
+      modal: {
+        // We should prevent closing of the form when esc key is pressed.
+        escape: false,
+      },
+      notes: {
+        // include notes if any
+      },
+      theme: {
+        color: '#0c238a'
+      }
+    };
+    options.handler = ((response, error) => {
+      options.response = response;
+      console.log(response);
+      console.log(options);
+      // call your backend api to verify payment signature & capture transaction
+    });
+    options.modal.ondismiss = (() => {
+      // handle the case when user closes the form while transaction is in progress
+      console.log('Transaction cancelled.');
+    });
+    const rzp = new this.winRef.nativeWindow.Razorpay(options);
+    rzp.open();
+  }
 }

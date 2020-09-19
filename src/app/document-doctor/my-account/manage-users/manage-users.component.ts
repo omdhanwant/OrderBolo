@@ -4,6 +4,7 @@ import { Users } from 'src/app/models/users';
 import { Router } from '@angular/router';
 import { take } from 'rxjs/operators';
 import { DataService } from 'src/app/service/data.service';
+import { MyAccountService } from 'src/app/service/myaccount.service';
 
 @Component({
   selector: 'app-manage-users',
@@ -19,7 +20,7 @@ export class ManageUsersComponent implements OnInit {
   users :Users[];
   contentData = []
   paginatedData = []
-  constructor( private dataService: DataService , private route: Router) {
+  constructor( private service: MyAccountService) {
 
     // for(let i = 0 ; i < 100 ; i++){
     //   const appendNo = i+1
@@ -33,7 +34,7 @@ export class ManageUsersComponent implements OnInit {
   }
 
   getAllUser(){
-    this.dataService.getAllUsers()
+    this.service.getAllUsers()
     .pipe(take(1))
     .subscribe((users:Users[]) => {
       // console.log(users)
@@ -42,7 +43,7 @@ export class ManageUsersComponent implements OnInit {
     })
   }
   deleteUser(id){
-    this.dataService.deleteUserById(id)
+    this.service.deleteUserById(id)
     .pipe(take(1))
     .subscribe(user => {
       alert("user deleted");

@@ -4,18 +4,22 @@ import { DocumentService } from 'src/app/service/document.service';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
 import { take } from 'rxjs/operators';
-import { WindowRefService } from '../../rozorpay-service/window-ref.service';
+import { WindowRefService } from 'src/app/rozorpay-service/window-ref.service';
+import { v4 as uuid } from 'uuid';
+import { UtilService } from 'src/app/service/util.service';
+import { DataService } from 'src/app/service/data.service';
+declare var $;
 @Component({
   selector: 'app-aadhar-card',
   templateUrl: './aadhar-card.component.html',
-  styleUrls: ['./aadhar-card.component.scss'],
-  providers: [WindowRefService]
+  styleUrls: ['./aadhar-card.component.scss']
 })
 export class AadharCardComponent implements OnInit {
   myFiles:File [] = [];
   // previewFiles:string[] = [];
   user_id:number;
-  constructor(private winRef: WindowRefService, private service: DocumentService, private route: Router, private auth: AuthService) { }
+  message: string;
+  constructor(private service: DocumentService,private dataService: DataService, private route: Router, private auth: AuthService, private util: UtilService) { }
 
   ngOnInit(): void {
     this.auth.peekAuthentication()
@@ -37,6 +41,12 @@ export class AadharCardComponent implements OnInit {
 
 
   save(form: NgForm){
+
+    if(!this.myFiles.length) {
+      this.showAlert('Please upload documents!');
+      return
+    }
+
     let formData = new FormData();
     for (var i = 0; i < this.myFiles.length; i++) {
       formData.append("filenames[]", this.myFiles[i]);
@@ -47,6 +57,7 @@ export class AadharCardComponent implements OnInit {
       form.control.get('birth_date').setValue(birth_date_format)
 
       formData.append('user_id', this.user_id.toString())
+      formData.append('document_id', uuid()) /// create a unique document id
       formData.append('full_name', form.control.get('full_name').value)
       formData.append('birth_date', form.control.get('birth_date').value)
       formData.append('pin_code', form.control.get('pin_code').value)
@@ -58,16 +69,24 @@ export class AadharCardComponent implements OnInit {
       this.saveForm(formData);
   }
 
-  saveForm(payload){
-    for (var key of payload.entries()) {
-			console.log(key[0] + ', ' + key[1])
-		}
+  saveForm(payload: FormData){
+
     // let options = { content: payload };
     this.service.saveAdharCardDocument(payload)
-      .subscribe((response) => {
-        console.log(response)
-        alert('Successfully Saved!')
-        this.route.navigateByUrl('/document-doctor')
+      .subscribe(() => {
+        // this.showAlert('Form Successfully Saved');
+        this.dataService.check_out_data = {
+          user_id: +payload.get('user_id').toString(),
+          order_id:  payload.get('document_id').toString(),
+          name:  null,
+          address: null ,
+          city:  null,
+          state:  null,
+          pincode:  null,
+          mobile:   null,
+        }
+
+        this.route.navigateByUrl('/order-checkout')
       })
   }
 
@@ -79,40 +98,15 @@ export class AadharCardComponent implements OnInit {
   //razorpay payment gatway
   createRzpayOrder(data) {
     console.log(data);
-    // call api to create order_id
-    this.payWithRazor('123123');
   }
-  payWithRazor(val) {
-    const options: any = {
-      key: 'rzp_test_p0HxOFqgEsmvhR',
-      amount: 1200, // amount should be in paise format to display Rs 1255 without decimal point
-      currency: 'INR',
-      name: 'vit solutions', // company name or product name
-      description: '',  // product description
-      image: './assets/logo.png', // company logo or product image
-      order_id: '', // order_id created by you in backend
-      modal: {
-        // We should prevent closing of the form when esc key is pressed.
-        escape: false,
-      },
-      notes: {
-        // include notes if any
-      },
-      theme: {
-        color: '#0c238a'
-      }
-    };
-    options.handler = ((response, error) => {
-      options.response = response;
-      console.log(response);
-      console.log(options);
-      // call your backend api to verify payment signature & capture transaction
-    });
-    options.modal.ondismiss = (() => {
-      // handle the case when user closes the form while transaction is in progress
-      console.log('Transaction cancelled.');
-    });
-    const rzp = new this.winRef.nativeWindow.Razorpay(options);
-    rzp.open();
+
+
+  showAlert(message) {
+          this.util.alertMessage = message;
+          this.util.displayDialog = true;
+          setTimeout(() => {
+            this.util.displayDialog = false;
+            this.util.alertMessage = ''
+          }, 2000);
   }
 }

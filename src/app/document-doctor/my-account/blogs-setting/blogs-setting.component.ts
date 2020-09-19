@@ -7,6 +7,7 @@ import { DataService } from 'src/app/service/data.service';
 import { DocumentService } from 'src/app/service/document.service';
 import { Blogs } from 'src/app/models/blogs';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
+import { MyAccountService } from 'src/app/service/myaccount.service';
 @Component({
   selector: 'app-blogs-setting',
   templateUrl: './blogs-setting.component.html',
@@ -21,7 +22,7 @@ export class BlogsSettingComponent implements OnInit {
 
   // contentData = []
   paginatedData:Blogs[] = []
-  constructor(private auth: AuthService, private service: DocumentService, private dataService: DataService , private route: Router) { }
+  constructor(private auth: AuthService,  private service: MyAccountService) { }
 
   ngOnInit(): void {
     this.Blogs = [];
@@ -29,7 +30,7 @@ export class BlogsSettingComponent implements OnInit {
     this.auth.peekAuthentication()
     .pipe(take(1)).subscribe(auth => {
       if(auth && auth.isAuthenticated){
-        this.dataService.getBlogs()
+        this.service.getBlogs()
         .pipe(take(1))
         .subscribe((blogsData:Blogs[]) => {
           console.log(blogsData)

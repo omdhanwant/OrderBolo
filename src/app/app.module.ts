@@ -72,6 +72,8 @@ import { AdminGaurd } from './service/adminGaurd';
 import { GumastaComponent } from './document-doctor/gumasta/gumasta.component';
 import { GstComponent } from './document-doctor/gst/gst.component';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { OrderCheckoutComponent } from './order-checkout/order-checkout.component';
+import { MyAccountService } from './service/myaccount.service';
 
 
 
@@ -106,7 +108,8 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
     AddUserComponent,
     MessageDialogComponent,
     GumastaComponent,
-    GstComponent
+    GstComponent,
+    OrderCheckoutComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -147,6 +150,7 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
     DataService,
     UtilService,
     DocumentService,
+    MyAccountService,
     { provide: LocationStrategy, useClass: HashLocationStrategy },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],

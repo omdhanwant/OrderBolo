@@ -3,16 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Blogs } from '../models/blogs';
-import { Users } from '../models/users';
+import { CheckOutData } from '../models/documents';
 
 
 @Injectable()
 export class DataService {
   loading = false;
   private userData$ = new BehaviorSubject<Object[]>(null);
-  private blogsData$ = new BehaviorSubject<Blogs[]>(null);
-  private usersData$ = new BehaviorSubject<Users[]>(null);
+  private checkOutData: CheckOutData;
   constructor(private http: HttpClient) { }
 
   getData(url) {
@@ -23,6 +21,19 @@ export class DataService {
     return this.http.post(url, body, options)
   }
 
+
+
+  // check out data
+  set check_out_data(data: CheckOutData) {
+    this.checkOutData = data;
+  }
+
+  get check_out_data(): CheckOutData{
+    return this.checkOutData;
+  }
+
+
+  // user data
   getUserById(id) {
     if (this.userData$.value) {
       return this.userData$.asObservable();
@@ -33,33 +44,21 @@ export class DataService {
         return userData
       }))
   }
-  getBlogs() {
-    //  if(this.blogsData$.value) {
-    //      return this.blogsData$.asObservable();
-    //  }
-    return this.http.get(`${environment.base_url}/v1/blogs`)
-      .pipe(map(blogsData => {
-        this.blogsData$.next(blogsData as Blogs[])
-        return blogsData
-      }))
-  }
-  //get all users
-  getAllUsers() {
-    //  if(this.usersData$.value) {
-    //      return this.usersData$.asObservable();
-    //  }
-    return this.http.get(`${environment.base_url}/v1/getUser`)
-      .pipe(map(usersData => {
-        this.usersData$.next(usersData as Users[])
-        return usersData
-      }))
-  }
-  deleteUserById(id){
-    return this.http.delete(`${environment.base_url}/v1/deleteUser/${id}`)
-  }
 
   refreshUserData() {
     this.userData$.next(null);
+  }
+
+
+  //check out flow
+
+  checkoutOrder(data) {
+    const headers = new Headers({'Content-Type': 'application/json'})
+    return this.postData(`${environment.base_url}/v1/checkout`, data, {headers: headers});
+  }
+
+  orderUpdateWithPayment(data) {
+    return this.http.post(`${environment.base_url}/v1/payment`, data);
   }
 }
 

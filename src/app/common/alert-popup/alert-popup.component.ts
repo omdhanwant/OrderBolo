@@ -9,8 +9,8 @@ import { Component, Input, OnInit, Output } from '@angular/core';
 export class AlertPopupComponent implements OnInit {
   @Input() message: string;
   @Input() title: string;
-  @Input() showOkbutton: boolean;
-  @Input() showCancelbutton: boolean;
+  @Input() showOkbutton: boolean = false;
+  @Input() showCancelbutton: boolean =  false;
   @Input() okButtonName: string;
   @Input() cancelButtonName: string;
   @Input() okButtonColor: string;

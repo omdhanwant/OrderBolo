@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { take } from 'rxjs/operators';
 import { DataService } from 'src/app/service/data.service';
 import { Blogs } from 'src/app/models/blogs';
+import { MyAccountService } from '../service/myaccount.service';
 
 @Component({
   selector: 'app-blogs',
@@ -12,11 +13,11 @@ import { Blogs } from 'src/app/models/blogs';
 export class BlogsComponent implements OnInit {
   showAddScreen: boolean = false;
   Blogs: Blogs[];
-  constructor( private dataService: DataService , private route: Router) { }
+  constructor( private service: MyAccountService , private route: Router) { }
 
   ngOnInit(): void {
     console.log("blog")
-    this.dataService.getBlogs()
+    this.service.getBlogs()
     .pipe(take(1))
     .subscribe((blogsData:Blogs[]) => {
       console.log(blogsData)

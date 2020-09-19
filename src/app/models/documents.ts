@@ -21,3 +21,14 @@ export interface GazetteCertificate {
    birth_date: string;
    filenames: File[];
  }
+
+ export interface CheckOutData {
+  user_id: number;
+  order_id: string;
+  name: string;
+  address: string;
+  city: string;
+  state: string;
+  pincode: string;
+  mobile: string;
+ }

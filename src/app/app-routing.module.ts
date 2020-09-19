@@ -24,6 +24,7 @@ import { ManageUsersComponent } from './document-doctor/my-account/manage-users/
 import { MyOrdersComponent } from './document-doctor/my-account/my-orders/my-orders.component';
 import { GumastaComponent } from './document-doctor/gumasta/gumasta.component';
 import { GstComponent } from './document-doctor/gst/gst.component';
+import { OrderCheckoutComponent } from './order-checkout/order-checkout.component';
 
 
 // const routes: Routes = [];
@@ -165,6 +166,11 @@ const routes: Routes = [
         canActivate: [AuthGuard]
       }
     ]
+  },
+  {
+    path: 'order-checkout',
+    component: OrderCheckoutComponent,
+    canActivate: [AuthGuard]
   },
 
   {

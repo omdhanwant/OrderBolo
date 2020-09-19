@@ -15,6 +15,7 @@ export class BlogsComponent implements OnInit {
   constructor( private dataService: DataService , private route: Router) { }
 
   ngOnInit(): void {
+    console.log("blog")
     this.dataService.getBlogs()
     .pipe(take(1))
     .subscribe((blogsData:Blogs[]) => {

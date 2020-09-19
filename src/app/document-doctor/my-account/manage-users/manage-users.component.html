@@ -36,19 +36,33 @@
       <thead>
         <tr>
           <th scope="col">#</th>
+          <th scope="col">Avatar</th>
           <th scope="col-3">Name</th>
-          <th scope="col">Description</th>
+          <th scope="col-3">DOB</th>
+          <th scope="col-3">Address</th>
+          <th scope="col-3">Email</th>
+          <th scope="col-3">Phone</th>
           <th scope="col">Actions</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let user of paginatedData; let i =index;">
           <th scope="row">{{ i + 1 }}</th>
+          <td *ngIf="!user.profile_photo || user.profile_photo === 'null'; then thenTemplateName else elseTemplateName"><img [src]="user.profile_photo" class="rounded float-left" alt="user.name" width="50"></td>
+          <ng-template #thenTemplateName>
+            <td><img src="http://documentdoctor.in/orderbolo/public/images/users/7057837188/profile_photo_1600230598.png" class="rounded float-left" alt="user.name" width="50"></td>
+          </ng-template>
+          <ng-template #elseTemplateName>
+           <td><img [src]="user.profile_photo" class="rounded float-left" alt="user.name" width="50"></td>
+          </ng-template>
           <td class="table-col-wdith-20">{{ user.name }}</td>
-          <td> {{ user.description }}</td>
+          <td>{{user.dob}}</td>
+          <td>{{user.address}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.mobile}}</td>
           <td>
             <div class="row-actions">
-            <i class="pi pi-minus-circle" style="color: red;"></i>
+            <i class="pi pi-minus-circle" style="color: red;" (click)=deleteUser(user.id)></i>
             <i (click)="showDetails()" class="pi pi-pencil"></i>
             </div>
 

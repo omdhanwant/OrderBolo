@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
+import { Users } from 'src/app/models/users';
+import { Router } from '@angular/router';
+import { take } from 'rxjs/operators';
+import { DataService } from 'src/app/service/data.service';
 
 @Component({
   selector: 'app-manage-users',
@@ -12,21 +16,38 @@ export class ManageUsersComponent implements OnInit {
   // totalItems: number = 100;
   currentPage: number = 1;
   lastPageCount: number= 10;
-
+  users :Users[];
   contentData = []
   paginatedData = []
-  constructor() {
+  constructor( private dataService: DataService , private route: Router) {
 
-    for(let i = 0 ; i < 100 ; i++){
-      const appendNo = i+1
-      this.contentData.push({ name: 'User ' + appendNo , description : 'description'})
-    }
-    this.paginatedData = this.contentData.slice(0, 10);
+    // for(let i = 0 ; i < 100 ; i++){
+    //   const appendNo = i+1
+    //   this.contentData.push({ name: 'User ' + appendNo , description : 'description'})
+    // }
+    // this.paginatedData = this.contentData.slice(0, 10);
    }
 
   ngOnInit(): void {
+    this.getAllUser();
   }
 
+  getAllUser(){
+    this.dataService.getAllUsers()
+    .pipe(take(1))
+    .subscribe((users:Users[]) => {
+      // console.log(users)
+      this.users = users;
+      this.paginatedData = this.users;
+    })
+  }
+  deleteUser(id){
+    this.dataService.deleteUserById(id)
+    .pipe(take(1))
+    .subscribe(user => {
+      alert("user deleted");
+    })
+  }
   showDetailScreen(){
     this.showAddScreen = true;
   }

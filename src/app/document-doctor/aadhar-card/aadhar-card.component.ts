@@ -96,11 +96,6 @@ export class AadharCardComponent implements OnInit {
     return `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`
   }
 
-  //razorpay payment gatway
-  createRzpayOrder(data) {
-    console.log(data);
-  }
-
 
   showAlert(message) {
           this.util.alertMessage = message;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { switchMap, take } from 'rxjs/operators';
 import { CheckOutData } from '../models/documents';
@@ -23,7 +23,7 @@ export class OrderCheckoutComponent implements OnInit {
   private __rezorPayOrderId: string;
   showPaymentButton: boolean = false;
 
-  constructor(private winRef: WindowRefService, private dataService: DataService, private route: Router) {
+  constructor(private winRef: WindowRefService, private zone: NgZone, private dataService: DataService, private route: Router) {
     if(!this.dataService.check_out_data) {
       this.route.navigateByUrl('/document-doctor')
   }
@@ -103,7 +103,7 @@ export class OrderCheckoutComponent implements OnInit {
   // success response handler
   updatePaymentHandler = (response: RazorPaymentResponse) => {
     console.log('paymentResponse ' + response)
-    this.updateOrderStatus(response);
+    this.zone.run(() => this.updateOrderStatus(response));
   }
 
   // handle the case when user closes the form while transaction is in progress

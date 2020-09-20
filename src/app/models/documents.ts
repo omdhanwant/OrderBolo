@@ -24,6 +24,7 @@ export interface GazetteCertificate {
 
  export interface CheckOutData {
   user_id: number;
+  document_id: string;
   order_id: string;
   name: string;
   address: string;

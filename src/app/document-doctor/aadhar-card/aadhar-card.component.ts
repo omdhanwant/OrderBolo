@@ -77,7 +77,8 @@ export class AadharCardComponent implements OnInit {
         // this.showAlert('Form Successfully Saved');
         this.dataService.check_out_data = {
           user_id: +payload.get('user_id').toString(),
-          order_id:  payload.get('document_id').toString(),
+          document_id: payload.get('document_id').toString(),
+          order_id:  '',
           name:  null,
           address: null ,
           city:  null,

@@ -53,8 +53,7 @@ export class DataService {
   //check out flow
 
   checkoutOrder(data) {
-    const headers = new Headers({'Content-Type': 'application/json'})
-    return this.postData(`${environment.base_url}/v1/checkout`, data, {headers: headers});
+    return this.postData(`${environment.base_url}/v1/razorpay`, data);
   }
 
   orderUpdateWithPayment(data) {

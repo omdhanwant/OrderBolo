@@ -16,4 +16,8 @@ constructor(private http: HttpClient){}
   deleteUserById(id){
     return this.http.delete(`${environment.base_url}/v1/deleteUser/${id}`)
   }
+  //get all orders
+  getAllOrders() {
+    return this.http.get(`${environment.base_url}/v1/orders`)
+  }
 }

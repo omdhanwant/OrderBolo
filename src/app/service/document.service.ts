@@ -17,6 +17,9 @@ export class DocumentService extends DataService{
     // {headers:headers} );
     return this.postData(`${environment.base_url}/v1/aadhar-add`, data);
   }
+  saveFoodLicience(data){
+    return this.postData(`${environment.base_url}/v1/food-licience-add`, data);
+  }
 
   saveUdhyogAadharDocument(data){
     return this.postData(`${environment.base_url}/v1/udyog-adhar-add`, data)

@@ -32,14 +32,27 @@
         <tr>
           <th scope="col">#</th>
           <th scope="col-3">Name</th>
-          <th scope="col">Description</th>
+          <th scope="col">Address</th>
+          <th scope="col">mobile</th>
+          <th scope="col">City</th>
+          <th scope="col">State</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Order Status</th>
+          <th scope="col">Date</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let order of paginatedData; let i =index;">
           <th scope="row">{{ i + 1 }}</th>
           <td class="table-col-wdith-20">{{ order.name }}</td>
-          <td> {{ order.description }}</td>
+          <td> {{ order.address }}</td>
+          <td> {{ order.mobile }}</td>
+          <td> {{ order.city }}</td>
+          <td> {{ order.state }}</td>
+          <td> {{ order.amount }}</td>
+          <td *ngIf="order.status === 'SUCCESS'" style="color: green; font-weight: bold;"> {{ order.status }}</td>
+          <td *ngIf="order.status === 'FAILED'" style="color: RED; font-weight: bold;"> {{ order.status }}</td>
+          <td> {{ order.created_at | date:'mediumDate' }}</td>
         </tr>
       </tbody>
     </table>

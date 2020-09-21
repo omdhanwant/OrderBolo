@@ -16,7 +16,6 @@ declare var $;
 })
 export class AadharCardComponent implements OnInit {
   myFiles:File [] = [];
-  // previewFiles:string[] = [];
   user_id:number;
   message: string;
   constructor(private service: DocumentService,private dataService: DataService, private route: Router, private auth: AuthService, private util: UtilService) { }
@@ -34,9 +33,6 @@ export class AadharCardComponent implements OnInit {
     for (var i = 0; i < event.target.files.length; i++) {
       this.myFiles.push(event.target.files[i]);
     }
-    console.log(this.myFiles);
-    // console.log(this.previewFiles);
-
   }
 
 
@@ -70,8 +66,6 @@ export class AadharCardComponent implements OnInit {
   }
 
   saveForm(payload: FormData){
-
-    // let options = { content: payload };
     this.service.saveAdharCardDocument(payload)
       .subscribe(() => {
         // this.showAlert('Form Successfully Saved');

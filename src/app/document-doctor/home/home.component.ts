@@ -1,36 +1,53 @@
 import { Component, OnInit } from '@angular/core';
+import { take } from 'rxjs/operators';
+import { Blogs } from 'src/app/models/blogs';
+import { MyAccountService } from 'src/app/service/myaccount.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  filteredCountries: any[];
-  selectedCountry:any[];
-  constructor() { }
-
+  documentsBlogsList: any[];
+  selectedCountry: any[];
+  query:string;
+  constructor(private service: MyAccountService) { }
+  blogs:Blogs[]
   ngOnInit(): void {
+    this.blogs = [];
+    this.service.getBlogs()
+    .pipe(take(1))
+    .subscribe((blogsData:Blogs[]) => {
+      this.blogs = blogsData;
+
+      // generate autocomplete dropdown data
+      this.documentsBlogsList = [
+        {"name": "Udhyog Aadhar", "redirectUrl" : "/document-doctor/udhyog-aadhar", "category": "Document"},
+        {"name": "Food Lisence", "redirectUrl" : "/document-doctor/food-licience", "category": "Document"},
+        {"name": "Gumasta", "redirectUrl" : "/document-doctor/gumasta", "category": "Document"},
+        {"name": "GST", "redirectUrl" : "/document-doctor/gst", "category": "Document"},
+    ];
+
+    this.blogs.forEach(blog => {
+      this.documentsBlogsList.push(
+        {"name": blog.title, "redirectUrl" : "/blogs", "category": "Blog"}
+      )
+    })
+    })
+
   }
 
-  filterCountry(event) {
+  filterCategory(event) {
       //in a real application, make a request to a remote url with the query and return filtered results, for demo we filter at client side
-      // let filtered : any[] = [];
-      // let query = event.query;
-      // for(let i = 0; i < this.countries.length; i++) {
-      //     let country = this.countries[i];
-      //     if (country.name.toLowerCase().indexOf(query.toLowerCase()) == 0) {
-      //         filtered.push(country);
-      //     }
-      // }
-    
-      this.filteredCountries = [ 
-        {"name": "Aadhar Card", "code": "category"}, 
-        {"name": "Pan Card", "code": "category"}, 
-        {"name": "Gumasta", "code": "category"}, 
-        {"name": "Police Verification", "code": "category"}, 
-        {"name": "Udyog Aadhar", "code": "category"}, 
-        {"name": "Food Licience", "code": "category"},
-    ];
-    console.log(this.selectedCountry)
+
+      if(event.query) {
+       this.selectedCountry =  this.documentsBlogsList.filter(d => d.name.toLowerCase().includes(event.query.toLowerCase()))
+      }
+
+
+    // console.log(this.selectedCountry)
   }
+
+
 }

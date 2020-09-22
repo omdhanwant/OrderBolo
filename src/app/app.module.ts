@@ -75,6 +75,7 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { OrderCheckoutComponent } from './order-checkout/order-checkout.component';
 import { MyAccountService } from './service/myaccount.service';
 import { BlogDetailComponent } from './blogs/blog-detail/blog-detail.component';
+import { OrderSuccessPageComponent } from './order-success-page/order-success-page.component';
 
 
 
@@ -111,7 +112,8 @@ import { BlogDetailComponent } from './blogs/blog-detail/blog-detail.component';
     GumastaComponent,
     GstComponent,
     OrderCheckoutComponent,
-    BlogDetailComponent
+    BlogDetailComponent,
+    OrderSuccessPageComponent
   ],
   imports: [
     BrowserAnimationsModule,

@@ -17,7 +17,7 @@ import { NgForm } from '@angular/forms';
 })
 export class OrderCheckoutComponent implements OnInit {
   details: CheckOutData
-  private amount = 5000; // paisa = 50 rs
+  private amount = 100; // paisa = 50 rs
   private __key ='rzp_test_p0HxOFqgEsmvhR';
   private __secret = 'jmAdrEjBSPIjRHbiloJKXefw'
   private __rezorPayOrderId: string;
@@ -149,7 +149,7 @@ export class OrderCheckoutComponent implements OnInit {
             console.log('Order Successfully updated with status ' + orderStatus)
           }
 
-          this.route.navigateByUrl('/document-doctor')
+          this.route.navigateByUrl('/order-success-page')
         }
       );
 

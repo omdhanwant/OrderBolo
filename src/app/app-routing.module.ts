@@ -26,6 +26,7 @@ import { GumastaComponent } from './document-doctor/gumasta/gumasta.component';
 import { GstComponent } from './document-doctor/gst/gst.component';
 import { OrderCheckoutComponent } from './order-checkout/order-checkout.component';
 import { BlogDetailComponent } from './blogs/blog-detail/blog-detail.component';
+import { OrderSuccessPageComponent } from './order-success-page/order-success-page.component';
 
 
 // const routes: Routes = [];
@@ -66,6 +67,10 @@ const routes: Routes = [
       }
     ]
     // canActivate: [AuthGuard]
+  },
+  {
+    path: 'order-success-page',
+    component: OrderSuccessPageComponent
   },
   {
     path: 'document-doctor',

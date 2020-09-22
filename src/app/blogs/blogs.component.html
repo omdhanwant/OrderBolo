@@ -1,5 +1,5 @@
 <div class="container">
-  
+
     <!-- <div class="nav-scroller py-1 mb-2">
       <nav class="nav d-flex justify-content-between">
         <a class="p-2 text-muted" href="#">World</a>
@@ -16,7 +16,7 @@
         <a class="p-2 text-muted" href="#">Travel</a>
       </nav>
     </div> -->
-  
+
     <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
       <div class="col-md-6 px-0">
         <h1 class="display-4 font-italic">Title of a longer featured blog post</h1>
@@ -24,7 +24,7 @@
         <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
       </div>
     </div>
-  
+
     <div class="row mb-2">
         <div class="col-12 col-sm-8 col-md-6 col-lg-4 mb-3" *ngFor="let blog of Blogs">
             <div class="card">
@@ -40,7 +40,7 @@
                   <!-- <i class="fas fa-users text-info"></i> 4 portions -->
                 </small>
                 <p class="card-text">{{blog.description | slice:0:100}}....</p>
-                <a href="#" class="btn btn-info">Read More...</a>
+                <a routerLink="/blogs/blog/{{blog.id}}" class="btn btn-info">Read More...</a>
               </div>
               <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
                 <div class="views">{{blog.created_at | date:'mediumDate'}}
@@ -49,7 +49,7 @@
                      <i class="far fa-eye"></i> 1347
                   <i class="far fa-comment"></i> 12
                 </div> -->
-                 
+
               </div>
             </div>
           </div>
@@ -83,5 +83,4 @@
       </div> -->
     </div>
   </div>
-  
-  
+

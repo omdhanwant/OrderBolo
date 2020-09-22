@@ -74,6 +74,7 @@ import { GstComponent } from './document-doctor/gst/gst.component';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { OrderCheckoutComponent } from './order-checkout/order-checkout.component';
 import { MyAccountService } from './service/myaccount.service';
+import { BlogDetailComponent } from './blogs/blog-detail/blog-detail.component';
 
 
 
@@ -109,7 +110,8 @@ import { MyAccountService } from './service/myaccount.service';
     MessageDialogComponent,
     GumastaComponent,
     GstComponent,
-    OrderCheckoutComponent
+    OrderCheckoutComponent,
+    BlogDetailComponent
   ],
   imports: [
     BrowserAnimationsModule,

@@ -25,6 +25,7 @@ import { MyOrdersComponent } from './document-doctor/my-account/my-orders/my-ord
 import { GumastaComponent } from './document-doctor/gumasta/gumasta.component';
 import { GstComponent } from './document-doctor/gst/gst.component';
 import { OrderCheckoutComponent } from './order-checkout/order-checkout.component';
+import { BlogDetailComponent } from './blogs/blog-detail/blog-detail.component';
 
 
 // const routes: Routes = [];
@@ -54,7 +55,16 @@ const routes: Routes = [
   }, {
     path: 'blogs',
     data: { breadcrumb: 'category details' },
-    component: BlogsComponent,
+    children: [
+      {
+        path: '',
+        component: BlogsComponent,
+      },
+      {
+        path: 'blog/:id',
+        component: BlogDetailComponent
+      }
+    ]
     // canActivate: [AuthGuard]
   },
   {

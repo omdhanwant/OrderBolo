@@ -3,33 +3,8 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class UtilService {
-  private loading: boolean = false;
-  private displayAlert: boolean;
-  private message: string = ''
+  loading: boolean = true;
   constructor(){}
-
-  get isLoading(){
-    return this.loading;
-  }
-
-  set isLoading(bool){
-    this.loading = bool;
-  }
-
-  set displayDialog(bool) {
-    this.displayAlert = bool;
-  }
-  get displayDialog() {
-    return this.displayAlert;
-  }
-
-  set alertMessage(message) {
-     this.message = message;
-  }
-
-  get alertMessage() {
-    return this.message;
-  }
 
   // to read the data form the cookies
   getCookieData(name: string): string {

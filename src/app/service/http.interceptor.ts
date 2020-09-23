@@ -5,19 +5,20 @@ import {HttpInterceptor, HttpHandler, HttpRequest, HttpEvent, HttpResponse, Http
 import { tap } from 'rxjs/operators';
 import { UtilService } from './util.service';
 import { AuthService } from './auth.service';
+import { AlertService } from './alertService';
 // const config = require('../../assets/config.json');
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   timestamp :number
 
 
-  constructor(private service: UtilService, private auth: AuthService) { }
+  constructor(private service: UtilService, private auth: AuthService, private alertService: AlertService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     this.timestamp = new Date().getTime();
 
     console.log("in AuthInterceptor");
-    this.service.isLoading = true;
+    this.service.loading = true;
 
     const authReq = req.clone({
 
@@ -29,23 +30,25 @@ export class AuthInterceptor implements HttpInterceptor {
     return next.handle(authReq).pipe(
       tap((event: HttpEvent<any>) => {
         if (event instanceof HttpResponse) {
-          this.service.isLoading = false;
-          this.service.alertMessage = 'Success!'
-          this.service.displayDialog = true;
-          setTimeout(() => {
-            this.service.displayDialog = false;
-            this.service.alertMessage = ''
-          }, 2000);
+          this.service.loading = false;
+          // this.service.alertMessage = 'Success!'
+          // this.service.displayDialog = true;
+          this.alertService.addSingle('success','Message','Success');
+          // setTimeout(() => {
+          //   this.alertService.clear();
+          // }, 2000);
         }
       }, (err: any) => {
         if (err instanceof HttpErrorResponse) {
-          this.service.isLoading = false;
-          this.service.alertMessage = 'Failed!'
-          this.service.displayDialog = true;
-          setTimeout(() => {
-            this.service.displayDialog = false;
-            this.service.alertMessage = ''
-          }, 2000);
+          this.service.loading = false;
+          // this.service.alertMessage = 'Failed!'
+          // this.service.displayDialog = true;
+          this.alertService.addSingle('error','Message','Unexpected Error Occured');
+          // setTimeout(() => {
+          //   // this.service.displayDialog = false;
+          //   // this.service.alertMessage = ''
+          //   this.alertService.clear();
+          // }, 2000);
           this.handleError(err);
         }
       })

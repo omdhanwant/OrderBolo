@@ -4,10 +4,9 @@ import { DocumentService } from 'src/app/service/document.service';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
 import { take } from 'rxjs/operators';
-import { WindowRefService } from 'src/app/rozorpay-service/window-ref.service';
 import { v4 as uuid } from 'uuid';
-import { UtilService } from 'src/app/service/util.service';
 import { DataService } from 'src/app/service/data.service';
+import { AlertService } from 'src/app/service/alertService';
 declare var $;
 @Component({
   selector: 'app-aadhar-card',
@@ -18,7 +17,7 @@ export class AadharCardComponent implements OnInit {
   myFiles:File [] = [];
   user_id:number;
   message: string;
-  constructor(private service: DocumentService,private dataService: DataService, private route: Router, private auth: AuthService, private util: UtilService) { }
+  constructor(private service: DocumentService,private dataService: DataService, private route: Router, private auth: AuthService,private alert: AlertService) { }
 
   ngOnInit(): void {
     this.auth.peekAuthentication()
@@ -92,11 +91,6 @@ export class AadharCardComponent implements OnInit {
 
 
   showAlert(message) {
-          this.util.alertMessage = message;
-          this.util.displayDialog = true;
-          setTimeout(() => {
-            this.util.displayDialog = false;
-            this.util.alertMessage = ''
-          }, 2000);
+    this.alert.addSingle('error','Alert',message);
   }
 }

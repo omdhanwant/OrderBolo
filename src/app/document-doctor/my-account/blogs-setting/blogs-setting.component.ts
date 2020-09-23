@@ -1,53 +1,63 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { take } from 'rxjs/operators';
 import { AuthService } from 'src/app/service/auth.service';
-import { DataService } from 'src/app/service/data.service';
-import { DocumentService } from 'src/app/service/document.service';
 import { Blogs } from 'src/app/models/blogs';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 import { MyAccountService } from 'src/app/service/myaccount.service';
 @Component({
   selector: 'app-blogs-setting',
   templateUrl: './blogs-setting.component.html',
-  styleUrls: ['./blogs-setting.component.scss']
+  styleUrls: ['./blogs-setting.component.scss'],
 })
 export class BlogsSettingComponent implements OnInit {
   showAddScreen: boolean = false;
   Blogs: Blogs[];
 
   currentPage: number = 1;
-  lastPageCount: number= 10;
+  lastPageCount: number = 10;
 
   // contentData = []
-  paginatedData:Blogs[] = []
-  constructor(private auth: AuthService,  private service: MyAccountService) { }
+  paginatedData: Blogs[] = [];
+  constructor(private auth: AuthService, private service: MyAccountService) {}
 
   ngOnInit(): void {
+    this.initData();
+
+    this.auth
+      .peekAuthentication()
+      .pipe(take(1))
+      .subscribe((auth) => {
+        if (auth && auth.isAuthenticated) {
+          this.service
+            .getBlogs()
+            .pipe(take(1))
+            .subscribe((blogsData: Blogs[]) => {
+              console.log(blogsData);
+              this.Blogs = blogsData;
+              this.paginatedData = this.Blogs.slice(0, 10);
+            });
+        }
+      });
+  }
+
+  initData() {
+    this.currentPage = 1;
     this.Blogs = [];
     this.paginatedData = [];
-    this.auth.peekAuthentication()
-    .pipe(take(1)).subscribe(auth => {
-      if(auth && auth.isAuthenticated){
-        this.service.getBlogs()
-        .pipe(take(1))
-        .subscribe((blogsData:Blogs[]) => {
-          console.log(blogsData)
-          this.Blogs = blogsData;
-          this.paginatedData = this.Blogs.slice(0, 10);
-        })
-      }
-    });
-
   }
 
-  showDetailScreen(){
+  showDetailScreen() {
     this.showAddScreen = true;
   }
 
-  showDetails(){
+  showDetails() {
     this.showAddScreen = true;
+  }
+
+  onSaved() {
+    this.showAddScreen = false;
+    this.service.refreshBlogsData();
+    this.ngOnInit();
   }
 
   pageChanged(event: PageChangedEvent): void {
@@ -55,5 +65,4 @@ export class BlogsSettingComponent implements OnInit {
     const endItem = event.page * event.itemsPerPage;
     this.paginatedData = this.Blogs.slice(startItem, endItem);
   }
-
 }

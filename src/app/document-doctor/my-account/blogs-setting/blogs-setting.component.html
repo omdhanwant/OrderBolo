@@ -64,5 +64,6 @@
 <ng-container *ngIf="showAddScreen">
   <add-blog
   (onBackClick)="showAddScreen = $event"
+  (onSuccess)="onSaved()"
   ></add-blog>
 </ng-container>

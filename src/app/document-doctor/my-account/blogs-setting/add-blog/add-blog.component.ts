@@ -17,6 +17,7 @@ import { DocumentService } from 'src/app/service/document.service';
 export class AddBlogComponent implements OnInit {
   @Input() data
   @Output() onBackClick = new EventEmitter<boolean>();
+  @Output() onSuccess = new EventEmitter<boolean>();
   myFiles:File [] = [];
   user_id: number;
   constructor(private auth: AuthService, private service: DocumentService, private dataService: DataService , private route: Router) { }
@@ -54,6 +55,7 @@ export class AddBlogComponent implements OnInit {
     this.service.saveBlog(payload)
       .subscribe((response) => {
         // this.route.navigateByUrl('/my-account/blogs-setting')
+        this.onSuccess.emit(true);
         this.back()
       })
   }

@@ -1,11 +1,10 @@
-<ngx-loading [show]="utilService.isLoading"></ngx-loading>
+<ngx-loading [show]="utilService.loading"></ngx-loading>
   <app-navbar></app-navbar>
   <div class="all_container">
     <router-outlet></router-outlet>
   </div>
 
-  <message-dialog
-  [show]="utilService.displayDialog"
-  [message]="utilService.alertMessage"
-  customClassName="mydialog"
-  ></message-dialog>
+
+  <p-toast
+  baseZIndex="9999">
+</p-toast>

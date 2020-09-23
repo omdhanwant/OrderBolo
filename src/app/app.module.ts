@@ -67,7 +67,7 @@ import { AddBlogComponent } from './document-doctor/my-account/blogs-setting/add
 import { AddUserComponent } from './document-doctor/my-account/manage-users/add-user/add-user.component';
 import { MessageDialogComponent } from './common/message-dialog/message-dialog.component';
 import {ChipsModule} from 'primeng/chips';
-import {DialogModule} from 'primeng/dialog';
+// import {DialogModule} from 'primeng/dialog';
 import { AdminGaurd } from './service/adminGaurd';
 import { GumastaComponent } from './document-doctor/gumasta/gumasta.component';
 import { GstComponent } from './document-doctor/gst/gst.component';
@@ -77,6 +77,8 @@ import { MyAccountService } from './service/myaccount.service';
 import { BlogDetailComponent } from './blogs/blog-detail/blog-detail.component';
 import { OrderSuccessPageComponent } from './order-success-page/order-success-page.component';
 
+import {ToastModule} from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 
 @NgModule({
@@ -128,6 +130,7 @@ import { OrderSuccessPageComponent } from './order-success-page/order-success-pa
     SlickCarouselModule,
     NgOtpInputModule,
     HttpClientModule,
+    ToastModule,
     NgxLoadingModule.forRoot({
       animationType: ngxLoadingAnimationTypes.circle,
       fullScreenBackdrop: true,
@@ -135,7 +138,7 @@ import { OrderSuccessPageComponent } from './order-success-page/order-success-pa
       backdropBackgroundColour: 'rgba(172, 166, 166, 0.2)'
     }),
     ChipsModule,
-    DialogModule,
+    // DialogModule,
     PaginationModule.forRoot(),
 
     //material
@@ -155,6 +158,7 @@ import { OrderSuccessPageComponent } from './order-success-page/order-success-pa
     UtilService,
     DocumentService,
     MyAccountService,
+    MessageService,
     { provide: LocationStrategy, useClass: HashLocationStrategy },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],

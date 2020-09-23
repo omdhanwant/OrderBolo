@@ -8,6 +8,7 @@ import { WindowRefService } from 'src/app/rozorpay-service/window-ref.service';
 import { v4 as uuid } from 'uuid';
 import { UtilService } from 'src/app/service/util.service';
 import { DataService } from 'src/app/service/data.service';
+import { AlertService } from 'src/app/service/alertService';
 declare var $;
 @Component({
   selector: 'app-gst',
@@ -19,7 +20,7 @@ export class GstComponent implements OnInit {
   user_id: number;
   message: string;
 
-  constructor(private service: DocumentService, private dataService: DataService, private route: Router, private auth: AuthService, private util: UtilService) { }
+  constructor(private service: DocumentService, private dataService: DataService, private route: Router, private auth: AuthService, private alert: AlertService) { }
 
   ngOnInit(): void {
     this.auth.peekAuthentication()
@@ -36,25 +37,30 @@ export class GstComponent implements OnInit {
     }
   }
   save(form: NgForm) {
-    if (!this.myFiles.length) {
-      this.showAlert('Please upload documents!');
-      return
+    if(form.valid) {
+      if (!this.myFiles.length) {
+        this.showAlert('Please upload documents!');
+        return
+      }
+      let formData = new FormData();
+      for (var i = 0; i < this.myFiles.length; i++) {
+        formData.append("filenames[]", this.myFiles[i]);
+      }
+      formData.append('user_id', this.user_id.toString())
+      formData.append('document_id', uuid()) /// create a unique document id
+      formData.append('organization_name', form.control.get('organization_name').value)
+      formData.append('applicant_name', form.control.get('applicant_name').value)
+      formData.append('mobile', form.control.get('mobile').value)
+      formData.append('aadhar_number', form.control.get('aadhar_number').value)
+      formData.append('email', form.control.get('email').value)
+      formData.append('pan_number', form.control.get('pan_number').value)
+      formData.append('constitution_of_business', form.control.get('constitution_of_business').value)
+      formData.append('electricity_bill', form.control.get('electricity_bill').value)
+      this.saveForm(formData);
+    } else  {
+      this.showAlert('Please fill all the details');
     }
-    let formData = new FormData();
-    for (var i = 0; i < this.myFiles.length; i++) {
-      formData.append("filenames[]", this.myFiles[i]);
-    }
-    formData.append('user_id', this.user_id.toString())
-    formData.append('document_id', uuid()) /// create a unique document id
-    formData.append('organization_name', form.control.get('organization_name').value)
-    formData.append('applicant_name', form.control.get('applicant_name').value)
-    formData.append('mobile', form.control.get('mobile').value)
-    formData.append('aadhar_number', form.control.get('aadhar_number').value)
-    formData.append('email', form.control.get('email').value)
-    formData.append('pan_number', form.control.get('pan_number').value)
-    formData.append('constitution_of_business', form.control.get('constitution_of_business').value)
-    formData.append('electricity_bill', form.control.get('electricity_bill').value)
-    this.saveForm(formData);
+
   }
 
   saveForm(payload) {
@@ -82,14 +88,9 @@ export class GstComponent implements OnInit {
         this.route.navigateByUrl('/order-checkout')
       })
   }
-  
+
 
   showAlert(message) {
-    this.util.alertMessage = message;
-    this.util.displayDialog = true;
-    setTimeout(() => {
-      this.util.displayDialog = false;
-      this.util.alertMessage = ''
-    }, 2000);
+    this.alert.addSingle('error','Alert',message);
   }
 }

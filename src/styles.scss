@@ -716,3 +716,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     background: #0B0633!important;
   }
 //p-toast
+
+
+//tab-view
+body .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active, body .ui-tabview.ui-tabview-bottom .ui-tabview-nav li.ui-state-active, body .ui-tabview.ui-tabview-left .ui-tabview-nav li.ui-state-active, body .ui-tabview.ui-tabview-right .ui-tabview-nav li.ui-state-active {
+  background-color: #0B0633!important;
+  border: none!important;
+}
+//tab-view

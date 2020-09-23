@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class UtilService {
-  loading: boolean = true;
+  loading: boolean = false;
   constructor(){}
 
   // to read the data form the cookies

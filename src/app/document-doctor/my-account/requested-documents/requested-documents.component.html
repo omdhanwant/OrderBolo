@@ -1,93 +1,56 @@
-<!-- list detail container -->
-
 <div class="row">
-  <!-- <div class="col-md-12">
-    <nav aria-label="breadcrumb no-bg">
-        <ol class="breadcrumb no-bg">
-          <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
-          <li class="breadcrumb-item"><a routerLink="/document-doctor">Document Doctor</a></li>
-          <li class="breadcrumb-item active" aria-current="page">My Account</li>
-          <li class="breadcrumb-item active" aria-current="page">Requested Documents</li>
-        </ol>
-      </nav>
-</div> -->
+<div class="col-12">
 
-  <div class="col-12">
-    <!-- <div class="list_container">
-      <div class="list_details">
-        <div class="list_info">
-          <div>
-            <strong class="name">
-              Title
-            </strong>
-            <span class="code">
-              Description:
-              <span style="color: rgb(169, 167, 167);"> test </span>
-            </span>
+  <p-tabView (onChange)="onTabChange($event)">
+    <p-tabPanel
+    [header]="document"
+    *ngFor="let document of documents; let i = index"
+    [selected]="i == 0">
+      <div class="row">
+        <div class="col-12">
+
+          <div style="display: flex; justify-content: space-between;">
+            <span><pre class="card card-block card-header mb-3">The selected page no: {{currentPage}}/{{lastPageCount}}</pre></span>
+            <pagination [boundaryLinks]="true"
+            style="margin-top: 7px;"
+            [rotate]='true'
+            [maxSize]='5'
+            [(ngModel)]="currentPage"
+            [totalItems]="contentData.length"
+            (numPages)="lastPageCount = $event"
+            (pageChanged)="pageChanged($event)"
+            previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+
+            </pagination>
           </div>
+
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <!-- <th scope="col">Actions</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let doc of paginatedData; let i =index;">
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{ doc.name }}</td>
+                <td> {{ doc.description }}</td>
+                <!-- <td> {{ doc.description }}</td> -->
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-      <div class="list_details">
-        <div class="list_info">
-          <div>
-            <strong class="name">
-              Title
-            </strong>
-            <span class="code">
-              Description:
-              <span style="color: rgb(169, 167, 167);"> test </span>
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="list_details">
-        <div class="list_info">
-          <div>
-            <strong class="name">
-              Title
-            </strong>
-            <span class="code">
-              Description:
-              <span style="color: rgb(169, 167, 167);"> test </span>
-            </span>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    <div style="display: flex; justify-content: space-between;">
-      <span><pre class="card card-block card-header mb-3">The selected page no: {{currentPage}}/{{lastPageCount}}</pre></span>
-      <pagination [boundaryLinks]="true"
-      style="margin-top: 7px;"
-      [rotate]='true'
-      [maxSize]='5'
-      [(ngModel)]="currentPage"
-      [totalItems]="contentData.length"
-      (numPages)="lastPageCount = $event"
-      (pageChanged)="pageChanged($event)"
-      previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
 
-      </pagination>
-    </div>
+    </p-tabPanel>
+</p-tabView>
+</div>
 
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Name</th>
-          <th scope="col">Description</th>
-          <!-- <th scope="col">Actions</th> -->
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let doc of paginatedData; let i =index;">
-          <th scope="row">{{ i + 1 }}</th>
-          <td>{{ doc.name }}</td>
-          <td> {{ doc.description }}</td>
-          <!-- <td> {{ doc.description }}</td> -->
-        </tr>
-      </tbody>
-    </table>
-  </div>
+
+
   <!-- <div class="col-12">
 
   </div> -->

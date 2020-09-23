@@ -16,22 +16,40 @@ export class RequestedDocumentsComponent implements OnInit {
 
   contentData = []
   paginatedData = []
+
+  documents = ['Udhyog Aadhar', 'Food Lisence' , 'Gumasta', 'GST']
   constructor() {
 
-    for(let i = 0 ; i < 100 ; i++){
-      const appendNo = i+1
-      this.contentData.push({ name: 'Document ' + appendNo , description : 'description'})
-    }
-    this.paginatedData = this.contentData.slice(0, 10);
+
    }
 
   ngOnInit(): void {
+    this.initPaginationData(0);
   }
 
+
+  initPaginationData(documentId: number) {
+      this.currentPage = 1;
+      this.contentData = []
+      this.paginatedData = []
+
+      // refresh API with new data as per document name
+      for(let i = 0 ; i < 100 ; i++){
+        const appendNo = i+1
+        this.contentData.push({ name: this.documents[documentId] + appendNo , description : 'description'})
+      }
+      this.paginatedData = this.contentData.slice(0, 10);
+  }
 
   pageChanged(event: PageChangedEvent): void {
     const startItem = (event.page - 1) * event.itemsPerPage;
     const endItem = event.page * event.itemsPerPage;
     this.paginatedData = this.contentData.slice(startItem, endItem);
+  }
+
+
+  onTabChange(event){
+    console.log(this.documents[event.index]);
+    this.initPaginationData(event.index)
   }
 }

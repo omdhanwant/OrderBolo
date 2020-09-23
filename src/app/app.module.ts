@@ -79,6 +79,7 @@ import { OrderSuccessPageComponent } from './order-success-page/order-success-pa
 
 import {ToastModule} from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import {TabViewModule} from 'primeng/tabview';
 
 
 @NgModule({
@@ -131,6 +132,7 @@ import { MessageService } from 'primeng/api';
     NgOtpInputModule,
     HttpClientModule,
     ToastModule,
+    TabViewModule,
     NgxLoadingModule.forRoot({
       animationType: ngxLoadingAnimationTypes.circle,
       fullScreenBackdrop: true,

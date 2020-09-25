@@ -17,7 +17,7 @@ export class RequestedDocumentsComponent implements OnInit {
   contentData = []
   paginatedData = []
 
-  documents = ['Udhyog Aadhar', 'Food Lisence' , 'Gumasta', 'GST']
+  documents = ['Udhyog Aadhar', 'Food License' , 'Gumasta', 'GST']
   constructor() {
 
 

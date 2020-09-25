@@ -39,6 +39,59 @@ body {
 label, section, div, p, a, input, ::placeholder, :-ms-input-placeholder, ::-webkit-input-placeholder{
   font-size: 14px;
 }
+
+h1 , .feature_h1 {
+  font-size: 22px!important;
+}
+h2 {
+  font-size: 20px!important;
+}
+h3 {
+  font-size: 18px!important;
+}
+h4 {
+  font-size: 16px!important;
+}
+h5 {
+  font-size: 14px!important;
+}
+
+
+//.breadcrumb
+.breadcrumb {
+  margin: 0!important;
+  padding: 2px!important;
+}
+//.breadcrumb
+
+
+// forms
+.form_container {
+  margin: 10px 50px!important;
+}
+
+.feature_h1 {
+  line-height: 30px!important;
+}
+
+.feature_sub_title {
+  font-size: 16px!important;
+  margin: 0!important;
+}
+
+.form-group {
+  margin-bottom: 6px!important;
+}
+
+.form-control {
+  height: 36px!important;
+}
+
+.btn_save {
+  padding: 2px 20px 2px 20px!important;
+}
+//forms
+
 .btn-primary {
   background:#0B0633!important;
 }

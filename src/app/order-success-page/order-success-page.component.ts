@@ -10,6 +10,7 @@ export class OrderSuccessPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    // document.getElementById('successButton').click();
   }
 
 }

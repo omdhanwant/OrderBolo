@@ -80,6 +80,7 @@ import { OrderSuccessPageComponent } from './order-success-page/order-success-pa
 import {ToastModule} from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import {TabViewModule} from 'primeng/tabview';
+import { menu,placeholder, NgxEditorModule } from 'ngx-editor';
 
 
 @NgModule({
@@ -133,6 +134,28 @@ import {TabViewModule} from 'primeng/tabview';
     HttpClientModule,
     ToastModule,
     TabViewModule,
+    NgxEditorModule.forRoot({
+      plugins: [
+        menu({
+          // default options (Optional)
+          toolbar: [
+            ['bold', 'italic', 'code'], // inline icons
+            ['ordered_list', 'bullet_list'],
+            [{ heading: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] }] // dropdown
+            // [codemirror] // custom menu, see https://sibiraj.dev/ngx-editor/additional-documentation/menu-plugin.html
+          ],
+          labels: {
+            bold: 'Bold',
+            italics: 'Italics',
+            code: 'Code',
+            ordered_list: 'Ordered List',
+            bullet_list: 'Bullet List',
+            heading: 'Heading'
+          }
+        }),
+        placeholder('Type something here...')
+      ],
+    }),
     NgxLoadingModule.forRoot({
       animationType: ngxLoadingAnimationTypes.circle,
       fullScreenBackdrop: true,

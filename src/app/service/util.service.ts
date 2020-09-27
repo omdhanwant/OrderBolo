@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { schema } from 'ngx-editor';
+import { DOMSerializer } from 'prosemirror-model';
 
 
 @Injectable()
@@ -19,4 +21,12 @@ export class UtilService {
         return decodeURIComponent(cookie.substring(nameLenPlus));
       })[0] || null;
   }
+
+  generateHTMLFormJsonDoc(jsonDoc){
+    const contentNode = schema.nodeFromJSON(jsonDoc);
+    const html: DocumentFragment = DOMSerializer.fromSchema(schema).serializeFragment(contentNode.content);
+    return html;
+    }
 }
+
+

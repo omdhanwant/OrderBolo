@@ -30,8 +30,8 @@
             <div class="card">
               <!-- <span *ngFor="let item of blog.blog_photo">{{item.url }}</span> -->
               <img class="card-img" [src]="getImage(blog.blog_photo)" alt="Bologna">
-              <div class="card-img-overlay">
-                <a href="#" class="btn btn-light btn-sm">Trending</a>
+              <div>
+                <a class="btn btn-light btn-sm">Trending</a>
               </div>
               <div class="card-body">
                 <h4 class="card-title">{{blog.title}}</h4>
@@ -40,7 +40,7 @@
                   <!-- <i class="fas fa-users text-info"></i> 4 portions -->
                 </small>
                 <p class="card-text">{{blog.description | slice:0:100}}....</p>
-                <a routerLink="/blogs/blog/{{blog.id}}" class="btn btn-info">Read More...</a>
+                <a routerLink="/blogs/blog/{{blog.id}}" class="btn btn-info" style="cursor: pointer;">Read More...</a>
               </div>
               <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
                 <div class="views">{{blog.created_at | date:'mediumDate'}}

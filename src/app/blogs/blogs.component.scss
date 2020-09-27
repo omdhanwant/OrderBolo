@@ -9,25 +9,34 @@
   body {
     padding: 2rem 0rem;
   }
-  
+
   .card-img {
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
   }
-  
+
   .card-title {
     margin-bottom: 0.3rem;
   }
-  
+
+  .card-text {
+    overflow: auto;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
   .cat {
     display: inline-block;
     margin-bottom: 1rem;
   }
-  
+
   .fa-users {
     margin-left: 1rem;
   }
-  
+
   .card-footer {
     font-size: 0.8rem;
   }

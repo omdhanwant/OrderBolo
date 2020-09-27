@@ -17,7 +17,7 @@
       </nav>
     </div> -->
 
-    <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark" [style.background-image]="'url(' + getImage(Blogs[0].blog_photo) +')'" style="background-repeat: no-repeat;object-fit: cover;background-size: cover;background-blend-mode: exclusion;">
+    <div @fadeInTopTrigger *ngIf="Blogs.length" class="jumbotron p-4 p-md-5 text-white rounded bg-dark" [style.background-image]="'url(' + getImage(Blogs[0].blog_photo) +')'" style="background-repeat: no-repeat;object-fit: cover;background-size: cover;background-blend-mode: exclusion;">
       <div class="col-md-6 px-0">
         <h1 class="display-4 font-italic">{{ Blogs[0].title }}</h1>
         <p class="lead my-3">{{ Blogs[0].description }}</p>
@@ -26,7 +26,7 @@
     </div>
 
     <div class="row mb-2">
-        <div class="col-12 col-sm-8 col-md-6 col-lg-4 mb-3" *ngFor="let blog of Blogs">
+        <div @fadeInLeftTrigger class="col-12 col-sm-8 col-md-6 col-lg-4 mb-3" *ngFor="let blog of Blogs">
             <div class="card">
               <!-- <span *ngFor="let item of blog.blog_photo">{{item.url }}</span> -->
               <img class="card-img" [src]="getImage(blog.blog_photo)" alt="Bologna">

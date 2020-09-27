@@ -4,11 +4,30 @@ import { take } from 'rxjs/operators';
 import { DataService } from 'src/app/service/data.service';
 import { Blogs } from 'src/app/models/blogs';
 import { MyAccountService } from '../service/myaccount.service';
+import { trigger, transition, style, animate, state } from '@angular/animations';
 
 @Component({
   selector: 'app-blogs',
   templateUrl: './blogs.component.html',
-  styleUrls: ['./blogs.component.scss']
+  styleUrls: ['./blogs.component.scss'],
+  animations: [
+    trigger('fadeInLeftTrigger',[
+      transition(':enter', [
+        style({
+          opacity: 0.5,
+          transform: 'translateX(-200px)'
+        }), animate(500)
+      ])
+    ]),
+    trigger('fadeInTopTrigger',[
+      transition(':enter', [
+        style({
+          opacity: 0.5,
+          transform: 'translateY(-200px)'
+        }), animate(500)
+      ])
+    ])
+  ]
 })
 export class BlogsComponent implements OnInit {
   showAddScreen: boolean = false;

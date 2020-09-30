@@ -699,12 +699,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .row-actions{
   display: flex;
   width: 100px;
-  justify-content: space-between;
+  // justify-content: space-between;
 }
 
 .row-actions i {
   cursor: pointer;
-  margin: auto 15px;
+  // margin: auto 15px;
+  margin-right: 20px;
 }
 // table
 

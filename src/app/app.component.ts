@@ -1,64 +1,56 @@
-import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { DataService } from './service/data.service';
-import { take } from 'rxjs/operators';
-import { AuthService } from './service/auth.service';
+import { Component, OnInit,OnDestroy } from '@angular/core';
 import { UtilService } from './service/util.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+declare var $;
+let context;
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  title = 'FileTransfer';
-  fileLists: any = [];
-  sendOption = false;
-  sendRadio = 'emailTransfer';
+export class AppComponent implements OnInit, OnDestroy {
+  isRedirectUrl = false;
+  routeSubscription: Subscription
+  constructor(public utilService: UtilService, private activatedRoute: ActivatedRoute, private router: Router){
+  }
 
-  constructor(public utilService: UtilService){
-
+  ngOnDestroy(){
+    if(this.routeSubscription) {
+      this.routeSubscription.unsubscribe();
+    }
   }
 
   ngOnInit() {
+    context = this;
+    console.log(context);
+
+    this.routeSubscription = this.activatedRoute.queryParamMap.subscribe(query => {
+      if(query.has('returnUrl')) {
+        this.openModal();
+        this.isRedirectUrl = true;
+      } else {
+        this.closeModal();
+        this.isRedirectUrl = false;
+      }
+    })
+
+    $('#login-modal').on('hidden.bs.modal', function (event) {
+        context.initRoute();
+    })
   }
 
-  // file upload event
-  fileEvent(event) {
-    let fileList = event.target.files;
-    this.fileLists.push(fileList)
-    console.log(this.fileLists)
-  }
-  // get file extension
-  getFileExtension(file) {
-    console.log(file)
-    // const ext = file.toString().split('/')[1];
-    // return ext;
+  initRoute() {
+    this.router.navigateByUrl('/document-doctor')
   }
 
-  // convert file size
-  niceBytes(x){
-    const units = ['bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
-    let l = 0, n = parseInt(x, 10) || 0;
-
-    while(n >= 1024 && ++l){
-        n = n / 1024;
-    }
-    return(n.toFixed(n < 10 && l > 0 ? 1 : 0) + ' ' + units[l]);
+  openModal(){
+    $('#login-modal').modal('show');
   }
 
-  // remove file
-  deleteFile(file, i){
-    const index = i;
-    this.fileLists[0].splice(index, 1);
+  closeModal() {
+    $('#login-modal').modal('hide');
   }
-  // file send option
-  sendOptionToggle(){
-    this.sendOption  = !this.sendOption;
-    var element = document.getElementById('email-content');
-    element.scrollBy(0,200);
-  }
-  // file transfer
-  transferFile(form: NgForm) {
-    console.log(form.value);
-  }
+
 }

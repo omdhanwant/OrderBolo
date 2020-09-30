@@ -41,12 +41,12 @@ const routes: Routes = [
     data: { breadcrumb: 'home' },
     component: DashboardComponent,
   },
-  {
-    path: 'login',
-    data: { breadcrumb: 'Login' },
-    component: LoginComponent,
-    pathMatch: 'full'
-  },
+  // {
+  //   path: 'login',
+  //   data: { breadcrumb: 'Login' },
+  //   component: LoginComponent,
+  //   pathMatch: 'full'
+  // },
 
   {
     path: 'category-details',

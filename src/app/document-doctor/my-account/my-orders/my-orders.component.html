@@ -49,7 +49,7 @@
           <td> {{ order.mobile }}</td>
           <td> {{ order.city }}</td>
           <td> {{ order.state }}</td>
-          <td> {{ order.amount }}</td>
+          <td> {{ order.amount | currency: 'INR' }}</td>
           <td *ngIf="order.status === 'SUCCESS'" style="color: green; font-weight: bold;"> {{ order.status }}</td>
           <td *ngIf="order.status === 'FAILED'" style="color: RED; font-weight: bold;"> {{ order.status }}</td>
           <td> {{ order.created_at | date:'mediumDate' }}</td>

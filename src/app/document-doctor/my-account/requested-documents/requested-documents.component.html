@@ -4,7 +4,7 @@
   <p-tabView (onChange)="onTabChange($event)">
     <p-tabPanel
     [header]="document"
-    *ngFor="let document of documents; let i = index"
+    *ngFor="let document of documents; let i = index;"
     [selected]="i == 0">
       <div class="row">
         <div class="col-12">
@@ -13,6 +13,7 @@
             <span><pre class="card card-block card-header mb-3">The selected page no: {{currentPage}}/{{lastPageCount}}</pre></span>
             <pagination [boundaryLinks]="true"
             style="margin-top: 7px;"
+            [itemsPerPage]="itemsPerPage"
             [rotate]='true'
             [maxSize]='5'
             [(ngModel)]="currentPage"
@@ -24,6 +25,7 @@
             </pagination>
           </div>
 
+          <ng-container *ngIf="selectedDocument == documents[0]">
           <table class="table table-hover">
             <thead>
               <tr>
@@ -42,6 +44,71 @@
               </tr>
             </tbody>
           </table>
+        </ng-container>
+
+        <ng-container *ngIf="selectedDocument == documents[1]">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name2</th>
+                <th scope="col">Description</th>
+                <!-- <th scope="col">Actions</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let doc of paginatedData; let i =index;">
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{ doc.name }}</td>
+                <td> {{ doc.description }}</td>
+                <!-- <td> {{ doc.description }}</td> -->
+              </tr>
+            </tbody>
+          </table>
+        </ng-container>
+
+        <ng-container *ngIf="selectedDocument == documents[2]">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name3</th>
+                <th scope="col">Description</th>
+                <!-- <th scope="col">Actions</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let doc of paginatedData; let i =index;">
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{ doc.name }}</td>
+                <td> {{ doc.description }}</td>
+                <!-- <td> {{ doc.description }}</td> -->
+              </tr>
+            </tbody>
+          </table>
+        </ng-container>
+
+        <ng-container *ngIf="selectedDocument == documents[3]">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name4</th>
+                <th scope="col">Description</th>
+                <!-- <th scope="col">Actions</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let doc of paginatedData; let i =index;">
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{ doc.name }}</td>
+                <td> {{ doc.description }}</td>
+                <!-- <td> {{ doc.description }}</td> -->
+              </tr>
+            </tbody>
+          </table>
+        </ng-container>
+
         </div>
       </div>
 

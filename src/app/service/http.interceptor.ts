@@ -31,24 +31,11 @@ export class AuthInterceptor implements HttpInterceptor {
       tap((event: HttpEvent<any>) => {
         if (event instanceof HttpResponse) {
           this.service.loading = false;
-          // this.service.alertMessage = 'Success!'
-          // this.service.displayDialog = true;
           this.alertService.addSingle('success','Message','Success');
-          // setTimeout(() => {
-          //   this.alertService.clear();
-          // }, 2000);
         }
       }, (err: any) => {
         if (err instanceof HttpErrorResponse) {
           this.service.loading = false;
-          // this.service.alertMessage = 'Failed!'
-          // this.service.displayDialog = true;
-          this.alertService.addSingle('error','Message','Unexpected Error Occured');
-          // setTimeout(() => {
-          //   // this.service.displayDialog = false;
-          //   // this.service.alertMessage = ''
-          //   this.alertService.clear();
-          // }, 2000);
           this.handleError(err);
         }
       })
@@ -57,22 +44,30 @@ export class AuthInterceptor implements HttpInterceptor {
 
   handleError(error: HttpErrorResponse) {
     if (error.status === 400) {
+      this.alertService.addSingle('error','Message','Bad Request!');
         console.log('Bad Request!')
     }
 
-    if (error.status === 404) {
+    else if (error.status === 404) {
+      this.alertService.addSingle('error','Message','Service Not Found!');
       console.log('Service Not Found!')
     }
 
-    if (error.status === 401) {
+    else if (error.status === 401) {
+      this.alertService.addSingle('error','Message','Unauthorised Error!');
       console.log('Unauthorised Error!')
     }
 
-    if (error.status === 403) {
+    else if (error.status === 403) {
+      this.alertService.addSingle('error','Message','Forbidden!');
       console.log('Forbidden!')
     }
 
-    console.log('Unexpected Error Occured!')
+    else {
+      this.alertService.addSingle('error','Message','Unexpected Error Occured!');
+      console.log('Unexpected Error Occured!')
+    }
+
 }
 
 }

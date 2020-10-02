@@ -27,7 +27,7 @@ export class AppComponent implements OnInit, OnDestroy {
     console.log(context);
 
     this.routeSubscription = this.activatedRoute.queryParamMap.subscribe(query => {
-      if(query.has('returnUrl')) {
+      if(query.has('returnUrl') && query.get('returnUrl')!="" && query.get('returnUrl')!= null) {
         this.openModal();
         this.isRedirectUrl = true;
       } else {
@@ -35,14 +35,6 @@ export class AppComponent implements OnInit, OnDestroy {
         this.isRedirectUrl = false;
       }
     })
-
-    $('#login-modal').on('hidden.bs.modal', function (event) {
-        context.initRoute();
-    })
-  }
-
-  initRoute() {
-    this.router.navigateByUrl('/document-doctor')
   }
 
   openModal(){

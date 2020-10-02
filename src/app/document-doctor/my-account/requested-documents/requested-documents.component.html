@@ -1,5 +1,5 @@
 <div class="row">
-<div class="col-12">
+<div class="col-12" *ngIf="documents?.length; else notfound">
 
   <p-tabView (onChange)="onTabChange($event)">
     <p-tabPanel
@@ -31,16 +31,22 @@
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
-                <th scope="col">Description</th>
-                <!-- <th scope="col">Actions</th> -->
+                <th scope="col">Email</th>
+                <th scope="col">Mobile</th>
+                <th scope="col"></th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let doc of paginatedData; let i =index;">
                 <th scope="row">{{ i + 1 }}</th>
-                <td>{{ doc.name }}</td>
-                <td> {{ doc.description }}</td>
-                <!-- <td> {{ doc.description }}</td> -->
+                <td>{{ doc.name_of_owner }}</td>
+                <td> {{ doc.email }}</td>
+                <td> {{ doc.mobile }}</td>
+                <td>
+                  <div class="row-actions">
+                  <i (click)="showDetails()" class="pi pi-eye"></i>
+                  </div>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -51,17 +57,25 @@
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Name2</th>
-                <th scope="col">Description</th>
-                <!-- <th scope="col">Actions</th> -->
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Mobile</th>
+                <th scope="col">Village/City</th>
+                <th scope="col"></th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let doc of paginatedData; let i =index;">
                 <th scope="row">{{ i + 1 }}</th>
-                <td>{{ doc.name }}</td>
-                <td> {{ doc.description }}</td>
-                <!-- <td> {{ doc.description }}</td> -->
+                <td>{{ doc.full_name }}</td>
+                <td>{{ doc.email }}</td>
+                <td> {{ doc.mobile }}</td>
+                <td> {{ doc.village_or_city }}</td>
+                <td>
+                  <div class="row-actions">
+                  <i (click)="showDetails()" class="pi pi-eye"></i>
+                  </div>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -93,17 +107,23 @@
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Name4</th>
-                <th scope="col">Description</th>
-                <!-- <th scope="col">Actions</th> -->
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Mobile</th>
+                <th scope="col"></th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let doc of paginatedData; let i =index;">
                 <th scope="row">{{ i + 1 }}</th>
-                <td>{{ doc.name }}</td>
-                <td> {{ doc.description }}</td>
-                <!-- <td> {{ doc.description }}</td> -->
+                <td>{{ doc.applicant_name }}</td>
+                <td>{{ doc.email }}</td>
+                <td> {{ doc.mobile }}</td>
+                <td>
+                  <div class="row-actions">
+                  <i (click)="showDetails()" class="pi pi-eye"></i>
+                  </div>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -116,9 +136,58 @@
 </p-tabView>
 </div>
 
+<ng-template #notfound>
+  <div class="col-12">
+    <p class="text-grey text-center">No Data Found</p>
+  </div>
+</ng-template>
 
 
   <!-- <div class="col-12">
 
   </div> -->
+</div>
+
+
+
+<!-- Details Modal -->
+<div class="modal fade" id="detail_modal" tabindex="-1" data-backdrop="static" data-keyboard="false"  aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ng-container *ngIf="selectedDocument == documents[0]">
+          <div class="row">
+            <div class="form-group col-md-4">
+              <label for="inputCity">Name: <span class="text-grey">Name</span></label>
+            </div>
+
+            <div class="form-group col-md-4">
+              <label for="inputCity">Description: <span class="text-grey">Description</span></label>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputCity">Description: <span class="text-grey">Description</span></label>
+            </div>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="selectedDocument == documents[1]">
+
+        </ng-container>
+
+        <ng-container *ngIf="selectedDocument == documents[2]">
+
+        </ng-container>
+
+        <ng-container *ngIf="selectedDocument == documents[3]">
+
+        </ng-container>
+      </div>
+    </div>
+  </div>
 </div>

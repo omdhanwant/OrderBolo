@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthUser } from 'src/app/models/authData';
 import { AuthService } from 'src/app/service/auth.service';
+import * as constants from '../../service/constants';
 
 @Component({
   selector: 'app-my-account',
@@ -15,7 +16,7 @@ export class MyAccountComponent implements OnInit {
   ngOnInit(): void {
     this.auth.peekAuthentication()
     .subscribe(auth => {
-      if(auth && auth.user.userType === 'super-admin'){
+      if(auth && auth.user.userType === constants.SUPER_ADMIN){
           this.isAdmin = true;
       } else {
         this.isAdmin = false;

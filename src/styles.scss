@@ -56,6 +56,16 @@ h5 {
   font-size: 14px!important;
 }
 
+// router-outlet ~ * {
+//   position: absolute;
+//   height: 100%;
+//   width: 100%;
+// }
+
+*:focus{
+  outline: none!important;
+}
+
 
 //.breadcrumb
 .breadcrumb {
@@ -716,6 +726,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   border-radius: 10px;
   margin: auto 12px;
   position: relative;
+  margin-top: 5px;
 }
 
 .close-icon {

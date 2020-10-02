@@ -8,11 +8,13 @@ let context;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  // animations: [routeAnimation]
 })
 export class AppComponent implements OnInit, OnDestroy {
   isRedirectUrl = false;
   routeSubscription: Subscription
+  routedetection: Subscription
   constructor(public utilService: UtilService, private activatedRoute: ActivatedRoute, private router: Router){
   }
 
@@ -20,11 +22,17 @@ export class AppComponent implements OnInit, OnDestroy {
     if(this.routeSubscription) {
       this.routeSubscription.unsubscribe();
     }
+    if(this.routedetection) {
+      this.routedetection.unsubscribe();
+    }
   }
 
   ngOnInit() {
     context = this;
     console.log(context);
+    this.routedetection = this.router.events.subscribe(val => {
+      window.scroll(0,0);
+    });
 
     this.routeSubscription = this.activatedRoute.queryParamMap.subscribe(query => {
       if(query.has('returnUrl') && query.get('returnUrl')!="" && query.get('returnUrl')!= null) {

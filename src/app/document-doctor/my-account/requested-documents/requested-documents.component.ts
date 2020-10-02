@@ -3,6 +3,7 @@ import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 import { take } from 'rxjs/operators';
 import { AuthService } from 'src/app/service/auth.service';
 import { DocumentService } from 'src/app/service/document.service';
+declare var $;
 
 @Component({
   selector: 'app-requested-documents',
@@ -69,5 +70,9 @@ export class RequestedDocumentsComponent implements OnInit {
     console.log(this.documents[event.index]);
     this.selectedDocument = this.documents[event.index];
     this.initPaginationData(this.documents[event.index])
+  }
+
+  showDetails(){
+    $('#detail_modal').modal();
   }
 }

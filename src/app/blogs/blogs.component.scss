@@ -10,6 +10,11 @@
     padding: 2rem 0rem;
   }
 
+  .card {
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+  }
+
   .card-img {
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
@@ -50,5 +55,11 @@
   @media (min-width: 768px) {
     .bd-placeholder-img-lg {
       font-size: 3.5rem;
+    }
+
+    .btn-info {
+      color: #fff;
+    background-color: #0b0633;
+    border-color: #0b0633;
     }
   }

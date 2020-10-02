@@ -1,21 +1,4 @@
-<div class="container">
-
-    <!-- <div class="nav-scroller py-1 mb-2">
-      <nav class="nav d-flex justify-content-between">
-        <a class="p-2 text-muted" href="#">World</a>
-        <a class="p-2 text-muted" href="#">U.S.</a>
-        <a class="p-2 text-muted" href="#">Technology</a>
-        <a class="p-2 text-muted" href="#">Design</a>
-        <a class="p-2 text-muted" href="#">Culture</a>
-        <a class="p-2 text-muted" href="#">Business</a>
-        <a class="p-2 text-muted" href="#">Politics</a>
-        <a class="p-2 text-muted" href="#">Opinion</a>
-        <a class="p-2 text-muted" href="#">Science</a>
-        <a class="p-2 text-muted" href="#">Health</a>
-        <a class="p-2 text-muted" href="#">Style</a>
-        <a class="p-2 text-muted" href="#">Travel</a>
-      </nav>
-    </div> -->
+<div style="margin: auto 50px;">
 
     <div @fadeInTopTrigger *ngIf="Blogs.length" class="jumbotron p-4 p-md-5 text-white rounded bg-dark" [style.background-image]="'url(' + getImage(Blogs[0].blog_photo) +')'" style="background-repeat: no-repeat;object-fit: cover;background-size: cover;background-blend-mode: exclusion;">
       <div class="col-md-6 px-0">
@@ -26,9 +9,8 @@
     </div>
 
     <div class="row mb-2">
-        <div @fadeInLeftTrigger class="col-12 col-sm-8 col-md-6 col-lg-4 mb-3" *ngFor="let blog of Blogs">
+        <div @fadeInLeftTrigger class="col-12 col-sm-8 col-md-6 col-lg-3 mb-3" *ngFor="let blog of Blogs">
             <div class="card">
-              <!-- <span *ngFor="let item of blog.blog_photo">{{item.url }}</span> -->
               <img class="card-img" [src]="getImage(blog.blog_photo)" alt="Bologna">
               <div>
                 <a class="btn btn-light btn-sm">Trending</a>

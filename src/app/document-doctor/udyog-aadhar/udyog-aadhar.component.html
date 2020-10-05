@@ -1,5 +1,5 @@
-<div class="form_container">
-  <div class="row">
+<div class="container mb-2">
+  <div class="row">    
     <div class="col-md-12">
       <nav aria-label="breadcrumb no-bg">
         <ol class="breadcrumb no-bg">
@@ -9,21 +9,30 @@
         </ol>
       </nav>
     </div>
-    <div class="col-md-12">
+  </div>
+</div>
+<div class="container-fluid p-0 text-center mb-2">
+  <img src="../../../assets/udhyog-addhar/banner-main.jpg" class="mark text-center">
+</div>
+<div class="form_container">
+  <div class="row">
+    <div class="col-md-12 mb-2">
       <section class="feature-category">
         <div class="row pb-3">
           <div class="col-md-12">
-            <h1 class="feature_h1 text-center">Udyog Aadhar</h1>
-            <span class="feature_sub_title text-center">Fill bellow form details</span>
+            <h1 class="feature_h1 text-center">Udyam / MSME / Udyog Aadhaar - Registration</h1>
             <hr>
           </div>
         </div>
       </section>
     </div>
 
-    <div class="col-md-8">
+    <div class="col-md-7">
       <section class="feature-category description-section">
         <div class="row">
+          <div class="col-md-12 registration-label">
+            Registration
+          </div>
           <div class="col-md-12">
             <form #form="ngForm" (ngSubmit)="save(form)">
               <div class="form-row">
@@ -68,10 +77,10 @@
               </div>
               <div class="form-group">
                 <label for="address">Office Address</label>
-                <textarea name="office_address" ngModel #office_address="ngModel" class="form-control"
-                  maxlength="255" placeholder="Apartment, studio, or floor" required></textarea>
-                <div *ngIf="office_address.touched && office_address.hasError('required')"
-                  class="invalid-feedback" style="display: inline-block;">
+                <textarea name="office_address" ngModel #office_address="ngModel" class="form-control" maxlength="255"
+                  placeholder="Apartment, studio, or floor" required></textarea>
+                <div *ngIf="office_address.touched && office_address.hasError('required')" class="invalid-feedback"
+                  style="display: inline-block;">
                   Office Address is required
                 </div>
               </div>
@@ -118,8 +127,8 @@
                   <label for="pin">Physically hadicapped</label>
                   <input type="text" name="physically_hadicapped" ngModel #physically_hadicapped="ngModel" maxlength="6"
                     class="form-control" placeholder="physically_hadicapped" required autocomplete="off">
-                  <div *ngIf="physically_hadicapped.touched && physically_hadicapped.hasError('required')" class="invalid-feedback"
-                    style="display: inline-block;">
+                  <div *ngIf="physically_hadicapped.touched && physically_hadicapped.hasError('required')"
+                    class="invalid-feedback" style="display: inline-block;">
                     Physically hadicapped is required
                   </div>
                 </div>
@@ -161,37 +170,42 @@
                 </div>
                 <div class="form-group col-md-6">
                   <label for="pin">Main Business Activity_of_enterprises</label>
-                  <input type="text" name="main_business_activity_of_enterprises" ngModel #main_business_activity_of_enterprises="ngModel" maxlength="6" class="form-control"
+                  <input type="text" name="main_business_activity_of_enterprises" ngModel
+                    #main_business_activity_of_enterprises="ngModel" maxlength="6" class="form-control"
                     placeholder="Main Business Activity_of_enterprises" required autocomplete="off">
-                  <div *ngIf="main_business_activity_of_enterprises.touched && main_business_activity_of_enterprises.hasError('required')" class="invalid-feedback"
-                    style="display: inline-block;">
+                  <div
+                    *ngIf="main_business_activity_of_enterprises.touched && main_business_activity_of_enterprises.hasError('required')"
+                    class="invalid-feedback" style="display: inline-block;">
                     Main Business Activity_of_enterprises is required
                   </div>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="pin">Business Additional Information</label>
-                  <input type="text" name="business_additional_info" ngModel #business_additional_info="ngModel" maxlength="6" class="form-control"
-                    placeholder="business_additional_info" required autocomplete="off">
-                  <div *ngIf="business_additional_info.touched && business_additional_info.hasError('required')" class="invalid-feedback"
-                    style="display: inline-block;">
+                  <input type="text" name="business_additional_info" ngModel #business_additional_info="ngModel"
+                    maxlength="6" class="form-control" placeholder="business_additional_info" required
+                    autocomplete="off">
+                  <div *ngIf="business_additional_info.touched && business_additional_info.hasError('required')"
+                    class="invalid-feedback" style="display: inline-block;">
                     Business Additional Information is required
                   </div>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="pin">Number of employee</label>
-                  <input type="text" name="number_of_employee" ngModel #number_of_employee="ngModel" maxlength="6" class="form-control"
-                    placeholder="number_of_employee" required autocomplete="off">
-                  <div *ngIf="number_of_employee.touched && number_of_employee.hasError('required')" class="invalid-feedback"
-                    style="display: inline-block;">
+                  <input type="text" name="number_of_employee" ngModel #number_of_employee="ngModel" maxlength="6"
+                    class="form-control" placeholder="number_of_employee" required autocomplete="off">
+                  <div *ngIf="number_of_employee.touched && number_of_employee.hasError('required')"
+                    class="invalid-feedback" style="display: inline-block;">
                     Number of employee is required
                   </div>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="pin">Investment in Plant_machinery</label>
-                  <input type="text" name="investment_in_plant_machinery" ngModel #investment_in_plant_machinery="ngModel" maxlength="6" class="form-control"
+                  <input type="text" name="investment_in_plant_machinery" ngModel
+                    #investment_in_plant_machinery="ngModel" maxlength="6" class="form-control"
                     placeholder="investment_in_plant_machinery" required autocomplete="off">
-                  <div *ngIf="investment_in_plant_machinery.touched && investment_in_plant_machinery.hasError('required')" class="invalid-feedback"
-                    style="display: inline-block;">
+                  <div
+                    *ngIf="investment_in_plant_machinery.touched && investment_in_plant_machinery.hasError('required')"
+                    class="invalid-feedback" style="display: inline-block;">
                     Investment in Plant_machinery is required
                   </div>
                 </div>
@@ -238,11 +252,13 @@
                     Enter Valid Email
                   </div>
                 </div>
-              </div>
-              <div class="form-group">
-                <div class="custom-file" style="width: 20%;">
-                  <input multiple (change)="onFileChange($event)" type="file" class="custom-file-input" id="customFile">
-                  <label class="custom-file-label" for="customFile">Upload Files</label>
+                <div class="form-group col-md-6">
+                  <label for="date">Upload Documents</label>
+                  <div class="custom-file">
+                    <input multiple (change)="onFileChange($event)" type="file" class="custom-file-input"
+                      id="customFile">
+                    <label class="custom-file-label" for="customFile">Upload Aadhar Card</label>
+                  </div>
                 </div>
               </div>
               <div class="row">
@@ -254,7 +270,7 @@
                   </div>
                 </div>
               </div>
-              <div class="text-center">
+              <div class="text-center mt-3">
                 <button type="submit" class="btn btn-primary btn_save">Continue</button>
               </div>
             </form>
@@ -264,16 +280,171 @@
 
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-5">
       <section class="feature-category description-section">
         <div class="row">
+          <div class="col-md-12 registration-label">
+            Instructions
+          </div>
           <div class="col-md-12">
-            <h5>More To know:</h5>
-            <p>udyo aadhar registration is the online method of acquiring MSME registration. you get the 12 digit Udyog
-              aadhar number for your micro, small or medium scale industry and you have MSME registration in your hands.
-            </p>
+            <div class="col-md-12 form-bg2 div-shadow-box">
+              <div class="col-md-12 instr-text">
+                <strong>1. Aadhaar Number :</strong> The Aadhaar number shall be of the proprietor in the case of a
+                proprietorship firm, of the managing partner in the case of a partnership firm and of a karta in the
+                case of a Hindu Undivided Family (HUF). ("यहां 12 अंकों का आधार नंबर भरें।")
+              </div>
+              <div class="clb"></div>
+              <div class="col-md-12 instr-text top-15">
+                <strong>2. Name of Applicant :</strong> Fill name of Applicant as mentioned on the Aadhaar Card.<br>
+                "आधार कार्ड में उल्लिखित आवेदक का नाम भरें।"
+              </div>
+              <div class="clb"></div>
+              <div class="col-md-12 instr-text top-15">
+                <strong>3. Social Category : </strong> Select the Social Category of applicant from the given
+                options.<br>
+                "आवेदक की सामाजिक श्रेणी का चयन करें।"
+              </div>
+              <div class="clb"></div>
+              <!-- <div class="col-md-12 instr-text top-15">
+                  <strong>4. Gender :</strong> Select the gender from provided option<br>
+      "आवेदक का लिंग चुनें।"
+                </div>
+                <div class="clb"></div> 
+                <div class="col-md-12 instr-text top-15">
+                  <strong>5. Physically Handicapped :</strong> Select the status from provided options<br>
+            "चयन करें कि आवेदक शारीरिक रूप से विकलांग है या नहीं।"
+    </div>
+                <div class="clb"></div>-->
+              <div class="col-md-12 instr-text top-15">
+                <strong>4. Type of Organization :</strong> Select the type of organization from the given options which
+                will get printed on MSME Certificate.<br>
+                "दिए गए विकल्पों में से संगठन के प्रकार का चयन करें।"
+              </div>
+              <div class="clb"></div>
+              <div class="col-md-12 instr-text top-15">
+                <strong>PAN: Fill 10 Digit PAN Number</strong> Business PAN Number (In case of proprietorship Submit
+                owner's PAN number) <br>
+                "यहां बिजनेस पैन का उल्लेख करें। प्रोप्राइटरशिप के मामले में प्रोप्राइटर का पैन उल्लेख करें।"
+              </div>
+              <div class="clb"></div>
+              <div class="col-md-12 instr-text top-15">
+                <strong>5. Name of Enterprise / Business : </strong> Fill the name of Business / Enterprise which will
+                get printed on MSME Certificate.<br>
+                "यहां अपने व्यवसाय के नाम का उल्लेख करें। यह नाम MSME प्रमाणपत्र पर मुद्रित किया जाएगा।"<br>
+                Note: Detail's in Name of Enterprise/Business will be verified &amp; picked up by system from the GSTIN
+                portal on the basis of given PAN No. If you are not having PAN then will be filled manually by you.
+              </div>
+              <div class="clb"></div>
+              <!--     <div class="col-md-12 instr-text top-15">
+                  <strong>8.Have you filled Financial Year (2018-19) ITR?</strong> If you filled ITR select yes otherwise no <br> 
+      "क्या आपने वित्तीय वर्ष (2018 - 19) ITR भरा है"<br>
+      (<strong>ITR Type</strong> Select ITR type if you filled ITR)<br> 
+
+    </div>
+                <div class="clb"></div>
+             
+                <div class="col-md-12 instr-text top-15">
+                  <strong>9. Do you have GSTIN Number?</strong> If you have GSTIN number then select yes otherwise no <br> 
+      "क्या आपके पास GSTIN नंबर है?"<br>
+      Note- GSTIN Number are mandatory for Udyam Registration from 01.04.2021. You are advised to apply for GSTIN Number immediately and update the same on this website by 31.03.2021, to avoid suspension of Udyam Registration.
+    </div>
+                <div class="clb"></div> -->
+
+              <div class="col-md-12 instr-text top-15">
+                <strong>Location of Plant :</strong> Please fill the location address properly <br>
+                "दिए गए क्षेत्रों में ठीक से विनिर्माण सुविधा का पता लिखे |"<br>
+                Note: Details in Location of Plant (Address) will be verified &amp; picked up by system from the GSTIN
+                portal on the basis of given PAN No. If you are not havingPAN then will be filled manually by you.
+              </div>
+              <div class="clb"></div>
+              <div class="col-md-12 instr-text top-15">
+                <strong>6. Office Address :</strong> Please provide office address.<br>
+                "दिए गए क्षेत्रों में ठीक से आधिकारिक पता लिखे |"
+              </div>
+              <div class="clb"></div>
+              <div class="col-md-12 instr-text top-15">
+                <strong>7. Date of Incorporation / Registration :</strong> Fill the date of Incorporation / Registration
+                of Business which will get printed on MSME Certificate.<br>
+                "व्यवसाय पंजीकरणकी की तारीख का उल्लेख यहां करें।"
+              </div>
+              <div class="clb"></div>
+              <div class="col-md-12 instr-text top-15">
+                <strong>8. Mobile No :</strong> Fill the correct Mobile Number of Applicant <br>
+                "आवेदक का सही मोबाइल नंबर यहां लिखें। "
+              </div>
+              <div class="clb"></div>
+              <div class="col-md-12 instr-text top-15">
+                <strong>9. Mail ID :</strong> Fill the correct Mail ID of Applicant<br>
+                "यहां अपनी सही ईमेल आईडी का उल्लेख करें।"
+              </div>
+              <div class="clb"></div>
+              <!--  <div class="col-md-12 instr-text top-15">
+                  <strong>14. Whether Production/Business Commenced :</strong> Select Production/Business Commenced or not<br>
+        "क्या आपका व्यवसाय शुरू हो गया है? "<br>
+        <strong>Date of Commencement of Business :</strong> Fill the date of Commencement of Business which will get printed on MSME Certificate.<br>
+        "व्यवसाय शुरू करने की तारीख का उल्लेख यहां करें।"
+    </div>
+                <div class="clb"></div>
+                <div class="col-md-12 instr-text top-15">
+                  <strong>15. Bank Account Number :</strong> Fill  the Applicant’s bank account number.<br>
+        "यहां अपने बैंक खाता नंबर का उल्लेख करें।"
+                </div>
+                <div class="clb"></div>
+                <div class="col-md-12 instr-text top-15">
+                  <strong>16. Bank IFSC Code :</strong> Fill the Applicant Bank IFSC Code. The IFSC code is printed on the Cheque Books.<br>
+        "अपने बैंक IFSC कोड को यहां लिखें।"
+    </div>
+                <div class="clb"></div>
+                <div class="col-md-12 instr-text top-15">
+                  <strong>17. Main Business Activity of Enterprise :</strong> Select the Main Business activity from the given options.<br>
+        "अपनी मुख्य व्यावसायिक गतिविधि चुनें।"
+                </div>
+                <div class="clb"></div>
+                <div class="col-md-12 instr-text top-15">
+                  <strong>18. NIC 2 Digit Code :</strong>Select the 2 Digit NIC Code from the given options considering your business activity. <br>
+        "यहां अपनी व्यावसायिक गतिविधि से संबंधित 2 अंकों का एनआईसी कोड चुनें।"
+                </div>
+                <div class="clb"></div> -->
+              <div class="col-md-12 instr-text top-15">
+                <strong>10. Additional details about Business :</strong> Fill Additional details about business. (For
+                example – manufacturing of Food Products, Computer programing, Software development) <br>
+                "व्यवसाय के बारे में अतिरिक्त जानकारी भरें।"
+              </div>
+              <div class="clb"></div>
+              <!--  <div class="col-md-12 instr-text top-15">
+                  <strong>20. Number of employees :</strong> Fill total number of people been employed. <br>
+        "आपके संगठन में कार्यरत कर्मचारियों की संख्या का उल्लेख करें।"
+                </div>
+                <div class="clb"></div>
+                <div class="col-md-12 instr-text top-15">
+                  <strong>21. Investment in Plant & Machinery / Equipment :</strong> Fill the total investment made in Plant, Machinery, and Equipment etc. to start your business. <br>
+        "अपने व्यवसाय में किए गए निवेश की कुल राशि भरें।"
+                </div>
+                <div class="clb"></div>
+                <div class="col-md-12 instr-text top-15">
+                  <strong>22. Turnover Detail's :</strong> Fill the total Turnover of your business. <br>
+        "अपने व्यवसाय में किए गए कारोबार की कुल राशि भरें।"
+                </div>
+                <div class="clb"></div>
+                <div class="col-md-12 instr-text top-15" >
+                  <strong>23. Attachment :</strong> Attach scan copy of your Aadhaar Card. (jpg,png file &lt; 500KB)<br>
+        "अपने आधार कार्ड की स्कैन कॉपी Attach करें। आप अपने आधार कार्ड को ईमेल पर भी भेज सकते हैं।<strong> help@msmeregistration.org 	</strong> <br><br>
+                </div> -->
+            </div>
           </div>
         </div>
+      </section>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="container-fluid p-0">
+  <div class="row">
+    <div class="col-md-12">
+      <section>
+        <img src="../../assets/udhyog-addhar/udhyog-aadhar-banner.png" width="100%" title="udhyog aadhar" />
       </section>
     </div>
   </div>

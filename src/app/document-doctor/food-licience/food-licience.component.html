@@ -84,7 +84,8 @@
                     class="invalid-feedback" style="display: inline-block;">
                     Nature Of Business is required
                   </div> -->
-                  <p-dropdown [options]="nature_of_business_list" name="nature_of_business" [(ngModel)]="nature_of_business" [style]="{'width':'100%'}"></p-dropdown>
+                  <p-dropdown [options]="nature_of_business_list" name="nature_of_business"
+                    [(ngModel)]="nature_of_business" [style]="{'width':'100%'}"></p-dropdown>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="pin">Business Name</label>
@@ -141,8 +142,8 @@
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label>landmark</label>
-                  <input type="text" name="landmark" ngModel #landmark="ngModel" class="form-control" placeholder="landmark"
-                    required autocomplete="off">
+                  <input type="text" name="landmark" ngModel #landmark="ngModel" class="form-control"
+                    placeholder="landmark" required autocomplete="off">
                   <div *ngIf="landmark.touched && landmark.hasError('required')" class="invalid-feedback"
                     style="display: inline-block;">
                     landmark is required
@@ -181,7 +182,60 @@
           <div class="col-md-12">
             <p>FSSAI registration or license is required for all entities involved in the manufacture, distribution and
               transportation of food products. ✔Support all states ✔3 Types of License: Local, State & Central
-              ✔Application in Same (Priority) ✔10yrs Experienced FSSAI Expert ✔Lowest Fees than Other Portals</p>>
+              ✔Application in Same (Priority) ✔10yrs Experienced FSSAI Expert ✔Lowest Fees than Other Portals</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div id="draft-body-header">
+              <p class="text-center">[Sample Registration Certificate]</p>
+              <h4 class="text-center">Government of <span class="sp-state"></span></h4>
+              <p class="text-center">Food And Drug Administration, <span class="sp-state"></span> State</p>
+              <p class="text-center">REGISTRATION CERTIFICATE</p>
+              <p class="text-center">Food Safety and Standards Act, 2006</p>
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td>1.Name of Food Business Operator. -</td>
+                    <td><span highlight-data="input-form-person-name"></span> <span
+                        highlight-data="person-designation"></span> <span
+                        highlight-data="input-form-company-name"></span></td>
+                    <td rowspan="3" data-img="input-form-person-pic-face-pic"></td>
+                  </tr>
+                  <tr>
+                    <td>2.Address of Food Business</td>
+                    <td><span highlight-data="input-form-company-address-line-1"></span> <span
+                        highlight-data="input-form-company-address-line-2"></span> <span
+                        highlight-data="input-form-company-address-city"></span> <span class="sp-state"></span> <span
+                        highlight-data="input-form-company-address-pin"></span></td>
+                  </tr>
+                  <tr>
+                    <td>Kind of Business</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td colspan="3">The Registration certificate is granted under and is subject to the provisions of
+                      Food Safety Standards Act 2006, Rule and Regulation 2011 which must be complied with by the
+                      Registered Food Business Operator.</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3">Food Business operator shall follow/ practice all requirements mentioned in Part-I
+                      of Schedule -4 of Food Safety &amp; Standards (Licensing &amp; Registration of Food Business)
+                      Regulation 2011.</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p>This is merely a registration certificate and not a License. It does not bestow any property right or
+                any other rights as regards ownership of structure or land etc. or confer any right of ownership.</p>
+              <p>Registered firm/ Person will be governed and abide by all orders issued as and when by any court
+                constiued by law in India Specifically Session court / High Court/ Supreme Court etc.</p>
+              <p>Period of Validity : <span highlight-data="high-validity"></span> Year(s)</p><strong>
+                <p>- Signature</p>
+              </strong>
+              <p rowspan="3" data-img="input-form-person-signature-pic"></p><b>Disclaimer : 1 - This Registration
+                Certificate is only to commence or carry on the food businesses and not for any other purpose. 2 - This
+                is an electronically generated Registration Certificate and does not require any signature.</b>
+            </div>
           </div>
         </div>
       </section>

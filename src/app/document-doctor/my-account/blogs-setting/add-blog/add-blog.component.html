@@ -41,9 +41,12 @@
                           </div>
                           <div class="form-group">
                               <label for="address">Description</label>
-                              <textarea name="description" ngModel #description="ngModel" class="form-control"  maxlength="255" placeholder="Apartment, studio, or floor" required></textarea>
+                              <textarea name="description"  ngModel #description="ngModel" class="form-control"  maxlength="1000" placeholder="Description" style="height: 126px!important;" required></textarea>
                               <div *ngIf="description.touched && description.hasError('required')" class="invalid-feedback" style="display: inline-block;">
                                 Description is required
+                              </div>
+                              <div *ngIf="description.touched && description.hasError('maxlength')" class="invalid-feedback" style="display: inline-block;">
+                                Description cannot be more the 1000 characters!
                               </div>
                           </div>
 

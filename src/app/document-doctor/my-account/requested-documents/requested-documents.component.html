@@ -44,7 +44,7 @@
                 <td> {{ doc.mobile }}</td>
                 <td>
                   <div class="row-actions">
-                  <i (click)="showDetails()" class="pi pi-eye"></i>
+                  <i (click)="showDetails(doc)" class="pi pi-eye"></i>
                   </div>
                 </td>
               </tr>
@@ -73,7 +73,7 @@
                 <td> {{ doc.village_or_city }}</td>
                 <td>
                   <div class="row-actions">
-                  <i (click)="showDetails()" class="pi pi-eye"></i>
+                  <i (click)="showDetails(doc)" class="pi pi-eye"></i>
                   </div>
                 </td>
               </tr>
@@ -121,7 +121,7 @@
                 <td> {{ doc.mobile }}</td>
                 <td>
                   <div class="row-actions">
-                  <i (click)="showDetails()" class="pi pi-eye"></i>
+                  <i (click)="showDetails(doc)" class="pi pi-eye"></i>
                   </div>
                 </td>
               </tr>
@@ -161,23 +161,38 @@
         </button>
       </div>
       <div class="modal-body">
-        <ng-container *ngIf="selectedDocument == documents[0]">
+        <!-- <ng-container *ngIf="selectedDocument == documents[0]">
           <div class="row">
             <div class="form-group col-md-4">
-              <label for="inputCity">Name: <span class="text-grey">Name</span></label>
-            </div>
-
-            <div class="form-group col-md-4">
-              <label for="inputCity">Description: <span class="text-grey">Description</span></label>
+              <label for="inputCity">Name: <span class="text-gray">{{documentModalData.name_of_owner}}</span></label>
             </div>
             <div class="form-group col-md-4">
-              <label for="inputCity">Description: <span class="text-grey">Description</span></label>
+              <label for="inputCity">Email: <span class="text-gray">{{documentModalData.email}}</span></label>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputCity">Mobile: <span class="text-gray">{{documentModalData.mobile}}</span></label>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputCity">Aadhar No.: <span class="text-gray">{{documentModalData.aadhar_card}}</span></label>
             </div>
           </div>
         </ng-container>
 
         <ng-container *ngIf="selectedDocument == documents[1]">
-
+          <div class="row">
+            <div class="form-group col-md-4">
+              <label for="inputCity">Name: <span class="text-gray">{{documentModalData.full_name}}</span></label>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputCity">Email: <span class="text-gray">{{documentModalData.email}}</span></label>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputCity">Mobile: <span class="text-gray">{{documentModalData.mobile}}</span></label>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputCity">Village/City: <span class="text-gray">{{documentModalData.village_or_city}}</span></label>
+            </div>
+          </div>
         </ng-container>
 
         <ng-container *ngIf="selectedDocument == documents[2]">
@@ -185,8 +200,24 @@
         </ng-container>
 
         <ng-container *ngIf="selectedDocument == documents[3]">
+          <div class="row">
+            <div class="form-group col-md-4">
+              <label for="inputCity">Name: <span class="text-gray">{{documentModalData.applicant_name}}</span></label>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputCity">Email: <span class="text-gray">{{documentModalData.email}}</span></label>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputCity">Mobile: <span class="text-gray">{{documentModalData.mobile}}</span></label>
+            </div>
+          </div>
+        </ng-container> -->
 
-        </ng-container>
+        <div class="row">
+          <div class="form-group col-md-4" *ngFor="let detail of documentModaLableValue">
+            <label for="inputCity">{{detail.label}}: <span class="text-gray">{{detail.value}}</span></label>
+          </div>
+        </div>
       </div>
     </div>
   </div>

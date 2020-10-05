@@ -63,11 +63,11 @@ export class NavbarComponent implements OnInit {
   authUser: AuthUser;
   displayAlert: boolean = false;
   message = ''
-  // alert;
-  constructor(private auth: AuthService, public dataService: DataService, private route: Router) {
-    // this.isAuthenticated = this.auth.isAuthenticated();
-    // this.alert = this.alertService.getAlertInstance();
 
+  lastScrollTop = 0;
+  scrolledUp: boolean = false;
+
+  constructor(private auth: AuthService, public dataService: DataService, private route: Router) {
     this.auth.peekAuthentication()
     .subscribe(auth => {
       if(auth){
@@ -81,9 +81,28 @@ export class NavbarComponent implements OnInit {
 
     });
   }
-
-  ngOnInit(): void {
+  ngOnInit() {
+      // window.addEventListener('scroll', this.scroll, true); //third parameter
   }
+
+  ngOnDestroy() {
+      // window.removeEventListener('scroll', this.scroll, true);
+  }
+
+
+scroll = (event: Event): void => {
+  let st = document.getElementById('app').scrollTop;
+  console.log(st);
+  console.log(this.lastScrollTop);
+   if (st > this.lastScrollTop){
+       // downscroll code
+      this.scrolledUp = false;
+   } else {
+      // upscroll code
+      this.scrolledUp = true;
+   }
+   this.lastScrollTop = st;
+};
 
   check(event){
     console.log(event);

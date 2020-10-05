@@ -3,6 +3,7 @@ import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 import { take } from 'rxjs/operators';
 import { AuthService } from 'src/app/service/auth.service';
 import { DocumentService } from 'src/app/service/document.service';
+import { UtilService } from 'src/app/service/util.service';
 declare var $;
 
 @Component({
@@ -25,7 +26,9 @@ export class RequestedDocumentsComponent implements OnInit {
 
   documents: string[] //= ['Udhyog Aadhar', 'Food License' , 'Gumasta', 'GST']
   selectedDocument: string;
-  constructor(private service: DocumentService, private auth: AuthService) {}
+  documentModalData: any;
+  documentModaLableValue: {label: string ; value:string }[]
+  constructor(private service: DocumentService, private auth: AuthService, private utilService: UtilService) {}
 
   ngOnInit(): void {
     this.contentData = [];
@@ -67,12 +70,19 @@ export class RequestedDocumentsComponent implements OnInit {
 
 
   onTabChange(event){
-    console.log(this.documents[event.index]);
     this.selectedDocument = this.documents[event.index];
     this.initPaginationData(this.documents[event.index])
   }
 
-  showDetails(){
+  showDetails(detail){
+    this.documentModaLableValue = []
     $('#detail_modal').modal();
+    // this.documentModalData = detail;
+    const keys = Object.keys(detail);
+
+    keys.forEach(key => {
+      const label = this.utilService.titleCase(key.split('_').join(' '));
+      this.documentModaLableValue.push({label: label , value: detail[key] })
+    });
   }
 }

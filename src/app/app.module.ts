@@ -81,6 +81,7 @@ import {ToastModule} from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import {TabViewModule} from 'primeng/tabview';
 import { menu,placeholder, NgxEditorModule } from 'ngx-editor';
+import { VendorRegistrationComponent } from './document-doctor/vendor-registration/vendor-registration.component';
 
 
 @NgModule({
@@ -117,7 +118,8 @@ import { menu,placeholder, NgxEditorModule } from 'ngx-editor';
     GstComponent,
     OrderCheckoutComponent,
     BlogDetailComponent,
-    OrderSuccessPageComponent
+    OrderSuccessPageComponent,
+    VendorRegistrationComponent
   ],
   imports: [
     BrowserAnimationsModule,

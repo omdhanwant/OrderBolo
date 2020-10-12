@@ -1,0 +1,19 @@
+p {
+  width: 100%;
+  border-bottom: 1px solid #e6e6e6;
+  padding-bottom: 12px;
+  position: relative;
+}
+
+.scroll_container {
+  height: 400px;
+  overflow: scroll;
+}
+
+.close {
+  position: absolute;
+  right: 0;
+  top: -4px;
+  font-size: 20px;
+  cursor: pointer;
+}

@@ -102,7 +102,7 @@ export class GumastaComponent implements OnInit {
           state:  null,
           pincode:  null,
           mobile:   null,
-          amount:599
+          amount:59900
         }
 
         this.route.navigateByUrl('/order-checkout')

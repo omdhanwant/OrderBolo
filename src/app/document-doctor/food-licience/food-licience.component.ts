@@ -107,7 +107,7 @@ export class FoodLicienceComponent implements OnInit {
           state: null,
           pincode: null,
           mobile: null,
-          amount: 1540
+          amount: 154000
         }
 
         this.route.navigateByUrl('/order-checkout')

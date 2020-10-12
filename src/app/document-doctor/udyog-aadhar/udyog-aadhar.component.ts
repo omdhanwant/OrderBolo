@@ -98,7 +98,7 @@ export class UdyogAadharComponent implements OnInit {
           state: null,
           pincode: null,
           mobile: null,
-          amount:999
+          amount:99900
         }
 
         this.route.navigateByUrl('/order-checkout')

@@ -1,34 +1,47 @@
-<div class="form_container">
+<div class="container mb-2">
     <div class="row">
         <div class="col-md-12">
             <nav aria-label="breadcrumb no-bg">
                 <ol class="breadcrumb no-bg">
                     <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
                     <li class="breadcrumb-item"><a routerLink="/document-doctor">Document Doctor</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">GST</li>
+                    <li class="breadcrumb-item active" aria-current="page">GST Registration</li>
                 </ol>
             </nav>
         </div>
+    </div>
+</div>
+<div class="container-fluid p-0 text-center mb-2">
+    <img src="../../../assets/gst/gst-registration.png" class="mark text-center">
+</div>
+<div class="form_container">
+    <div class="row">
         <div class="col-md-12">
             <section class="feature-category">
                 <div class="row pb-3">
                     <div class="col-md-12">
-                        <h1 class="feature_h1 text-center">GST</h1>
-                        <span class="feature_sub_title text-center">Fill bellow form details</span>
+                        <h1 class="feature_h1 text-center">GST Registration Online | Entire Process Will Be Done in Same
+                            Day</h1>
+                        <span class="feature_sub_title text-center">Become a Govt. registered taxpayer in India. GST
+                            expert of Online Legal India will help you in every single step to get GST number. Apply for
+                            GSTIN from any states of India.</span>
                         <hr>
                     </div>
                 </div>
             </section>
         </div>
 
-        <div class="col-md-8">
+        <div class="col-md-7">
             <section class="feature-category description-section">
                 <div class="row">
+                    <div class="col-md-12 registration-label">
+                        Registration
+                    </div>
                     <div class="col-md-12">
                         <form #form="ngForm" (ngSubmit)="save(form)">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label>applicant_name</label>
+                                    <label>Applicant Full Name / आवेदक का पूर्ण नाम</label>
                                     <input type="text" name="applicant_name" ngModel #applicant_name="ngModel"
                                         class="form-control" placeholder="applicant_name" required autocomplete="off">
                                     <div *ngIf="applicant_name.touched && applicant_name.hasError('required')"
@@ -37,7 +50,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label>organization_name</label>
+                                    <label>Organization_name</label>
                                     <input type="text" name="organization_name" ngModel #organization_name="ngModel"
                                         class="form-control" placeholder="organization_name" required
                                         autocomplete="off">
@@ -49,18 +62,19 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="mobile">Mobile Number</label>
+                                    <label for="mobile">Mobile / मोबाइल</label>
                                     <input type="text" maxlength="10" name="mobile" ngModel #mobile="ngModel"
-                                        class="form-control" placeholder="Mobile Number" required autocomplete="off">
+                                        class="form-control" placeholder="98XXXXXXXX (Without 0 or +91)" required
+                                        autocomplete="off">
                                     <div *ngIf="mobile.touched && mobile.hasError('required')" class="invalid-feedback"
                                         style="display: inline-block;">
                                         Mobile number is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label>aadhar_number</label>
+                                    <label>Aadhar Card Number</label>
                                     <input type="text" name="aadhar_number" ngModel #aadhar_number="ngModel"
-                                        class="form-control" placeholder="aadhar_number" required autocomplete="off">
+                                        class="form-control" placeholder="Aadhar Number" required autocomplete="off">
                                     <div *ngIf="aadhar_number.touched && aadhar_number.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
                                         aadhar_number is required
@@ -69,37 +83,37 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label>email</label>
+                                    <label>Email Address / ईमेल पता</label>
                                     <input type="text" name="email" ngModel #email="ngModel" class="form-control"
-                                        placeholder="email" required autocomplete="off">
+                                        placeholder="your@gmail.com" required autocomplete="off">
                                     <div *ngIf="email.touched && email.hasError('required')" class="invalid-feedback"
                                         style="display: inline-block;">
                                         email is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="pin">pan_number</label>
+                                    <label for="pin">PAN Number</label>
                                     <input type="text" name="pan_number" ngModel #pan_number="ngModel" maxlength="6"
-                                        class="form-control" placeholder="Pin Code" required autocomplete="off">
+                                        class="form-control" placeholder="PAN Number" required autocomplete="off">
                                     <div *ngIf="pan_number.touched && pan_number.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
                                         pan_number is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="pin">constitution_of_business</label>
-                                    <input type="text" name="constitution_of_business" ngModel #constitution_of_business="ngModel"
-                                        maxlength="6" class="form-control" placeholder="Pin Code" required
-                                        autocomplete="off">
+                                    <label for="pin">Constitution of Business</label>
+                                    <input type="text" name="constitution_of_business" ngModel
+                                        #constitution_of_business="ngModel" maxlength="6" class="form-control"
+                                        placeholder="Constitution of Business" required autocomplete="off">
                                     <div *ngIf="constitution_of_business.touched && constitution_of_business.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
                                         constitution_of_business is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="pin">electricity_bill</label>
+                                    <label for="pin">Electricity Bill</label>
                                     <input type="text" name="electricity_bill" ngModel #electricity_bill="ngModel"
-                                        maxlength="6" class="form-control" placeholder="Pin Code" required
+                                        maxlength="6" class="form-control" placeholder="Electricity Bill" required
                                         autocomplete="off">
                                     <div *ngIf="electricity_bill.touched && electricity_bill.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
@@ -133,14 +147,209 @@
 
         </div>
 
-        <div class="col-md-4">
-          <section class="feature-category description-section">
-              <div class="row">
-                  <div class="col-md-12">
-                      Descriptions
-                  </div>
-              </div>
-          </section>
-      </div>
+        <div class="col-md-5">
+            <section class="feature-category description-section">
+                <div class="row">
+                    <div class="col-md-12 registration-label">
+                        Instructions
+                    </div>
+                    <div class="col-md-12">
+                        <div class="bd-example" data-example-id="">
+                            <div id="accordion" role="tablist" aria-multiselectable="true">
+                                <div class="card">
+                                    <div class="card-header" role="tab" id="headingThree">
+                                        <div class="mb-0">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"
+                                                aria-expanded="true" aria-controls="collapseOne" class="">
+                                                <h3>Benefits of Having GST Number</h3>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div id="collapseThree" class="collapse p-4 show" role="tabpanel"
+                                        aria-labelledby="headingThree" aria-expanded="true" style="">
+                                        <div class="card-block">
+                                            <p class="benifits-having-text"><strong>Become more competitive in
+                                                    Market</strong></p>
+                                            <p class="benifits-having-text">Interstate trading is impossible without
+                                                having a GST number. It is possible only after registering the business
+                                                under GST.</p>
+                                            <p class="benifits-having-text"><strong>Expansion of business
+                                                    online</strong></p>
+                                            <p class="benifits-having-text">You must acquire a GSTIN if you are willing
+                                                to compete with big brands like Amazon, Flipkart, Shopify, Paytm on
+                                                ecommerce platform or through your own website.</p>
+                                            <p class="benifits-having-text"><strong>Get Input Tax Credit</strong></p>
+                                            <p class="benifits-having-text">If you have a GST Number, you can avail
+                                                Input Tax Credit while filing for GST return.</p>
+                                            <p class="benifits-having-text"><strong>Interstate sales without
+                                                    restrictions</strong></p>
+                                            <p class="benifits-having-text">You can sell your products in other states
+                                                only after completing the registration for GST.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-header" role="tab" id="headingThree">
+                                        <div class="mb-0">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"
+                                                aria-expanded="false" aria-controls="collapseFour" class="collapsed">
+                                                <h3>Documents required for GST registration</h3>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div id="collapseFour" class="collapse p-4" role="tabpanel"
+                                        aria-labelledby="headingThree" aria-expanded="false" style="height: 0px;">
+                                        <div class="card-block">
+                                            The following documents are required to register of GST (Goods and Service
+                                            Tax) –
+                                            <ul class="benifits-ul">
+                                                <li class="register-benifit-li register-benifits-text">PAN Card</li>
+                                                <li class="register-benifit-li register-benifits-text">Aadhaar Card</li>
+                                                <li class="register-benifit-li register-benifits-text">Phone number and
+                                                    Email address</li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="col-md-12">
+            <h2 style="color: black" class="benifts-heading mt-4">How We Work?</h2>
+            <img src="../../../assets/gst/gst-banner.png" width="100%">
+        </div>
+        <div class="col-md-12">
+            <h2 style="color: black" class="benifts-heading mt-4">FAQ</h2>
+        </div>
+        <div class="col-md-12">
+            <div class="bd-example" data-example-id="">
+                <div id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="card">
+                        <div class="card-header" role="tab" id="headingThree">
+                            <div class="mb-0">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"
+                                    aria-expanded="true" aria-controls="collapseOne" class="">
+                                    <h3>What is GST?</h3>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="collapseThree" class="collapse p-4 show" role="tabpanel" aria-labelledby="headingThree"
+                            aria-expanded="true" style="">
+                            <div class="card-block">
+                                <p class="benifits-having-text">GST or Goods and Service Tax is a kind of indirect tax
+                                    for India and applicable on the supply of products and providing of services. It is
+                                    a comprehensive and multi-staged assessing; comprehensive because it has subsumed
+                                    all the indirect taxes except a few and multistage because it is implicated at every
+                                    step within the generation prepare. It is supposed to be discounted to all the
+                                    parties within various stages of generation except the ultimate consumer.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" role="tab" id="headingThree">
+                            <div class="mb-0">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"
+                                    aria-expanded="false" aria-controls="collapseFour" class="collapsed">
+                                    <h3>What is the need of GST?</h3>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="collapseFour" class="collapse p-4" role="tabpanel" aria-labelledby="headingThree"
+                            aria-expanded="false" style="height: 0px;">
+                            <div class="card-block">
+                                <p class="benifits-having-text">It is a mandate issued by Govt. of India who basically
+                                    try to save tax and keep oneself from the cascading effect of tax.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" role="tab" id="headingThree">
+                            <div class="mb-0">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive"
+                                    aria-expanded="false" aria-controls="collapseFive" class="collapsed">
+                                    <h3>Is it necessary to pay GST?</h3>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="collapseFive" class="collapse p-4" role="tabpanel" aria-labelledby="headingThree"
+                            aria-expanded="false" style="height: 0px;">
+                            <div class="card-block">
+                                <p class="benifits-having-text">Yes, it is mandatory to pay GST for all the tax payers
+                                    who is registered under GST regime.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" role="tab" id="headingThree">
+                            <div class="mb-0">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix"
+                                    aria-expanded="false" aria-controls="collapseSix" class="collapsed">
+                                    <h3>What is the full form of CGST, SGST, IGST?</h3>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="collapseSix" class="collapse p-4" role="tabpanel" aria-labelledby="headingThree"
+                            aria-expanded="false" style="height: 0px;">
+                            <div class="card-block">
+                                <p class="benifits-having-text">The full form of CGST– Central Goods and Service Tax |
+                                    SGST– State Goods and Service Tax | IGST– Integrated Goods and Service Tax</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <div class="card">
+                        <div class="card-header" role="tab" id="headingThree">
+                            <div class="mb-0">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix2"
+                                    aria-expanded="false" aria-controls="collapseSix2" class="collapsed">
+                                    <h3> What is the difference between CGST, SGST and IGST?</h3>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="collapseSix2" class="collapse p-4" role="tabpanel" aria-labelledby="headingThree"
+                            aria-expanded="false" style="height: 0px;">
+                            <div class="card-block">
+                                <p class="benifits-having-text">CGST and IGST are levied by Central Govt. and SGST is levied by State Govt.
+                                    CGST and SGST are paid for Intra-State Supply and IGST is paid for inter-State supply.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <div class="card">
+                        <div class="card-header" role="tab" id="headingThree">
+                            <div class="mb-0">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix3"
+                                    aria-expanded="false" aria-controls="collapseSix3" class="collapsed">
+                                    <h3>What is the limit to be considered under the GST law?</h3>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="collapseSix3" class="collapse p-4" role="tabpanel" aria-labelledby="headingThree"
+                            aria-expanded="false" style="height: 0px;">
+                            <div class="card-block">
+                                <p class="benifits-having-text">The limit to be considered under GST law differs on the basis of different categories.
+
+                                    Manufacturing Sector – 40 lakhs
+                                    
+                                    Service sector – 20 lakhs
+                                    
+                                    In North Eastern states – 10 lakhs</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
 </div>

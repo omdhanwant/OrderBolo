@@ -83,6 +83,7 @@ export class GstComponent implements OnInit {
           state: null,
           pincode: null,
           mobile: null,
+          amount:999
         }
 
         this.route.navigateByUrl('/order-checkout')

@@ -78,6 +78,7 @@ export class AadharCardComponent implements OnInit {
           state:  null,
           pincode:  null,
           mobile:   null,
+          amount:0
         }
 
         this.route.navigateByUrl('/order-checkout')

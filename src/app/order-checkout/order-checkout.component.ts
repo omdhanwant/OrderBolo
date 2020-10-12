@@ -32,6 +32,8 @@ export class OrderCheckoutComponent implements OnInit {
   ngOnInit(): void {
 
     this.details = this.dataService.check_out_data;
+    this.amount= this.details.amount;
+    console.log(this.amount);
     this.dataService.getUserById(this.details.user_id).
     pipe(take(1)).subscribe( userData => {
       const user = userData[0]['data'] as Users;

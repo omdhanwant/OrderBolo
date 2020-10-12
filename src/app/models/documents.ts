@@ -32,4 +32,5 @@ export interface GazetteCertificate {
   state: string;
   pincode: string;
   mobile: string;
+  amount: number;
  }

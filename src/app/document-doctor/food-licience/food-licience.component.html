@@ -1,4 +1,4 @@
-<div class="form_container">
+<div class="container mb-2">
   <div class="row">
     <div class="col-md-12">
       <nav aria-label="breadcrumb no-bg">
@@ -9,21 +9,33 @@
         </ol>
       </nav>
     </div>
-    <div class="col-md-12">
+  </div>
+</div>
+<div class="container-fluid p-0 text-center mb-2">
+  <img src="../../../assets/food-licience/fssai-banner.jpg" class="mark text-center">
+</div>
+<div class="form_container">
+  <div class="row">
+    <div class="col-md-12 mb-2">
       <section class="feature-category">
         <div class="row pb-3">
           <div class="col-md-12">
-            <h1 class="feature_h1 text-center">Food License Online Registration (FSSAI)</h1>
-            <span class="feature_sub_title text-center">Fill bellow form details</span>
+            <h1 class="feature_h1 text-center">FSSAI Food License Online Registration</h1>
+            <p>FSSAI registration or license is required for all entities involved in the manufacture, distribution and
+              transportation of food products. ✔Support all states ✔3 Types of License: Local, State & Central
+              ✔Application in Same (Priority) ✔10yrs Experienced FSSAI Expert ✔Lowest Fees than Other Portals</p>
             <hr>
           </div>
         </div>
       </section>
     </div>
 
-    <div class="col-md-8">
+    <div class="col-md-7">
       <section class="feature-category description-section">
         <div class="row">
+          <div class="col-md-12 registration-label">
+            Registration
+          </div>
           <div class="col-md-12">
             <form #form="ngForm" (ngSubmit)="save(form)">
               <div class="form-row">
@@ -149,15 +161,17 @@
                     landmark is required
                   </div>
                 </div>
-              </div>
-
-              <div class="form-group">
-                <div class="custom-file" style="width: 30%;">
-                  <input multiple (change)="onFileChange($event)" type="file" class="custom-file-input" id="customFile">
-                  <label class="custom-file-label" for="customFile">Upload Files</label>
+                
+                <div class="form-group col-md-6">
+                  <label>Upload Required documents</label>
+                  <div class="custom-file">
+                    <input multiple (change)="onFileChange($event)" type="file" class="custom-file-input" id="customFile">
+                    <label class="custom-file-label" for="customFile">Upload Files</label>
+                  </div>
                 </div>
               </div>
-              <div class="row">
+
+              <div class="row mb-3">
                 <div style="display: flex;">
                   <div *ngFor="let file of myFiles;let i=index;" class="pill">
                     {{ file.name }}
@@ -176,69 +190,137 @@
 
     </div>
 
-    <div class="col-md-4">
-      <section class="feature-category description-section">
-        <div class="row">
-          <div class="col-md-12">
-            <p>FSSAI registration or license is required for all entities involved in the manufacture, distribution and
-              transportation of food products. ✔Support all states ✔3 Types of License: Local, State & Central
-              ✔Application in Same (Priority) ✔10yrs Experienced FSSAI Expert ✔Lowest Fees than Other Portals</p>
+    <div class="col-md-5">
+      <div class="bd-example" data-example-id="">
+        <div id="accordion" role="tablist" aria-multiselectable="true">
+          <div class="card">
+            <div class="card-header" role="tab" id="headingOne">
+              <div class="mb-0">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" data-port="collapseOne"
+                  aria-expanded="true" aria-controls="collapseOne" class="">
+                  <h3>What is FSSAI / Food License?</h3>
+                </a>
+              </div>
+            </div>
+            <div id="collapseOne" class="custom_close p-4 show collapse show" role="tabpanel"
+              aria-labelledby="headingOne" aria-expanded="true" style="">
+              <div class="card-block">
+                Food License Registration certificate is required to run a food product business. You have to register
+                under Food Safety and Standards Authority of India (FSSAI) to manufacture, distribute and transport
+                food products. FSSAI is established under the Ministry of Health &amp; Family Welfare, Government of
+                India.
+                The FSSAI has been established under the Food Safety and Standards Act, 2006. FSSAI Certificate and
+                FSSAI License are same which ensures the quality, purity and other important factors the customers can
+                rely upon.
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <div id="draft-body-header">
-              <p class="text-center">[Sample Registration Certificate]</p>
-              <h4 class="text-center">Government of <span class="sp-state"></span></h4>
-              <p class="text-center">Food And Drug Administration, <span class="sp-state"></span> State</p>
-              <p class="text-center">REGISTRATION CERTIFICATE</p>
-              <p class="text-center">Food Safety and Standards Act, 2006</p>
-              <table class="table">
-                <tbody>
-                  <tr>
-                    <td>1.Name of Food Business Operator. -</td>
-                    <td><span highlight-data="input-form-person-name"></span> <span
-                        highlight-data="person-designation"></span> <span
-                        highlight-data="input-form-company-name"></span></td>
-                    <td rowspan="3" data-img="input-form-person-pic-face-pic"></td>
-                  </tr>
-                  <tr>
-                    <td>2.Address of Food Business</td>
-                    <td><span highlight-data="input-form-company-address-line-1"></span> <span
-                        highlight-data="input-form-company-address-line-2"></span> <span
-                        highlight-data="input-form-company-address-city"></span> <span class="sp-state"></span> <span
-                        highlight-data="input-form-company-address-pin"></span></td>
-                  </tr>
-                  <tr>
-                    <td>Kind of Business</td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td colspan="3">The Registration certificate is granted under and is subject to the provisions of
-                      Food Safety Standards Act 2006, Rule and Regulation 2011 which must be complied with by the
-                      Registered Food Business Operator.</td>
-                  </tr>
-                  <tr>
-                    <td colspan="3">Food Business operator shall follow/ practice all requirements mentioned in Part-I
-                      of Schedule -4 of Food Safety &amp; Standards (Licensing &amp; Registration of Food Business)
-                      Regulation 2011.</td>
-                  </tr>
-                </tbody>
-              </table>
-              <p>This is merely a registration certificate and not a License. It does not bestow any property right or
-                any other rights as regards ownership of structure or land etc. or confer any right of ownership.</p>
-              <p>Registered firm/ Person will be governed and abide by all orders issued as and when by any court
-                constiued by law in India Specifically Session court / High Court/ Supreme Court etc.</p>
-              <p>Period of Validity : <span highlight-data="high-validity"></span> Year(s)</p><strong>
-                <p>- Signature</p>
-              </strong>
-              <p rowspan="3" data-img="input-form-person-signature-pic"></p><b>Disclaimer : 1 - This Registration
-                Certificate is only to commence or carry on the food businesses and not for any other purpose. 2 - This
-                is an electronically generated Registration Certificate and does not require any signature.</b>
+          <div class="card">
+            <div class="card-header" role="tab" id="headingTwo">
+              <div class="mb-0">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false"
+                  data-port="collapseTwo" aria-controls="collapseOne" class="collapsed">
+                  <h3>Difference between FSSAI &amp; Food License?</h3>
+                </a>
+              </div>
+            </div>
+            <div id="collapseTwo" class="collapse custom_close p-4 show" role="tabpanel" aria-labelledby="headingTwo"
+              aria-expanded="false">
+              <div class="card-block">
+                Both FSSAI and Food License are same.
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" role="tab">
+              <div class="mb-0">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false"
+                  data-port="collapseThree" aria-controls="collapseOne" class="collapsed">
+                  <h3>What are the different types of License?</h3>
+                </a>
+              </div>
+            </div>
+            <div id="collapseThree" class="collapse custom_close p-4 show" role="tabpanel"
+              aria-labelledby="headingThree" aria-expanded="false">
+              <div class="card-block">
+                <table width="100%">
+                  <tbody>
+                    <tr>
+                      <td width="134">
+                        <strong>License Type</strong>
+                      </td>
+                      <td width="156"><strong>Eligibility</strong></td>
+                      <td width="174"><strong>Validity</strong></td>
+                      <td width="174"><strong>Fee</strong></td>
+                    </tr>
+                    <tr>
+                      <td width="134">FSSAI Basic License</td>
+                      <td width="156">Annual turnover of the business is less than 12 lakhs</td>
+                      <td width="174">1 Year</td>
+                      <td width="174"><span style="font-size: 16px">Rs. 1999/- </span><br><span
+                          style="font-size: 12px;">Including Govt. Fee Excluding GST</span><br> <span
+                          style="font-size: 12px">One Time</span><br> <span style="font-size: 12px">No Hidden
+                          Charge</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="134">FSSAI State License</td>
+                      <td width="156">Annual turnover of the business is between 12 to 20 crores</td>
+                      <td width="174">1 To 5 Years</td>
+                      <td width="174"><span style="font-size: 16px">Rs. 2999/- </span><br><span
+                          style="font-size: 12px">Excluding Govt. Fee Excluding GST</span><br> <span
+                          style="font-size: 12px">One Time</span><br> <span style="font-size: 12px">No Hidden
+                          Charge</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="134">FSSAI Central License</td>
+                      <td width="156">Annual turnover of the business is above 20 crores</td>
+                      <td width="174">1 To 5 Years</td>
+                      <td width="174"><span style="font-size: 16px">Rs. 3999/- </span><br><span
+                          style="font-size: 12px">Excluding Govt. Fee Excluding GST</span><br> <span
+                          style="font-size: 12px">One Time</span><br> <span style="font-size: 12px">No Hidden
+                          Charge</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" role="tab" id="headingOne">
+              <div class="mb-0">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true"
+                  aria-controls="collapseOne" class="">
+                  <h3>FSSAI Certificate Sample</h3>
+                </a>
+              </div>
+            </div>
+            <div id="collapseFour" class="collapse in" role="tabpanel" aria-labelledby="headingOne" aria-expanded="true"
+              style="">
+              <div class="card-block">
+                <img alt="sample msme certificate image" src="../../../assets/food-licience/demo-licence.png"
+                  style="width: 100%; height: auto;">
+              </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+    <div class="col-md-12 mb-3">
+      <h2 style="color: black" class="benifts-heading">Who Needs An FSSAI License?</h2>
+      <img src="../../../assets/food-licience/food-licience-banner.png" width="100%"/>
+    </div>
+  </div>
+</div>
+<div class="container-fluid p-0" style="background-color: #EFEFEF;">  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mb-3">
+        <h2 style="color: black" class="benifts-heading">How We Work?</h2>
+        <img src="../../../assets/food-licience/how-it-works.png" width="100%"/>
+      </div>
     </div>
   </div>
 </div>

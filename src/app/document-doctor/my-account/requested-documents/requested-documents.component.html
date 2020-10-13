@@ -160,7 +160,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body detail_modal_body">
         <!-- <ng-container *ngIf="selectedDocument == documents[0]">
           <div class="row">
             <div class="form-group col-md-4">
@@ -215,7 +215,9 @@
 
         <div class="row">
           <div class="form-group col-md-4" *ngFor="let detail of documentModaLableValue">
-            <label for="inputCity">{{detail.label}}: <span class="text-gray">{{detail.value}}</span></label>
+            <div class="detail_label_val">
+              <label for="inputCity">{{detail.label}}: <span class="text-gray">{{detail.value}}</span></label>
+            </div>
           </div>
         </div>
       </div>

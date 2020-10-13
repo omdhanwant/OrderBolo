@@ -82,7 +82,11 @@ export class RequestedDocumentsComponent implements OnInit {
 
     keys.forEach(key => {
       const label = this.utilService.titleCase(key.split('_').join(' '));
-      this.documentModaLableValue.push({label: label , value: detail[key] })
+      const lowercase_label = label.toLowerCase();
+      const not_required_label = (lowercase_label.includes('updated') || lowercase_label.includes('created') || lowercase_label.includes('file') || lowercase_label.includes('id'))
+      if(!not_required_label) {
+        this.documentModaLableValue.push({label: label , value: detail[key] })
+      }
     });
   }
 }

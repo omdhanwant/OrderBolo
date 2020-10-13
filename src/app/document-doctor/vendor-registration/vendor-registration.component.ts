@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { AlertService } from 'src/app/service/alertService';
 import { DocumentService } from 'src/app/service/document.service';
 declare var $;
 @Component({
@@ -9,12 +10,16 @@ declare var $;
 })
 export class VendorRegistrationComponent implements OnInit {
 
-  constructor(private service: DocumentService) { }
+  constructor(private service: DocumentService, private alertService: AlertService) { }
 
   ngOnInit(): void {
   }
 
   save(form: NgForm){
+    if(form.invalid) {
+      this.alertService.addSingle('error','Error Message','Please enter all required details.');
+      return
+    }
     const birth_date_format = this.getDate(form.control.get('dob').value)
     // form.control.get('birth_date').setValue(birth_date_format)
 

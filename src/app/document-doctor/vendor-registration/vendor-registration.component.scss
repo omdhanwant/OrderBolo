@@ -6,14 +6,13 @@ p {
 }
 
 .scroll_container {
-  height: 400px;
+  max-height: 100vh;
   overflow: scroll;
 }
 
 .close {
   position: absolute;
-  right: 0;
+  right: 8px;
   top: -4px;
   font-size: 20px;
-  cursor: pointer;
-}
+  cursor: pointer;}

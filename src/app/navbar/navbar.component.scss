@@ -99,5 +99,15 @@
     margin: 0 !important;
   }
 .marginTop{
-  margin-top: 40px;
+  margin-top: 54px;
+}
+
+.vendor_reg_nav {
+    height: 54px!important;
+    // padding: 0;
+    // margin: 0;
+    width: 100%;
+    position: fixed;
+    background: #e6e6e6;
+    z-index: 1111;
 }

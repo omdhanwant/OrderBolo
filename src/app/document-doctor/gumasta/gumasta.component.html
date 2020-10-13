@@ -100,7 +100,7 @@
                                 <div class="form-group col-md-6">
                                     <label for="pin">city</label>
                                     <input type="text" name="city" ngModel #city="ngModel" maxlength="6"
-                                        class="form-control" placeholder="Pin Code" required autocomplete="off">
+                                        class="form-control" placeholder="City" required autocomplete="off">
                                     <div *ngIf="city.touched && city.hasError('required')" class="invalid-feedback"
                                         style="display: inline-block;">
                                         city is required
@@ -118,7 +118,7 @@
                                 <div class="form-group col-md-6">
                                     <label for="pin">type_of_business</label>
                                     <input type="text" name="type_of_business" ngModel #type_of_business="ngModel"
-                                        maxlength="6" class="form-control" placeholder="Pin Code" required
+                                        maxlength="6" class="form-control" placeholder="Type Of Business" required
                                         autocomplete="off">
                                     <div *ngIf="type_of_business.touched && type_of_business.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">

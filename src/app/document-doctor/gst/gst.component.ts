@@ -9,6 +9,7 @@ import { v4 as uuid } from 'uuid';
 import { UtilService } from 'src/app/service/util.service';
 import { DataService } from 'src/app/service/data.service';
 import { AlertService } from 'src/app/service/alertService';
+import { environment } from 'src/environments/environment';
 declare var $;
 @Component({
   selector: 'app-gst',
@@ -77,13 +78,13 @@ export class GstComponent implements OnInit {
           user_id: +payload.get('user_id').toString(),
           document_id: payload.get('document_id').toString(),
           order_id: '',
-          name: null,
+          name: payload.get('applicant_name').toString(),
           address: null,
           city: null,
           state: null,
           pincode: null,
-          mobile: null,
-          amount:99900
+          mobile: payload.get('mobile').toString(),
+          amount:environment.GST_DOC_COST
         }
 
         this.route.navigateByUrl('/order-checkout')

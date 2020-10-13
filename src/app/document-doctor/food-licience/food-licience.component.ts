@@ -7,6 +7,7 @@ import { take } from 'rxjs/operators';
 import { v4 as uuid } from 'uuid';
 import { DataService } from 'src/app/service/data.service';
 import { AlertService } from 'src/app/service/alertService';
+import { environment } from 'src/environments/environment';
 declare var $;
 @Component({
   selector: 'app-food-licience',
@@ -101,13 +102,13 @@ export class FoodLicienceComponent implements OnInit {
           user_id: +payload.get('user_id').toString(),
           document_id: payload.get('document_id').toString(),
           order_id: '',
-          name: null,
-          address: null,
-          city: null,
-          state: null,
-          pincode: null,
-          mobile: null,
-          amount: 154000
+          name: payload.get('full_name').toString(),
+          address: payload.get('business_address').toString(),
+          city: payload.get('village_or_city').toString(),
+          state: payload.get('state').toString(),
+          pincode: payload.get('pin_code').toString(),
+          mobile: payload.get('mobile').toString(),
+          amount: environment.FOOD_LIC_DOC_COST
         }
 
         this.route.navigateByUrl('/order-checkout')

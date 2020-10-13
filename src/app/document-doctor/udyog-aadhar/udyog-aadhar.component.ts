@@ -9,6 +9,7 @@ import { v4 as uuid } from 'uuid';
 import { UtilService } from 'src/app/service/util.service';
 import { DataService } from 'src/app/service/data.service';
 import { AlertService } from 'src/app/service/alertService';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'udyog-aadhar',
@@ -92,13 +93,13 @@ export class UdyogAadharComponent implements OnInit {
           user_id: +payload.get('user_id').toString(),
           document_id: payload.get('document_id').toString(),
           order_id: '',
-          name: null,
-          address: null,
+          name: payload.get('name_of_owner').toString(),
+          address: payload.get('office_address').toString(),
           city: null,
           state: null,
           pincode: null,
-          mobile: null,
-          amount:99900
+          mobile: payload.get('mobile').toString(),
+          amount:environment.UDHYOG_HAR_DOC_COST
         }
 
         this.route.navigateByUrl('/order-checkout')

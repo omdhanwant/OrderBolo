@@ -17,11 +17,11 @@ import { NgForm } from '@angular/forms';
 })
 export class OrderCheckoutComponent implements OnInit {
   details: CheckOutData
-  private amount = 100; // paisa = 50 rs
+  private amount = 0; // paisa = 50 rs
   private __key ='rzp_test_p0HxOFqgEsmvhR';
   private __secret = 'jmAdrEjBSPIjRHbiloJKXefw'
   private __rezorPayOrderId: string;
-  showPaymentButton: boolean = false;
+  // showPaymentButton: boolean = false;
 
   constructor(private winRef: WindowRefService, private zone: NgZone, private dataService: DataService, private route: Router) {
     if(!this.dataService.check_out_data) {
@@ -33,7 +33,7 @@ export class OrderCheckoutComponent implements OnInit {
 
     this.details = this.dataService.check_out_data;
     this.amount= this.details.amount;
-    console.log(this.amount);
+
     this.dataService.getUserById(this.details.user_id).
     pipe(take(1)).subscribe( userData => {
       const user = userData[0]['data'] as Users;
@@ -42,22 +42,23 @@ export class OrderCheckoutComponent implements OnInit {
       this.details.mobile = user.mobile;
       this.details.pincode = user.pin_code;
 
-      console.log(this.details)
+      this.createOrder();
+
     });
   }
 
-  createOrder(form: NgForm){
+  createOrder(form?: NgForm){
     if(form.valid) {
     const orderPayload ={
       user_id: this.details.user_id,
       document_id: this.details.document_id,
       order_id: 'null',
-      name: form.control.get('name').value,
-      address: form.control.get('address').value,
-      city: form.control.get('city').value,
-      state: form.control.get('state').value,
-      pin_code: form.control.get('pin_code').value,
-      mobile: form.control.get('mobile').value,
+      name: this.details.name,//form.control.get('name').value,
+      address: this.details.address,//form.control.get('address').value,
+      city: this.details.pincode,//form.control.get('city').value,
+      state: this.details.state,//form.control.get('state').value,
+      pin_code: this.details.pincode,//form.control.get('pin_code').value,
+      mobile: this.details.mobile,//form.control.get('mobile').value,
       amount: this.amount,
       status: 'PENDING'
   }
@@ -65,7 +66,7 @@ export class OrderCheckoutComponent implements OnInit {
     return this.dataService.checkoutOrder(orderPayload)
     .subscribe( response => {
       this.__rezorPayOrderId = response['razorpay']['orderId'];
-      this.showPaymentButton = true;
+      // this.showPaymentButton = true;
     });
     }
   }
@@ -104,7 +105,7 @@ export class OrderCheckoutComponent implements OnInit {
 
   // success response handler
   updatePaymentHandler = (response: RazorPaymentResponse) => {
-    console.log('paymentResponse ' + response)
+    // console.log('paymentResponse ' + response)
     this.zone.run(() => this.updateOrderStatus(response));
   }
 

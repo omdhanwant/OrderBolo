@@ -4,7 +4,11 @@
 
 export const environment = {
   production: false,
-  base_url:'http://documentdoctor.in/orderbolo/api'
+  base_url:'http://documentdoctor.in/orderbolo/api',
+  UDHYOG_HAR_DOC_COST: 100,//99900
+  FOOD_LIC_DOC_COST: 100, //154000
+  GST_DOC_COST: 100, //99900
+  GUMASTA_DOC_COST: 100 //59900
 };
 
 /*

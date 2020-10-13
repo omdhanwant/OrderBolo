@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light vendor_reg_nav  pl-5 pr-5" style="background-color: #e3f2fd !important;height: 40px; padding: 0; margin: 0;">
+<nav class="navbar navbar-expand-lg navbar-light bg-light vendor_reg_nav  pl-5 pr-5" style="background-color: #e3f2fd !important;height: 40px; padding: 0; margin: 0; z-index: 11111;">
   <a class="navbar-brand" href="#">
     <img src="assets/logo/logo.png" width="30">
   </a>
@@ -8,12 +8,12 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="tel:+9765924481"><i class="fa fa-phone" aria-hidden="true"></i> 9765924481 <span
+      <li class="nav-item active  text-dark">
+        <a class="nav-link text-dark" href="tel:+9765924465"><i class="fa fa-phone" aria-hidden="true"></i> 9765924465 <span
             class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="mailto:info@documentdoctor.in"><b><i class="fa fa-envelope-o" aria-hidden="true"></i>
+      <li class="nav-item text-dark">
+        <a class="nav-link text-dark" href="mailto:info@documentdoctor.in"><b><i class="fa fa-envelope-o" aria-hidden="true"></i>
             info@documentdoctor.in</b></a>
       </li>
     </ul>
@@ -30,8 +30,8 @@
         <li *ngIf="!authUser?.isAuthenticated" class="nav-item active">
           <a class="nav-link" (click)="isSideNav = true">Login / Sign Up <span class="sr-only">(Login/Sign Up)</span></a>
         </li>
-        <li ngbDropdown *ngIf="authUser?.isAuthenticated" class="nav-item dropdown">
-          <a ngbDropdownToggle class="nav-link dropdown-toggle" style="color: #fff;" id="dropdown01"
+        <li ngbDropdown *ngIf="authUser?.isAuthenticated" class="nav-item dropdown text-dark">
+          <a ngbDropdownToggle class="nav-link dropdown-toggle text-dark" style="color: #fff;" id="dropdown01"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             {{ authUser?.user.mobile }}
           </a>

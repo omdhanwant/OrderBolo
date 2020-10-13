@@ -48,7 +48,7 @@ export class OrderCheckoutComponent implements OnInit {
   }
 
   createOrder(form?: NgForm){
-    if(form.valid) {
+    // if(form.valid) {
     const orderPayload ={
       user_id: this.details.user_id,
       document_id: this.details.document_id,
@@ -68,7 +68,7 @@ export class OrderCheckoutComponent implements OnInit {
       this.__rezorPayOrderId = response['razorpay']['orderId'];
       // this.showPaymentButton = true;
     });
-    }
+    // }
   }
 
   createPayment(){

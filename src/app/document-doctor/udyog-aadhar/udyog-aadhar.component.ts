@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DocumentService } from 'src/app/service/document.service';
 import { Router } from '@angular/router';
@@ -17,17 +17,57 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./udyog-aadhar.component.scss']
 })
 export class UdyogAadharComponent implements OnInit {
+  @ViewChild('form', {static: false}) form: NgForm;
   myFiles: File[] = [];
   user_id: number;
+  isVeiwMode: boolean = false;
   constructor(private service: DocumentService, private dataService: DataService, private route: Router, private auth: AuthService,private alert: AlertService) { }
 
   ngOnInit(): void {
-    this.auth.peekAuthentication()
+    if(this.service.document) {
+      this.isVeiwMode = true;
+      // this.form.form.disable();
+      const data = {
+      'aadhar_card':this.service.document.aadhar_card,
+      'name_of_owner':this.service.document.name_of_owner,
+      'caste':this.service.document.caste,
+      'gender':this.service.document.gender,
+      'physically_hadicapped':this.service.document.physically_hadicapped,
+      'name_of_enterprises':this.service.document.name_of_enterprises,
+      'company_pan_number':this.service.document.company_pan_number,
+      'starting_business_date':this.service.document.starting_business_date,
+      'gst_number':this.service.document.gst_number,
+      'office_address':this.service.document.office_address,
+      'location_of_plant':this.service.document.location_of_plant,
+      'email':this.service.document.email,
+      'mobile':this.service.document.mobile,
+      'bank_name':this.service.document.bank_name,
+      'bank_account_number':this.service.document.bank_account_number,
+      'bank_ifsc':this.service.document.bank_ifsc,
+      'main_business_activity_of_enterprises':this.service.document.main_business_activity_of_enterprises,
+      'business_additional_info':this.service.document.business_additional_info,
+      'number_of_employee':this.service.document.number_of_employee,
+      'investment_in_plant_machinery':this.service.document.investment_in_plant_machinery,
+      'turnover':this.service.document.turnover,
+      'pan_card':this.service.document.pan_card
+      }
+
+
+      setTimeout(() => {
+        this.form.setValue(data);
+        this.form.form.disable();
+      },1000);
+
+
+    } else {
+      this.auth.peekAuthentication()
       .pipe(take(1)).subscribe(auth => {
         if (auth && auth.isAuthenticated) {
           this.user_id = auth.user.id
         }
       });
+    }
+
   }
 
   onFileChange(event) {

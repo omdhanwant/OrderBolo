@@ -193,7 +193,7 @@
                                         Birth Date is required
                                     </div>
                                 </div>
-                                
+
                             <div class="form-group col-md-6">
                                 <label for="date">Upload Aadhar, Passport Size, Photo of owner with Shop</label>
                                 <div class="custom-file">
@@ -213,7 +213,7 @@
                                 </div>
                             </div>
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary btn_save">Continue</button>
+                                <button *ngIf="!isVeiwMode" type="submit" class="btn btn-primary btn_save">Continue</button>
                             </div>
                         </form>
                     </div>

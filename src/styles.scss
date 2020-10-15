@@ -689,6 +689,14 @@ button:not(:disabled) {
   }
 }
 
+.vendor_dropdown {
+  .ui-dropdown{
+    width: 50%;
+    height: 40px;
+    border-radius: 5px;
+  }
+}
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 

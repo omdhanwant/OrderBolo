@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DocumentService } from 'src/app/service/document.service';
 import { Router } from '@angular/router';
@@ -15,11 +15,13 @@ declare var $;
   styleUrls: ['./food-licience.component.scss']
 })
 export class FoodLicienceComponent implements OnInit {
+  @ViewChild('form', {static: false}) form: NgForm;
   myFiles: File[] = [];
   user_id: number;
   message: string;
   nature_of_business: any;
   nature_of_business_list: any[];
+  isVeiwMode = false;
 
   constructor(private service: DocumentService, private dataService: DataService, private route: Router, private auth: AuthService, private alert: AlertService) {
     this.nature_of_business_list = [
@@ -46,6 +48,35 @@ export class FoodLicienceComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    if(this.service.document) {
+      this.isVeiwMode = true;
+      // this.form.form.disable();
+      const data = {
+      'full_name':this.service.document.full_name,
+      'business_address':this.service.document.business_address,
+      'mobile':this.service.document.mobile,
+      'business_turn_over':this.service.document.business_turn_over,
+      'email':this.service.document.email,
+      'nature_of_business':this.service.document.nature_of_business,
+      'business_name':this.service.document.business_name,
+      'village_or_city':this.service.document.village_or_city,
+      'nearest_railway_station':this.service.document.nearest_railway_station,
+      'state':this.service.document.state,
+      'pin_code':this.service.document.pin_code,
+      'landmark':this.service.document.landmark,
+      }
+
+
+      setTimeout(() => {
+        this.form.setValue(data);
+        this.form.form.disable();
+      },1000);
+
+    } else {
+
+    }
+
     this.auth.peekAuthentication()
       .pipe(take(1)).subscribe(auth => {
         if (auth && auth.isAuthenticated) {

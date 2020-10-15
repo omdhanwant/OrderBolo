@@ -1,5 +1,5 @@
 <div class="container mb-2">
-  <div class="row">    
+  <div class="row">
     <div class="col-md-12">
       <nav aria-label="breadcrumb no-bg">
         <ol class="breadcrumb no-bg">
@@ -270,7 +270,7 @@
                   </div>
                 </div>
               </div>
-              <div class="text-center mt-3">
+              <div *ngIf="!isVeiwMode" class="text-center mt-3">
                 <button type="submit" class="btn btn-primary btn_save">Continue</button>
               </div>
             </form>
@@ -309,7 +309,7 @@
                   <strong>4. Gender :</strong> Select the gender from provided option<br>
       "आवेदक का लिंग चुनें।"
                 </div>
-                <div class="clb"></div> 
+                <div class="clb"></div>
                 <div class="col-md-12 instr-text top-15">
                   <strong>5. Physically Handicapped :</strong> Select the status from provided options<br>
             "चयन करें कि आवेदक शारीरिक रूप से विकलांग है या नहीं।"
@@ -336,15 +336,15 @@
               </div>
               <div class="clb"></div>
               <!--     <div class="col-md-12 instr-text top-15">
-                  <strong>8.Have you filled Financial Year (2018-19) ITR?</strong> If you filled ITR select yes otherwise no <br> 
+                  <strong>8.Have you filled Financial Year (2018-19) ITR?</strong> If you filled ITR select yes otherwise no <br>
       "क्या आपने वित्तीय वर्ष (2018 - 19) ITR भरा है"<br>
-      (<strong>ITR Type</strong> Select ITR type if you filled ITR)<br> 
+      (<strong>ITR Type</strong> Select ITR type if you filled ITR)<br>
 
     </div>
                 <div class="clb"></div>
-             
+
                 <div class="col-md-12 instr-text top-15">
-                  <strong>9. Do you have GSTIN Number?</strong> If you have GSTIN number then select yes otherwise no <br> 
+                  <strong>9. Do you have GSTIN Number?</strong> If you have GSTIN number then select yes otherwise no <br>
       "क्या आपके पास GSTIN नंबर है?"<br>
       Note- GSTIN Number are mandatory for Udyam Registration from 01.04.2021. You are advised to apply for GSTIN Number immediately and update the same on this website by 31.03.2021, to avoid suspension of Udyam Registration.
     </div>

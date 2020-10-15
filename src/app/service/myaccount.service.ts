@@ -41,6 +41,12 @@ constructor(private http: HttpClient){}
     return this.http.get(`${environment.base_url}/v1/orders`)
   }
 
+  // assign documents to vendor
+  assigneDocumentsToVendor(data) {
+    // assigned-to-vendor
+    return this.http.post(`${environment.base_url}/v1/assigned-to-vendor`, data);
+  }
+
   refreshBlogsData(){
     this.blogsData$.next(null);
   }

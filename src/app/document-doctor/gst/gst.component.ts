@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DocumentService } from 'src/app/service/document.service';
 import { Router } from '@angular/router';
@@ -17,19 +17,43 @@ declare var $;
   styleUrls: ['./gst.component.scss']
 })
 export class GstComponent implements OnInit {
+  @ViewChild('form', {static: false}) form: NgForm;
   myFiles: File[] = [];
   user_id: number;
   message: string;
-
+  isVeiwMode = false;
   constructor(private service: DocumentService, private dataService: DataService, private route: Router, private auth: AuthService, private alert: AlertService) { }
 
   ngOnInit(): void {
-    this.auth.peekAuthentication()
+    if(this.service.document) {
+      this.isVeiwMode = true;
+      // this.form.form.disable();
+      const data = {
+      'organization_name':this.service.document.organization_name,
+      'applicant_name':this.service.document.applicant_name,
+      'mobile':this.service.document.mobile,
+      'aadhar_number':this.service.document.aadhar_number,
+      'email':this.service.document.email,
+      'pan_number':this.service.document.pan_number,
+      'constitution_of_business':this.service.document.constitution_of_business,
+      'electricity_bill':this.service.document.electricity_bill,
+      }
+
+
+      setTimeout(() => {
+        this.form.setValue(data);
+        this.form.form.disable();
+      },1000);
+
+    } else {
+      this.auth.peekAuthentication()
       .pipe(take(1)).subscribe(auth => {
         if (auth && auth.isAuthenticated) {
           this.user_id = auth.user.id
         }
       });
+    }
+
   }
 
   onFileChange(event) {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DocumentService } from 'src/app/service/document.service';
 import { Router } from '@angular/router';
@@ -17,17 +17,52 @@ declare var $;
   styleUrls: ['./gumasta.component.scss']
 })
 export class GumastaComponent implements OnInit {
+  @ViewChild('form', {static: false}) form: NgForm;
   myFiles: File[] = [];
   user_id: number;
+  isVeiwMode = false;
   constructor(private service: DocumentService, private dataService: DataService, private route: Router, private auth: AuthService, private alert: AlertService) { }
 
   ngOnInit(): void {
-    this.auth.peekAuthentication()
+    if(this.service.document) {
+      this.isVeiwMode = true;
+      // this.form.form.disable();
+      const data = {
+      'type_of_registration':this.service.document.type_of_registration,
+      'applicant_name':this.service.document.applicant_name,
+      'mobile':this.service.document.mobile,
+      'birth_date':this.service.document.birth_date,
+      'email':this.service.document.email,
+      'name_of_business':this.service.document.name_of_business,
+      'full_business_address':this.service.document.full_business_address,
+      'district':this.service.document.district,
+      'city':this.service.document.city,
+      'pin_code':this.service.document.pin_code,
+      'type_of_business':this.service.document.type_of_business,
+      'ownership_of_premises':this.service.document.ownership_of_premises,
+      'total_male_employee':this.service.document.total_male_employee,
+      'total_female_employee':this.service.document.total_female_employee,
+      'nature_of_business':this.service.document.nature_of_business,
+      'pan_card':this.service.document.pan_card,
+      'aadhar_number':this.service.document.aadhar_number
+      }
+
+
+      setTimeout(() => {
+        this.form.setValue(data);
+        this.form.form.disable();
+      },1000);
+
+    } else {
+      this.auth.peekAuthentication()
       .pipe(take(1)).subscribe(auth => {
         if (auth && auth.isAuthenticated) {
           this.user_id = auth.user.id
         }
       });
+    }
+
+
   }
 
   onFileChange(event) {

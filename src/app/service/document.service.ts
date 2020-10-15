@@ -1,11 +1,20 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { DataService } from './data.service';
 import { environment } from 'src/environments/environment';
 
 
 @Injectable()
 export class DocumentService extends DataService{
+
+  private documentData: any;
+
+  get document() {
+    return this.documentData;
+  }
+
+  set document(data) {
+    this.documentData = data;
+  }
 
   saveGezetteDocument(data) {
     return this.postData(`${environment.base_url}/v1/gezeette-add`, data)

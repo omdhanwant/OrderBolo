@@ -161,7 +161,7 @@
                     landmark is required
                   </div>
                 </div>
-                
+
                 <div class="form-group col-md-6">
                   <label>Upload Required documents</label>
                   <div class="custom-file">
@@ -181,7 +181,7 @@
                 </div>
               </div>
               <div class="text-center">
-                <button type="submit" class="btn btn-primary btn_save">Continue</button>
+                <button *ngIf="!isVeiwMode" type="submit" class="btn btn-primary btn_save">Continue</button>
               </div>
             </form>
           </div>
@@ -314,7 +314,7 @@
     </div>
   </div>
 </div>
-<div class="container-fluid p-0" style="background-color: #EFEFEF;">  
+<div class="container-fluid p-0" style="background-color: #EFEFEF;">
   <div class="container">
     <div class="row">
       <div class="col-md-12 mb-3">

@@ -179,9 +179,30 @@
       </div>
       <div class="modal-body detail_modal_body">
         <div class="row">
-          <div class="form-group col-md-4" *ngFor="let detail of documentModaLableValue">
-            <div class="detail_label_val">
+          <div class="form-group" [class.col-md-4]="detail.type != 'file'" [class.col-md-12]="detail.type== 'file'" *ngFor="let detail of documentModaLableValue">
+            <!-- <div class="detail_label_val">
               <label for="inputCity">{{detail.label}}: <span class="text-gray">{{detail.value}}</span></label>
+            </div> -->
+            <div *ngIf=" detail.type== 'string' || detail.type== 'date' " class="form-group">
+              <label>{{ detail.label }}</label>
+              <input class="form-control" type="text" [value]="detail.value" readonly>
+            </div>
+<!--
+            <div *ngIf=" detail.type== 'date' " class="form-group">
+              <label>{{ detail.label }}</label>
+              <input class="form-control" type="text" [value]="detail.value" readonly>
+            </div> -->
+
+            <div *ngIf=" detail.type== 'file' " class="form-group">
+              <label>{{ detail.label }}</label>
+              <!-- <input class="form-control" type="text" [value]="detail.value" readonly> -->
+              <div style="display: flex;">
+                <div *ngFor="let file of detail.value;let i=index;" (click)="open(file,i)" class="pill" style="cursor: pointer;">
+                    {{ file | fetchFileName }}
+                    <!-- <iframe [id]="'iframe' + i" style="display:none;"></iframe> -->
+                </div>
+            </div>
+
             </div>
           </div>
         </div>

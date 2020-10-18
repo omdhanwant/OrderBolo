@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import * as moment from 'moment';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 import { take } from 'rxjs/operators';
 import { Users } from 'src/app/models/users';
@@ -30,12 +31,12 @@ export class RequestedDocumentsComponent implements OnInit {
   documents: string[] //= ['Udhyog Aadhar', 'Food License' , 'Gumasta', 'GST']
   selectedDocument: string;
   documentModalData: any;
-  documentModaLableValue: {label: string ; value:string }[]
+  documentModaLableValue: {type: string, label: string ; value:any }[]
 
   selectedDocumentIds: string[] = [];
   vendorsOptions = [];
   selectedVendor;
-  constructor(private service: DocumentService, private accountService: MyAccountService, private auth: AuthService, private router: Router) {}
+  constructor(private service: DocumentService, private accountService: MyAccountService, private auth: AuthService, private router: Router, private utilService: UtilService) {}
 
   ngOnInit(): void {
     this.contentData = [];
@@ -99,30 +100,56 @@ export class RequestedDocumentsComponent implements OnInit {
   }
 
   showDetails(detail){
-    // this.documentModaLableValue = []
-    // $('#detail_modal').modal();
-    // // this.documentModalData = detail;
-    // const keys = Object.keys(detail);
+    this.documentModaLableValue = []
+    $('#detail_modal').modal();
+    // this.documentModalData = detail;
+    const keys = Object.keys(detail);
+    let files = [];
 
-    // keys.forEach(key => {
-    //   const label = this.utilService.titleCase(key.split('_').join(' '));
-    //   const lowercase_label = label.toLowerCase();
-    //   const not_required_label = (lowercase_label.includes('updated') || lowercase_label.includes('created') || lowercase_label.includes('file') || lowercase_label.includes('id'))
-    //   if(!not_required_label) {
-    //     this.documentModaLableValue.push({label: label , value: detail[key] })
-    //   }
-    // });
+    keys.forEach(key => {
+      const label = this.utilService.titleCase(key.split('_').join(' '));
+      const lowercase_label = label.toLowerCase();
+      const not_required_label = (lowercase_label.includes('updated') || lowercase_label.includes('created') || lowercase_label.includes('file') || lowercase_label.includes('id'))
+      let type = "string"
+      //check type of field
+      if(lowercase_label.includes("date")) {
+        type = "date"
+      } else
+       if(lowercase_label.includes("file")) {
+        type = "file"
+        files = JSON.parse(detail[key]);
+      }
 
-    this.service.document = detail;
-    if(this.selectedDocument == 'udyogAdhar') {
-        this.router.navigateByUrl('document-doctor/udhyog-aadhar');
-    } if(this.selectedDocument == 'FoodLicience') {
-      this.router.navigateByUrl('document-doctor/food-licience');
-    } if(this.selectedDocument == 'Gumasta') {
-      this.router.navigateByUrl('document-doctor/gumasta');
-    } if(this.selectedDocument == 'GST') {
-      this.router.navigateByUrl('document-doctor/gst');
-    }
+      if(!not_required_label) {
+        this.documentModaLableValue.push({
+          type ,label: label ,
+          value: type == "file" ?  JSON.parse(detail[key])
+          : type == "date" ?  moment(detail[key]).format('YYYY-MM-DD')
+          : detail[key]
+        })
+      }
+    });
+
+    this.documentModaLableValue.push({type: 'file', label: 'FileNames', value: files})
+
+    // this.service.document = detail;
+    // if(this.selectedDocument == 'udyogAdhar') {
+    //     this.router.navigateByUrl('document-doctor/udhyog-aadhar');
+    // } if(this.selectedDocument == 'FoodLicience') {
+    //   this.router.navigateByUrl('document-doctor/food-licience');
+    // } if(this.selectedDocument == 'Gumasta') {
+    //   this.router.navigateByUrl('document-doctor/gumasta');
+    // } if(this.selectedDocument == 'GST') {
+    //   this.router.navigateByUrl('document-doctor/gst');
+    // }
+  }
+
+  open(file, i){
+    // const id = 'iframe' + i;
+    // const element = (<HTMLIFrameElement>document.getElementById(id))
+    // element.src = file;
+    // element.click();
+    window.open(file,"_blank");
   }
 
 

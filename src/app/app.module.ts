@@ -82,6 +82,8 @@ import { MessageService } from 'primeng/api';
 import {TabViewModule} from 'primeng/tabview';
 import { menu,placeholder, NgxEditorModule } from 'ngx-editor';
 import { VendorRegistrationComponent } from './document-doctor/vendor-registration/vendor-registration.component';
+import { ShowFormDetailsComponent } from './document-doctor/show-form-details/show-form-details.component';
+import { FetchFileName } from './service/sanitize-file-name';
 
 
 @NgModule({
@@ -119,7 +121,9 @@ import { VendorRegistrationComponent } from './document-doctor/vendor-registrati
     OrderCheckoutComponent,
     BlogDetailComponent,
     OrderSuccessPageComponent,
-    VendorRegistrationComponent
+    VendorRegistrationComponent,
+    ShowFormDetailsComponent,
+    FetchFileName
   ],
   imports: [
     BrowserAnimationsModule,
@@ -186,6 +190,7 @@ import { VendorRegistrationComponent } from './document-doctor/vendor-registrati
     DocumentService,
     MyAccountService,
     MessageService,
+    FetchFileName,
     { provide: LocationStrategy, useClass: HashLocationStrategy },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],

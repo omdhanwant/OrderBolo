@@ -84,6 +84,10 @@ import { menu,placeholder, NgxEditorModule } from 'ngx-editor';
 import { VendorRegistrationComponent } from './document-doctor/vendor-registration/vendor-registration.component';
 import { ShowFormDetailsComponent } from './document-doctor/show-form-details/show-form-details.component';
 import { FetchFileName } from './service/sanitize-file-name';
+import { PfComponent } from './document-doctor/pf/pf.component';
+import { IsoComponent } from './document-doctor/iso/iso.component';
+import { IecComponent } from './document-doctor/iec/iec.component';
+import { DscComponent } from './document-doctor/dsc/dsc.component';
 
 
 @NgModule({
@@ -123,7 +127,11 @@ import { FetchFileName } from './service/sanitize-file-name';
     OrderSuccessPageComponent,
     VendorRegistrationComponent,
     ShowFormDetailsComponent,
-    FetchFileName
+    FetchFileName,
+    PfComponent,
+    IsoComponent,
+    IecComponent,
+    DscComponent
   ],
   imports: [
     BrowserAnimationsModule,

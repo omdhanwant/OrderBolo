@@ -27,6 +27,10 @@ import { GstComponent } from './document-doctor/gst/gst.component';
 import { OrderCheckoutComponent } from './order-checkout/order-checkout.component';
 import { BlogDetailComponent } from './blogs/blog-detail/blog-detail.component';
 import { OrderSuccessPageComponent } from './order-success-page/order-success-page.component';
+import { PfComponent } from './document-doctor/pf/pf.component';
+import { IecComponent } from './document-doctor/iec/iec.component';
+import { IsoComponent } from './document-doctor/iso/iso.component';
+import { DscComponent } from './document-doctor/dsc/dsc.component';
 
 
 // const routes: Routes = [];
@@ -146,6 +150,30 @@ const routes: Routes = [
         path: 'police-verification',
         data: { breadcrumb: 'Police Verification' },
         component: PoliceVerificationComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'pf-registration',
+        data: { breadcrumb: 'PF Registration' },
+        component: PfComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'iec-registration',
+        data: { breadcrumb: 'IEC Registration' },
+        component: IecComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'iso-registration',
+        data: { breadcrumb: 'ISO Registration' },
+        component: IsoComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'dsc-application',
+        data: { breadcrumb: 'DSC Application' },
+        component: DscComponent,
         canActivate: [AuthGuard]
       },
     ]

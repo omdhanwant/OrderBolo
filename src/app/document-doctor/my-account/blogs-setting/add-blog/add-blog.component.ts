@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { take } from 'rxjs/operators';
+import { Blogs } from 'src/app/models/blogs';
 import { AuthService } from 'src/app/service/auth.service';
 import { DataService } from 'src/app/service/data.service';
 import { DocumentService } from 'src/app/service/document.service';
@@ -15,18 +16,34 @@ import { DocumentService } from 'src/app/service/document.service';
   styleUrls: ['./add-blog.component.scss']
 })
 export class AddBlogComponent implements OnInit {
-  @Input() data
+  @ViewChild('form',{static: false}) form: NgForm;
+  @Input() data: Blogs
   @Output() onBackClick = new EventEmitter<boolean>();
   @Output() onSuccess = new EventEmitter<boolean>();
   myFiles:File [] = [];
   user_id: number;
+  editMode: boolean = false;
   constructor(private auth: AuthService, private service: DocumentService, private dataService: DataService , private route: Router) { }
 
   onFileChange(event) {
     for (var i = 0; i < event.target.files.length; i++) {
       this.myFiles.push(event.target.files[i]);
     }
-    console.log(this.myFiles);
+  }
+
+  ngAfterViewInit() {
+    if(this.data) {
+      this.editMode = true;
+      let tags = this.data.tags.split(',');
+
+      setTimeout(() => {
+        this.form.setValue({
+          title: this.data.title,
+          tags: tags,
+          description: this.data.description
+        })
+      },200);
+    }
   }
 
 

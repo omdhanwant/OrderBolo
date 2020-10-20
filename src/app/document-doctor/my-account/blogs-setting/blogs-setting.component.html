@@ -32,7 +32,7 @@
       </pagination>
     </div>
 
-    <table class="table table-hover">
+    <table class="table table table-striped table-bordered">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -45,11 +45,11 @@
         <tr *ngFor="let blog of paginatedData; let i =index;">
           <th scope="row">{{ i + 1 }}</th>
           <td class="table-col-wdith-20">{{ blog.title }}</td>
-          <td> {{ blog.description }}</td>
+          <td><div class="sanitize_long_text"> {{ blog.description }}</div></td>
           <td>
             <div class="row-actions">
-              <i class="pi pi-minus-circle" style="color: red;"></i>
-              <i (click)="showDetails()" class="pi pi-pencil"></i>
+              <i (click)="blodId = blog.id" data-toggle="modal" data-target="#deletepopup" data-backdrop="static" class="pi pi-minus-circle" style="color: red;"></i>
+              <i (click)="showDetails(blog)" class="pi pi-pencil"></i>
               </div>
           </td>
         </tr>
@@ -63,7 +63,32 @@
 <!-- add edit form -->
 <ng-container *ngIf="showAddScreen">
   <add-blog
+  [data]="selectedBlog"
   (onBackClick)="showAddScreen = $event"
   (onSuccess)="onSaved()"
   ></add-blog>
 </ng-container>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="deletepopup" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel"> Delete Alert </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete this blog ?
+      </div>
+      <div class="modal-footer">
+        <button  type="button" class="btn btn-primary" data-dismiss="modal">cancel</button>
+        <button  (click)="deleteBlog(blodId)" type="button" class="btn btn-danger" data-dismiss="modal">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>

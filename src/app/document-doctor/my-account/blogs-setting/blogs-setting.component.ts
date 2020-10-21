@@ -62,6 +62,7 @@ export class BlogsSettingComponent implements OnInit {
 
   onSaved() {
     this.showAddScreen = false;
+    this.selectedBlog = null;
     this.reload();
   }
 

@@ -126,23 +126,23 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="pin">No. Of Employee</label>
-                                    <input type="text" name="number_of_employees" ngModel #number_of_employees="ngModel"
+                                    <input type="number" name="number_of_employees" ngModel #number_of_employees="ngModel"
                                         maxlength="6" class="form-control"
                                         placeholder="Fees (Rs. 199 for utp 100 employees & Rs. 99 for 100+  employees)"
                                         required autocomplete="off">
                                     <div *ngIf="number_of_employees.touched && number_of_employees.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
-                                        number_of_employees is required
+                                        Field is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="pin">Your Payable Amount</label>
-                                    <input type="text" name="your_payable_amount" ngModel #your_payable_amount="ngModel"
+                                    <input type="number" name="your_payable_amount" ngModel #your_payable_amount="ngModel"
                                         maxlength="6" class="form-control" placeholder="Your Payable Amount" required
                                         autocomplete="off">
                                     <div *ngIf="your_payable_amount.touched && your_payable_amount.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
-                                        your_payable_amount is required
+                                        Amount is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
@@ -154,24 +154,9 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="custom-file">
-                                    <input multiple (change)="onFileChange($event)" type="file"
-                                        class="custom-file-input" id="customFile">
-                                    <label class="custom-file-label" for="customFile">Upload Files</label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div style="display: flex;">
-                                    <div *ngFor="let file of myFiles;let i=index;" class="pill">
-                                        {{ file.name }}
-                                        <mat-icon class="close-icon" (click)="myFiles.splice(i,1)" aria-hidden="false"
-                                            aria-label="Example close icon">close</mat-icon>
-                                    </div>
-                                </div>
-                            </div>
+
                             <div class="text-center">
-                                <button *ngIf="!isVeiwMode" type="submit"
+                                <button type="submit"
                                     class="btn btn-primary btn_save">Continue</button>
                             </div>
                         </form>

@@ -14,22 +14,23 @@ import { Orders } from 'src/app/models/orders';
 export class MyOrdersComponent implements OnInit {
   // orders =[];
     // pagination
-  // totalItems: number = 100;
+  itemsPerPage: number = 50;
   currentPage: number = 1;
-  lastPageCount: number= 10;
+  lastPageCount: number;
 
   orders :Orders[];
-  contentData = []
+  // contentData = []
   paginatedData = []
   constructor( private service: MyAccountService) {
-    // for(let i = 0 ; i < 100 ; i++){
-    //   const appendNo = i+1
-    //   this.contentData.push({ name: 'Orders ' + appendNo , description : 'description'})
-    // }
-    this.paginatedData = this.contentData.slice(0, 10);
+  }
+
+  initData(){
+    this.orders = [];
+    this.paginatedData = [];
   }
 
   ngOnInit(): void {
+    this.initData();
     this.getAllOrders();
   }
 
@@ -39,14 +40,14 @@ export class MyOrdersComponent implements OnInit {
     .subscribe((users:Orders[]) => {
       // console.log(users)
       this.orders = users;
-      this.paginatedData = this.orders;
+      this.paginatedData = this.orders.slice(0, 10);
     })
   }
 
   pageChanged(event: PageChangedEvent): void {
     const startItem = (event.page - 1) * event.itemsPerPage;
     const endItem = event.page * event.itemsPerPage;
-    this.paginatedData = this.contentData.slice(startItem, endItem);
+    this.paginatedData = this.orders.slice(startItem, endItem);
   }
 
 }

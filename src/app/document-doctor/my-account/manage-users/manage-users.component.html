@@ -32,7 +32,7 @@
       </pagination>
     </div>
 
-    <table class="table table-hover">
+    <table class="table table table table-striped table-bordered">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -48,16 +48,16 @@
       <tbody>
         <tr *ngFor="let user of paginatedData; let i =index;">
           <th scope="row">{{ i + 1 }}</th>
-          <td *ngIf="!user.profile_photo || user.profile_photo === 'null'; then thenTemplateName else elseTemplateName"><img [src]="user.profile_photo" class="rounded float-left" alt="user.name" width="50"></td>
-          <ng-template #thenTemplateName>
-            <td><img src="http://documentdoctor.in/orderbolo/public/images/users/7057837188/profile_photo_1600230598.png" class="rounded float-left" alt="user.name" width="50"></td>
-          </ng-template>
-          <ng-template #elseTemplateName>
-           <td><img [src]="user.profile_photo" class="rounded float-left" alt="user.name" width="50"></td>
-          </ng-template>
+          <!-- <td *ngIf="!user.profile_photo || user.profile_photo === 'null'; then thenTemplateName else elseTemplateName"><img [src]="user.profile_photo" class="rounded float-left" alt="user.name" width="50"></td> -->
+          <!-- <ng-template #thenTemplateName>
+            <td><img src="assets/user.png" class="rounded float-left" alt="user.name" width="50"></td>
+          </ng-template> -->
+          <!-- <ng-template #elseTemplateName> -->
+           <td><img [src]="user.profile_photo == 'null' ? 'assets/user.png' : user.profile_photo " class="rounded float-left" alt="user.name" width="50"></td>
+          <!-- </ng-template> -->
           <td class="table-col-wdith-20">{{ user.name }}</td>
           <td>{{user.dob}}</td>
-          <td>{{user.address}}</td>
+          <td><div class="sanitize_long_text">{{user.address}}</div></td>
           <td>{{user.email}}</td>
           <td>{{user.mobile}}</td>
           <td>

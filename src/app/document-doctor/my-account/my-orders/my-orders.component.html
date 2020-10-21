@@ -18,9 +18,10 @@
       <pagination [boundaryLinks]="true"
       style="margin-top: 7px;"
       [rotate]='true'
+      [itemsPerPage]="itemsPerPage"
       [maxSize]='5'
       [(ngModel)]="currentPage"
-      [totalItems]="contentData.length"
+      [totalItems]="orders?.length"
       (numPages)="lastPageCount = $event"
       (pageChanged)="pageChanged($event)"
       previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">

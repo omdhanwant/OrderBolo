@@ -131,7 +131,7 @@
                                     </div>
                                 </div>
 
-                                
+
                                 <div class="form-group col-md-12 mt-2">
                                     <label for="pin">Principal Place of Business Entity( बिजनेस एंटिटी का प्रमुख स्थान)*</label>
                                     <input type="text" name="address_line_1" ngModel
@@ -222,7 +222,7 @@
                                 <div class="form-group col-md-12 mt-2">
                                     <label for="pin">E-Mail ID ( ईमेल आईडी)</label>
                                     <input type="text" name="applicant_email" ngModel #applicant_email="ngModel"
-                                        maxlength="6" class="form-control" placeholder="E-Mail ID" required
+                                         class="form-control" placeholder="E-Mail ID" required
                                         autocomplete="off">
                                     <div *ngIf="applicant_email.touched && applicant_email.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
@@ -284,22 +284,22 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12 mt-2">
-                                    <input multiple (change)="onFileChange($event)" type="file"
+                                    <input (change)="onFileChange($event)" type="file"
                                         class="custom-file-input" id="customFile">
                                     <label class="custom-file-label" for="customFile">Upload Files</label>
                                 </div>
                             </div>
-                            <div class="row mb-2">
+                            <div *ngIf="myFiles?.length" class="row mb-2">
                                 <div style="display: flex; ">
-                                    <div *ngFor="let file of myFiles;let i=index;" class="pill">
-                                        {{ file.name }}
-                                        <mat-icon class="close-icon" (click)="myFiles.splice(i,1)" aria-hidden="false"
+                                    <div class="pill">
+                                        {{ myFiles[0]?.name }}
+                                        <mat-icon class="close-icon" (click)="myFiles.pop()" aria-hidden="false"
                                             aria-label="Example close icon">close</mat-icon>
                                     </div>
                                 </div>
                             </div>
                             <div class="text-center mt-2">
-                                <button *ngIf="!isVeiwMode" type="submit" class="btn btn-primary btn_save">Proceed to
+                                <button type="submit" class="btn btn-primary btn_save">Proceed to
                                     verify and Pay</button>
                             </div>
                         </form>

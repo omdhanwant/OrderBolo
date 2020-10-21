@@ -47,6 +47,10 @@ constructor(private http: HttpClient){}
     return this.http.post(`${environment.base_url}/v1/assigned-to-vendor`, data);
   }
 
+  deleteBlog(id) {
+    return this.http.delete(`${environment.base_url}/v1/deleteBlog/${id}`);
+  }
+
   refreshBlogsData(){
     this.blogsData$.next(null);
   }

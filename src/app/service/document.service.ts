@@ -64,4 +64,16 @@ export class DocumentService extends DataService{
   getRequstedDouments(user_id){
     return this.getData(`${environment.base_url}/v1/suggested-documents/${user_id}`)
   }
+
+  savePfDocument(data){
+    return this.postData(`${environment.base_url}/v1/pf`, data)
+  }
+
+  saveISODocument(data){
+    return this.postData(`${environment.base_url}/v1/iso`, data)
+  }
+
+  saveIESDocument(data){
+    return this.postData(`${environment.base_url}/v1/ies`, data)
+  }
 }

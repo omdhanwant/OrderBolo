@@ -37,7 +37,7 @@ export class ManageUsersComponent implements OnInit {
     this.service.getAllUsers()
     .pipe(take(1))
     .subscribe((users:Users[]) => {
-      // console.log(users)
+      console.log(users)
       this.users = users;
       this.paginatedData = this.users;
     })

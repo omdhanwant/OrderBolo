@@ -11,7 +11,8 @@ export const environment = {
   GUMASTA_DOC_COST: 100, //59900
   PF_DOC_COST: 100, //2000
   ISO_DOC_COST: 100, //2000
-  IEC_DOC_COST: 100 // 2000
+  IEC_DOC_COST: 100, // 2000
+  DIGITAL_CER_DOC_COST: 100 // 2000
 };
 
 /*

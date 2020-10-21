@@ -76,4 +76,8 @@ export class DocumentService extends DataService{
   saveIESDocument(data){
     return this.postData(`${environment.base_url}/v1/ies`, data)
   }
+
+  saveDSCDocument(data){
+    return this.postData(`${environment.base_url}/v1/dsc`, data)
+  }
 }

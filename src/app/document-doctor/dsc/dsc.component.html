@@ -34,7 +34,7 @@
                     <div class="col-md-12 registration-label">
                         Registration
                     </div>
-                    
+
                     <div class="form-row mt-2">
                         <div class="col-md-12 form-group pl-3">
                             <label><strong>Digital Certificate Details</strong></label>
@@ -318,23 +318,23 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-md-12 mb-2">
-                                    <input multiple (change)="onFileChange($event)" type="file"
-                                        class="custom-file-input" id="customFile">
-                                    <label class="custom-file-label" for="customFile">Upload Files</label>
-                                </div>
-                            </div>
-                            <div class="row mb-2">
-                                <div style="display: flex; ">
-                                    <div *ngFor="let file of myFiles;let i=index;" class="pill">
-                                        {{ file.name }}
-                                        <mat-icon class="close-icon" (click)="myFiles.splice(i,1)" aria-hidden="false"
-                                            aria-label="Example close icon">close</mat-icon>
-                                    </div>
-                                </div>
-                            </div>
+                              <div class="col-md-12 mt-2">
+                                  <input (change)="onFileChange($event)" type="file"
+                                      class="custom-file-input" id="customFile">
+                                  <label class="custom-file-label" for="customFile">Upload Files</label>
+                              </div>
+                          </div>
+                          <div *ngIf="myFiles?.length" class="row mb-2">
+                              <div style="display: flex; ">
+                                  <div class="pill">
+                                      {{ myFiles[0]?.name }}
+                                      <mat-icon class="close-icon" (click)="myFiles.pop()" aria-hidden="false"
+                                          aria-label="Example close icon">close</mat-icon>
+                                  </div>
+                              </div>
+                          </div>
                             <div class="text-center mt-2">
-                                <button *ngIf="!isVeiwMode" type="submit"
+                                <button type="submit"
                                     class="btn btn-primary btn_save">Proceed to verify and Pay</button>
                             </div>
                         </form>

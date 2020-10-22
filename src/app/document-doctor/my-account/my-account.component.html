@@ -3,12 +3,22 @@
 <div class="account_container">
   <div class="nav-items sticky-top" [style.width]="sideNavWidth">
     <a class="closebtn" (click)="toggleSideNav()">☰</a>
-      <ul class="list-group" *ngIf="openSideNav">
-        <li class="list-group-item" routerLink="/my-account/profile" routerLinkActive="active">Profile</li>
-        <li class="list-group-item" routerLink="/my-account/requested-documents" routerLinkActive="active">Requested Documents</li>
-        <li *ngIf="isAdmin" class="list-group-item" routerLink="/my-account/blogs-setting" routerLinkActive="active">Blogs Setting</li>
-        <li *ngIf="isAdmin" class="list-group-item" routerLink="/my-account/manage-users" routerLinkActive="active">Manage Users</li>
-        <li class="list-group-item" routerLink="/my-account/my-orders" routerLinkActive="active">My Orders</li>
+      <ul class="list-group expanded-nav" *ngIf="openSideNav">
+        <li class="list-group-item" routerLink="/my-account/profile" routerLinkActive="active">
+          <i class="fa fa-user" aria-hidden="true"></i>Profile
+        </li>
+        <li class="list-group-item" routerLink="/my-account/requested-documents" routerLinkActive="active">
+          <i class="fa fa-book" aria-hidden="true"></i>Requested Documents
+        </li>
+        <li *ngIf="isAdmin" class="list-group-item" routerLink="/my-account/blogs-setting" routerLinkActive="active">
+          <i class="fa fa-th-large" aria-hidden="true"></i>Blogs Setting
+        </li>
+        <li *ngIf="isAdmin" class="list-group-item" routerLink="/my-account/manage-users" routerLinkActive="active">
+          <i class="fa fa-users" aria-hidden="true"></i>Manage Users
+        </li>
+        <li class="list-group-item" routerLink="/my-account/my-orders" routerLinkActive="active">
+          <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>My Orders
+        </li>
       </ul>
 
       <ul class="list-group" *ngIf="!openSideNav">

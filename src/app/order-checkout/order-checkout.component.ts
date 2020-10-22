@@ -18,8 +18,10 @@ import { NgForm } from '@angular/forms';
 export class OrderCheckoutComponent implements OnInit {
   details: CheckOutData
   private amount = 0; // paisa = 50 rs
-  private __key ='rzp_test_p0HxOFqgEsmvhR';
-  private __secret = 'jmAdrEjBSPIjRHbiloJKXefw'
+  // private __key ='rzp_test_p0HxOFqgEsmvhR';
+  // private __secret = 'jmAdrEjBSPIjRHbiloJKXefw'
+  private __key ='rzp_live_ypl7FO3kC3cTKu';
+  private __secret = 'abl7dY7EnaOEUg5vfMdBuS1Z'
   private __rezorPayOrderId: string;
   // showPaymentButton: boolean = false;
 

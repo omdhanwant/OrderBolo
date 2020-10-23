@@ -64,9 +64,9 @@ export class IsoComponent implements OnInit {
           order_id: '',
           name: payload.get('applicant_name').toString(),
           address: payload.get('address').toString(),
-          city: null,
-          state: null,
-          pincode: null,
+          city: "city",
+          state: "state",
+          pincode: "12345",
           mobile: payload.get('mobile').toString(),
           amount:environment.ISO_DOC_COST
         }

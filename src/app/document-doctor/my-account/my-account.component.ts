@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthUser } from 'src/app/models/authData';
 import { AuthService } from 'src/app/service/auth.service';
 import * as constants from '../../service/constants';
 
@@ -10,7 +9,9 @@ import * as constants from '../../service/constants';
 })
 export class MyAccountComponent implements OnInit {
   isAdmin: boolean = false;
-
+  openSideNav = true;
+  sideNavWidth = '270px';
+  containerMargin = '270px';
   constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
@@ -25,6 +26,12 @@ export class MyAccountComponent implements OnInit {
   }
 
 
+  toggleSideNav(){
+    this.openSideNav = !this.openSideNav;
+      this.sideNavWidth = this.openSideNav ? '270px' : '60px';
+      this.containerMargin = this.openSideNav ? '270px' : '60px';
+
+  }
 
 
 }

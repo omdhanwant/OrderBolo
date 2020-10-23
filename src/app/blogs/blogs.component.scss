@@ -64,3 +64,25 @@
     border-color: #0b0633;
     }
   }
+
+  .main_blog_container {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: difference;
+    // background-image: url(http://documentdoctor.in/orderbolo/uploads/blog/1603350865.jpg);
+    height: 250px;
+    position: relative;
+    overflow-y: hidden;
+  }
+
+  .main_blog_container .text_container {
+    background: #000;
+    opacity: 0.8;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    font-weight: 500;
+    padding: 20px;
+  }

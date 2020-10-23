@@ -4,6 +4,9 @@
   <div class="nav-items sticky-top" [style.width]="sideNavWidth">
     <a class="closebtn" (click)="toggleSideNav()">☰</a>
       <ul class="list-group expanded-nav" *ngIf="openSideNav">
+        <li class="list-group-item" routerLink="/my-account/metric-dashboard" routerLinkActive="active">
+          <i class="fa fa-pie-chart" aria-hidden="true"></i>Dashboard
+        </li>
         <li class="list-group-item" routerLink="/my-account/profile" routerLinkActive="active">
           <i class="fa fa-user" aria-hidden="true"></i>Profile
         </li>
@@ -22,6 +25,7 @@
       </ul>
 
       <ul class="list-group" *ngIf="!openSideNav">
+        <li class="list-group-item" routerLink="/my-account/metric-dashboard" routerLinkActive="active"><i class="fa fa-pie-chart" aria-hidden="true"></i></li>
         <li class="list-group-item" routerLink="/my-account/profile" routerLinkActive="active"><i class="fa fa-user" aria-hidden="true"></i></li>
         <li class="list-group-item" routerLink="/my-account/requested-documents" routerLinkActive="active"><i class="fa fa-book" aria-hidden="true"></i></li>
         <li *ngIf="isAdmin" class="list-group-item" routerLink="/my-account/blogs-setting" routerLinkActive="active"><i class="fa fa-th-large" aria-hidden="true"></i></li>

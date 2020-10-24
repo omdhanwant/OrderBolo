@@ -1,7 +1,15 @@
 
 .card_container{
-  box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.6);
-  background:transparent!important
+  box-shadow: 0 0 2rem 0 rgba(136,152,170,.15);
+  // background:transparent!important
+}
+
+.metrics_container{
+  background: #f8f9fe;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 0;
+  margin-bottom: 20px;
 }
 
 .card-text{
@@ -24,4 +32,9 @@
 p{
   font-weight: 300;
     line-height: 1.7;
+}
+
+//chart
+.bg-default{
+  background-color: #a3aed9 !important
 }

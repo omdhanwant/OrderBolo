@@ -90,6 +90,8 @@ import { IecComponent } from './document-doctor/iec/iec.component';
 import { DscComponent } from './document-doctor/dsc/dsc.component';
 import { MetricsDashboardComponent } from './document-doctor/my-account/metrics-dashboard/metrics-dashboard.component';
 
+import {ChartModule} from 'primeng/chart';
+
 
 @NgModule({
   declarations: [
@@ -187,7 +189,8 @@ import { MetricsDashboardComponent } from './document-doctor/my-account/metrics-
     // MatCheckboxModule,
     MatInputModule,
     // MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    ChartModule
 
   ],
   providers: [

@@ -89,12 +89,16 @@ h5 {
   margin: 0!important;
 }
 
-.form-group {
-  margin-bottom: 6px!important;
+// .form-group {
+//   margin-bottom: 6px!important;
+// }
+.form-group label{
+  font-weight: 500 !important;
 }
 
 .form-control {
-  height: 36px!important;
+  height: 40px!important;
+  border-radius: 0!important;
 }
 
 .btn_save {
@@ -105,6 +109,15 @@ h5 {
 .btn-primary {
   background:#0B0633!important;
 }
+.upload_button{
+  background-color: #e9ecef!important;
+  color: #495057!important;
+  width: 50%;
+  border: #495057!important;
+  border-radius: 0!important;
+  height: 40px;
+}
+
 .btn-black {
   height: 48px;
   width: 100%;
@@ -771,10 +784,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 // custom dialog
 .description-section{
-  background: #f5f4f4;
+  // background: #f5f4f4;
   border-radius: 10px;
   padding: 15px;
   font-size: 14px;
+  border: 1px solid #e6e6e6;
 }
 
 //pagination

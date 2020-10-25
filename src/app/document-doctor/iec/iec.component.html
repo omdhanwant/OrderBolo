@@ -268,7 +268,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-row">
+                            <div class="form-row m-0" style="margin-left: 15px;margin-bottom: 15px;">
                                 <div class="col-md-12 form-group m-0 p-0">
                                     <label class="m-0 p-0">1. Upload Your Aadhaar Card Front Side*</label>
                                 </div>
@@ -282,13 +282,20 @@
                                     <label class="m-0 p-0">4. Passport Size Photo**</label>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <div class="col-md-12 mt-2">
                                     <input (change)="onFileChange($event)" type="file"
                                         class="custom-file-input" id="customFile">
                                     <label class="custom-file-label" for="customFile">Upload Files</label>
                                 </div>
+                            </div> -->
+                            <div class="form-group col-md-6" style="display: flex; flex-direction: column;">
+                              <label for="date">Upload Required Documents</label>
+                                <input (change)="onFileChange($event)" #upload type="file" class="custom-file-input"
+                                  id="customFile" style="display: none;">
+                              <button (click)="upload.click()" class="btn upload_button">Browse</button>
                             </div>
+
                             <div *ngIf="myFiles?.length" class="row mb-2">
                                 <div style="display: flex; ">
                                     <div class="pill">

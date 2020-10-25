@@ -31,6 +31,7 @@ import { PfComponent } from './document-doctor/pf/pf.component';
 import { IecComponent } from './document-doctor/iec/iec.component';
 import { IsoComponent } from './document-doctor/iso/iso.component';
 import { DscComponent } from './document-doctor/dsc/dsc.component';
+import { MetricsDashboardComponent } from './document-doctor/my-account/metrics-dashboard/metrics-dashboard.component';
 
 
 // const routes: Routes = [];
@@ -183,6 +184,11 @@ const routes: Routes = [
     component: MyAccountComponent,
     canActivate: [AuthGuard],
     children: [
+      {
+        path: 'metric-dashboard',
+        component: MetricsDashboardComponent,
+        canActivate: [AuthGuard]
+      },
       {
         path: 'profile',
         component: ProfileComponent,

@@ -12,13 +12,13 @@
       </nav> -->
 </div>
 
-<div class="col-12 text-right mb-3">
+<!-- <div class="col-12 text-right mb-3">
   <button (click)="showDetailScreen()" class="btn btn-primary">Create New Blog</button>
-</div>
+</div> -->
 
   <div class="col-12">
     <div style="display: flex; justify-content: space-between;">
-      <span><pre class="card card-block card-header mb-3">The selected page no: {{currentPage}}/{{lastPageCount}}</pre></span>
+      <!-- <span><pre class="card card-block card-header mb-3">The selected page no: {{currentPage}}/{{lastPageCount}}</pre></span> -->
       <pagination [boundaryLinks]="true"
       style="margin-top: 7px;"
       [rotate]='true'
@@ -30,6 +30,7 @@
       previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
 
       </pagination>
+      <button (click)="showDetailScreen()" class="btn btn-primary create_blog_btn">Create New Blog</button>
     </div>
 
     <table class="table table table-striped table-bordered">

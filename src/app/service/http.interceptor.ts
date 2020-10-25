@@ -6,7 +6,7 @@ import { tap } from 'rxjs/operators';
 import { UtilService } from './util.service';
 import { AuthService } from './auth.service';
 import { AlertService } from './alertService';
-// const config = require('../../assets/config.json');
+
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   timestamp :number
@@ -31,7 +31,7 @@ export class AuthInterceptor implements HttpInterceptor {
       tap((event: HttpEvent<any>) => {
         if (event instanceof HttpResponse) {
           this.service.loading = false;
-          this.alertService.addSingle('success','Message','Success');
+          // this.alertService.addSingle('success','Message','Success');
         }
       }, (err: any) => {
         if (err instanceof HttpErrorResponse) {

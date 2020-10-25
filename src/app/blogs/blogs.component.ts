@@ -18,17 +18,27 @@ import { fadeInLeftTrigger, fadeInTopTrigger } from '../animations';
 export class BlogsComponent implements OnInit {
   showAddScreen: boolean = false;
   Blogs: Blogs[];
+  latestBlog: Blogs;
   constructor( private service: MyAccountService , private route: Router) { }
 
   ngOnInit(): void {
-    console.log("blog")
     this.service.getBlogs()
     .pipe(take(1))
     .subscribe((blogsData:Blogs[]) => {
-      console.log(blogsData)
       this.Blogs = blogsData;
+
+      this.latestBlog = this.getLatestBlog();
+
     })
   }
+
+  getLatestBlog() {
+    return this.Blogs.sort((a,b) => {
+      if(a.created_at > b.created_at) return 1;
+      if(a.created_at < b.created_at) return -1;
+    })[0]
+  }
+
   getImage(image){
     if(image){
     let img = JSON.parse(image);

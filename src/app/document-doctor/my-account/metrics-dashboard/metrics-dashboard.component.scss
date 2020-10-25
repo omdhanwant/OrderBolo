@@ -1,4 +1,19 @@
 
+.head{
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    margin-left: -50px;
+    background-color: #0B0633 !important;
+    color: #fff;
+    height: 40px;
+    width: 100px;
+    vertical-align: middle;
+    border-radius: 5px;
+    text-align: center;
+    padding: 8px;
+}
+
 .card_container{
   box-shadow: 0 0 2rem 0 rgba(136,152,170,.15);
   // background:transparent!important
@@ -7,9 +22,10 @@
 .metrics_container{
   background: #f8f9fe;
   border-radius: 5px;
-  padding: 20px;
+  padding: 30px;
   margin: 0;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
+  position: relative;
 }
 
 .card-text{
@@ -20,7 +36,7 @@
   color: red!important;
 }
 .color-green{
-  color: lightgreen!important;
+  color: green!important;
 }
 .color-cyan{
   color: darkcyan!important;

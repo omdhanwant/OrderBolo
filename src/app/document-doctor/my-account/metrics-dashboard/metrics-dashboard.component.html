@@ -1,7 +1,9 @@
+<!-- // Metrics -->
 <div class="row metrics_container">
+  <div class="head">Metrics</div>
   <div class="col-lg-4 col-md-6 col-sm-12 mt-2 mb-2">
     <div class="card_container card bg-light  text-center">
-      <div class="card-header bg-default">
+      <div class="text-light card-header bg-default">
         Requested Documents
       </div>
       <div class="card-body">
@@ -16,7 +18,7 @@
 
   <div class="col-lg-4 col-md-6 col-sm-12 mt-2 mb-2">
     <div class="card_container card bg-light  text-center">
-      <div class="card-header bg-default">
+      <div class="text-light card-header bg-default">
         Vendors
       </div>
       <div class="card-body">
@@ -31,7 +33,7 @@
 
   <div class="col-lg-4 col-md-6 col-sm-12 mt-2 mb-2">
     <div class="card_container card bg-light  text-center">
-      <div class="card-header bg-default">
+      <div class="text-light card-header bg-default">
         Payments
       </div>
       <div class="card-body">
@@ -46,18 +48,34 @@
 </div>
 
 
-<div class="row metrics_container">
-  <div class="card  col-xl-8">
+<!-- // Overview -->
+<div class="row justify-content-around metrics_container">
+  <div class="head">Overview</div>
+  <div class="card  col-lg-10 col-sm-12 col-md-12 mt-2 mb-2">
     <div class="card-header bg-default bg-transparent">
       <div class="row align-items-center">
         <div class="col">
-          <h6 class="text-light text-uppercase ls-1 mb-1">Overview</h6>
-          <h5 class="text-white h3 mb-0">Requests Per Document</h5>
+          <!-- <h6 class="text-light text-uppercase ls-1 mb-1">Overview</h6> -->
+          <h3 class="text-white h3 mb-0">Requests Per Document</h3>
         </div>
       </div>
     </div>
     <div class="card-body">
       <p-chart type="bar" [data]="reqPerDocChartData"></p-chart>
+    </div>
+  </div>
+
+  <div class="card  col-lg-10 col-sm-12 col-md-12 mt-2 mb-2">
+    <div class="card-header bg-default bg-transparent">
+      <div class="row align-items-center">
+        <div class="col">
+          <!-- <h6 class="text-light text-uppercase ls-1 mb-1">Overview</h6> -->
+          <h3 class="text-white h3 mb-0">Orders Per Month</h3>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p-chart type="line" [data]="ordersPerMonthChartData"></p-chart>
     </div>
   </div>
 </div>

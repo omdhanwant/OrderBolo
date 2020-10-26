@@ -12,7 +12,7 @@
       </div>
       <div class="col-md-12">
           <section class="feature-category">
-              <div class="row" style="background: whitesmoke;padding: 40px;">
+              <div class="row" style="padding: 15px 100px;border: 1px solid #e6e6e6;box-shadow: 2px 2px 7px 2px #e6e6e6;">
                   <div class="col-md-12">
                    <div *ngIf="imageUrl" class="mb-3" style="display: flex;justify-content: center;">
                     <img [src]="imageUrl" alt="Avatar" class="avatar">
@@ -83,12 +83,19 @@
                         </div> -->
                           </div>
 
-                          <div class="form-group">
+                          <!-- <div class="form-group">
                             <div class="custom-file" style="width: 20%;">
                                 <input  multiple (change)="onFileSelect($event)" type="file" class="custom-file-input" id="customFile">
                                 <label class="custom-file-label" for="customFile">profile image</label>
                             </div>
+                        </div> -->
+                        <div class="form-group col-md-6 p-0" style="display: flex; flex-direction: column;">
+                          <label for="date">Profile Image</label>
+                            <input (change)="onFileSelect($event)" #upload type="file" class="custom-file-input"
+                              id="customFile" style="display: none;">
+                          <button type="button" (click)="upload.click()" class="btn upload_button">Browse</button>
                         </div>
+
                           <div *ngIf="imageFile" class="row">
                             <div style="display: flex;">
                              <div class="pill">

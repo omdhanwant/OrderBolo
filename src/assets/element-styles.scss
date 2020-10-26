@@ -58,3 +58,21 @@
   height: 40px!important;
   border-radius: 0!important;
 }
+
+// tab view
+body .ui-tabview.ui-tabview-top .ui-tabview-nav li{
+  margin-right: 5px!important;
+}
+
+body .ui-tabview.ui-tabview-top .ui-tabview-nav li a, body .ui-tabview.ui-tabview-bottom .ui-tabview-nav li a, body .ui-tabview.ui-tabview-left .ui-tabview-nav li a, body .ui-tabview.ui-tabview-right .ui-tabview-nav li a{
+  padding: 0.7em 1.5em!important;
+  font-weight: 500!important;
+}
+
+body .ui-tabview.ui-tabview-top .ui-tabview-nav li, body .ui-tabview.ui-tabview-bottom .ui-tabview-nav li, body .ui-tabview.ui-tabview-left .ui-tabview-nav li, body .ui-tabview.ui-tabview-right .ui-tabview-nav li{
+  background-color:#fff!important;
+}
+
+body .ui-tabview .ui-tabview-panels{
+  border:1px solid #e6e6e6!important;
+}

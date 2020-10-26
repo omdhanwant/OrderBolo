@@ -13,7 +13,7 @@
         <div class="col-12">
 
           <div style="display: flex; justify-content: space-between;">
-            <span><pre class="card card-block card-header mb-3">The selected page no: {{currentPage}}/{{lastPageCount}}</pre></span>
+            <!-- <span><pre class="card card-block card-header mb-3">The selected page no: {{currentPage}}/{{lastPageCount}}</pre></span> -->
             <pagination [boundaryLinks]="true"
             style="margin-top: 7px;"
             [itemsPerPage]="itemsPerPage"
@@ -150,7 +150,7 @@
           <p *ngIf="!contentData?.length" style="color: gray;">No Documents Found.</p>
         </ng-container>
 
-        
+
         <ng-container *ngIf="selectedDocument == documents[4]">
           <table class="table table-striped table-bordered" *ngIf="contentData?.length">
             <thead>

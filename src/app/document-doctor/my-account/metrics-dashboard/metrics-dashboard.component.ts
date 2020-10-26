@@ -94,7 +94,7 @@ export class MetricsDashboardComponent implements OnInit {
      datasets: [
        {
          label: 'Documents',
-         backgroundColor: '#a3aed9',
+         backgroundColor: '#0B0633',
          borderColor: '#1E88E5',
          data
        }
@@ -173,7 +173,7 @@ export class MetricsDashboardComponent implements OnInit {
               label: 'Orders',
               data: dataset,
               fill: false,
-              borderColor: '#a3aed9'
+              borderColor: '#0B0633'
           }
       ]
   }

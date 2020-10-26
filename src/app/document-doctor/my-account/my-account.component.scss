@@ -1,13 +1,9 @@
 .nav-items{
-  // top: 57px;
-  // left: 0;
-  // width: 330px;
-  // width: 20%;
   height: 100%;
   background: #fff;
   position: fixed;
   top: 0;
-  padding-top: 117px;
+  padding-top: 106px;
   border-right: 1px solid #e6e6e6;
   transition: 0.3s ease-in-out;
 }
@@ -35,7 +31,7 @@
 }
 
 .list-group .active{
-  background: #0B0633!important;
+  background: #a3aed9!important;
   border: #fff;
 }
 .list-group-item {
@@ -44,8 +40,6 @@
 }
 
 .list-group-item:hover{
-  background: #a3aed9;
-  color: #fff;
   cursor: pointer;
 }
 

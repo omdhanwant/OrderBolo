@@ -1,0 +1,60 @@
+// dropdown menus
+.dropdown-menu{
+  border-radius: 0!important;
+}
+
+.dropdown-item:focus, .dropdown-item:hover{
+  background-color: #a3aed9!important;
+  color: #fff!important;
+  font-weight: 500!important;
+}
+
+.dropdown-item{
+  font-weight: 200!important;
+  // font-size: smaller;
+}
+
+// nav bar
+.navbar-brand{
+  padding: 0!important;
+}
+
+.navbar-light .navbar-nav .nav-link{
+  font-size: 14px;
+}
+
+// button
+.btn-primary {
+  background:#0B0633!important;
+  border-radius: 0!important;;
+}
+
+.btn-primary.focus, .btn-primary:focus{
+  border-color:#fff!important;
+  box-shadow:#fff!important;
+  border-color:#fff!important;
+  outline: none!important;
+}
+
+.btn.focus, .btn:focus{
+  box-shadow:#fff!important;
+  outline: none!important;
+}
+
+
+// forms
+::placeholder {
+  color: #ced4da!important;
+  font-size:14px;
+  font-weight: 300!important;
+  opacity: 1;
+}
+
+.form-group label{
+  font-weight: 500 !important;
+}
+
+.form-control {
+  height: 40px!important;
+  border-radius: 0!important;
+}

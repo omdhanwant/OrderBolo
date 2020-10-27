@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light vendor_reg_nav  pl-5 pr-5" style="background-color: #e3f2fd !important;height: 40px; padding: 0; margin: 0; z-index: 11111;">
+<nav class="navbar navbar-expand-lg navbar-light vendor_reg_nav  pl-5 pr-5" style="height: 40px; padding: 0; margin: 0; z-index: 11111;">
   <a class="navbar-brand" href="#">
     <img src="assets/logo/logo.png" width="30">
   </a>
@@ -27,7 +27,7 @@
           <a class="nav-link" data-target="#vendor-register-modal" data-backdrop="static" data-keyboard="false"
       data-toggle="modal">Register As Professional <span class="sr-only">Register As Professional</span></a>
         </li>
-        <li *ngIf="!authUser?.isAuthenticated" class="nav-item active">
+        <li *ngIf="!authUser?.isAuthenticated" class="nav-item login-signup-link active">
           <a class="nav-link" (click)="isSideNav = true">Login / Sign Up <span class="sr-only">(Login/Sign Up)</span></a>
         </li>
         <li ngbDropdown *ngIf="authUser?.isAuthenticated" class="nav-item dropdown text-dark">
@@ -44,8 +44,8 @@
     </span>
   </div>
 </nav>
-<nav class="bg-dark navbar navbar-dark navbar-expand-lg pl-5 pr-5 sticky_nav bg-navy marginTop">
-  <a @fadeInLeftTrigger class="navbar-brand" href="#"><img src="assets/logo/logo.png" height="50"></a>
+<nav class="navbar navbar-expand-lg pl-5 pr-5 sticky_nav marginTop home_nav">
+  <a @fadeInLeftTrigger class="navbar-brand" routerLink="/document-doctor"><img src="assets/logo/logo.png" height="50"></a>
   <button @fadeInLeftTrigger class="navbar-toggler" type="button" data-toggle="collapse"
     data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
     aria-label="Toggle navigation">
@@ -55,7 +55,7 @@
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
           Start Business
         </a>

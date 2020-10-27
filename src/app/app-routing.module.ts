@@ -32,6 +32,7 @@ import { IecComponent } from './document-doctor/iec/iec.component';
 import { IsoComponent } from './document-doctor/iso/iso.component';
 import { DscComponent } from './document-doctor/dsc/dsc.component';
 import { MetricsDashboardComponent } from './document-doctor/my-account/metrics-dashboard/metrics-dashboard.component';
+import { NewHomeComponent } from './document-doctor/new-home/new-home.component';
 
 
 // const routes: Routes = [];
@@ -83,7 +84,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: HomeComponent,
+        component: NewHomeComponent,
         // canActivate: [AuthGuard],
         data: { breadcrumb: null },
       },

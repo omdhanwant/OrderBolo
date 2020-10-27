@@ -5,17 +5,18 @@
   left: 0;
   text-align: 0;
   top: 0;
+  border-bottom: 1px solid #e6e6e6;
 }
 
 .sidenav {
     height: 100%;
-    // width: 25rem;
     position: fixed;
     z-index: 99999;
     top: 0;
     right: 0;
     background-color: #fff;
     overflow: hidden;
+    border-left: 1px solid #e6e6e6;
   }
 
   .sidenav a {

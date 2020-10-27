@@ -76,3 +76,49 @@ body .ui-tabview.ui-tabview-top .ui-tabview-nav li, body .ui-tabview.ui-tabview-
 body .ui-tabview .ui-tabview-panels{
   border:1px solid #e6e6e6!important;
 }
+
+
+// vendor nav bar
+.vendor_reg_nav{
+  background-color: deeppink!important;
+}
+.vendor_reg_nav .navbar-nav .nav-item .nav-link {
+  color: #fff!important;
+}
+.vendor_reg_nav .navbar-nav .login-signup-link {
+  background: mediumvioletred!important;
+}
+// login-signup-link
+
+.home_nav{
+  background-color: #fff!important;
+}
+.home_nav .navbar-nav .nav-item .nav-link {
+  color: #000!important;
+}
+
+
+// home carousal
+body .ui-carousel .ui-carousel-content .ui-carousel-prev, body .ui-carousel .ui-carousel-content .ui-carousel-next{
+  width: 70px;
+  height: 70px;
+  position: absolute;
+}
+
+.ui-carousel-content .ui-carousel-container {
+  position: relative;
+}
+
+.ui-carousel-content .ui-carousel-container .ui-carousel-prev {
+  left: 0;
+  z-index: 1;
+}
+
+.ui-carousel-content .ui-carousel-container .ui-carousel-next{
+  right: 0;
+  z-index: 1;
+}
+
+.ui-carousel-dots-container{
+  display: none!important;
+}

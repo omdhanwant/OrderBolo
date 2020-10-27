@@ -91,6 +91,8 @@ import { DscComponent } from './document-doctor/dsc/dsc.component';
 import { MetricsDashboardComponent } from './document-doctor/my-account/metrics-dashboard/metrics-dashboard.component';
 
 import {ChartModule} from 'primeng/chart';
+import { NewHomeComponent } from './document-doctor/new-home/new-home.component';
+import {CarouselModule as PrimeCarousal} from 'primeng/carousel';
 
 
 @NgModule({
@@ -135,7 +137,8 @@ import {ChartModule} from 'primeng/chart';
     IsoComponent,
     IecComponent,
     DscComponent,
-    MetricsDashboardComponent
+    MetricsDashboardComponent,
+    NewHomeComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -190,7 +193,8 @@ import {ChartModule} from 'primeng/chart';
     MatInputModule,
     // MatButtonModule,
     MatIconModule,
-    ChartModule
+    ChartModule,
+    PrimeCarousal
 
   ],
   providers: [

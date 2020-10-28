@@ -122,3 +122,24 @@ body .ui-carousel .ui-carousel-content .ui-carousel-prev, body .ui-carousel .ui-
 .ui-carousel-dots-container{
   display: none!important;
 }
+
+// home auto complete input
+.home_autocomplete .ui-autocomplete .ui-autocomplete-input{
+  height: 50px;
+}
+.home_autocomplete .ui-autocomplete-panel .ui-autocomplete-items .ui-autocomplete-list-item{
+  padding: 15px 8px!important;
+}
+
+.home_autocomplete .ui-autocomplete-panel .ui-autocomplete-items .ui-autocomplete-list-item .ui-state-highlight{
+  background-color: #a3aed9!important;
+
+}
+.home_autocomplete .ui-autocomplete-panel .ui-autocomplete-items .ui-autocomplete-list-item .service_name {
+  font-size:15px;
+}
+
+.home_autocomplete .ui-autocomplete-panel .ui-autocomplete-items .ui-autocomplete-list-item .category {
+  text-align: right;
+  margin-left: 30px;
+}

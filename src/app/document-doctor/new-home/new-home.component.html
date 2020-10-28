@@ -12,6 +12,46 @@
 
 </div>
 
+<div class="service_area pt-85">
+  <div class="container">
+      <!-- Header -->
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="section_title text_center mb-55">
+            <div class="section_main_title">
+                <h1>Search for Blogs/Categories...</h1>
+            </div>
+        </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-6 home_autocomplete">
+          <p-autoComplete
+          [(ngModel)]="query"
+          [suggestions]="selectedFilter"
+          (completeMethod)="filterCategory($event)"
+          field="name"
+          [minLength]="1"
+          [ngModelOptions]="{standalone: true}"
+          [style]="{'width':'100%'}" [inputStyle]="{'width':'100%'}"
+          [autoHighlight]="true"
+          placeholder="Search anything here..."
+          styleClass="p-autocomplete-list-item">
+          <ng-template let-category pTemplate="item" >
+            <!-- <img src="assets/showcase/images/demo/car/{{brand}}.png" style="width:32px;display:inline-block;margin:5px 0 2px 5px"/> -->
+            <div style="display:flex;" [routerLink]="category.redirectUrl">
+              <div class="service_name">{{category.name}}</div>
+            <div class="category">({{ category.category }})</div>
+            </div>
+
+    </ng-template>
+        </p-autoComplete>
+        </div>
+      </div>
+    </div>
+</div>
+
 
 <div class="service_area pt-85 pb-70">
   <div class="container">
@@ -25,9 +65,6 @@
           </div>
           <div class="section_main_title">
               <h1>Provide Exclusive Services</h1>
-          </div>
-          <div class="em_bar">
-              <div class="em_bar_bg"></div>
           </div>
       </div>
       </div>

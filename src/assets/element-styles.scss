@@ -23,6 +23,33 @@
   font-size: 14px;
 }
 
+
+.navbar-collapse{
+  transition: all 1s ease-in-out;
+}
+
+@media (max-width: 991px){
+  .sub_navbar {
+      background: deeppink!important;
+      color: #fff!important;
+      position: absolute;
+      width: 100%;
+      top: 40px;
+      padding: 0 12px;
+      left: 0;
+  }
+
+//   .main_navbar {
+//     background: #ffffff!important;
+//     color: #fff!important;
+//     position: absolute;
+//     width: 100%;
+//     top: 110px;
+//     padding: 0 12px;
+//     left: 0;
+// }
+  }
+
 // button
 .btn-primary {
   background:#0B0633!important;

@@ -77,7 +77,7 @@
     <!-- Services tiles -->
     <div class="row">
       <ng-container *ngFor="let service of services">
-        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-6 mb-4">
+        <div *ngIf="service.visibleTo == 'ALL'" class="col-lg-3 col-md-6 col-sm-12 col-xs-6 mb-4">
           <div class="media block-icon-1 d-block text-center" [routerLink]="service.route">
             <div class="icon mb-3">
               <img [src]="service.image" alt="Image" class="img-fluid" />

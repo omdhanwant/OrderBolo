@@ -11,7 +11,7 @@ export class DataService {
   loading = false;
   private userData$ = new BehaviorSubject<Object[]>(null);
   private checkOutData: CheckOutData;
-  constructor(private http: HttpClient) { }
+  constructor(private http?: HttpClient) { }
 
   getData(url) {
     return this.http.get(url);

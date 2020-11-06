@@ -1,12 +1,156 @@
 import { Injectable } from '@angular/core';
 import { DataService } from './data.service';
 import { environment } from 'src/environments/environment';
-
+import * as constant from 'src/app/service/constants';
 
 @Injectable()
 export class DocumentService extends DataService{
 
   private documentData: any;
+  services: any[] = [
+    {
+      name: 'Udyam Registration (Udhyod Aadhar)',
+      description:'उद्योग आधार सुविधे अंतर्गत आपण आपल्या भागातील लघु उद्योजकांचे उद्योग आधार काढू शकता, उद्योग आधार मध्ये दुरुस्ती करू शकता. विविध शासकीय योजनेचा लाभ घेण्यासाठी तसेच व्यावसायिक कर्ज करंट अकाऊंट काढण्यासाठी उद्योग आधार चा व्यवसायिकांना उपयोग होऊ शकतो.',
+      image: "assets/images/document-doctor/aadhar-card.png",
+      route:'/document-doctor/udhyog-aadhar',
+      visibleTo: 'ALL'
+    },
+    {
+      name: 'Food License Registration',
+      description:'Service Description',
+      image: 'assets/images/document-doctor/food-licience.png',
+      route: '/document-doctor/food-licience',
+      visibleTo: 'ALL'
+    },
+    {
+      name: 'Shop Act (Gumsta) registration',
+      description:'Service Description',
+      image: 'assets/images/document-doctor/caste-validity.jpg',
+      route: '/document-doctor/gumasta',
+      visibleTo: 'ALL'
+    },
+    {
+      name: 'GST',
+      description:'Service Description',
+      image: 'assets/images/document-doctor/caste-validity.jpg',
+      route:'/document-doctor/gst',
+      visibleTo: 'ALL'
+    },
+    {
+      name: 'Digital Signature',
+      description:'Service Description',
+      image: 'assets/dsc/dsc-logo.jpg',
+      route:'/document-doctor/dsc-application',
+      visibleTo: 'ALL'
+    },
+    {
+      name: 'ISO Registration',
+      description:'Service Description',
+      image: 'assets/iso/iso-logo.png',
+      route:'/document-doctor/iso-registration',
+      visibleTo: 'ALL'
+    },
+    {
+      name: 'PF Registration',
+      description:'Service Description',
+      image: 'assets/pf/pf-logo.png',
+      route:'/document-doctor/pf-registration',
+      visibleTo: 'ALL'
+    },
+    {
+      name: 'IEC Registration',
+      description:'Service Description',
+      image: 'assets/iec/iec-logo.jpg',
+      route:'/document-doctor/iec-registration',
+      visibleTo: 'ALL'
+    },
+    {
+      name: 'PASSPORT SERVICE',
+      description:'या सुविधे अंतर्गत ग्राहकांचे नविन पासपोर्ट साठी अर्ज भरणे, पासपोर्ट काढण्यासाठीचे शुल्क ऑनलाईन भरणे, पासपोर्ट इंटरव्ह्यू साठी अपॉईटमेंट घेणे, पोसपोर्ट अर्जाची सद्य स्थिती पाहणे, पासपोर्ट साठी पोलिस क्लिअरन्स सर्टिफिकेट काढणे इत्यादी कामे करू शकता.',
+      image: 'assets/default.png',
+      route:'https://portal2.passportindia.gov.in/AppOnlineProject/welcomeLink#',
+      visibleTo: constant.VENDOR
+    },
+    {
+      name: 'PAN CARD SERVICE',
+      description:'सुविधेद्वारे तुम्ही ग्राहकांचे पॅनकार्ड काढणे, पॅनकार्ड मध्ये दुरुस्ती, हरवलेल्या पॅनकार्डची दुय्यम प्रत काढणे इ. कामे करू शकता.',
+      image: 'assets/default.png',
+      route:'https://www.onlineservices.nsdl.com/paam/endUserRegisterContact.html',
+      visibleTo: constant.VENDOR
+    },
+    {
+      name: 'EPF SERVICES',
+      description:'पीएफ सुविधे अंतर्गत तुम्ही ग्राहकांचा प्रोव्हिडंट फंड (कर्मचारी भविष्यनिर्वाह निधी) काढण्यासाठी क्लेम करणे, UNA नंबर काढणे. पीएफ पासबुक डाऊनलोड करणे. पीएफ मधील नाव जन्मतारीख इत्यादी माहिती अपडेट करणे इत्यादी कामे करू शकता.',
+      image: 'assets/default.png',
+      route:'https://www.epfindia.gov.in/',
+      visibleTo: constant.VENDOR
+    },
+    {
+      name: 'DRIVING LICENCE',
+      description:'ड्रायव्हिंग लायसन्स सेवा अतंर्गत तुम्ही ड्रायव्हिंग लर्निंग लायसन्स साठी अर्ज भरणे, ड्रायव्हिंग लायसन्स साठी अर्ज भरणे, ड्रायव्हिंग चाचणीसाठी अपॉईटमेंट घेणे, ड्रायव्हिंग लायसन्स ची दुय्यम प्रत काढणे, ड्रायव्हिंग लायसन्स रिन्युअल करणे इत्यादी कामे करू शकता.',
+      image: 'assets/default.png',
+      route:'https://sarathi.parivahan.gov.in',
+      visibleTo: constant.VENDOR
+    },
+    {
+      name: 'शॉप ऍक्ट ( SHOP ACT)',
+      description:'शॉप ऍक्ट ( Shop Act)सुविधे द्वारे तुम्ही तुमच्या भागातील दुकानदारांचे शॉप लायसन्स काही मिनिटांमध्ये त्वरित काढू शकता. तसेच जुने शॉप अ‍ॅक्ट लायसन्स चे रिन्युअल काढून देऊ शकता',
+      image: 'assets/default.png',
+      route:'lms.mahaonline.gov.in',
+      visibleTo: constant.VENDOR
+    },
+    {
+      name: 'POLICE CLEARANCE CERTIFICATE   (POLICE VERIFIACATION CERTIFICATE)',
+      description:'सरकारी नोकरी, सैन्यदलातील भरती, पासपोर्ट विजा काढण्यासाठी लागणा-या पोलिस क्लिअरन्स साठी आपल्या भागातील उमेदवारांचे पोलिस क्लिअरन्स सर्टिफिकेट चे ऑनलाईन अर्ज भरून देऊ शकता.',
+      image: 'assets/default.png',
+      route:'https://pcs.mahaonline.gov.in/Forms/Home.aspx',
+      visibleTo: constant.VENDOR
+    },
+    {
+      name: 'भाडेकरार नोंदणी (LEAVE AND LICENSE AGREEMENT)',
+      description:'भाडेकरार नोंदणी या सुविधेद्वारे आपल्या भागातील (शहरी) भाड्याने राहाणा-या नागरिकांचे ऑनलाईन भाडेकरार नोंदणी (LEAVE AND LICENSE AGREEMENT) करू शकता.',
+      image: 'assets/default.png',
+      route:'efilingigr.maharashtra.gov.in',
+      visibleTo: constant.VENDOR
+    },
+    {
+      name: 'दिव्यांग (अपंगत्वाचे) यूडीआयडी कार्ड व प्रमाणपत्रची DISABILITY UDID CARD & CERTIFICATE',
+      description:'दिव्यांग यूडीआयडी कार्ड सुविधा द्वारे आपण आपल्या भागातील अपंग उमेदवारांचे युनिक डिसेबिलिटी आयडी सर्टिफिकेट साठी अर्ज करणे, यूडीआयडी कार्ड नुतनीकरण साठी अर्ज करणे इत्यादी कामे करू शकता.',
+      image: 'assets/default.png',
+      route:'http://www.swavlambancard.gov.in/pwd/application',
+      visibleTo: constant.VENDOR
+    },
+    {
+      name: 'नर्सिंग रजिस्ट्रेशन व रिन्युअलची (NURSING REGISTRATION & RENEWAL)',
+      description:'नर्सिंग रजिस्ट्रेशन सुविधेद्वारे आपण आपल्या विभागातील परिचारीकांचे (नर्स) नर्सिंग कौन्सिलकडे नाव नोंदणी साठी ऑनलाईन करणे, तसेच त्याचे रिन्युअल साठी अर्ज भरणे या सारखी कामे करू शकता.',
+      image: 'assets/default.png',
+      route:'',
+      visibleTo: constant.VENDOR
+    },
+
+    {
+      name: 'अन्न आणि औषधे परवानाची (FOOD & DRUG PERMISSION)',
+      description:'अन्न आणि औषधे परवाना सुविधेद्वारे तुम्ही आपल्या भागातील हॉटेल, स्विटमार्ट चालवण्याचा परवाना आणिक मेडिकल साठीच्या परवान्या साठी ऑनलाईन अर्ज भरून देऊ शकता.',
+      image: 'assets/default.png',
+      route:'http://fda.maharashtra.gov.in/',
+      visibleTo: constant.VENDOR
+    },
+    {
+      name: 'राजपत्र (GAZETTE)फेरबदलची ई सेवा',
+      description:'या सुविधे अंतर्गत तुम्ही आपल्या भागातील ग्राहकांच्या नावातील बदलासाठी, जन्म तारखेतील बदलासाठी, तसेच धर्मात बदलासाठी ऑनलाईन अर्ज करू शकता.',
+      image: 'assets/default.png',
+      route:'https://dgps.maharashtra.gov.in/1035/Home',
+      visibleTo: constant.VENDOR
+    },
+    {
+      name: 'आधार पॅन लिंकिंग',
+      description:'',
+      image: 'assets/default.png',
+      route:'https://www1.incometaxindiaefiling.gov.in/e-FilingGS/Services/LinkAadhaarHome.html?lang=eng',
+      visibleTo: constant.VENDOR
+    },
+
+  ];
 
   get document() {
     return this.documentData;

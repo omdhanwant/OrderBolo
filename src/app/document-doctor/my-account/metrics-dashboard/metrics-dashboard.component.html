@@ -1,5 +1,5 @@
 <!-- // Metrics -->
-<div class="row metrics_container">
+<div *ngIf="isAdmin" class="row metrics_container">
   <div class="head">Metrics</div>
   <div class="col-lg-4 col-md-6 col-sm-12 mt-2 mb-2">
     <div class="card_container card bg-light  text-center">
@@ -49,7 +49,7 @@
 
 
 <!-- // Overview -->
-<div class="row justify-content-around metrics_container">
+<div *ngIf="isAdmin" class="row justify-content-around metrics_container">
   <div class="head">Overview</div>
   <div class="card  col-lg-10 col-sm-12 col-md-12 mt-2 mb-2">
     <div class="card-header bg-default bg-transparent">
@@ -78,4 +78,23 @@
       <p-chart type="line" [data]="ordersPerMonthChartData"></p-chart>
     </div>
   </div>
+</div>
+
+
+<div *ngIf="isVendor" class="row metrics_container">
+  <div class="head">Services</div>
+
+  <ng-container *ngFor="let service of services">
+    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-6 mb-4">
+      <div class="media block-icon-1-small d-block text-center" [routerLink]="service.route">
+        <div class="icon mb-3">
+          <img [src]="service.image" alt="Image" class="img-fluid" />
+        </div>
+        <div class="media-body">
+          <h5 class="h5 mb-4">{{service.name}}</h5>
+          <div>{{service.description}}</div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
 </div>

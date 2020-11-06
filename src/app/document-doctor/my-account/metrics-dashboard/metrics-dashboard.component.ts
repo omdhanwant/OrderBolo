@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/service/auth.service';
 
 import { DocumentService } from 'src/app/service/document.service';
@@ -6,6 +6,7 @@ import { MyAccountService } from 'src/app/service/myaccount.service';
 import * as constants from 'src/app/service/constants';
 import { ChartService } from './chart-service';
 import * as moment from 'moment';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-metrics-dashboard',
@@ -13,7 +14,7 @@ import * as moment from 'moment';
   styleUrls: ['./metrics-dashboard.component.scss'],
   providers: [ChartService]
 })
-export class MetricsDashboardComponent implements OnInit {
+export class MetricsDashboardComponent implements OnInit, OnDestroy {
   totalPayments
   totalOrders
   totalDocuments
@@ -28,10 +29,18 @@ export class MetricsDashboardComponent implements OnInit {
   currentYear;
   ordersPerMonthChartData: any;
 
+  services: any[];
+  destroy$: Subscription;
+  isAdmin = false;
+  isVendor = false;
+
   constructor(private service: DocumentService,private myAccservice: MyAccountService, private auth: AuthService, public chart: ChartService) {
     const storedyear = sessionStorage.getItem('current_year')
     this.currentYear = storedyear ? storedyear : this.getLatestYear();
-
+    this.services = this.service.services;
+  }
+  ngOnDestroy(): void {
+    // this.destroy$.unsubscribe();
   }
 
   initData(){
@@ -42,6 +51,31 @@ export class MetricsDashboardComponent implements OnInit {
     this.allUsers=[];
   }
   ngOnInit(): void {
+
+    // this.destroy$ = this.auth.peekAuthentication()
+    // .subscribe(auth => {
+
+    //   if(auth) {
+    //     switch(auth.user.userType) {
+    //       case constants.SUPER_ADMIN:
+    //           this.isAdmin = true;
+    //           break;
+    //     case constants.VENDOR:
+    //           this.isVendor = true;
+    //           break;
+    //     }
+    //   }
+    // });
+
+    switch(this.auth.userInfo.userType){
+      case constants.SUPER_ADMIN:
+              this.isAdmin = true;
+              break;
+      case constants.VENDOR:
+              this.isVendor = true;
+              break;
+    }
+
     this.initData();
     const documents$ = this.service.getRequstedDouments(this.auth.userInfo.id).toPromise();
     const orders$ = this.myAccservice.getAllOrders().toPromise();

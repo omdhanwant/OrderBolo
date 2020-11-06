@@ -4,7 +4,7 @@
   <div class="nav-items sticky-top" [style.width]="sideNavWidth">
     <a class="closebtn" (click)="toggleSideNav()">☰</a>
       <ul class="list-group expanded-nav" *ngIf="openSideNav">
-        <li class="list-group-item" routerLink="/my-account/metric-dashboard" routerLinkActive="active">
+        <li *ngIf="isAdmin || isVendor" class="list-group-item" routerLink="/my-account/metric-dashboard" routerLinkActive="active">
           <i class="fa fa-pie-chart" aria-hidden="true"></i>Dashboard
         </li>
         <li class="list-group-item" routerLink="/my-account/profile" routerLinkActive="active">

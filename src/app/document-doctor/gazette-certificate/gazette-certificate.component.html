@@ -44,7 +44,7 @@
                           <div class="form-row">
                               <div class="form-group col-md-6">
                                   <label>Old Name</label>
-                                  <input type="text" name="old_name" ngModel #old_name="ngModel" class="form-control" id="inputEmail4" placeholder="Full Name" required autocomplete="off">
+                                  <input type="text" name="old_name" ngModel #old_name="ngModel" class="form-control" id="inputEmail4" placeholder="Old Name" required autocomplete="off">
                                   <div *ngIf="old_name.touched && old_name.hasError('required')" class="invalid-feedback" style="display: inline-block;">
                                     Old Name is required
                                   </div>
@@ -52,7 +52,7 @@
 
                               <div class="form-group col-md-6">
                                 <label for="inputEmail4">New Name</label>
-                                <input name="new_name" ngModel #new_name="ngModel"  type="text" class="form-control"  placeholder="Full Name" required autocomplete="off">
+                                <input name="new_name" ngModel #new_name="ngModel"  type="text" class="form-control"  placeholder="New Name" required autocomplete="off">
                                 <div *ngIf="new_name.touched && new_name.hasError('required')" class="invalid-feedback" style="display: inline-block;">
                                   New Name is required
                                 </div>
@@ -61,9 +61,9 @@
                           </div>
                           <div class="form-group">
                               <label for="address">Full Address</label>
-                              <textarea name="address" ngModel #address="ngModel" class="form-control"  maxlength="255" placeholder="Apartment, studio, or floor" required></textarea>
+                              <textarea name="address" ngModel #address="ngModel" class="form-control"  maxlength="255" placeholder="Full Address" required></textarea>
                               <div *ngIf="address.touched && address.hasError('required')" class="invalid-feedback" style="display: inline-block;">
-                                Address is required
+                                Full Address is required
                               </div>
                           </div>
                           <div class="form-row">

@@ -45,7 +45,7 @@
                                         placeholder="Name of Business Entity" required autocomplete="off">
                                     <div *ngIf="name_of_business_entity.touched && name_of_business_entity.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
-                                        name_of_business_entity is required
+                                        Name of Business Entity is required
                                     </div>
                                 </div>
 
@@ -76,10 +76,10 @@
                                     <label for="pin">Description of Business ( व्यापार का वर्णन)*</label>
                                     <input type="text" name="discription_of_business" ngModel
                                         #discription_of_business="ngModel" maxlength="50" class="form-control"
-                                        placeholder="discription_of_business" required autocomplete="off">
+                                        placeholder="Description of Business" required autocomplete="off">
                                     <div *ngIf="discription_of_business.touched && discription_of_business.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
-                                        discription_of_business is required
+                                        Description of Business is required
                                     </div>
                                 </div>
 
@@ -115,7 +115,7 @@
                                     </select>
                                     <div *ngIf="business_activity.touched && business_activity.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
-                                        business_activity is required
+                                        Business Activity is required
                                     </div>
                                 </div>
 
@@ -139,7 +139,7 @@
                                         placeholder="Address 1" required autocomplete="off">
                                     <div *ngIf="address_line_1.touched && address_line_1.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
-                                        address_line_1 is required
+                                        Address 1 is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12 mt-2">
@@ -148,7 +148,7 @@
                                         placeholder="Address 2" required autocomplete="off">
                                     <div *ngIf="address_line_2.touched && address_line_2.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
-                                        address_line_2 is required
+                                        Address 2 is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12 mt-2">
@@ -209,10 +209,10 @@
                                 <div class="form-group col-md-12 mt-2">
                                     <input type="text" name="pin_code" ngModel
                                         #pin_code="ngModel" maxlength="50" class="form-control"
-                                        placeholder="pin_code" required autocomplete="off">
+                                        placeholder="Pin Code" required autocomplete="off">
                                     <div *ngIf="pin_code.touched && pin_code.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
-                                        pin_code is required
+                                        Pin Code is required
                                     </div>
                                 </div>
 
@@ -226,7 +226,7 @@
                                         autocomplete="off">
                                     <div *ngIf="applicant_email.touched && applicant_email.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
-                                        applicant_email is required
+                                        E-Mail is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12 mt-2">
@@ -254,7 +254,7 @@
                                 <div class="form-group col-md-12 mt-2">
                                     <label for="pin">PAN No. of Entity ( इकाई का पैन नंबर)</label>
                                     <input type="text" name="pan_card" ngModel #pan_card="ngModel" maxlength="6"
-                                        class="form-control" placeholder="Pan Card" required autocomplete="off">
+                                        class="form-control" placeholder="PAN No. of Entity" required autocomplete="off">
                                     <div *ngIf="pan_card.touched && pan_card.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
                                         PAN No. of Entity is required

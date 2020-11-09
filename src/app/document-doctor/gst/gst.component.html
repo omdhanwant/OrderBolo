@@ -43,20 +43,20 @@
                                 <div class="form-group col-md-6">
                                     <label>Applicant Full Name / आवेदक का पूर्ण नाम</label>
                                     <input type="text" name="applicant_name" ngModel #applicant_name="ngModel"
-                                        class="form-control" placeholder="applicant_name" required autocomplete="off">
+                                        class="form-control" placeholder="Applicant Full Name" required autocomplete="off">
                                     <div *ngIf="applicant_name.touched && applicant_name.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
-                                        applicant_name is required
+                                        Applicant Full Name is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label>Organization_name</label>
+                                    <label>Organization Name</label>
                                     <input type="text" name="organization_name" ngModel #organization_name="ngModel"
-                                        class="form-control" placeholder="organization_name" required
+                                        class="form-control" placeholder="Organization Name" required
                                         autocomplete="off">
                                     <div *ngIf="organization_name.touched && organization_name.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
-                                        organization_name is required
+                                        Organization Name is required
                                     </div>
                                 </div>
                             </div>
@@ -77,7 +77,7 @@
                                         class="form-control" placeholder="Aadhar Number" required autocomplete="off">
                                     <div *ngIf="aadhar_number.touched && aadhar_number.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
-                                        aadhar_number is required
+                                        Aadhar Card Number is required
                                     </div>
                                 </div>
                             </div>
@@ -97,7 +97,7 @@
                                         class="form-control" placeholder="PAN Number" required autocomplete="off">
                                     <div *ngIf="pan_number.touched && pan_number.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
-                                        pan_number is required
+                                        PAN Number is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
@@ -107,7 +107,7 @@
                                         placeholder="Constitution of Business" required autocomplete="off">
                                     <div *ngIf="constitution_of_business.touched && constitution_of_business.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
-                                        constitution_of_business is required
+                                        Constitution of Business is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
@@ -117,7 +117,7 @@
                                         autocomplete="off">
                                     <div *ngIf="electricity_bill.touched && electricity_bill.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
-                                        electricity_bill is required
+                                        Electricity Bill is required
                                     </div>
                                 </div>
                             </div>

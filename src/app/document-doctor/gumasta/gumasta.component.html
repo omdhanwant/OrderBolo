@@ -46,13 +46,13 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="address">Full business_address</label>
+                                <label for="address">Full Business Address</label>
                                 <textarea name="full_business_address" ngModel #full_business_address="ngModel"
-                                    class="form-control" maxlength="255" placeholder="full_business_address"
+                                    class="form-control" maxlength="255" placeholder="Full Business Address"
                                     required></textarea>
                                 <div *ngIf="full_business_address.touched && full_business_address.hasError('required')"
                                     class="invalid-feedback" style="display: inline-block;">
-                                    full_business_address is required
+                                    Full Business Address is required
                                 </div>
                             </div>
                             <div class="form-row">
@@ -68,10 +68,10 @@
                                 <div class="form-group col-md-6">
                                     <label>Name of business</label>
                                     <input type="text" name="name_of_business" ngModel #name_of_business="ngModel"
-                                        class="form-control" placeholder="name_of_business" required autocomplete="off">
+                                        class="form-control" placeholder="Name of business" required autocomplete="off">
                                     <div *ngIf="name_of_business.touched && name_of_business.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
-                                        name_of_business is required
+                                        Name of business is required
                                     </div>
                                 </div>
                             </div>
@@ -79,19 +79,19 @@
                                 <div class="form-group col-md-6">
                                     <label>Email</label>
                                     <input type="text" name="email" ngModel #email="ngModel" class="form-control"
-                                        placeholder="email" required autocomplete="off">
+                                        placeholder="Email" required autocomplete="off">
                                     <div *ngIf="email.touched && email.hasError('required')" class="invalid-feedback"
                                         style="display: inline-block;">
-                                        email is required
+                                        Email is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="pin">District</label>
                                     <input type="text" name="district" ngModel #district="ngModel" maxlength="6"
-                                        class="form-control" placeholder="Pin Code" required autocomplete="off">
+                                        class="form-control" placeholder="District" required autocomplete="off">
                                     <div *ngIf="district.touched && district.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
-                                        district is required
+                                        District is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
@@ -104,81 +104,81 @@
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="pin">pin_code</label>
+                                    <label for="pin">Pin Code</label>
                                     <input type="text" name="pin_code" ngModel #pin_code="ngModel" maxlength="6"
                                         class="form-control" placeholder="Pin Code" required autocomplete="off">
                                     <div *ngIf="pin_code.touched && pin_code.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
-                                        pin_code is required
+                                        Pin Code is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="pin">type_of_business</label>
+                                    <label for="pin">Type Of Business</label>
                                     <input type="text" name="type_of_business" ngModel #type_of_business="ngModel"
                                         maxlength="6" class="form-control" placeholder="Type Of Business" required
                                         autocomplete="off">
                                     <div *ngIf="type_of_business.touched && type_of_business.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
-                                        type_of_business is required
+                                        Type Of Business is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="pin">ownership_of_premises</label>
+                                    <label for="pin">Ownership Of Premises</label>
                                     <input type="text" name="ownership_of_premises" ngModel
                                         #ownership_of_premises="ngModel" maxlength="6" class="form-control"
-                                        placeholder="Pin Code" required autocomplete="off">
+                                        placeholder="Ownership Of Premises" required autocomplete="off">
                                     <div *ngIf="ownership_of_premises.touched && ownership_of_premises.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
-                                        ownership_of_premises is required
+                                        Ownership Of Premises is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="pin">total_male_employee</label>
+                                    <label for="pin">Total Male Employee</label>
                                     <input type="text" name="total_male_employee" ngModel #total_male_employee="ngModel"
-                                        maxlength="6" class="form-control" placeholder="Pin Code" required
+                                        maxlength="6" class="form-control" placeholder="Total Male Employee" required
                                         autocomplete="off">
                                     <div *ngIf="total_male_employee.touched && total_male_employee.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
-                                        total_male_employee is required
+                                        Total Male Employee is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="pin">total_female_employee</label>
+                                    <label for="pin">Total Female Employee</label>
                                     <input type="text" name="total_female_employee" ngModel
                                         #total_female_employee="ngModel" maxlength="6" class="form-control"
-                                        placeholder="Pin Code" required autocomplete="off">
+                                        placeholder="Total Female Employee" required autocomplete="off">
                                     <div *ngIf="total_female_employee.touched && total_female_employee.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
-                                        total_female_employee is required
+                                        Total Female Employee is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="pin">nature_of_business</label>
+                                    <label for="pin">Nature Of Business</label>
                                     <input type="text" name="nature_of_business" ngModel #nature_of_business="ngModel"
-                                        maxlength="6" class="form-control" placeholder="Pin Code" required
+                                        maxlength="6" class="form-control" placeholder="Nature Of Business" required
                                         autocomplete="off">
                                     <div *ngIf="nature_of_business.touched && nature_of_business.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
-                                        nature_of_business is required
+                                        Nature Of Business is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="pin">pan_card</label>
+                                    <label for="pin">Pan Card</label>
                                     <input type="text" name="pan_card" ngModel #pan_card="ngModel" maxlength="6"
-                                        class="form-control" placeholder="Pin Code" required autocomplete="off">
+                                        class="form-control" placeholder="Pan Card" required autocomplete="off">
                                     <div *ngIf="pan_card.touched && pan_card.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
-                                        pan_card is required
+                                        Pan Card is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="pin">aadhar_number</label>
+                                    <label for="pin">Aadhar Number</label>
                                     <input type="text" name="aadhar_number" ngModel #aadhar_number="ngModel"
-                                        maxlength="6" class="form-control" placeholder="Pin Code" required
+                                        maxlength="6" class="form-control" placeholder="Aadhar Numbe" required
                                         autocomplete="off">
                                     <div *ngIf="aadhar_number.touched && aadhar_number.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
-                                        aadhar_number is required
+                                        Aadhar Numbe is required
                                     </div>
                                 </div>
 

@@ -40,7 +40,7 @@
                                 <div class="form-group col-md-6">
                                     <label>Applicant Full Name / आवेदक का पूर्ण नाम</label>
                                     <input type="text" name="applicant_name" ngModel #applicant_name="ngModel"
-                                        class="form-control" placeholder="applicant_name" required autocomplete="off">
+                                        class="form-control" placeholder="Applicant Full Name" required autocomplete="off">
                                     <div *ngIf="applicant_name.touched && applicant_name.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
                                         applicant_name is required
@@ -128,7 +128,7 @@
                                     <label for="pin">No. Of Employee</label>
                                     <input type="number" name="number_of_employees" ngModel #number_of_employees="ngModel"
                                         maxlength="6" class="form-control"
-                                        placeholder="Fees (Rs. 199 for utp 100 employees & Rs. 99 for 100+  employees)"
+                                        placeholder="No. Of Employee"
                                         required autocomplete="off">
                                     <div *ngIf="number_of_employees.touched && number_of_employees.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">

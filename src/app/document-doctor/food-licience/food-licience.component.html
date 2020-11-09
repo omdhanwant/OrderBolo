@@ -61,7 +61,7 @@
               <div class="form-group">
                 <label for="address">Business Address</label>
                 <textarea name="business_address" ngModel #business_address="ngModel" class="form-control"
-                  maxlength="255" placeholder="Apartment, studio, or floor" required></textarea>
+                  maxlength="255" placeholder="Business Address" required></textarea>
                 <div *ngIf="business_address.touched && business_address.hasError('required')" class="invalid-feedback"
                   style="display: inline-block;">
                   Business Address is required

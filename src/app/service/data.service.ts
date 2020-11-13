@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CheckOutData } from '../models/documents';
 
 
 @Injectable()
 export class DataService {
-  loading = false;
   private userData$ = new BehaviorSubject<Object[]>(null);
   private checkOutData: CheckOutData;
   constructor(private http?: HttpClient) { }

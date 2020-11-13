@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { HomeComponent } from './document-doctor/home/home.component';
 import { FoodLicienceComponent } from './document-doctor/food-licience/food-licience.component';
 import { PoliceVerificationComponent } from './document-doctor/police-verification/police-verification.component';
 import { AadharCardComponent } from './document-doctor/aadhar-card/aadhar-card.component';
@@ -12,7 +11,6 @@ import { RationCardComponent } from './document-doctor/ration-card/ration-card.c
 import { OthersComponent } from './document-doctor/others/others.component';
 import { CategoryDetailComponent } from './category-detail/category-detail.component';
 import { BlogsComponent } from './blogs/blogs.component';
-import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './service/authGaurd';
 import { AdminGaurd } from './service/adminGaurd';
 import { UdyogAadharComponent } from './document-doctor/udyog-aadhar/udyog-aadhar.component';

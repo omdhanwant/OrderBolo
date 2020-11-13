@@ -25,7 +25,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
 import { SlickCarouselModule } from 'ngx-slick-carousel';
-import { HomeComponent } from './document-doctor/home/home.component';
 import { FoodLicienceComponent } from './document-doctor/food-licience/food-licience.component';
 import { PoliceVerificationComponent } from './document-doctor/police-verification/police-verification.component';
 import { FooterComponent } from './footer/footer.component';
@@ -93,6 +92,7 @@ import { MetricsDashboardComponent } from './document-doctor/my-account/metrics-
 import {ChartModule} from 'primeng/chart';
 import { NewHomeComponent } from './document-doctor/new-home/new-home.component';
 import {CarouselModule as PrimeCarousal} from 'primeng/carousel';
+import { AppLoaderComponent } from './common/app-loader/app-loader.component';
 
 
 @NgModule({
@@ -100,7 +100,6 @@ import {CarouselModule as PrimeCarousal} from 'primeng/carousel';
     AppComponent,
     NavbarComponent,
     DashboardComponent,
-    HomeComponent,
     FoodLicienceComponent,
     PoliceVerificationComponent,
     FooterComponent,
@@ -138,7 +137,8 @@ import {CarouselModule as PrimeCarousal} from 'primeng/carousel';
     IecComponent,
     DscComponent,
     MetricsDashboardComponent,
-    NewHomeComponent
+    NewHomeComponent,
+    AppLoaderComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -178,7 +178,7 @@ import {CarouselModule as PrimeCarousal} from 'primeng/carousel';
       ],
     }),
     NgxLoadingModule.forRoot({
-      animationType: ngxLoadingAnimationTypes.circle,
+      animationType: ngxLoadingAnimationTypes.doubleBounce,
       fullScreenBackdrop: true,
       primaryColour: '#000',
       backdropBackgroundColour: 'rgba(172, 166, 166, 0.2)'

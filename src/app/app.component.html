@@ -1,8 +1,8 @@
-<ngx-loading [show]="utilService.loading"></ngx-loading>
+  <app-loader></app-loader>
   <app-navbar></app-navbar>
   <!-- [@routeAnimation]="o.isActivated ? o.activatedRoute : ''" -->
   <div id="main" class="all_container">
-    <router-outlet></router-outlet>
+    <router-outlet @routeAnimation ></router-outlet>
   </div>
 
 

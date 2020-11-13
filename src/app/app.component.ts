@@ -1,21 +1,31 @@
-import { Component, OnInit,OnDestroy } from '@angular/core';
+import { Component, OnInit,OnDestroy, Renderer2 } from '@angular/core';
 import { UtilService } from './service/util.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { routeAnimation } from './animations';
 declare var $;
-let context;
+// let context;
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  // animations: [routeAnimation]
+  animations: [routeAnimation]
 })
 export class AppComponent implements OnInit, OnDestroy {
   isRedirectUrl = false;
   routeSubscription: Subscription
   routedetection: Subscription
-  constructor(public utilService: UtilService, private activatedRoute: ActivatedRoute, private router: Router){
+  constructor(public utilService: UtilService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private renderer: Renderer2){
+  }
+
+
+  ngAfterViewInit(){
+    let loader = this.renderer.selectRootElement('#loader');
+    this.renderer.setStyle(loader, 'display', 'none');
   }
 
   ngOnDestroy(){
@@ -28,8 +38,8 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    context = this;
-    console.log(context);
+    // context = this;
+    // console.log(context);
     this.routedetection = this.router.events.subscribe(val => {
       window.scroll(0,0);
     });

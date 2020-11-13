@@ -16,9 +16,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     this.timestamp = new Date().getTime();
-
-    console.log("in AuthInterceptor");
-    this.service.loading = true;
+    this.service.showLoader();
 
     const authReq = req.clone({
 
@@ -30,12 +28,12 @@ export class AuthInterceptor implements HttpInterceptor {
     return next.handle(authReq).pipe(
       tap((event: HttpEvent<any>) => {
         if (event instanceof HttpResponse) {
-          this.service.loading = false;
+          this.service.hideLoader();
           // this.alertService.addSingle('success','Message','Success');
         }
       }, (err: any) => {
         if (err instanceof HttpErrorResponse) {
-          this.service.loading = false;
+          this.service.hideLoader();
           this.handleError(err);
         }
       })

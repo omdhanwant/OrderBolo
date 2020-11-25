@@ -167,7 +167,7 @@ export class DocumentService extends DataService{
       name: 'ONE PERSON COMPANY',
       description:'',
       image: 'https://www.onlinelegalindia.com/services/one-person-company-registration/image/one-person-company-banner.jpg',
-      route:'/document-doctor/iec-registration',
+      route:'/document-doctor/one-person-company',
       visibleTo: 'ALL'
     },
     {

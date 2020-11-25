@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light vendor_reg_nav  pl-5 pr-5" style="height: 40px; padding: 0; margin: 0; z-index: 11111;">
+<nav class="navbar navbar-expand-lg navbar-light vendor_reg_nav  pl-5 pr-5"
+  style="height: 40px; padding: 0; margin: 0; z-index: 11111;">
   <a class="navbar-brand" target="_blank" href="#">
     <img src="assets/logo/logo.png" width="30">
   </a>
@@ -9,11 +10,12 @@
   <div class="collapse navbar-collapse sub_navbar" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active  text-dark">
-        <a class="nav-link text-dark" href="tel:+9765924465"><i class="fa fa-phone" aria-hidden="true"></i> 9765924465 <span
-            class="sr-only">(current)</span></a>
+        <a class="nav-link text-dark" href="tel:+9765924465"><i class="fa fa-phone" aria-hidden="true"></i> 9765924465
+          <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item text-dark">
-        <a class="nav-link text-dark" href="mailto:info@documentdoctor.in"><b><i class="fa fa-envelope-o" aria-hidden="true"></i>
+        <a class="nav-link text-dark" href="mailto:info@documentdoctor.in"><b><i class="fa fa-envelope-o"
+              aria-hidden="true"></i>
             info@documentdoctor.in</b></a>
       </li>
     </ul>
@@ -25,10 +27,11 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" data-target="#vendor-register-modal" data-backdrop="static" data-keyboard="false"
-      data-toggle="modal">Register As Professional <span class="sr-only">Register As Professional</span></a>
+            data-toggle="modal">Register As Professional <span class="sr-only">Register As Professional</span></a>
         </li>
         <li *ngIf="!authUser?.isAuthenticated" class="nav-item login-signup-link active">
-          <a class="nav-link" (click)="isSideNav = true">Login / Sign Up <span class="sr-only">(Login/Sign Up)</span></a>
+          <a class="nav-link" (click)="isSideNav = true">Login / Sign Up <span class="sr-only">(Login/Sign
+              Up)</span></a>
         </li>
         <li ngbDropdown *ngIf="authUser?.isAuthenticated" class="nav-item dropdown text-dark">
           <a ngbDropdownToggle class="nav-link dropdown-toggle text-dark" style="color: #fff;" id="dropdown01"
@@ -45,7 +48,8 @@
   </div>
 </nav>
 <nav class="navbar navbar-expand-lg pl-5 pr-5 sticky_nav marginTop home_nav">
-  <a @fadeInLeftTrigger class="navbar-brand" routerLink="/document-doctor"><img src="assets/logo/logo.png" height="50"></a>
+  <a @fadeInLeftTrigger class="navbar-brand" routerLink="/document-doctor"><img src="assets/logo/logo.png"
+      height="50"></a>
   <button @fadeInLeftTrigger class="navbar-toggler" type="button" data-toggle="collapse"
     data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
     aria-label="Toggle navigation">
@@ -53,7 +57,10 @@
   </button>
 
   <div class="collapse navbar-collapse main_navbar" id="navbarTogglerDemo02">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+  </div>
+  <span class="navbar-text ng-tns-c224-0">
+    <ul class="nav navbar-nav navbar-right ng-tns-c224-0">
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
@@ -72,7 +79,8 @@
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" target="_blank" href="#">Partnership Registration</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="https://www.onlinelegalindia.com/services/nidhi-company/">Nidhi Company Registration</a>
+          <a class="dropdown-item" href="https://www.onlinelegalindia.com/services/nidhi-company/">Nidhi Company
+            Registration</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" target="_blank" href="#">Section 8 Company Registration</a>
           <div class="dropdown-divider"></div>
@@ -82,8 +90,8 @@
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" target="_blank" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" target="_blank" href="#" id="navbarDropdown" role="button"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Licence/Registrations
         </a>
         <ul class="dropdown-menu">
@@ -105,8 +113,8 @@
         </ul>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" target="_blank" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" target="_blank" href="#" id="navbarDropdown" role="button"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           GST &amp; Taxes
         </a>
         <ul class="dropdown-menu">
@@ -116,18 +124,18 @@
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#/document-doctor/gst">GST Cancellation</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item"  target="_blank" href="/accounting">Accounting</a>
+          <a class="dropdown-item" target="_blank" href="/accounting">Accounting</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item"  target="_blank" href="/tds-filing">TDS Return Filing</a>
+          <a class="dropdown-item" target="_blank" href="/tds-filing">TDS Return Filing</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item"  target="_blank" href="/professional-tax">Professional Tax Registration (PT)</a>
+          <a class="dropdown-item" target="_blank" href="/professional-tax">Professional Tax Registration (PT)</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item"  target="_blank" href="/provident-fund">Employees Provident Fund</a>
+          <a class="dropdown-item" target="_blank" href="/provident-fund">Employees Provident Fund</a>
         </ul>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" target="_blank" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
+      <!-- <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" target="_blank" href="#" id="navbarDropdown" role="button"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Personal/Property
         </a>
         <ul class="dropdown-menu">
@@ -156,9 +164,9 @@
           <a class="dropdown-item" target="_blank" href="/mutual-consent-divorce">Divorce With Consent</a>
           <div class="dropdown-divider"></div>
         </ul>
-      </li>
+      </li> -->
     </ul>
-  </div>
+  </span>
 </nav>
 
 <div [@sideNavTrigger]="isSideNav ? 'open' : 'close'" id="mySidenav" class="sidenav">
@@ -173,10 +181,8 @@
     <div class="row">
       <div class="col-md-12">
 
-        <!-- <form class="p-4"> -->
         <div class="form-group">
           <mat-form-field #mat appearance="standard">
-            <!-- <mat-label>Your Phone Number</mat-label> -->
             <input matInput ngModel type="text" maxlength="10" pattern="[0-9]*" name="phone" #phone="ngModel"
               placeholder="Enter You Mobile Number" autocomplete="off" required>
             <span matPrefix>+91 &nbsp;</span>
@@ -185,13 +191,10 @@
               Please enter a valid phone number
             </mat-error>
           </mat-form-field>
-          <!-- <input class="form-control" ngModel #phone="ngModel" placeholder="Enter Your Mobile Number" required> -->
         </div>
         <div class="form-group">
           <button (click)="getOtp(phone.value)" class="btn btn-primary matContinueButton">Continue</button>
         </div>
-
-        <!-- </form> -->
       </div>
     </div>
 

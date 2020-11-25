@@ -10,7 +10,7 @@ export class DocumentService extends DataService{
   services: any[] = [
     {
       name: 'Udyam Registration (Udhyod Aadhar)',
-      description:'उद्योग आधार सुविधे अंतर्गत आपण आपल्या भागातील लघु उद्योजकांचे उद्योग आधार काढू शकता, उद्योग आधार मध्ये दुरुस्ती करू शकता. विविध शासकीय योजनेचा लाभ घेण्यासाठी तसेच व्यावसायिक कर्ज करंट अकाऊंट काढण्यासाठी उद्योग आधार चा व्यवसायिकांना उपयोग होऊ शकतो.',
+      description:'',
       image: "assets/images/document-doctor/aadhar-card.png",
       route:'/document-doctor/udhyog-aadhar',
       visibleTo: 'ALL'

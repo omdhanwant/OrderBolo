@@ -25,6 +25,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { HomeComponent } from './document-doctor/home/home.component';
 import { FoodLicienceComponent } from './document-doctor/food-licience/food-licience.component';
 import { PoliceVerificationComponent } from './document-doctor/police-verification/police-verification.component';
 import { FooterComponent } from './footer/footer.component';
@@ -92,7 +93,16 @@ import { MetricsDashboardComponent } from './document-doctor/my-account/metrics-
 import {ChartModule} from 'primeng/chart';
 import { NewHomeComponent } from './document-doctor/new-home/new-home.component';
 import {CarouselModule as PrimeCarousal} from 'primeng/carousel';
-import { AppLoaderComponent } from './common/app-loader/app-loader.component';
+import { PrivateCompanyRegistrationComponent } from './document-doctor/private-company-registration/private-company-registration.component';
+import { LimittedLiabilityPartnersheepComponent } from './document-doctor/limitted-liability-partnersheep/limitted-liability-partnersheep.component';
+import { OnePersonCompanyComponent } from './document-doctor/one-person-company/one-person-company.component';
+import { NidhiCompanyRegistrationComponent } from './document-doctor/nidhi-company-registration/nidhi-company-registration.component';
+import { TrademarkRegistrationComponent } from './document-doctor/trademark-registration/trademark-registration.component';
+import { IncometaxReturnComponent } from './document-doctor/incometax-return/incometax-return.component';
+import { PatnersheepDeedNotaryComponent } from './document-doctor/patnersheep-deed-notary/patnersheep-deed-notary.component';
+import { PatnersheepDeedRegisteredComponent } from './document-doctor/patnersheep-deed-registered/patnersheep-deed-registered.component';
+import { RentAgreementNotaryComponent } from './document-doctor/rent-agreement-notary/rent-agreement-notary.component';
+import { RentAgreementRegisteredComponent } from './document-doctor/rent-agreement-registered/rent-agreement-registered.component';
 
 
 @NgModule({
@@ -100,6 +110,7 @@ import { AppLoaderComponent } from './common/app-loader/app-loader.component';
     AppComponent,
     NavbarComponent,
     DashboardComponent,
+    HomeComponent,
     FoodLicienceComponent,
     PoliceVerificationComponent,
     FooterComponent,
@@ -138,7 +149,16 @@ import { AppLoaderComponent } from './common/app-loader/app-loader.component';
     DscComponent,
     MetricsDashboardComponent,
     NewHomeComponent,
-    AppLoaderComponent
+    PrivateCompanyRegistrationComponent,
+    LimittedLiabilityPartnersheepComponent,
+    OnePersonCompanyComponent,
+    NidhiCompanyRegistrationComponent,
+    TrademarkRegistrationComponent,
+    IncometaxReturnComponent,
+    PatnersheepDeedNotaryComponent,
+    PatnersheepDeedRegisteredComponent,
+    RentAgreementNotaryComponent,
+    RentAgreementRegisteredComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -178,7 +198,7 @@ import { AppLoaderComponent } from './common/app-loader/app-loader.component';
       ],
     }),
     NgxLoadingModule.forRoot({
-      animationType: ngxLoadingAnimationTypes.doubleBounce,
+      animationType: ngxLoadingAnimationTypes.circle,
       fullScreenBackdrop: true,
       primaryColour: '#000',
       backdropBackgroundColour: 'rgba(172, 166, 166, 0.2)'

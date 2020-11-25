@@ -1,0 +1,178 @@
+<div class="container-fluid p-0" id="mydiv">
+    <section>
+        <carousel>
+            <slide>
+                <img src="assets/images/document-doctor/home-page.jpg" alt="first slide"
+                    style="display: block; width: 100%;opacity: 0.7;height: 450px;object-fit: cover;">
+                <div class="carousel-caption d-none d-md-block">
+                    <div class="row" style="margin-top: -165px;">
+                        <div class="col-md-12">
+                            <h1 class="mb-4 text-center">#1 Online Legal Registration Portal in Maharashtra</h1>
+                        </div>
+                        <div class="col-md-2">&nbsp;</div>
+                        <div class="col-md-8">
+                            <form>
+                              <!-- (completeMethod)="filterCategory($event)" -->
+                                <p-autoComplete
+                                    [(ngModel)]="query"
+                                    [suggestions]="selectedCountry"
+                                    (completeMethod)="filterCategory($event)"
+                                    field="name"
+                                    [minLength]="1"
+                                    [ngModelOptions]="{standalone: true}"
+                                    [style]="{'width':'100%'}" [inputStyle]="{'width':'100%'}"
+                                    [autoHighlight]="true"
+                                    placeholder="Search anything here..."
+                                    styleClass="p-autocomplete-list-item">
+                                    <ng-template let-category pTemplate="item" >
+                                      <!-- <img src="assets/showcase/images/demo/car/{{brand}}.png" style="width:32px;display:inline-block;margin:5px 0 2px 5px"/> -->
+                                      <div style="display:flex;justify-content: space-between;">
+                                        <div [routerLink]="category.redirectUrl" style="width:100%;font-size:15px;">{{category.name}}</div>
+                                      <div [routerLink]="category.redirectUrl" style="width:100%;color: gray;text-align: right;">({{ category.category }})</div>
+                                      </div>
+
+                              </ng-template>
+                                  </p-autoComplete>
+                                <div class="form-group">
+                                    <!-- <input type="text" class="form-control" id="searchbar" aria-describedby="searchbar"
+                                        placeholder="Search.."> -->
+                                    <small id="emailHelp" class="form-text search-bar">Search
+                                        blogs/Categorys....</small>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-2">&nbsp;</div>
+                    </div>
+                </div>
+            </slide>
+        </carousel>
+        <!-- <carousel>
+            <slide>
+                <img src="assets/images/document-doctor/banner-01.png" alt="first slide"
+                    style="display: block; width: 100%;">
+                <h1 class="banner_h1" style="line-height: 60px;">Document Doctor</h1>
+                <small id="emailHelp" class="form-text text-center fs-16" style="line-height: 60px;">(E-Seva
+                    Kendra)</small>
+            </slide>
+            <slide>
+                <img src="assets/images/document-doctor/banner-01.png" alt="second slide"
+                    style="display: block; width: 100%;">
+            </slide>
+        </carousel> -->
+    </section>
+    <section>
+        <div class="row">
+            <div class="col-md-12">
+            </div>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-sm-12 col-md-8">
+                        <div class="category-section mb-5">
+                            <h1 class="mb-4 text-center">Apply For</h1>
+                            <ul>
+                                <!-- <li class="category-grid" routerLink="/document-doctor/aadhar-card">
+                                    <img class="category-grid-img"
+                                        src="../../../assets/images/document-doctor/aadhar-card.png" alt="" itemscope=""
+                                        itemprop="image">
+                                    <span class="category-grid-title">Aadhar Card</span>
+                                </li> -->
+                                <li class="category-grid" routerLink="/document-doctor/udhyog-aadhar">
+                                    <img class="category-grid-img"
+                                        src="../../../assets/images/document-doctor/aadhar-card.png" alt="" itemscope=""
+                                        itemprop="image">
+                                    <span class="category-grid-title">Udyam Registration (Udhyod Aadhar)</span>
+                                </li>
+                                <!-- <li class="category-grid" routerLink="/document-doctor/police-verification">
+                                    <img class="category-grid-img"
+                                        src="../../../assets/images/document-doctor/police-verification.png" alt=""
+                                        itemscope="" itemprop="image">
+                                    <span class="category-grid-title">Police Verification</span>
+                                </li> -->
+                                <li class="category-grid" routerLink="/document-doctor/food-licience">
+                                    <img class="category-grid-img"
+                                        src="../../../assets/images/document-doctor/food-licience.png" alt=""
+                                        itemscope="" itemprop="image">
+                                    <span class="category-grid-title">Food License Registration</span>
+                                </li>
+                                <li class="category-grid" routerLink="/document-doctor/gumasta">
+                                    <img class="category-grid-img"
+                                        src="../../../assets/images/document-doctor/caste-validity.jpg" alt=""
+                                        itemscope="" itemprop="image">
+                                    <span class="category-grid-title">Shop Act (Gumsta) registration </span>
+                                </li>
+                                <li class="category-grid" routerLink="/document-doctor/gst">
+                                    <img class="category-grid-img"
+                                        src="../../../assets/images/document-doctor/caste-validity.jpg" alt=""
+                                        itemscope="" itemprop="image">
+                                    <span class="category-grid-title">GST</span>
+                                </li>
+                            </ul>
+                            <ul>
+                                <!-- <li class="category-grid" routerLink="/document-doctor/pan-card">
+                                    <img class="category-grid-img"
+                                        src="../../../assets/images/document-doctor/pan-card.svg" alt="" itemscope=""
+                                        itemprop="image">
+                                    <span class="category-grid-title">Pan Card</span>
+                                </li> -->
+                                <!-- <li class="category-grid" routerLink="/document-doctor/gazette-certificate">
+                                    <img class="category-grid-img"
+                                        src="../../../assets/images/document-doctor/police-verification.png" alt=""
+                                        itemscope="" itemprop="image">
+                                    <span class="category-grid-title">Gazette Certificate</span>
+                                </li> -->
+                                <!-- <li class="category-grid" routerLink="/document-doctor/ration-card">
+                                    <img class="category-grid-img"
+                                        src="../../../assets/images/document-doctor/ration-card.jpeg" alt=""
+                                        itemscope="" itemprop="image">
+                                    <span class="category-grid-title">Ration Card</span>
+                                </li> -->
+                                <!-- <li class="category-grid" routerLink="/document-doctor/others">
+                                    <img class="category-grid-img"
+                                        src="../../../assets/images/document-doctor/police-verification.png" alt=""
+                                        itemscope="" itemprop="image">
+                                    <span class="category-grid-title">Others</span>
+                                </li> -->
+                            </ul>
+                            <ul>
+                                <!-- <li class="category-grid" routerLink="/document-doctor/caste-validity">
+                                    <img class="category-grid-img"
+                                        src="../../../assets/images/document-doctor/caste-validity.jpg" alt=""
+                                        itemscope="" itemprop="image">
+                                    <span class="category-grid-title">Caste Validity</span>
+                                </li> -->
+                                <li class="category-grid" routerLink="/document-doctor/dsc-application">
+                                    <img class="category-grid-img"
+                                        src="../../../assets/dsc/dsc-logo.jpg" alt=""
+                                        itemscope="" itemprop="image">
+                                    <span class="category-grid-title">Digital Signature</span>
+                                </li>
+                                <li class="category-grid" routerLink="/document-doctor/iso-registration">
+                                    <img class="category-grid-img"
+                                        src="../../../assets/iso/iso-logo.png" alt=""
+                                        itemscope="" itemprop="image">
+                                    <span class="category-grid-title">ISO Registration</span>
+                                </li>
+                                <li class="category-grid" routerLink="/document-doctor/pf-registration">
+                                    <img class="category-grid-img"
+                                        src="../../../assets/pf/pf-logo.png" alt=""
+                                        itemscope="" itemprop="image">
+                                    <span class="category-grid-title">PF Registration</span>
+                                </li>
+                                <li class="category-grid" routerLink="/document-doctor/iec-registration">
+                                    <img class="category-grid-img"
+                                        src="../../../assets/iec//iec-logo.jpg" alt=""
+                                        itemscope="" itemprop="image">
+                                    <span class="category-grid-title">IEC Registration</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<app-footer></app-footer>

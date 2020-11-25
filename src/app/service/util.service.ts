@@ -1,22 +1,12 @@
 import { Injectable } from '@angular/core';
 import { schema } from 'ngx-editor';
 import { DOMSerializer } from 'prosemirror-model';
-import { Subject } from 'rxjs';
 
 
 @Injectable()
 export class UtilService {
-   loading = new Subject<boolean>();
+  loading: boolean = false;
   constructor(){}
-
-
-  showLoader(){
-    this.loading.next(true);
-  }
-
-  hideLoader(){
-    this.loading.next(false);
-  }
 
   // to read the data form the cookies
   getCookieData(name: string): string {

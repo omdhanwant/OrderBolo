@@ -1,0 +1,399 @@
+<div class="row position-relative">
+<div *ngIf="selectedDocumentIds?.length" class="assign_btn">
+  <button class="btn btn-save btn-primary" data-target="#assign_vendor" data-backdrop="static" data-keyboard="false" data-toggle="modal" >Assign To Vendor</button>
+</div>
+<div class="col-12" *ngIf="documents?.length; else notfound">
+
+  <p-tabView (onChange)="onTabChange($event)">
+    <p-tabPanel
+    [header]="document"
+    *ngFor="let document of documents; let i = index;"
+    [selected]="i == 0">
+      <div class="row">
+        <div class="col-12">
+
+          <div style="display: flex; justify-content: space-between;">
+            <!-- <span><pre class="card card-block card-header mb-3">The selected page no: {{currentPage}}/{{lastPageCount}}</pre></span> -->
+            <pagination [boundaryLinks]="true"
+            style="margin-top: 7px;"
+            [itemsPerPage]="itemsPerPage"
+            [rotate]='true'
+            [maxSize]='5'
+            [(ngModel)]="currentPage"
+            [totalItems]="contentData.length"
+            (numPages)="lastPageCount = $event"
+            (pageChanged)="pageChanged($event)"
+            previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+
+            </pagination>
+          </div>
+
+          <ng-container *ngIf="selectedDocument == documents[0]">
+          <table class="table table-striped table-bordered" *ngIf="contentData?.length">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th></th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Mobile</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let doc of paginatedData; let i =index;">
+                <th scope="row">{{ i + 1 }}</th>
+                <td class="text-center"><input type="checkbox" [(ngModel)]="doc.selected" (ngModelChange)="docSelected($event, doc)"></td>
+                <td>{{ doc.name_of_owner }}</td>
+                <td> {{ doc.email }}</td>
+                <td> {{ doc.mobile }}</td>
+                <td>
+                  <div class="row-actions">
+                  <i (click)="showDetails(doc)" class="pi pi-eye"></i>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p *ngIf="!contentData?.length" style="color: gray;">No Documents Found.</p>
+        </ng-container>
+
+        <ng-container *ngIf="selectedDocument == documents[1]">
+          <table class="table table-striped table-bordered" *ngIf="contentData?.length">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th></th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Mobile</th>
+                <th scope="col">Village/City</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let doc of paginatedData; let i =index;">
+                <th scope="row">{{ i + 1 }}</th>
+                <td class="text-center"><input type="checkbox" [(ngModel)]="doc.selected" (ngModelChange)="docSelected($event, doc)"></td>
+                <td>{{ doc.full_name }}</td>
+                <td>{{ doc.email }}</td>
+                <td> {{ doc.mobile }}</td>
+                <td> {{ doc.village_or_city }}</td>
+                <td>
+                  <div class="row-actions">
+                  <i (click)="showDetails(doc)" class="pi pi-eye"></i>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p *ngIf="!contentData?.length" style="color: gray;">No Documents Found.</p>
+        </ng-container>
+
+        <ng-container *ngIf="selectedDocument == documents[2]">
+          <table class="table table-striped table-bordered" *ngIf="contentData?.length">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th></th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Mobile</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let doc of paginatedData; let i =index;">
+                <th scope="row">{{ i + 1 }}</th>
+                <td class="text-center"><input type="checkbox" [(ngModel)]="doc.selected" (ngModelChange)="docSelected($event, doc)"></td>
+                <td>{{ doc.applicant_name }}</td>
+                <td> {{ doc.email }}</td>
+                <td> {{ doc.mobile }}</td>
+                <td>
+                  <div class="row-actions">
+                  <i (click)="showDetails(doc)" class="pi pi-eye"></i>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p *ngIf="!contentData?.length" style="color: gray;">No Documents Found.</p>
+        </ng-container>
+
+        <ng-container *ngIf="selectedDocument == documents[3]">
+          <table class="table table-striped table-bordered" *ngIf="contentData?.length">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th></th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Mobile</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let doc of paginatedData; let i =index;">
+                <th scope="row">{{ i + 1 }}</th>
+                <td class="text-center"><input type="checkbox" [(ngModel)]="doc.selected" (ngModelChange)="docSelected($event, doc)"></td>
+                <td>{{ doc.applicant_name }}</td>
+                <td>{{ doc.email }}</td>
+                <td> {{ doc.mobile }}</td>
+                <td>
+                  <div class="row-actions">
+                  <i (click)="showDetails(doc)" class="pi pi-eye"></i>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p *ngIf="!contentData?.length" style="color: gray;">No Documents Found.</p>
+        </ng-container>
+
+
+        <ng-container *ngIf="selectedDocument == documents[4]">
+          <table class="table table-striped table-bordered" *ngIf="contentData?.length">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th></th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Mobile</th>
+                <th scope="col">City</th>
+                <th scope="col">State</th>
+                <th scope="col">No. Of Employee</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let doc of paginatedData; let i =index;">
+                <th scope="row">{{ i + 1 }}</th>
+                <td class="text-center"><input type="checkbox" [(ngModel)]="doc.selected" (ngModelChange)="docSelected($event, doc)"></td>
+                <td>{{ doc.applicant_name }}</td>
+                <td>{{ doc.email }}</td>
+                <td> {{ doc.mobile }}</td>
+                <td> {{ doc.city }}</td>
+                <td> {{ doc.state }}</td>
+                <td> {{ doc.number_of_employees }}</td>
+                <td>
+                  <div class="row-actions">
+                  <i (click)="showDetails(doc)" class="pi pi-eye"></i>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p *ngIf="!contentData?.length" style="color: gray;">No Documents Found.</p>
+        </ng-container>
+
+        <ng-container *ngIf="selectedDocument == documents[5]">
+          <table class="table table-striped table-bordered" *ngIf="contentData?.length">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th></th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Mobile</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let doc of paginatedData; let i =index;">
+                <th scope="row">{{ i + 1 }}</th>
+                <td class="text-center"><input type="checkbox" [(ngModel)]="doc.selected" (ngModelChange)="docSelected($event, doc)"></td>
+                <td>{{ doc.applicant_name }}</td>
+                <td>{{ doc.applicant_email }}</td>
+                <td> {{ doc.mobile }}</td>
+                <td>
+                  <div class="row-actions">
+                  <i (click)="showDetails(doc)" class="pi pi-eye"></i>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p *ngIf="!contentData?.length" style="color: gray;">No Documents Found.</p>
+        </ng-container>
+
+        <ng-container *ngIf="selectedDocument == documents[6]">
+          <table class="table table-striped table-bordered" *ngIf="contentData?.length">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th></th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Mobile</th>
+                <th scope="col">City</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let doc of paginatedData; let i =index;">
+                <th scope="row">{{ i + 1 }}</th>
+                <td class="text-center"><input type="checkbox" [(ngModel)]="doc.selected" (ngModelChange)="docSelected($event, doc)"></td>
+                <td>{{ doc.applicant_name }}</td>
+                <td>{{ doc.email }}</td>
+                <td> {{ doc.mobile }}</td>
+                <td> {{ doc.city }}</td>
+                <td>
+                  <div class="row-actions">
+                  <i (click)="showDetails(doc)" class="pi pi-eye"></i>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p *ngIf="!contentData?.length" style="color: gray;">No Documents Found.</p>
+        </ng-container>
+
+        <ng-container *ngIf="selectedDocument == documents[7]">
+          <table class="table table-striped table-bordered" *ngIf="contentData?.length">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th></th>
+                <th scope="col">Name of Business Entity</th>
+                <th scope="col">Email</th>
+                <th scope="col">Mobile</th>
+                <th scope="col">Address</th>
+                <th scope="col">City</th>
+                <th scope="col">State</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let doc of paginatedData; let i =index;">
+                <th scope="row">{{ i + 1 }}</th>
+                <td class="text-center"><input type="checkbox" [(ngModel)]="doc.selected" (ngModelChange)="docSelected($event, doc)"></td>
+                <td>{{ doc.name_of_business_entity }}</td>
+                <td>{{ doc.applicant_email }}</td>
+                <td> {{ doc.mobile }}</td>
+                <td> {{ doc.address_line_2 }}</td>
+                <td> {{ doc.city }}</td>
+                <td> {{ doc.state }}</td>
+                <td>
+                  <div class="row-actions">
+                  <i (click)="showDetails(doc)" class="pi pi-eye"></i>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p *ngIf="!contentData?.length" style="color: gray;">No Documents Found.</p>
+        </ng-container>
+
+        </div>
+      </div>
+
+    </p-tabPanel>
+</p-tabView>
+</div>
+
+<ng-template #notfound>
+  <div class="col-12">
+    <p class="text-grey text-center">No Data Found</p>
+  </div>
+</ng-template>
+
+</div>
+
+
+
+<!-- Details Modal -->
+<div class="modal fade" id="detail_modal" tabindex="-1" data-backdrop="static" data-keyboard="false"  aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body detail_modal_body">
+        <div class="row">
+          <div class="form-group" [class.col-md-4]="detail.type != 'file'" [class.col-md-12]="detail.type== 'file'" *ngFor="let detail of documentModaLableValue">
+            <!-- <div class="detail_label_val">
+              <label for="inputCity">{{detail.label}}: <span class="text-gray">{{detail.value}}</span></label>
+            </div> -->
+            <div *ngIf=" detail.type== 'string' || detail.type== 'date' " class="form-group">
+              <label>{{ detail.label }}</label>
+              <input class="form-control" type="text" [value]="detail.value" readonly>
+            </div>
+<!--
+            <div *ngIf=" detail.type== 'date' " class="form-group">
+              <label>{{ detail.label }}</label>
+              <input class="form-control" type="text" [value]="detail.value" readonly>
+            </div> -->
+
+            <div *ngIf=" detail.type== 'file' && detail.value?.length" class="form-group">
+              <label>{{ detail.label }}</label>
+              <!-- <input class="form-control" type="text" [value]="detail.value" readonly> -->
+              <div style="display: flex;">
+                <div *ngFor="let file of detail.value;let i=index;" class="pill" style="cursor: pointer;">
+                   <a [attr.href]="file" title="Download this file" [download]="file" target="_blank">
+                    {{ file | fetchFileName }}
+                   </a>
+                    <!-- <iframe [id]="'iframe' + i" style="display:none;"></iframe> -->
+                </div>
+            </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- add bulk vendor-->
+<div class="modal fade" id="assign_vendor">
+  <div class="modal-dialog  modal-dialog-centered modal-lg" style="width: 600px;">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header" style="justify-content:inherit;">
+        <div class="w-100">
+          <div class="row">
+            <div
+              class="col-lg-8 d-block my-auto text-left">
+              <span class="fw-500" style="cursor: pointer;" data-dismiss="modal"><i class="fa fa-angle-left back_header-fa"></i>
+                Assign to vendor</span>
+            </div>
+            <div class="col-lg-4 text-right">
+              <button (click)="assignSelectedDocsToVendor()" type="button" class="btn  btn-save btn-primary">Save</button>
+                <!-- <div *ngIf="selectVendor.touched && selectVendor.hasError('required')" class="invalid-feedback" style="display: inline-block;">
+                  Please select a vendor.
+                </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body prod-list-tag suggetion-item" style="padding: 30px 25px;">
+        <div class="row">
+          <div class="col-12">
+              <ul style="padding-left: 20px;">
+                <li><strong>{{selectedDocumentIds?.length}}</strong> documemts selected</li>
+                <li> Select a vendor below to assign selected documents. </li>
+                </ul>
+          </div>
+          <div class="col-12 vendor_dropdown" style="width: 50%!important;">
+            <!-- <label>Select a vendor</label> -->
+            <!-- <span style="position: absolute;top: 39px;left: 20px;"><i class="el-icon-search"></i></span> -->
+          <!-- add p-dropdown -->
+          <p-dropdown  [options]="vendorsOptions" [(ngModel)]="selectedVendor"
+              placeholder="Select a vandor" optionLabel="label" [showClear]="true">
+          </p-dropdown>
+          </div>
+        </div>
+      </div>
+      <!-- Modal footer -->
+      <!-- <div class="modal-footer">
+
+      </div> -->
+    </div>
+  </div>
+</div>

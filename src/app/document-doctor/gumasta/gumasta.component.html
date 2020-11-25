@@ -1,0 +1,337 @@
+<div class="container mb-2">
+    <div class="row">
+        <div class="col-md-12">
+            <nav aria-label="breadcrumb no-bg">
+                <ol class="breadcrumb no-bg">
+                    <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+                    <li class="breadcrumb-item"><a routerLink="/document-doctor">Document Doctor</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Gumasta License</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="container-fluid p-0 text-center mb-2">
+    <img src="../../../assets/food-licience/fssai-banner.jpg" class="mark text-center">
+</div>
+<div class="form_container">
+    <div class="row">
+        <div class="col-md-7">
+            <section class="feature-category description-section">
+                <div class="row">
+                    <div class="col-md-12 registration-label">
+                        Registration
+                      </div>
+                    <div class="col-md-12">
+                        <form #form="ngForm" (ngSubmit)="save(form)">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>Applicant Name</label>
+                                    <input type="text" name="applicant_name" ngModel #applicant_name="ngModel"
+                                        class="form-control" placeholder="Applicant Name" required autocomplete="off">
+                                    <div *ngIf="applicant_name.touched && applicant_name.hasError('required')"
+                                        class="invalid-feedback" style="display: inline-block;">
+                                        Applicant Name is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>Type of Registration</label>
+                                    <input type="text" name="type_of_registration" ngModel
+                                        #type_of_registration="ngModel" class="form-control"
+                                        placeholder="type of registration" required autocomplete="off">
+                                    <div *ngIf="type_of_registration.touched && type_of_registration.hasError('required')"
+                                        class="invalid-feedback" style="display: inline-block;">
+                                        Type of Registration
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Full Business Address</label>
+                                <textarea name="full_business_address" ngModel #full_business_address="ngModel"
+                                    class="form-control" maxlength="255" placeholder="Full Business Address"
+                                    required></textarea>
+                                <div *ngIf="full_business_address.touched && full_business_address.hasError('required')"
+                                    class="invalid-feedback" style="display: inline-block;">
+                                    Full Business Address is required
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="mobile">Mobile Number</label>
+                                    <input type="text" maxlength="10" name="mobile" ngModel #mobile="ngModel"
+                                        class="form-control" placeholder="Mobile Number" required autocomplete="off">
+                                    <div *ngIf="mobile.touched && mobile.hasError('required')" class="invalid-feedback"
+                                        style="display: inline-block;">
+                                        Mobile number is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>Name of business</label>
+                                    <input type="text" name="name_of_business" ngModel #name_of_business="ngModel"
+                                        class="form-control" placeholder="Name of business" required autocomplete="off">
+                                    <div *ngIf="name_of_business.touched && name_of_business.hasError('required')"
+                                        class="invalid-feedback" style="display: inline-block;">
+                                        Name of business is required
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>Email</label>
+                                    <input type="text" name="email" ngModel #email="ngModel" class="form-control"
+                                        placeholder="Email" required autocomplete="off">
+                                    <div *ngIf="email.touched && email.hasError('required')" class="invalid-feedback"
+                                        style="display: inline-block;">
+                                        Email is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="pin">District</label>
+                                    <input type="text" name="district" ngModel #district="ngModel" maxlength="6"
+                                        class="form-control" placeholder="District" required autocomplete="off">
+                                    <div *ngIf="district.touched && district.hasError('required')"
+                                        class="invalid-feedback" style="display: inline-block;">
+                                        District is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="pin">city</label>
+                                    <input type="text" name="city" ngModel #city="ngModel" maxlength="6"
+                                        class="form-control" placeholder="City" required autocomplete="off">
+                                    <div *ngIf="city.touched && city.hasError('required')" class="invalid-feedback"
+                                        style="display: inline-block;">
+                                        city is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="pin">Pin Code</label>
+                                    <input type="text" name="pin_code" ngModel #pin_code="ngModel" maxlength="6"
+                                        class="form-control" placeholder="Pin Code" required autocomplete="off">
+                                    <div *ngIf="pin_code.touched && pin_code.hasError('required')"
+                                        class="invalid-feedback" style="display: inline-block;">
+                                        Pin Code is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="pin">Type Of Business</label>
+                                    <input type="text" name="type_of_business" ngModel #type_of_business="ngModel"
+                                        maxlength="6" class="form-control" placeholder="Type Of Business" required
+                                        autocomplete="off">
+                                    <div *ngIf="type_of_business.touched && type_of_business.hasError('required')"
+                                        class="invalid-feedback" style="display: inline-block;">
+                                        Type Of Business is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="pin">Ownership Of Premises</label>
+                                    <input type="text" name="ownership_of_premises" ngModel
+                                        #ownership_of_premises="ngModel" maxlength="6" class="form-control"
+                                        placeholder="Ownership Of Premises" required autocomplete="off">
+                                    <div *ngIf="ownership_of_premises.touched && ownership_of_premises.hasError('required')"
+                                        class="invalid-feedback" style="display: inline-block;">
+                                        Ownership Of Premises is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="pin">Total Male Employee</label>
+                                    <input type="text" name="total_male_employee" ngModel #total_male_employee="ngModel"
+                                        maxlength="6" class="form-control" placeholder="Total Male Employee" required
+                                        autocomplete="off">
+                                    <div *ngIf="total_male_employee.touched && total_male_employee.hasError('required')"
+                                        class="invalid-feedback" style="display: inline-block;">
+                                        Total Male Employee is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="pin">Total Female Employee</label>
+                                    <input type="text" name="total_female_employee" ngModel
+                                        #total_female_employee="ngModel" maxlength="6" class="form-control"
+                                        placeholder="Total Female Employee" required autocomplete="off">
+                                    <div *ngIf="total_female_employee.touched && total_female_employee.hasError('required')"
+                                        class="invalid-feedback" style="display: inline-block;">
+                                        Total Female Employee is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="pin">Nature Of Business</label>
+                                    <input type="text" name="nature_of_business" ngModel #nature_of_business="ngModel"
+                                        maxlength="6" class="form-control" placeholder="Nature Of Business" required
+                                        autocomplete="off">
+                                    <div *ngIf="nature_of_business.touched && nature_of_business.hasError('required')"
+                                        class="invalid-feedback" style="display: inline-block;">
+                                        Nature Of Business is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="pin">Pan Card</label>
+                                    <input type="text" name="pan_card" ngModel #pan_card="ngModel" maxlength="6"
+                                        class="form-control" placeholder="Pan Card" required autocomplete="off">
+                                    <div *ngIf="pan_card.touched && pan_card.hasError('required')"
+                                        class="invalid-feedback" style="display: inline-block;">
+                                        Pan Card is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="pin">Aadhar Number</label>
+                                    <input type="text" name="aadhar_number" ngModel #aadhar_number="ngModel"
+                                        maxlength="6" class="form-control" placeholder="Aadhar Numbe" required
+                                        autocomplete="off">
+                                    <div *ngIf="aadhar_number.touched && aadhar_number.hasError('required')"
+                                        class="invalid-feedback" style="display: inline-block;">
+                                        Aadhar Numbe is required
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label for="date">Birth Date</label>
+                                    <input type="text" name="birth_date" ngModel #birth_date="ngModel"
+                                        placeholder="Select Birth Date" class="form-control" bsDatepicker
+                                        [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY', containerClass: 'theme-default' }"
+                                        required autocomplete="off">
+                                    <div *ngIf="birth_date.touched && birth_date.hasError('required')"
+                                        class="invalid-feedback" style="display: inline-block;">
+                                        Birth Date is required
+                                    </div>
+                                </div>
+
+                            <!-- <div class="form-group col-md-6">
+                                <label for="date">Upload Aadhar, Passport Size, Photo of owner with Shop</label>
+                                <div class="custom-file">
+                                    <input multiple (change)="onFileChange($event)" type="file"
+                                        class="custom-file-input" id="customFile">
+                                    <label class="custom-file-label" for="customFile">Upload</label>
+                                </div>
+                            </div> -->
+
+                            <div class="form-group col-md-6" style="display: flex; flex-direction: column;">
+                              <label for="date">Upload Aadhar, Passport Size, Photo of owner with Shop</label>
+                                <input multiple (change)="onFileChange($event)" #upload type="file" class="custom-file-input"
+                                  id="customFile" style="display: none;">
+                              <button (click)="upload.click()" class="btn upload_button">Browse</button>
+                            </div>
+
+                            </div>
+                            <div class="row mb-4">
+                                <div style="display: flex;">
+                                    <div *ngFor="let file of myFiles;let i=index;" class="pill">
+                                        {{ file.name }}
+                                        <mat-icon class="close-icon" (click)="myFiles.splice(i,1)" aria-hidden="false"
+                                            aria-label="Example close icon">close</mat-icon>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button *ngIf="!isVeiwMode" type="submit" class="btn btn-primary btn_save">Continue</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <div class="col-md-5">
+            <div class="bd-example" data-example-id="">
+                <div id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="card">
+                        <div class="card-header" role="tab" id="headingOne">
+                            <div class="mb-0">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                                    data-port="collapseOne" aria-expanded="true" aria-controls="collapseOne" class="">
+                                    <h3>WHAT IS GUMASTA LICENSE?</h3>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="collapseOne" class="custom_close p-4 show collapse show" role="tabpanel"
+                            aria-labelledby="headingOne" aria-expanded="true" style="">
+                            <div class="card-block">If you are starting a new business, lets say you will need a
+                                important licence, which is Shop act Licence or it is called as Gumasta License .
+                                Basically in India when you start any type of the business with physical shop then
+                                business requires the Shop Act Licence/Gumasta license from your state authority.
+
+                                Gumasta License was introduced to look after the employee's rights and another
+                                establishment in the jurisdiction. It is necessary to apply for Gumasta while
+                                establishing a shop, hotel or any other commercial place. It also helps to regulate the
+                                betterment of employee such as in which condition does he works, payment, rules and
+                                provide maximum benefits for the employees.
+
+                                The shop and establishment registration should contain following details such as name of
+                                the employer and manager, name of establishment, nature of business, number of workers
+                                and such other details as may be prescribed. The Facilitator shall issue to the employer
+                                of such Shop establishment a receipt of intimation in such form and manner as may be
+                                prescribed.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" role="tab" id="headingTwo">
+                            <div class="mb-0">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"
+                                    aria-expanded="false" data-port="collapseTwo" aria-controls="collapseOne"
+                                    class="collapsed">
+                                    <h3>SHOP ACT REGISTRATION PROCESS</h3>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="collapseTwo" class="collapse custom_close p-4 show" role="tabpanel"
+                            aria-labelledby="headingTwo" aria-expanded="false">
+                            <div class="card-block">
+                                As per new rules of the Shop Act Registration, get instant Gumasta License with 3 simple
+                                online steps at LegalDocs.
+
+                                Step 1. Application: Shop-act Form Fillup the form as per Shop Act of particular state.
+                                Step 2. Submit Documents: Upload required documents like Identity proof, address proof,
+                                establishment proof (Photo of owner with Shop/ establishment Hoarding).
+                                Step 3. Scrutiny and Approval: Reply to queries raised by office and get digitally
+                                signed Shop Act License with LegalDocs. LegalDocs help and consult for Application
+                                documentation and approval from concerned authorities. We offer three Easy Steps to get
+                                Online Shop Act Licence.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" role="tab" id="headingOne">
+                            <div class="mb-0">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"
+                                    aria-expanded="true" aria-controls="collapseOne" class="">
+                                    <h3>DOCUMENTS REQUIRED FOR SHOP ACT LICENCE OR GUMASTA LICENSE</h3>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="collapseFour" class="collapse show p-4" role="tabpanel" aria-labelledby="headingOne"
+                            aria-expanded="true" style="">
+                            <div class="card-block">
+                                <div>
+                                    <p>Documents required for Gumasta License online vary from state to state but
+                                        generally following documents are required.</p>
+                                    <div>
+                                        <ul>
+                                            <li>Name of the employer and the manager, if any;</li>
+                                            <li>The postal address of the Shop or establishment;</li>
+                                            <li>The name, if any, of the establishment;</li>
+                                            <li>The category of the establishment, i.e. whether it is a Shop, commercial
+                                                establishment, residential hotel, restaurant, eating house, theatre or
+                                                other place of public amusement or entertainment</li>
+                                            <li>Actual photo of the establishment with the signboard</li>
+                                        </ul>
+                                    </div>
+                                    <div class="panel panel-primary filterable parent-package-include">
+                                        <table class="table">
+                                            <tbody>
+                                                <tr>
+                                                    <td>Aadhar</td>
+                                                    <td>Passport Size</td>
+                                                    <td>Photo of owner with Shop</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

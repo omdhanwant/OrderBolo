@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HomeComponent } from './document-doctor/home/home.component';
 import { FoodLicienceComponent } from './document-doctor/food-licience/food-licience.component';
 import { PoliceVerificationComponent } from './document-doctor/police-verification/police-verification.component';
 import { AadharCardComponent } from './document-doctor/aadhar-card/aadhar-card.component';
@@ -11,6 +12,7 @@ import { RationCardComponent } from './document-doctor/ration-card/ration-card.c
 import { OthersComponent } from './document-doctor/others/others.component';
 import { CategoryDetailComponent } from './category-detail/category-detail.component';
 import { BlogsComponent } from './blogs/blogs.component';
+import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './service/authGaurd';
 import { AdminGaurd } from './service/adminGaurd';
 import { UdyogAadharComponent } from './document-doctor/udyog-aadhar/udyog-aadhar.component';
@@ -31,6 +33,16 @@ import { IsoComponent } from './document-doctor/iso/iso.component';
 import { DscComponent } from './document-doctor/dsc/dsc.component';
 import { MetricsDashboardComponent } from './document-doctor/my-account/metrics-dashboard/metrics-dashboard.component';
 import { NewHomeComponent } from './document-doctor/new-home/new-home.component';
+import { PrivateCompanyRegistrationComponent } from './document-doctor/private-company-registration/private-company-registration.component';
+import { LimittedLiabilityPartnersheepComponent } from './document-doctor/limitted-liability-partnersheep/limitted-liability-partnersheep.component';
+import { OnePersonCompanyComponent } from './document-doctor/one-person-company/one-person-company.component';
+import { NidhiCompanyRegistrationComponent } from './document-doctor/nidhi-company-registration/nidhi-company-registration.component';
+import { TrademarkRegistrationComponent } from './document-doctor/trademark-registration/trademark-registration.component';
+import { IncometaxReturnComponent } from './document-doctor/incometax-return/incometax-return.component';
+import { PatnersheepDeedNotaryComponent } from './document-doctor/patnersheep-deed-notary/patnersheep-deed-notary.component';
+import { PatnersheepDeedRegisteredComponent } from './document-doctor/patnersheep-deed-registered/patnersheep-deed-registered.component';
+import { RentAgreementRegisteredComponent } from './document-doctor/rent-agreement-registered/rent-agreement-registered.component';
+import { RentAgreementNotaryComponent } from './document-doctor/rent-agreement-notary/rent-agreement-notary.component';
 
 
 // const routes: Routes = [];
@@ -174,6 +186,66 @@ const routes: Routes = [
         path: 'dsc-application',
         data: { breadcrumb: 'DSC Application' },
         component: DscComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'private-company-registration',
+        data: { breadcrumb: 'Pvt. Ltd. Company Registration' },
+        component: PrivateCompanyRegistrationComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'limitted-liability-partnersheep',
+        data: { breadcrumb: 'Fast LLP Registration ServicePvt. Ltd. Company Registration' },
+        component: LimittedLiabilityPartnersheepComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'one-person-company',
+        data: { breadcrumb: 'One Person Company' },
+        component: OnePersonCompanyComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'nidhi-company-registration',
+        data: { breadcrumb: 'NIDHI COMPANY REGISTRATION' },
+        component: NidhiCompanyRegistrationComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'trademark-registration',
+        data: { breadcrumb: 'TRADE MARK REGISTRATION' },
+        component: TrademarkRegistrationComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'incometax-return',
+        data: { breadcrumb: 'INCOME TAX RETURN' },
+        component: IncometaxReturnComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'patnersheep-deed-notary',
+        data: { breadcrumb: 'PARTNERSHEEP DEED (NOTARY)' },
+        component: PatnersheepDeedNotaryComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'patnersheep-deed-registered',
+        data: { breadcrumb: 'PARTNERSHEEP DEED (REGISTERED)' },
+        component: PatnersheepDeedRegisteredComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'rent-agreement-registered',
+        data: { breadcrumb: 'RENT AGREEMENT (REGISTERED)' },
+        component: RentAgreementRegisteredComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'rent-agreement-notary',
+        data: { breadcrumb: 'RENT AGREEMENT (NOTARY)' },
+        component: RentAgreementNotaryComponent,
         canActivate: [AuthGuard]
       },
     ]

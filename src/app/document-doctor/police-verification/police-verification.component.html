@@ -1,0 +1,162 @@
+<div class="container">
+  <div class="row">
+      <div class="col-md-12">
+          <nav aria-label="breadcrumb no-bg">
+              <ol class="breadcrumb no-bg">
+                <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+                <li class="breadcrumb-item"><a routerLink="/document-doctor">Document Doctor</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Police Verification</li>
+              </ol>
+            </nav>
+      </div>
+      <div class="col-md-12">
+        <section class="feature-category">
+            <div class="row pb-3">
+                <div class="col-md-12">
+                    <h1 class="feature_h1 text-center">Police Verification</h1>
+                    <span class="feature_sub_title text-center">Fill bellow form details</span>
+                    <hr>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="col-md-4">
+        <section class="feature-category description-section">
+            <div class="row">
+                <div class="col-md-12">
+                    Descriptions
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="col-md-8">
+        <section class="feature-category description-section">
+            <div class="row">
+                <div class="col-md-12">
+                      <form #form="ngForm" (ngSubmit)="save(form)">
+                          <div class="form-row">
+                              <div class="form-group col-md-6">
+                                  <label>Full Name</label>
+                                  <input type="text" name="full_name" ngModel #full_name="ngModel" class="form-control"  placeholder="Full Name" required autocomplete="off">
+                                  <div *ngIf="full_name.touched && full_name.hasError('required')" class="invalid-feedback" style="display: inline-block;">
+                                    Full Name is required
+                                  </div>
+                              </div>
+
+                              <div class="form-group col-md-6">
+                                <label for="mobile">Mobile Number</label>
+                                <input type="text" maxlength="10" name="mobile" ngModel #mobile="ngModel" class="form-control" placeholder="Mobile Number" required autocomplete="off">
+                                <div *ngIf="mobile.touched && mobile.hasError('required')" class="invalid-feedback" style="display: inline-block;">
+                                  Mobile number is required
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label for="mobile">Employee Of Company</label>
+                              <input type="text"  name="employee_of_company" ngModel #employee_of_company="ngModel" class="form-control" placeholder="Employee Of Company" required autocomplete="off">
+                              <div *ngIf="employee_of_company.touched && employee_of_company.hasError('required')" class="invalid-feedback" style="display: inline-block;">
+                                Field is required
+                              </div>
+                          </div>
+
+                          <div class="form-group col-md-6">
+                            <label for="mobile">Working From Years</label>
+                            <input type="number"  name="working_from_years" ngModel #working_from_years="ngModel" class="form-control" placeholder="Working From Years" required autocomplete="off">
+                            <div *ngIf="working_from_years.touched && working_from_years.hasError('required')" class="invalid-feedback" style="display: inline-block;">
+                              Field is required
+                            </div>
+                        </div>
+
+                          </div>
+                          <div class="form-group">
+                              <label for="address">Full Address</label>
+                              <textarea name="address" ngModel #address="ngModel" class="form-control"  maxlength="255" placeholder="Apartment, studio, or floor" required></textarea>
+                              <div *ngIf="address.touched && address.hasError('required')" class="invalid-feedback" style="display: inline-block;">
+                                Address is required
+                              </div>
+                          </div>
+                          <div class="form-row">
+                            <div class="form-group col-md-6">
+                              <label for="pin">Pin Code</label>
+                              <input type="text" name="pin_code" ngModel #pin_code="ngModel" maxlength="6" class="form-control" id="inputZip" placeholder="Pin Code" required autocomplete="off">
+                              <div *ngIf="pin_code.touched && pin_code.hasError('required')" class="invalid-feedback" style="display: inline-block;">
+                                Pincode is required
+                              </div>
+                          </div>
+
+                          <div class="form-group col-md-6">
+                            <label>Reference Name 1</label>
+                            <input type="text" name="ref_name1" ngModel #ref_name1="ngModel" class="form-control"  placeholder="Reference Name 1" required autocomplete="off">
+                            <div *ngIf="ref_name1.touched && ref_name1.hasError('required')" class="invalid-feedback" style="display: inline-block;">
+                              Name is required
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                          <label for="address">Reference Address 1</label>
+                          <textarea name="ref_address1" ngModel #ref_address1="ngModel" class="form-control"  maxlength="255" placeholder="Apartment, studio, or floor" required></textarea>
+                          <div *ngIf="ref_address1.touched && ref_address1.hasError('required')" class="invalid-feedback" style="display: inline-block;">
+                            Address is required
+                          </div>
+                      </div>
+
+                      <div class="form-group col-md-6">
+                        <label for="mobile">Reference Mobile Number 1</label>
+                        <input type="text" maxlength="10" name="ref_mobile1" ngModel #ref_mobile1="ngModel" class="form-control" placeholder="Mobile Number" required autocomplete="off">
+                        <div *ngIf="ref_mobile1.touched && ref_mobile1.hasError('required')" class="invalid-feedback" style="display: inline-block;">
+                          Mobile number is required
+                        </div>
+                    </div>
+
+                      <div class="form-group col-md-6">
+                        <label>Reference Name 2</label>
+                        <input type="text" name="ref_name2" ngModel #ref_name2="ngModel" class="form-control"  placeholder="Reference Name 2" required autocomplete="off">
+                        <div *ngIf="ref_name2.touched && ref_name2.hasError('required')" class="invalid-feedback" style="display: inline-block;">
+                          Name is required
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                      <label for="address">Reference Address 2</label>
+                      <textarea name="ref_address2" ngModel #ref_address2="ngModel" class="form-control"  maxlength="255" placeholder="Apartment, studio, or floor" required></textarea>
+                      <div *ngIf="ref_address2.touched && ref_address2.hasError('required')" class="invalid-feedback" style="display: inline-block;">
+                        Address is required
+                      </div>
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label for="mobile">Reference Mobile Number 2</label>
+                    <input type="text" maxlength="10" name="ref_mobile2" ngModel #ref_mobile2="ngModel" class="form-control" placeholder="Mobile Number" required autocomplete="off">
+                    <div *ngIf="ref_mobile2.touched && ref_mobile2.hasError('required')" class="invalid-feedback" style="display: inline-block;">
+                      Mobile number is required
+                    </div>
+                </div>
+
+                          </div>
+
+
+                        <div class="form-group">
+                          <div class="custom-file" style="width: 20%;">
+                              <input  multiple (change)="onFileChange($event)" type="file" class="custom-file-input" id="customFile">
+                              <label class="custom-file-label" for="customFile">Upload Files</label>
+                          </div>
+                      </div>
+                        <div class="row">
+                          <div style="display: flex;">
+                           <div *ngFor="let file of myFiles;let i=index;" class="pill">
+                             {{ file.name }}
+                             <mat-icon class="close-icon" (click)="myFiles.splice(i,1)" aria-hidden="false" aria-label="Example close icon">close</mat-icon>
+                           </div>
+                          </div>
+                        </div>
+                          <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                          </div>
+
+                      </form>
+                  </div>
+              </div>
+          </section>
+      </div>
+  </div>
+</div>

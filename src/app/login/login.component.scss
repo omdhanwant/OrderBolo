@@ -1,0 +1,39 @@
+.matContinueButton{
+  background-color: #000;
+  color: #fff;
+}
+
+.form-group mat-form-field ,.form-group button{
+  width: 100%;
+}
+
+.cred_container {
+  background: #fff;
+  // position: absolute;
+  // top: 0;
+  // right: 0;
+  // height: 100%;
+  width: 50%;
+  margin: auto 25%;
+}
+
+.otp_info_text_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  flex-direction: column;
+}
+
+.inner_info_text{
+  line-height: 20px;
+  font-size: 12px;
+  color: #757575;
+  margin: 9px 0 0;
+}
+
+.number_edit{
+  margin-left: 10px;
+  color: #304ffe;
+  cursor: pointer;
+}

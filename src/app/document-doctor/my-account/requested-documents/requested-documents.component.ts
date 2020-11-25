@@ -50,10 +50,10 @@ export class RequestedDocumentsComponent implements OnInit {
 
     this.service.getRequstedDouments(this.auth.userInfo.id)
       .pipe(take(1))
-      .subscribe( (response: any[]) => {
+      .subscribe( response => {
         // console.log(response[0])
         // all document names
-          this.documents = response.length ? Object.keys(response[0]) : [];
+          this.documents = Object.keys(response[0]);
           // set data against each document name
           this.documents.forEach(doc => {
             if(response[0][doc] && response[0][doc].length) {

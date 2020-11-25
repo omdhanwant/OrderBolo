@@ -1,0 +1,236 @@
+<div class="container mb-2">
+    <div class="row">
+        <div class="col-md-12">
+            <nav aria-label="breadcrumb no-bg">
+                <ol class="breadcrumb no-bg">
+                    <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+                    <li class="breadcrumb-item"><a routerLink="/document-doctor">Document Doctor</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">PF Registration</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="container-fluid p-0 text-center mb-2">
+    <img src="../../../assets/pf/pf-logo.png" class="mark text-center">
+</div>
+<div class="form_container">
+    <div class="row">
+        <div class="col-md-12">
+            <section class="feature-category">
+                <div class="row pb-3">
+                    <div class="col-md-12">
+                        <h1 class="feature_h1 text-center">PF Registration</h1>
+                        <span class="feature_sub_title text-center">Fill Bellow Details Carefully</span>
+                        <hr>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="col-md-7">
+            <section class="feature-category description-section">
+                <div class="row">
+                    <div class="col-md-12 registration-label">
+                        Registration
+                    </div>
+                    <div class="col-md-12">
+                        <form #form="ngForm" (ngSubmit)="save(form)">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>Applicant Full Name / आवेदक का पूर्ण नाम</label>
+                                    <input type="text" name="applicant_name" ngModel #applicant_name="ngModel"
+                                        class="form-control" placeholder="Applicant Full Name" required autocomplete="off">
+                                    <div *ngIf="applicant_name.touched && applicant_name.hasError('required')"
+                                        class="invalid-feedback" style="display: inline-block;">
+                                        applicant_name is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>Email Address / ईमेल पता</label>
+                                    <input type="text" name="email" ngModel #email="ngModel" class="form-control"
+                                        placeholder="your@gmail.com" required autocomplete="off">
+                                    <div *ngIf="email.touched && email.hasError('required')" class="invalid-feedback"
+                                        style="display: inline-block;">
+                                        email is required
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="mobile">Mobile / मोबाइल</label>
+                                    <input type="text" maxlength="10" name="mobile" ngModel #mobile="ngModel"
+                                        class="form-control" placeholder="98XXXXXXXX (Without 0 or +91)" required
+                                        autocomplete="off">
+                                    <div *ngIf="mobile.touched && mobile.hasError('required')" class="invalid-feedback"
+                                        style="display: inline-block;">
+                                        Mobile number is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>City</label>
+                                    <input type="text" name="city" ngModel #city="ngModel" class="form-control"
+                                        placeholder="City" required autocomplete="off">
+                                    <div *ngIf="city.touched && city.hasError('required')" class="invalid-feedback"
+                                        style="display: inline-block;">
+                                        city is required
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>State/Union Territory*</label>
+                                    <select class="form-control" name="state" ngModel #state="ngModel" required>
+                                        <option value="">Select State</option>
+                                        <option mytag="1" value="ANDHRA PRADESH">ANDHRA PRADESH</option>
+                                        <option mytag="2" value="ARUNACHAL PRADESH">ARUNACHAL PRADESH</option>
+                                        <option mytag="3" value="ASSAM">ASSAM</option>
+                                        <option mytag="4" value="BIHAR">BIHAR</option>
+                                        <option mytag="5" value="CHANDIGARH">CHANDIGARH</option>
+                                        <option mytag="6" value="CHHATISGARH">CHHATISGARH</option>
+                                        <option mytag="7" value="DADRA AND NAGAR HAVELI">DADRA AND NAGAR HAVELI</option>
+                                        <option mytag="8" value="DAMAN AND DIU">DAMAN AND DIU</option>
+                                        <option mytag="9" value="DELHI">DELHI</option>
+                                        <option mytag="10" value="GOA">GOA</option>
+                                        <option mytag="11" value="GUJARAT">GUJARAT</option>
+                                        <option mytag="12" value="HARYANA">HARYANA</option>
+                                        <option mytag="13" value="HIMACHAL PRADESH">HIMACHAL PRADESH</option>
+                                        <option mytag="14" value="JAMMU AND KASHMIR">JAMMU AND KASHMIR</option>
+                                        <option mytag="15" value="JHARKHAND">JHARKHAND</option>
+                                        <option mytag="16" value="KARNATAKA">KARNATAKA</option>
+                                        <option mytag="17" value="KERALA">KERALA</option>
+                                        <option mytag="18" value="LADAKH">LADAKH</option>
+                                        <option mytag="19" value="LAKSHADWEEP">LAKSHADWEEP</option>
+                                        <option mytag="20" value="MADHYA PRADESH">MADHYA PRADESH</option>
+                                        <option mytag="21" value="MAHARASHTRA">MAHARASHTRA</option>
+                                        <option mytag="22" value="MANIPUR">MANIPUR</option>
+                                        <option mytag="23" value="MEGHALAYA">MEGHALAYA</option>
+                                        <option mytag="24" value="MIZORAM">MIZORAM</option>
+                                        <option mytag="25" value="NAGALAND">NAGALAND</option>
+                                        <option mytag="26" value="ODISHA">ODISHA</option>
+                                        <option mytag="27" value="PONDICHERRY">PONDICHERRY</option>
+                                        <option mytag="28" value="PUNJAB">PUNJAB</option>
+                                        <option mytag="29" value="RAJASTHAN">RAJASTHAN</option>
+                                        <option mytag="30" value="SIKKIM">SIKKIM</option>
+                                        <option mytag="31" value="TAMIL NADU">TAMIL NADU</option>
+                                        <option mytag="32" value="TELANGANA">TELANGANA</option>
+                                        <option mytag="33" value="TRIPURA">TRIPURA</option>
+                                        <option mytag="34" value="UTTAR PRADESH">UTTAR PRADESH</option>
+                                        <option mytag="35" value="UTTARAKHAND">UTTARAKHAND</option>
+                                        <option mytag="36" value="WEST BENGAL">WEST BENGAL</option>
+                                    </select>
+                                    <div *ngIf="state.touched && state.hasError('required')" class="invalid-feedback"
+                                        style="display: inline-block;">
+                                        state is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="pin">No. Of Employee</label>
+                                    <input type="number" name="number_of_employees" ngModel #number_of_employees="ngModel"
+                                        maxlength="6" class="form-control"
+                                        placeholder="No. Of Employee"
+                                        required autocomplete="off">
+                                    <div *ngIf="number_of_employees.touched && number_of_employees.hasError('required')"
+                                        class="invalid-feedback" style="display: inline-block;">
+                                        Field is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="pin">Your Payable Amount</label>
+                                    <input type="number" name="your_payable_amount" ngModel #your_payable_amount="ngModel"
+                                        maxlength="6" class="form-control" placeholder="Your Payable Amount" required
+                                        autocomplete="off">
+                                    <div *ngIf="your_payable_amount.touched && your_payable_amount.hasError('required')"
+                                        class="invalid-feedback" style="display: inline-block;">
+                                        Amount is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="pin">How did you hear about us?</label>
+                                    <select class="form-control" name="howDidYou" ngModel #howDidYou="ngModel" required>
+                                        <option value="">Select State</option>
+                                        <option mytag="1" value="Google">Google</option>
+                                        <option mytag="2" value="Internet">Internet</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit"
+                                    class="btn btn-primary btn_save">Continue</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <div class="col-md-5">
+            <section class="feature-category description-section">
+                <div class="row">
+                    <div class="col-md-12 registration-label">
+                        Instructions
+                    </div>
+                    <div class="col-md-12">
+                        We can help you in all your queries regarding PF registration with a single click of mouse while
+                        you stay relaxed of getting insured under PF without any complication.
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="col-md-12">
+            <h2 style="color: black" class="benifts-heading mt-4">FAQ</h2>
+        </div>
+        <div class="col-md-12">
+            <div class="bd-example" data-example-id="">
+                <div id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="card">
+                        <div class="card-header" role="tab" id="headingThree">
+                            <div class="mb-0">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"
+                                    aria-expanded="true" aria-controls="collapseOne" class="">
+                                    <h3>WHAT IS EPF?</h3>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="collapseThree" class="collapse p-4 show" role="tabpanel" aria-labelledby="headingThree"
+                            aria-expanded="true" style="">
+                            <div class="card-block">
+                                <p class="benifits-having-text">The Employee Provident Fund or PF is a retirement saving
+                                    scheme provided by the government for all salaried employees in India, on which
+                                    fixed interest is regularly paid.
+
+                                    The Employee Provident Fund is a perquisite given by the employer to their employees
+                                    over and above their basic remuneration.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" role="tab" id="headingThree">
+                            <div class="mb-0">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"
+                                    aria-expanded="false" aria-controls="collapseFour" class="collapsed">
+                                    <h3>WHY GET EPF ONLINE REGISTRATION FOR EMPLOYER?</h3>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="collapseFour" class="collapse p-4" role="tabpanel" aria-labelledby="headingThree"
+                            aria-expanded="false" style="height: 0px;">
+                            <div class="card-block">
+                                <p class="benifits-having-text">PF Registration is mandatory for all the organizations
+                                    that have 20 or more employees. Such organizations are required to contribute a
+                                    fixed amount towards Employee Provident Fund out of employee salary and wages.
+
+                                    If an employer fails to get EPF employer registration, or indulges in false
+                                    representation of facts to avoid PF payment, he shall be liable for a penalty of INR
+                                    5,000/-.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

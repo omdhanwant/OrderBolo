@@ -77,13 +77,13 @@ export class MetricsDashboardComponent implements OnInit, OnDestroy {
     }
 
     this.initData();
-    const documents$: any = this.service.getRequstedDouments(this.auth.userInfo.id).toPromise();
+    const documents$ = this.service.getRequstedDouments(this.auth.userInfo.id).toPromise();
     const orders$ = this.myAccservice.getAllOrders().toPromise();
     const users$ = this.myAccservice.getAllUsers().toPromise();
 
     Promise.all([documents$,orders$,users$])
       .then(response => {
-        this.alldocuments = response[0].length ? response[0][0] : [];
+        this.alldocuments = response[0][0];
         this.allOrders = response[1];
         this.allUsers = response[2] // for admin
 

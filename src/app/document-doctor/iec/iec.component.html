@@ -1,0 +1,341 @@
+<div class="container mb-2">
+    <div class="row">
+        <div class="col-md-12">
+            <nav aria-label="breadcrumb no-bg">
+                <ol class="breadcrumb no-bg">
+                    <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+                    <li class="breadcrumb-item"><a routerLink="/document-doctor">Document Doctor</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Import Export Code Registration</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="container-fluid p-0 text-center mb-2">
+    <img src="../../../assets/iec/iec-logo.jpg" class="mark p-0 text-center">
+</div>
+<div class="form_container">
+    <div class="row">
+        <div class="col-md-12">
+            <section class="feature-category">
+                <div class="row pb-3">
+                    <div class="col-md-12">
+                        <h1 class="feature_h1 text-center">Import Export Code Registration</h1>
+                        <span class="feature_sub_title text-center">Fill the Form bellow</span>
+                        <hr>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="col-md-7">
+            <section class="feature-category description-section">
+                <div class="row">
+                    <div class="col-md-12 registration-label">
+                        Registration
+                    </div>
+
+                    <div class="col-md-12">
+                        <form #form="ngForm" (ngSubmit)="save(form)">
+                            <div class="form-row">
+                                <div class="form-group col-md-12 mt-2">
+                                    <label for="pin">Name of Business Entity( बिजनेस एंटिटी का नाम) *</label>
+                                    <input type="text" name="name_of_business_entity" ngModel
+                                        #name_of_business_entity="ngModel" maxlength="50" class="form-control"
+                                        placeholder="Name of Business Entity" required autocomplete="off">
+                                    <div *ngIf="name_of_business_entity.touched && name_of_business_entity.hasError('required')"
+                                        class="invalid-feedback" style="display: inline-block;">
+                                        Name of Business Entity is required
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-12 mt-2">
+                                    <label>Constitution of Business ( व्यापार का संविधान)*</label>
+                                    <select class="form-control" name="constitution_of_business" ngModel
+                                        #constitution_of_business="ngModel" required>
+                                        <option value=""> Please Select Constitution of Business</option>
+                                        <option value="Proprietorship">Proprietorship</option>
+                                        <option value="Partnership">Partnership</option>
+                                        <option value="Limited Liability Partnership">Limited Liability Partnership
+                                        </option>
+                                        <option value="Private Limited">Private Limited Company</option>
+                                        <option value="opc">One Person Company</option>
+                                        <option value="Public Limited">Public Limited Company</option>
+                                        <option value="Govt. Undertaking">Govt. Undertaking</option>
+                                        <option value="Section 25 Company">Section 25 Company</option>
+                                        <option value="Registered Society">Society</option>
+                                        <option value="Trust">Trust</option>
+                                        <option value="HUF">HUF</option>
+                                    </select>
+                                    <div *ngIf="constitution_of_business.touched && constitution_of_business.hasError('required')"
+                                        class="invalid-feedback" style="display: inline-block;">
+                                        Constitution of Business is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12 mt-2">
+                                    <label for="pin">Description of Business ( व्यापार का वर्णन)*</label>
+                                    <input type="text" name="discription_of_business" ngModel
+                                        #discription_of_business="ngModel" maxlength="50" class="form-control"
+                                        placeholder="Description of Business" required autocomplete="off">
+                                    <div *ngIf="discription_of_business.touched && discription_of_business.hasError('required')"
+                                        class="invalid-feedback" style="display: inline-block;">
+                                        Description of Business is required
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-12 mt-2">
+                                    <label for="pin">Business Activity (व्यावसायिक गतिविधि)*</label>
+                                    <select class="form-control" name="business_activity" ngModel
+                                        #business_activity="ngModel" required>
+                                        <option value="Merchant Exporter">Merchant Exporter</option>
+                                        <option value="Manufacturer Exporter">Manufacturer Exporter</option>
+                                        <option value="Merchant cum Manufacturer Exporter">Merchant cum Manufacturer
+                                            Exporter</option>
+                                        <option value="Service Provider">Service Provider</option>
+                                        <option value="Merchant cum Service Provider">Merchant cum Service Provider
+                                        </option>
+                                        <option value="Manufacturer cum Service Provider">Manufacturer cum Service
+                                            Provider</option>
+                                        <option value="Merchant cum Manufacturer cum Service Provider">Merchant cum
+                                            Manufacturer cum Service Provider</option>
+                                        <option value="Others">Others</option>
+                                        <option value=""> Please Select Constitution of Business</option>
+                                        <option value="Proprietorship">Proprietorship</option>
+                                        <option value="Partnership">Partnership</option>
+                                        <option value="Limited Liability Partnership">Limited Liability Partnership
+                                        </option>
+                                        <option value="Private Limited">Private Limited Company</option>
+                                        <option value="opc">One Person Company</option>
+                                        <option value="Public Limited">Public Limited Company</option>
+                                        <option value="Govt. Undertaking">Govt. Undertaking</option>
+                                        <option value="Section 25 Company">Section 25 Company</option>
+                                        <option value="Registered Society">Society</option>
+                                        <option value="Trust">Trust</option>
+                                        <option value="HUF">HUF</option>
+                                    </select>
+                                    <div *ngIf="business_activity.touched && business_activity.hasError('required')"
+                                        class="invalid-feedback" style="display: inline-block;">
+                                        Business Activity is required
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-12 mt-2">
+                                    <label for="date">Date of Incorporation / Date of Birth ( निगमन की तिथि / जन्म तिथि)</label>
+                                    <input type="text" name="birth_date" ngModel #birth_date="ngModel"
+                                        placeholder="Select Birth Date" class="form-control" bsDatepicker
+                                        [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY', containerClass: 'theme-default' }"
+                                        required autocomplete="off">
+                                    <div *ngIf="birth_date.touched && birth_date.hasError('required')"
+                                        class="invalid-feedback" style="display: inline-block;">
+                                        Date of Incorporation / Date of Birth is required
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group col-md-12 mt-2">
+                                    <label for="pin">Principal Place of Business Entity( बिजनेस एंटिटी का प्रमुख स्थान)*</label>
+                                    <input type="text" name="address_line_1" ngModel
+                                        #address_line_1="ngModel" maxlength="50" class="form-control"
+                                        placeholder="Address 1" required autocomplete="off">
+                                    <div *ngIf="address_line_1.touched && address_line_1.hasError('required')"
+                                        class="invalid-feedback" style="display: inline-block;">
+                                        Address 1 is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12 mt-2">
+                                    <input type="text" name="address_line_2" ngModel
+                                        #address_line_2="ngModel" maxlength="50" class="form-control"
+                                        placeholder="Address 2" required autocomplete="off">
+                                    <div *ngIf="address_line_2.touched && address_line_2.hasError('required')"
+                                        class="invalid-feedback" style="display: inline-block;">
+                                        Address 2 is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12 mt-2">
+                                    <input type="text" name="city" ngModel
+                                        #city="ngModel" maxlength="50" class="form-control"
+                                        placeholder="City" required autocomplete="off">
+                                    <div *ngIf="city.touched && city.hasError('required')"
+                                        class="invalid-feedback" style="display: inline-block;">
+                                        city is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12 mt-2">
+                                    <select class="form-control" name="state" ngModel #state="ngModel" required>
+                                        <option value="">Select State</option>
+                                        <option mytag="1" value="ANDHRA PRADESH">ANDHRA PRADESH</option>
+                                        <option mytag="2" value="ARUNACHAL PRADESH">ARUNACHAL PRADESH</option>
+                                        <option mytag="3" value="ASSAM">ASSAM</option>
+                                        <option mytag="4" value="BIHAR">BIHAR</option>
+                                        <option mytag="5" value="CHANDIGARH">CHANDIGARH</option>
+                                        <option mytag="6" value="CHHATISGARH">CHHATISGARH</option>
+                                        <option mytag="7" value="DADRA AND NAGAR HAVELI">DADRA AND NAGAR HAVELI</option>
+                                        <option mytag="8" value="DAMAN AND DIU">DAMAN AND DIU</option>
+                                        <option mytag="9" value="DELHI">DELHI</option>
+                                        <option mytag="10" value="GOA">GOA</option>
+                                        <option mytag="11" value="GUJARAT">GUJARAT</option>
+                                        <option mytag="12" value="HARYANA">HARYANA</option>
+                                        <option mytag="13" value="HIMACHAL PRADESH">HIMACHAL PRADESH</option>
+                                        <option mytag="14" value="JAMMU AND KASHMIR">JAMMU AND KASHMIR</option>
+                                        <option mytag="15" value="JHARKHAND">JHARKHAND</option>
+                                        <option mytag="16" value="KARNATAKA">KARNATAKA</option>
+                                        <option mytag="17" value="KERALA">KERALA</option>
+                                        <option mytag="18" value="LADAKH">LADAKH</option>
+                                        <option mytag="19" value="LAKSHADWEEP">LAKSHADWEEP</option>
+                                        <option mytag="20" value="MADHYA PRADESH">MADHYA PRADESH</option>
+                                        <option mytag="21" value="MAHARASHTRA">MAHARASHTRA</option>
+                                        <option mytag="22" value="MANIPUR">MANIPUR</option>
+                                        <option mytag="23" value="MEGHALAYA">MEGHALAYA</option>
+                                        <option mytag="24" value="MIZORAM">MIZORAM</option>
+                                        <option mytag="25" value="NAGALAND">NAGALAND</option>
+                                        <option mytag="26" value="ODISHA">ODISHA</option>
+                                        <option mytag="27" value="PONDICHERRY">PONDICHERRY</option>
+                                        <option mytag="28" value="PUNJAB">PUNJAB</option>
+                                        <option mytag="29" value="RAJASTHAN">RAJASTHAN</option>
+                                        <option mytag="30" value="SIKKIM">SIKKIM</option>
+                                        <option mytag="31" value="TAMIL NADU">TAMIL NADU</option>
+                                        <option mytag="32" value="TELANGANA">TELANGANA</option>
+                                        <option mytag="33" value="TRIPURA">TRIPURA</option>
+                                        <option mytag="34" value="UTTAR PRADESH">UTTAR PRADESH</option>
+                                        <option mytag="35" value="UTTARAKHAND">UTTARAKHAND</option>
+                                        <option mytag="36" value="WEST BENGAL">WEST BENGAL</option>
+                                    </select>
+                                    <div *ngIf="state.touched && state.hasError('required')"
+                                        class="invalid-feedback" style="display: inline-block;">
+                                        state is required
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-12 mt-2">
+                                    <input type="text" name="pin_code" ngModel
+                                        #pin_code="ngModel" maxlength="50" class="form-control"
+                                        placeholder="Pin Code" required autocomplete="off">
+                                    <div *ngIf="pin_code.touched && pin_code.hasError('required')"
+                                        class="invalid-feedback" style="display: inline-block;">
+                                        Pin Code is required
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-12 mt-2">
+                                    <label for="pin">E-Mail ID ( ईमेल आईडी)</label>
+                                    <input type="text" name="applicant_email" ngModel #applicant_email="ngModel"
+                                         class="form-control" placeholder="E-Mail ID" required
+                                        autocomplete="off">
+                                    <div *ngIf="applicant_email.touched && applicant_email.hasError('required')"
+                                        class="invalid-feedback" style="display: inline-block;">
+                                        E-Mail is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12 mt-2">
+                                    <label for="mobile">Contact No. ( संपर्क संख्या)</label>
+                                    <input type="text" maxlength="10" name="mobile" ngModel #mobile="ngModel"
+                                        class="form-control" placeholder="98XXXXXXXX (Without 0 or +91)" required
+                                        autocomplete="off">
+                                    <div *ngIf="mobile.touched && mobile.hasError('required')" class="invalid-feedback"
+                                        style="display: inline-block;">
+                                        Mobile number is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12 mt-2">
+                                    <label>Whether the firm is located in Special Economic Zone (SEZ)</label>
+                                    <select class="form-control" name="sez" ngModel #sez="ngModel" required>
+                                        <option value="" selected="selected">Please select</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                    <div *ngIf="sez.touched && sez.hasError('required')" class="invalid-feedback"
+                                        style="display: inline-block;">
+                                        sez is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12 mt-2">
+                                    <label for="pin">PAN No. of Entity ( इकाई का पैन नंबर)</label>
+                                    <input type="text" name="pan_card" ngModel #pan_card="ngModel" maxlength="6"
+                                        class="form-control" placeholder="PAN No. of Entity" required autocomplete="off">
+                                    <div *ngIf="pan_card.touched && pan_card.hasError('required')"
+                                        class="invalid-feedback" style="display: inline-block;">
+                                        PAN No. of Entity is required
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row mt-2">
+                                <div class="form-group col-md-12 mt-2">
+                                    <label><strong>Documents Submitted as Proof</strong></label>
+                                </div>
+                            </div>
+
+                            <div class="form-row m-0" style="margin-left: 15px;margin-bottom: 15px;">
+                                <div class="col-md-12 form-group m-0 p-0">
+                                    <label class="m-0 p-0">1. Upload Your Aadhaar Card Front Side*</label>
+                                </div>
+                                <div class="col-md-12 form-group m-0 p-0">
+                                    <label class="m-0 p-0">2. Upload Your Aadhaar Card Back Side**</label>
+                                </div>
+                                <div class="col-md-12 form-group m-0 p-0">
+                                    <label class="m-0 p-0">3. Upload Your PAN Card*</label>
+                                </div>
+                                <div class="col-md-12 form-group m-0 p-0">
+                                    <label class="m-0 p-0">4. Passport Size Photo**</label>
+                                </div>
+                            </div>
+                            <!-- <div class="form-group">
+                                <div class="col-md-12 mt-2">
+                                    <input (change)="onFileChange($event)" type="file"
+                                        class="custom-file-input" id="customFile">
+                                    <label class="custom-file-label" for="customFile">Upload Files</label>
+                                </div>
+                            </div> -->
+                            <div class="form-group col-md-6" style="display: flex; flex-direction: column;">
+                              <label for="date">Upload Required Documents</label>
+                                <input (change)="onFileChange($event)" #upload type="file" class="custom-file-input"
+                                  id="customFile" style="display: none;">
+                              <button (click)="upload.click()" class="btn upload_button">Browse</button>
+                            </div>
+
+                            <div *ngIf="myFiles?.length" class="row mb-2">
+                                <div style="display: flex; ">
+                                    <div class="pill">
+                                        {{ myFiles[0]?.name }}
+                                        <mat-icon class="close-icon" (click)="myFiles.pop()" aria-hidden="false"
+                                            aria-label="Example close icon">close</mat-icon>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center mt-2">
+                                <button type="submit" class="btn btn-primary btn_save">Proceed to
+                                    verify and Pay</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <div class="col-md-5">
+            <section class="feature-category description-section">
+                <div class="row">
+                    <div class="col-md-12 registration-label">
+                        Instructions
+                    </div>
+                    <div class="col-md-12">
+                        <div class="quform-spacer"><strong>Declaration:</strong>
+                            I hereby declare that the details furnished above are true and correct to the best of my
+                            knowledge and belief and I undertake to inform you of any changes therein, immediately. In
+                            case any of the above information is found to be false or untrue or misleading or
+                            misrepresenting, I am aware that I may be held liable for it.<br>
+                            <br>
+                            <strong>घोषणा</strong>: मैं इस बात की घोषणा करता हूं कि ऊपर प्रस्तुत विवरण मेरे ज्ञान और
+                            विश्वास के लिए सही और सही हैं और मैं आपको इसमें होने वाले किसी भी बदलाव के बारे में तुरंत
+                            सूचित करने का वचन देता हूं। यदि उपरोक्त कोई भी जानकारी गलत या असत्य या भ्रामक या गलत बयानी
+                            करने वाली पाई जाती है, तो मुझे पता है कि मुझे इसके लिए उत्तरदायी ठहराया जा सकता है।</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

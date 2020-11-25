@@ -1,0 +1,88 @@
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  body {
+    padding: 2rem 0rem;
+  }
+
+  .card {
+    box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+  }
+
+  .card-img {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .card-title {
+    margin-bottom: 0.3rem;
+  }
+
+  .card-text {
+    max-width: 16em;
+    overflow: auto;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .cat {
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+
+  .fa-users {
+    margin-left: 1rem;
+  }
+
+  .card-body{
+    height: 150px;
+    padding: 10px;
+  }
+
+  .card-footer {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+
+    .btn-info {
+      color: #fff;
+    background-color: #0b0633;
+    border-color: #0b0633;
+    }
+  }
+
+  .main_blog_container {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: difference;
+    // background-image: url(http://documentdoctor.in/orderbolo/uploads/blog/1603350865.jpg);
+    height: 250px;
+    position: relative;
+    overflow-y: hidden;
+  }
+
+  .main_blog_container .text_container {
+    background: #000;
+    opacity: 0.8;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    font-weight: 500;
+    padding: 20px;
+  }

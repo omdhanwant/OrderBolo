@@ -1,0 +1,61 @@
+<!-- list detail container -->
+
+<div class="row">
+  <div class="col-md-12">
+    <!-- <nav aria-label="breadcrumb no-bg">
+        <ol class="breadcrumb no-bg">
+          <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+          <li class="breadcrumb-item"><a routerLink="/document-doctor">Document Doctor</a></li>
+          <li class="breadcrumb-item active" aria-current="page">My Account</li>
+          <li class="breadcrumb-item active" aria-current="page">Orders</li>
+        </ol>
+      </nav> -->
+</div>
+
+  <div class="col-12">
+    <div style="display: flex; justify-content: space-between;">
+      <!-- <span><pre class="card card-block card-header mb-3">The selected page no: {{currentPage}}/{{lastPageCount}}</pre></span> -->
+      <pagination [boundaryLinks]="true"
+      style="margin-top: 7px;"
+      [rotate]='true'
+      [itemsPerPage]="itemsPerPage"
+      [maxSize]='5'
+      [(ngModel)]="currentPage"
+      [totalItems]="orders?.length"
+      (numPages)="lastPageCount = $event"
+      (pageChanged)="pageChanged($event)"
+      previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+
+      </pagination>
+    </div>
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col-3">Name</th>
+          <th scope="col">Address</th>
+          <th scope="col">mobile</th>
+          <th scope="col">City</th>
+          <th scope="col">State</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Order Status</th>
+          <th scope="col">Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of paginatedData; let i =index;">
+          <th scope="row">{{ i + 1 }}</th>
+          <td class="table-col-wdith-20">{{ order.name }}</td>
+          <td> {{ order.address }}</td>
+          <td> {{ order.mobile }}</td>
+          <td> {{ order.city }}</td>
+          <td> {{ order.state }}</td>
+          <td> {{ order.amount | currency: 'INR' }}</td>
+          <td *ngIf="order.status === 'SUCCESS'" style="color: green; font-weight: bold;"> {{ order.status }}</td>
+          <td *ngIf="order.status === 'FAILED'" style="color: RED; font-weight: bold;"> {{ order.status }}</td>
+          <td> {{ order.created_at | date:'mediumDate' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

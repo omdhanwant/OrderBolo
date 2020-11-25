@@ -17,49 +17,49 @@ export class DocumentService extends DataService{
     },
     {
       name: 'Food License Registration',
-      description:'Service Description',
+      description:'',
       image: 'assets/images/document-doctor/food-licience.png',
       route: '/document-doctor/food-licience',
       visibleTo: 'ALL'
     },
     {
       name: 'Shop Act (Gumsta) registration',
-      description:'Service Description',
+      description:'',
       image: 'assets/images/document-doctor/caste-validity.jpg',
       route: '/document-doctor/gumasta',
       visibleTo: 'ALL'
     },
     {
       name: 'GST',
-      description:'Service Description',
+      description:'',
       image: 'assets/images/document-doctor/caste-validity.jpg',
       route:'/document-doctor/gst',
       visibleTo: 'ALL'
     },
     {
       name: 'Digital Signature',
-      description:'Service Description',
+      description:'',
       image: 'assets/dsc/dsc-logo.jpg',
       route:'/document-doctor/dsc-application',
       visibleTo: 'ALL'
     },
     {
       name: 'ISO Registration',
-      description:'Service Description',
+      description:'',
       image: 'assets/iso/iso-logo.png',
       route:'/document-doctor/iso-registration',
       visibleTo: 'ALL'
     },
     {
       name: 'PF Registration',
-      description:'Service Description',
+      description:'',
       image: 'assets/pf/pf-logo.png',
       route:'/document-doctor/pf-registration',
       visibleTo: 'ALL'
     },
     {
       name: 'IEC Registration',
-      description:'Service Description',
+      description:'',
       image: 'assets/iec/iec-logo.jpg',
       route:'/document-doctor/iec-registration',
       visibleTo: 'ALL'
@@ -149,7 +149,76 @@ export class DocumentService extends DataService{
       route:'https://www1.incometaxindiaefiling.gov.in/e-FilingGS/Services/LinkAadhaarHome.html?lang=eng',
       visibleTo: constant.VENDOR
     },
-
+    {
+      name: 'PVT LTD COMPANY REGISTRATION',
+      description:'',
+      image: 'https://www.onlinelegalindia.com/images/home/Corporate-Related-Services-OLI.jpg',
+      route:'/document-doctor/private-company-registration',
+      visibleTo: 'ALL'
+    },
+    {
+      name: 'LIMITED LIABILITY PARTNERSHEEP',
+      description:'',
+      image: 'https://www.onlinelegalindia.com/services/llp-partnership/image/llp-home-banner.jpg',
+      route:'/document-doctor/limitted-liability-partnersheep',
+      visibleTo: 'ALL'
+    },
+    {
+      name: 'ONE PERSON COMPANY',
+      description:'',
+      image: 'https://www.onlinelegalindia.com/services/one-person-company-registration/image/one-person-company-banner.jpg',
+      route:'/document-doctor/iec-registration',
+      visibleTo: 'ALL'
+    },
+    {
+      name: 'NIDHI COMPANY REGISTRATION',
+      description:'',
+      image: 'https://www.onlinelegalindia.com/services/nidhi-company/image/nidhi-banner.jpg',
+      route:'/document-doctor/nidhi-company-registration',
+      visibleTo: 'ALL'
+    },
+    {
+      name: 'TRADE MARK REGISTRATION',
+      description:'',
+      image: 'https://www.onlinelegalindia.com/services/trademark-registration/image/trademark-banner.png',
+      route:'/document-doctor/trademark-registration',
+      visibleTo: 'ALL'
+    },
+    {
+      name: 'INCOME TAX RETURN',
+      description:'',
+      image: 'https://www.onlinelegalindia.com/images/home/income-tax.jpg',
+      route:'/document-doctor/incometax-return',
+      visibleTo: 'ALL'
+    },
+    {
+      name: 'PARTNERSHEEP DEED (NOTARY)',
+      description:'',
+      image: 'https://cdn1.byjus.com/wp-content/uploads/2019/07/Partnership-deed.png',
+      route:'/document-doctor/patnersheep-deed-notary',
+      visibleTo: 'ALL'
+    },
+    {
+      name: 'PARTNERSHEEP DEED (REGISTERED)',
+      description:'',
+      image: 'https://cdn1.byjus.com/wp-content/uploads/2019/07/Partnership-deed.png',
+      route:'/document-doctor/patnersheep-deed-registered',
+      visibleTo: 'ALL'
+    },
+    {
+      name: 'RENT AGREEMENT (NOTARY)',
+      description:'',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIzobInkKOmyLTWtugS7IVNXeGsPtFIGtgwg&usqp=CAU',
+      route:'/document-doctor/rent-agreement-notary',
+      visibleTo: 'ALL'
+    },
+    {
+      name: 'RENT AGREEMENT (REGISTERED)',
+      description:'',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIzobInkKOmyLTWtugS7IVNXeGsPtFIGtgwg&usqp=CAU',
+      route:'/document-doctor/rent-agreement-registered',
+      visibleTo: 'ALL'
+    },
   ];
 
   get document() {

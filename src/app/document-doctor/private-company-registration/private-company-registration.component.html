@@ -36,7 +36,7 @@
             <section class="feature-category description-section">
                 <div class="row">
                     <div class="col-md-12 registration-label">
-                        Registration
+                        Pvt. Ltd. Company Registration Form
                     </div>
                     <div class="col-md-12">
                         <form #form="ngForm" (ngSubmit)="save(form)">
@@ -60,16 +60,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="address">Business Address</label>
-                                <textarea name="business_address" ngModel #business_address="ngModel"
-                                    class="form-control" maxlength="255" placeholder="Business Address"
-                                    required></textarea>
-                                <div *ngIf="business_address.touched && business_address.hasError('required')"
-                                    class="invalid-feedback" style="display: inline-block;">
-                                    Business Address is required
-                                </div>
-                            </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="mobile">Mobile Number</label>
@@ -81,16 +71,53 @@
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label>Business Turn Over</label>
-                                    <input type="text" name="business_turn_over" ngModel #business_turn_over="ngModel"
-                                        class="form-control" placeholder="Business Turn Over" required
-                                        autocomplete="off">
-                                    <div *ngIf="business_turn_over.touched && business_turn_over.hasError('required')"
+                                    <label for="mobile">State</label>
+                                    <select class="form-control" name="state" ngModel #state="ngModel" required>
+                                        <option value="">Select State</option>
+                                        <option mytag="1" value="ANDHRA PRADESH">ANDHRA PRADESH</option>
+                                        <option mytag="2" value="ARUNACHAL PRADESH">ARUNACHAL PRADESH</option>
+                                        <option mytag="3" value="ASSAM">ASSAM</option>
+                                        <option mytag="4" value="BIHAR">BIHAR</option>
+                                        <option mytag="5" value="CHANDIGARH">CHANDIGARH</option>
+                                        <option mytag="6" value="CHHATISGARH">CHHATISGARH</option>
+                                        <option mytag="7" value="DADRA AND NAGAR HAVELI">DADRA AND NAGAR HAVELI</option>
+                                        <option mytag="8" value="DAMAN AND DIU">DAMAN AND DIU</option>
+                                        <option mytag="9" value="DELHI">DELHI</option>
+                                        <option mytag="10" value="GOA">GOA</option>
+                                        <option mytag="11" value="GUJARAT">GUJARAT</option>
+                                        <option mytag="12" value="HARYANA">HARYANA</option>
+                                        <option mytag="13" value="HIMACHAL PRADESH">HIMACHAL PRADESH</option>
+                                        <option mytag="14" value="JAMMU AND KASHMIR">JAMMU AND KASHMIR</option>
+                                        <option mytag="15" value="JHARKHAND">JHARKHAND</option>
+                                        <option mytag="16" value="KARNATAKA">KARNATAKA</option>
+                                        <option mytag="17" value="KERALA">KERALA</option>
+                                        <option mytag="18" value="LADAKH">LADAKH</option>
+                                        <option mytag="19" value="LAKSHADWEEP">LAKSHADWEEP</option>
+                                        <option mytag="20" value="MADHYA PRADESH">MADHYA PRADESH</option>
+                                        <option mytag="21" value="MAHARASHTRA">MAHARASHTRA</option>
+                                        <option mytag="22" value="MANIPUR">MANIPUR</option>
+                                        <option mytag="23" value="MEGHALAYA">MEGHALAYA</option>
+                                        <option mytag="24" value="MIZORAM">MIZORAM</option>
+                                        <option mytag="25" value="NAGALAND">NAGALAND</option>
+                                        <option mytag="26" value="ODISHA">ODISHA</option>
+                                        <option mytag="27" value="PONDICHERRY">PONDICHERRY</option>
+                                        <option mytag="28" value="PUNJAB">PUNJAB</option>
+                                        <option mytag="29" value="RAJASTHAN">RAJASTHAN</option>
+                                        <option mytag="30" value="SIKKIM">SIKKIM</option>
+                                        <option mytag="31" value="TAMIL NADU">TAMIL NADU</option>
+                                        <option mytag="32" value="TELANGANA">TELANGANA</option>
+                                        <option mytag="33" value="TRIPURA">TRIPURA</option>
+                                        <option mytag="34" value="UTTAR PRADESH">UTTAR PRADESH</option>
+                                        <option mytag="35" value="UTTARAKHAND">UTTARAKHAND</option>
+                                        <option mytag="36" value="WEST BENGAL">WEST BENGAL</option>
+                                    </select>
+                                    <div *ngIf="state.touched && state.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
-                                        Business Turn Over is required
+                                        state is required
                                     </div>
                                 </div>
                             </div>
+                          
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>Nature Of Business</label><Br>
@@ -114,49 +141,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label>Village or City Name</label>
-                                    <input type="text" name="village_or_city" ngModel #village_or_city="ngModel"
-                                        class="form-control" placeholder="Village or City Name" required
-                                        autocomplete="off">
-                                    <div *ngIf="village_or_city.touched && village_or_city.hasError('required')"
-                                        class="invalid-feedback" style="display: inline-block;">
-                                        Village or City Name is required
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="pin">Nearest Railway Station</label>
-                                    <input type="text" name="nearest_railway_station" ngModel
-                                        #nearest_railway_station="ngModel" maxlength="6" class="form-control"
-                                        placeholder="Nearest Railway Station" required autocomplete="off">
-                                    <div *ngIf="nearest_railway_station.touched && nearest_railway_station.hasError('required')"
-                                        class="invalid-feedback" style="display: inline-block;">
-                                        Nearest Railway Station is required
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label>State</label>
-                                    <input type="text" name="state" ngModel #state="ngModel" class="form-control"
-                                        placeholder="State" required autocomplete="off">
-                                    <div *ngIf="state.touched && state.hasError('required')" class="invalid-feedback"
-                                        style="display: inline-block;">
-                                        State is required
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="pin">Pin Code</label>
-                                    <input type="text" name="pin_code" ngModel #pin_code="ngModel" maxlength="6"
-                                        class="form-control" placeholder="Pin Code" required autocomplete="off">
-                                    <div *ngIf="pin_code.touched && pin_code.hasError('required')"
-                                        class="invalid-feedback" style="display: inline-block;">
-                                        Pin Code is required
-                                    </div>
-                                </div>
-                            </div>
-
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>landmark</label>

@@ -1,0 +1,17 @@
+// <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+@import "~bootstrap/scss/bootstrap";
+body{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+.logo{
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    font-weight: 800 !important;
+}
+.home-banner{
+    height: 500px;
+}
+.height-500{
+    height: 500px;
+}

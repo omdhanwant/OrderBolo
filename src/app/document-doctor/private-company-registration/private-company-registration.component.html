@@ -43,9 +43,9 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>Full Name</label>
-                                    <input type="text" name="full_name" ngModel #full_name="ngModel"
+                                    <input type="text" name="applicant_name" ngModel #applicant_name="ngModel"
                                         class="form-control" placeholder="Full Name" required autocomplete="off">
-                                    <div *ngIf="full_name.touched && full_name.hasError('required')"
+                                    <div *ngIf="applicant_name.touched && applicant_name.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
                                         Full Name is required
                                     </div>

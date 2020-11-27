@@ -10,12 +10,12 @@ import { MyAccountService } from 'src/app/service/myaccount.service';
   styleUrls: ['./new-home.component.scss']
 })
 export class NewHomeComponent implements OnInit {
-  banners:string[] = [];
-  services:any[] = [];
+  banners: string[] = [];
+  services: any[] = [];
   documentsBlogsList: any[] = [];
   selectedFilter: any[] = [];
-  query:string;
-  blogs:Blogs[] = [];
+  query: string;
+  blogs: Blogs[] = [];
   constructor(private service: MyAccountService, private documentService: DocumentService) {
     this.banners = [
       'https://www.superfastepancard.com//Images/Slider/slider-1.png',
@@ -25,36 +25,37 @@ export class NewHomeComponent implements OnInit {
 
     this.services = this.documentService.services;
 
-  // generate autocomplete dropdown data for documents
+    // generate autocomplete dropdown data for documents
     this.services.forEach(service => {
       this.documentsBlogsList.push({
         name: service.name,
         redirectUrl: service.route,
-        category:'Document'
+        category: 'Document'
       })
     })
 
-   }
+  }
 
+  
   ngOnInit(): void {
     this.blogs = [];
     this.service.getBlogs()
-    .pipe(take(1))
-    .subscribe((blogsData:Blogs[]) => {
-      this.blogs = blogsData;
+      .pipe(take(1))
+      .subscribe((blogsData: Blogs[]) => {
+        this.blogs = blogsData;
 
 
-    this.blogs.forEach(blog => {
-      this.documentsBlogsList.push(
-        {"name": blog.title, "redirectUrl" : "/blogs/blog/" + blog.id, "category": "Blog"}
-      )
-    })
-    })
+        this.blogs.forEach(blog => {
+          this.documentsBlogsList.push(
+            { "name": blog.title, "redirectUrl": "/blogs/blog/" + blog.id, "category": "Blog" }
+          )
+        })
+      })
   }
   filterCategory(event) {
-    if(event.query) {
-     this.selectedFilter =  this.documentsBlogsList.filter(d => d.name.toLowerCase().includes(event.query.toLowerCase()))
+    if (event.query) {
+      this.selectedFilter = this.documentsBlogsList.filter(d => d.name.toLowerCase().includes(event.query.toLowerCase()))
     }
-}
+  }
 
 }

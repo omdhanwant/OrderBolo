@@ -34,7 +34,7 @@
     "ngx-bootstrap": "^5.6.1",
     "ngx-editor": "^5.0.0-alpha.9",
     "ngx-loading": "^8.0.0",
-    "ngx-slick-carousel": "^0.5.0",
+    "ngx-slick-carousel": "^0.5.1",
     "primeicons": "^4.0.0-rc.1",
     "primeng": "^9.0.6",
     "prosemirror-model": "^1.11.2",

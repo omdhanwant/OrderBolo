@@ -242,6 +242,9 @@ export class DocumentService extends DataService{
   saveFoodLicience(data){
     return this.postData(`${environment.base_url}/v1/food-licience-add`, data);
   }
+  savePrivateCompanyRegistration(data){
+    return this.postData(`${environment.base_url}/v1/priavet-company-registration-add`, data);
+  }
 
   saveUdhyogAadharDocument(data){
     return this.postData(`${environment.base_url}/v1/udyog-adhar-add`, data)

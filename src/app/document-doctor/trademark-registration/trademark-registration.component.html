@@ -1,1 +1,308 @@
-<p>trademark-registration works!</p>
+<div class="container mb-2">
+    <div class="row">
+        <div class="col-md-12">
+            <nav aria-label="breadcrumb no-bg">
+                <ol class="breadcrumb no-bg">
+                    <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+                    <li class="breadcrumb-item"><a routerLink="/document-doctor">Document Doctor</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Trademark Registration</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="container-fluid p-0 text-center mb-2">
+    <img src="https://www.onlinelegalindia.com/services/trademark-registration/image/trademark-banner.png"
+        class="mark text-center p-0">
+</div>
+<div class="form_container">
+    <div class="row">
+        <div class="col-md-12 mb-2">
+            <section class="feature-category">
+                <div class="row pb-3">
+                    <div class="col-md-12">
+                        <h1 class="feature_h1 text-center">Trademark® Registration Online | Quick & Easy Online Process
+                        </h1>
+                        <p class="text-center">No need to visit Trademark Register Office. Easy & quick process of
+                            online TM application by sitting at your place. You can use ™ mark today.</p>
+                        <hr>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="col-md-7">
+            <section class="feature-category description-section box-shadow">
+                <div class="row">
+                    <div class="col-md-12 registration-label">
+                        <h1>Trademark Application Contact Form</h1>
+                        <p>Let's Protect Your Brand Name Legally,
+                            Discuss with Experienced TM Expert</p>
+                    </div>
+                    <div class="col-md-12">
+                        <form #form="ngForm" (ngSubmit)="save(form)">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>Full Name</label>
+                                    <input type="text" name="applicant_name" ngModel #applicant_name="ngModel"
+                                        class="form-control" placeholder="Full Name" required autocomplete="off">
+                                    <div *ngIf="applicant_name.touched && applicant_name.hasError('required')"
+                                        class="invalid-feedback" style="display: inline-block;">
+                                        Full Name is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>Email</label>
+                                    <input type="email" name="email" ngModel #email="ngModel" class="form-control"
+                                        placeholder="Email" required autocomplete="off">
+                                    <div *ngIf="email.touched && email.hasError('required')" class="invalid-feedback"
+                                        style="display: inline-block;">
+                                        Email is required
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="mobile">Mobile Number</label>
+                                    <input type="text" maxlength="10" name="mobile" ngModel #mobile="ngModel"
+                                        class="form-control" placeholder="Mobile Number" required autocomplete="off">
+                                    <div *ngIf="mobile.touched && mobile.hasError('required')" class="invalid-feedback"
+                                        style="display: inline-block;">
+                                        Mobile number is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="mobile">State</label>
+                                    <select class="form-control" name="state" ngModel #state="ngModel" required>
+                                        <option value="">Select State</option>
+                                        <option mytag="1" value="ANDHRA PRADESH">ANDHRA PRADESH</option>
+                                        <option mytag="2" value="ARUNACHAL PRADESH">ARUNACHAL PRADESH</option>
+                                        <option mytag="3" value="ASSAM">ASSAM</option>
+                                        <option mytag="4" value="BIHAR">BIHAR</option>
+                                        <option mytag="5" value="CHANDIGARH">CHANDIGARH</option>
+                                        <option mytag="6" value="CHHATISGARH">CHHATISGARH</option>
+                                        <option mytag="7" value="DADRA AND NAGAR HAVELI">DADRA AND NAGAR HAVELI</option>
+                                        <option mytag="8" value="DAMAN AND DIU">DAMAN AND DIU</option>
+                                        <option mytag="9" value="DELHI">DELHI</option>
+                                        <option mytag="10" value="GOA">GOA</option>
+                                        <option mytag="11" value="GUJARAT">GUJARAT</option>
+                                        <option mytag="12" value="HARYANA">HARYANA</option>
+                                        <option mytag="13" value="HIMACHAL PRADESH">HIMACHAL PRADESH</option>
+                                        <option mytag="14" value="JAMMU AND KASHMIR">JAMMU AND KASHMIR</option>
+                                        <option mytag="15" value="JHARKHAND">JHARKHAND</option>
+                                        <option mytag="16" value="KARNATAKA">KARNATAKA</option>
+                                        <option mytag="17" value="KERALA">KERALA</option>
+                                        <option mytag="18" value="LADAKH">LADAKH</option>
+                                        <option mytag="19" value="LAKSHADWEEP">LAKSHADWEEP</option>
+                                        <option mytag="20" value="MADHYA PRADESH">MADHYA PRADESH</option>
+                                        <option mytag="21" value="MAHARASHTRA">MAHARASHTRA</option>
+                                        <option mytag="22" value="MANIPUR">MANIPUR</option>
+                                        <option mytag="23" value="MEGHALAYA">MEGHALAYA</option>
+                                        <option mytag="24" value="MIZORAM">MIZORAM</option>
+                                        <option mytag="25" value="NAGALAND">NAGALAND</option>
+                                        <option mytag="26" value="ODISHA">ODISHA</option>
+                                        <option mytag="27" value="PONDICHERRY">PONDICHERRY</option>
+                                        <option mytag="28" value="PUNJAB">PUNJAB</option>
+                                        <option mytag="29" value="RAJASTHAN">RAJASTHAN</option>
+                                        <option mytag="30" value="SIKKIM">SIKKIM</option>
+                                        <option mytag="31" value="TAMIL NADU">TAMIL NADU</option>
+                                        <option mytag="32" value="TELANGANA">TELANGANA</option>
+                                        <option mytag="33" value="TRIPURA">TRIPURA</option>
+                                        <option mytag="34" value="UTTAR PRADESH">UTTAR PRADESH</option>
+                                        <option mytag="35" value="UTTARAKHAND">UTTARAKHAND</option>
+                                        <option mytag="36" value="WEST BENGAL">WEST BENGAL</option>
+                                    </select>
+                                    <div *ngIf="state.touched && state.hasError('required')" class="invalid-feedback"
+                                        style="display: inline-block;">
+                                        state is required
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+
+                                <div class="form-group col-md-12" style="display: flex; flex-direction: column;">
+                                    <label for="date">Upload Required Documents</label>
+                                    <input multiple (change)="onFileChange($event)" #upload type="file"
+                                        class="custom-file-input" id="customFile" style="display: none;">
+                                    <button (click)="upload.click()" class="btn upload_button">Browse</button>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div style="display: flex;">
+                                    <div *ngFor="let file of myFiles;let i=index;" class="pill">
+                                        {{ file.name }}
+                                        <mat-icon class="close-icon" (click)="myFiles.splice(i,1)" aria-hidden="false"
+                                            aria-label="Example close icon">close</mat-icon>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button *ngIf="!isVeiwMode" type="submit"
+                                    class="btn btn-primary btn_save">Continue</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <div class="col-md-5">
+            <div class="bd-example" data-example-id="">
+                <div id="accordion" role="tablist" aria-multiselectable="true">
+
+                    <div class="card">
+                        <div class="card-header" role="tab" id="headingOne">
+                            <div class="mb-0">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                                    data-port="collapseOne" aria-expanded="true" aria-controls="collapseOne" class="">
+                                    <h3>Eligibility to form Private Limited Company</h3>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="collapseOne" class="custom_close p-4 show collapse show" role="tabpanel"
+                            aria-labelledby="headingOne" aria-expanded="true" style="">
+                            <div class="card-block">
+                                <img alt="file the registration form" class="trademark-symbol-img"
+                                    src="https://www.onlinelegalindia.com/services/trademark-registration/image/tm.png">
+                                <img alt="make the payment" class="trademark-symbol-img"
+                                    src="https://www.onlinelegalindia.com/services/trademark-registration/image/sm.png">
+                                <img alt="get the call from customers" class="trademark-symbol-img"
+                                    src="https://www.onlinelegalindia.com/services/trademark-registration/image/register.png">
+                                <img alt="upload your documents" class="trademark-symbol-img"
+                                    src="https://www.onlinelegalindia.com/services/trademark-registration/image/Copyright.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" role="tab" id="headingtwo">
+                            <div class="mb-0">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                                    data-port="collapseOne" aria-expanded="true" aria-controls="collapseOne" class="">
+                                    <h3>What is the difference between ™ and ®?</h3>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="collapseOne" class="custom_close p-4 show collapse show" role="tabpanel"
+                            aria-labelledby="headingtwo" aria-expanded="true" style="">
+                            <div class="card-block">
+                                <ul>
+                                    <li class="required-documents">When there is a TM on the brand name or logo, it
+                                        indicates that the trademark application has been filed and the registration is
+                                        under process. An applicant can use the TM beside his brand name or logo once
+                                        the application is filed. He can use it until the registration is done. After
+                                        completion of registration, the TM gets replaced by ® which means the trademark
+                                        registration is completed and it is valid for 10 years.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" role="tab" id="headingThree">
+                            <div class="mb-0">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                                    data-port="collapseOne" aria-expanded="true" aria-controls="collapseOne" class="">
+                                    <h3>Who Can Obtain a Trademark</h3>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="collapseOne" class="custom_close p-4 show collapse show" role="tabpanel"
+                            aria-labelledby="headingThree" aria-expanded="true" style="">
+                            <div class="card-block">
+                                <img alt="individuals" class="who-can-img"
+                                    src="https://www.onlinelegalindia.com/services/trademark-registration/image/who-can-1.png">
+                                <img alt="joint owners" class="who-can-img"
+                                    src="https://www.onlinelegalindia.com/services/trademark-registration/image/who-can-2.png">
+                                <img alt="limited liablity Partnership" class="who-can-img"
+                                    src="https://www.onlinelegalindia.com/services/trademark-registration/image/who-can-3.png">
+                                <img alt="trust or society" class="who-can-img"
+                                    src="https://www.onlinelegalindia.com/services/trademark-registration/image/who-can-4.png">
+                                <img alt="Proprietorship firm" class="who-can-img"
+                                    src="https://www.onlinelegalindia.com/services/trademark-registration/image/who-can-5.png">
+                                <img alt="Partnership firm" class="who-can-img"
+                                    src="https://www.onlinelegalindia.com/services/trademark-registration/image/who-can-6.png">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 mb-3">
+            <h2 style="color: black" class="benifts-heading">Required Documents</h2>
+            <div>
+                <h4 style="color: #888; margin-top: 20px; font-weight: 300; font-size: 16px">Applicant’s / Company
+                    Name</h4>
+                <h4 style="color: #888; margin-top: 10px;font-weight: 300; font-size: 16px">Business Type</h4>
+                <h4 style="color: #888; margin-top: 10px; font-weight: 300; font-size: 16px">Business Details</h4>
+                <h4 style="color: #888; margin-top: 10px; font-weight: 300; font-size: 16px">Brand/logo/slogan name
+                </h4>
+                <h4 style="color: #888; margin-top: 10px; font-weight: 300; margin-bottom: 30px; font-size: 16px">
+                    Office / Business address</h4>
+            </div>
+        </div>
+
+        <div class="col-md-12 mb-3">
+            <h2 style="color: black" class="benifts-heading">Why Online Legal India?</h2>
+            <div>
+                <h4 style="color: #888; margin-top: 20px; font-weight: 300; font-size: 16px">We conduct a thorough
+                    research regarding your TM availability from the Govt.</h4>
+                <h4 style="color: #888; margin-top: 20px;font-weight: 300; font-size: 16px">Authorization letter is
+                    prepared from our side in order to file Trademark registration on your behalf.</h4>
+                <h4 style="color: #888; margin-top: 20px; font-weight: 300; font-size: 16px">We offer the best
+                    services to make sure that our client does not have to face any responsibility of filing
+                    Trademark.</h4>
+                <h4 style="color: #888; margin-top: 20px; font-weight: 300; font-size: 16px">You will be guided on
+                    the classes you have to apply under and we are the one to guide you.</h4>
+                <h4 style="color: #888; margin-top: 20px; font-weight: 300; margin-bottom: 30px; font-size: 16px">We
+                    will provide assistance regarding form fill up with the Registrar.</h4>
+                <h4 style="color: #888; margin-top: 20px; font-weight: 300; margin-bottom: 30px; font-size: 16px">
+                    You will be receiving updates constantly from our side till the registration is completed.</h4>
+                <h4 style="color: #888; margin-top: 20px; font-weight: 300; margin-bottom: 30px; font-size: 16px">We
+                    assure you to protect your brand of products or services.</h4>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-12 mb-3">
+            <h2 style="color: black" class="benifts-heading">Advantages of Registering Trademarks</h2>
+            <div class="col-sm-12 col-md-12">
+                <img alt="exclusive rights" class="advantage-trademark"
+                    src="https://www.onlinelegalindia.com/services/trademark-registration/image/advantage-1.jpg">
+                <img alt="a legal protection" class="advantage-trademark"
+                    src="https://www.onlinelegalindia.com/services/trademark-registration/image/advantage-2.jpg">
+                <img alt="differentiates products" class="advantage-trademark"
+                    src="https://www.onlinelegalindia.com/services/trademark-registration/image/advantage-3.jpg">
+                <img alt="creation of assets" class="advantage-trademark"
+                    src="https://www.onlinelegalindia.com/services/trademark-registration/image/advantage-4.jpg">
+                <img alt="global trademark registration" class="advantage-trademark"
+                    src="https://www.onlinelegalindia.com/services/trademark-registration/image/advantage-5.jpg">
+                <img alt="build trust and goodwill" class="advantage-trademark"
+                    src="https://www.onlinelegalindia.com/services/trademark-registration/image/advantage-6.jpg">
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-12 mb-3">
+            <h2 style="color: black" class="benifts-heading">How We Work?</h2>
+            <div class="col-sm-12 col-md-12">
+                <img alt="file the registration form" class="how-we-work-img"
+                    src="https://www.onlinelegalindia.com/services/trademark-registration/image/how-we-1.png">
+                <img alt="make the payment" class="how-we-work-img"
+                    src="https://www.onlinelegalindia.com/services/trademark-registration/image/how-we-2.png">
+                <img alt="get the call from customers" class="how-we-work-img"
+                    src="https://www.onlinelegalindia.com/services/trademark-registration/image/how-we-3.png">
+                <img alt="upload your documents" class="how-we-work-img"
+                    src="https://www.onlinelegalindia.com/services/trademark-registration/image/how-we-4.png">
+                <img alt="udyog aadhaar application submitted" class="how-we-work-img"
+                    src="https://www.onlinelegalindia.com/services/trademark-registration/image/how-we-5.png">
+                <img alt="congratulations your certificate will be sent to you" class="how-we-work-img"
+                    src="https://www.onlinelegalindia.com/services/trademark-registration/image/how-we-6.png">
+            </div>
+        </div>
+
+    </div>
+    
+</div>
+
+<app-footer></app-footer>

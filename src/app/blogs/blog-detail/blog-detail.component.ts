@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MyAccountService } from 'src/app/service/myaccount.service';
-import { Router } from '@angular/router';
 import { take } from 'rxjs/operators';
 import { Blogs } from 'src/app/models/blogs';
 @Component({

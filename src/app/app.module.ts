@@ -103,6 +103,7 @@ import { PatnersheepDeedNotaryComponent } from './document-doctor/patnersheep-de
 import { PatnersheepDeedRegisteredComponent } from './document-doctor/patnersheep-deed-registered/patnersheep-deed-registered.component';
 import { RentAgreementNotaryComponent } from './document-doctor/rent-agreement-notary/rent-agreement-notary.component';
 import { RentAgreementRegisteredComponent } from './document-doctor/rent-agreement-registered/rent-agreement-registered.component';
+import { LoaderComponent } from './common/loader/loader.component';
 
 
 @NgModule({
@@ -158,7 +159,8 @@ import { RentAgreementRegisteredComponent } from './document-doctor/rent-agreeme
     PatnersheepDeedNotaryComponent,
     PatnersheepDeedRegisteredComponent,
     RentAgreementNotaryComponent,
-    RentAgreementRegisteredComponent
+    RentAgreementRegisteredComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -198,7 +200,7 @@ import { RentAgreementRegisteredComponent } from './document-doctor/rent-agreeme
       ],
     }),
     NgxLoadingModule.forRoot({
-      animationType: ngxLoadingAnimationTypes.circle,
+      animationType: ngxLoadingAnimationTypes.pulse,
       fullScreenBackdrop: true,
       primaryColour: '#000',
       backdropBackgroundColour: 'rgba(172, 166, 166, 0.2)'

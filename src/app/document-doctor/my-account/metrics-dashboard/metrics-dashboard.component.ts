@@ -101,7 +101,7 @@ export class MetricsDashboardComponent implements OnInit, OnDestroy {
   calculateTotalMetrics() {
     this.totalDocuments = Array.from( this.documentsMap.values()).map( docs => docs.length ).reduce((a,b) => a+b);
     this.totalOrders = this.allOrders.length;
-    this.totalPayments  = this.allOrders.map(o => o.amount ).reduce((a,b) => a+b );
+    this.totalPayments  = this.allOrders.map(o => +o.amount ).reduce((a,b) => +a + +b );
     this.totalVendors = this.allUsers.filter(u => u.user_type == constants.VENDOR ).length;
   }
 

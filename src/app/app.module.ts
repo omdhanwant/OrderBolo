@@ -104,6 +104,7 @@ import { PatnersheepDeedRegisteredComponent } from './document-doctor/patnershee
 import { RentAgreementNotaryComponent } from './document-doctor/rent-agreement-notary/rent-agreement-notary.component';
 import { RentAgreementRegisteredComponent } from './document-doctor/rent-agreement-registered/rent-agreement-registered.component';
 import { LoaderComponent } from './common/loader/loader.component';
+import { ServiceCardComponent } from './common/service-card/service-card.component';
 
 
 @NgModule({
@@ -160,7 +161,8 @@ import { LoaderComponent } from './common/loader/loader.component';
     PatnersheepDeedRegisteredComponent,
     RentAgreementNotaryComponent,
     RentAgreementRegisteredComponent,
-    LoaderComponent
+    LoaderComponent,
+    ServiceCardComponent
   ],
   imports: [
     BrowserAnimationsModule,

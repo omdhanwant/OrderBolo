@@ -1,0 +1,18 @@
+<div class="wpb_single_image wpb_content_element vc_align_left">
+  <a [routerLink]="data.route" class="vc_single_image-wrapper   vc_box_border_grey">
+<img width="370" height="246" [src]="data.image" alt="">
+</a>
+</div>
+
+<div class="flat-imagebox services-grid ">
+  <div class="flat-imagebox-inner">
+     <div class="flat-imagebox-header">
+        <h3 class="flat-imagebox-title"> <a [routerLink]="data.route"> {{data.name}} </a></h3>
+     </div>
+     <div class="flat-imagebox-content">
+        <div class="flat-imagebox-desc"> {{data.description}}</div>
+        <div class="flat-imagebox-button"> <a [routerLink]="data.route"> Click Here <i class="fa fa-chevron-right" aria-hidden="true"></i>
+        </a></div>
+     </div>
+  </div>
+</div>

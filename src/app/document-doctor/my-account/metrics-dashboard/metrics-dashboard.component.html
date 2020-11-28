@@ -85,8 +85,8 @@
   <div class="head">Services</div>
 
   <ng-container *ngFor="let service of services">
-    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-6 mb-4">
-      <div class="media block-icon-1-small d-block text-center" [routerLink]="service.route">
+    <div class="col-md-3 col-sm-12 col-xs-12">
+      <!-- <div class="media block-icon-1-small d-block text-center" [routerLink]="service.route">
         <div class="icon mb-3">
           <img [src]="service.image" alt="Image" class="img-fluid" />
         </div>
@@ -94,7 +94,8 @@
           <h5 class="h5 mb-4">{{service.name}}</h5>
           <div>{{service.description}}</div>
         </div>
-      </div>
+      </div> -->
+      <service-card [data]= "service" ></service-card>
     </div>
   </ng-container>
 </div>

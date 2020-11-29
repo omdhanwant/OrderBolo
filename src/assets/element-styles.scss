@@ -180,7 +180,12 @@ body .ui-carousel .ui-carousel-content .ui-carousel-prev, body .ui-carousel .ui-
   box-shadow: 0 15px 30px 0px rgba(0, 0, 0, 0.1);
   height: 282px;
   cursor: pointer;
+  transition: 0.5s;
   // overflow: scroll;
+}
+
+.block-icon-1:hover{
+  transform: scale(1.1);
 }
 
 .block-icon-1 .img-fluid {

@@ -23,9 +23,9 @@
 
         <!-- Preview Image -->
           <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active" *ngFor="let data of getImage(item.data.blog_photo)">
-                <img class="d-block w-100" [src]="data.url" alt="data.url"  width="900" height="300" style="object-fit: cover;">
+            <div class="carousel-inner" >
+              <div class="carousel-item" [ngClass]="{'active' : i == 0}" *ngFor="let data of getImages(item.data.blog_photo); let i = index;" >
+                <img class="d-block w-100" [src]="data.url" alt="data.url"  width="900" height="300" style="object-fit: cover;" (click)="open(i)">
               </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">

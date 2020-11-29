@@ -106,6 +106,7 @@ import { RentAgreementRegisteredComponent } from './document-doctor/rent-agreeme
 import { LoaderComponent } from './common/loader/loader.component';
 import { ServiceCardComponent } from './common/service-card/service-card.component';
 
+import { LightboxModule } from 'ngx-lightbox';
 
 @NgModule({
   declarations: [
@@ -218,7 +219,8 @@ import { ServiceCardComponent } from './common/service-card/service-card.compone
     // MatButtonModule,
     MatIconModule,
     ChartModule,
-    PrimeCarousal
+    PrimeCarousal,
+    LightboxModule
 
   ],
   providers: [

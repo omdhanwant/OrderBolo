@@ -33,6 +33,7 @@
     "ng-otp-input": "^1.7.1",
     "ngx-bootstrap": "^5.6.1",
     "ngx-editor": "^5.0.0-alpha.9",
+    "ngx-lightbox": "^2.2.2",
     "ngx-loading": "^8.0.0",
     "ngx-slick-carousel": "^0.5.1",
     "primeicons": "^4.0.0-rc.1",

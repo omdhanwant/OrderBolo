@@ -8,7 +8,7 @@ import { Blogs } from '../models/blogs';
 @Injectable()
 export class MyAccountService {
   private blogsData$ = new BehaviorSubject<Blogs[]>(null);
-  private blogData$ = new BehaviorSubject<Blogs>(null);
+  private blogData$ = new BehaviorSubject<Blogs[]>(null);
 constructor(private http: HttpClient){}
 
   getBlogs() {
@@ -24,7 +24,7 @@ constructor(private http: HttpClient){}
 
   getBlogById(id) {
     return this.http.get(`${environment.base_url}/v1/blog/${id}`)
-      .pipe(map((response: Blogs) => {
+      .pipe(map((response: Blogs[]) => {
           this.blogData$.next(response);
           return response;
       }))

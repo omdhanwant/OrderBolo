@@ -21,39 +21,44 @@ export class AddBlogComponent implements OnInit {
   @Output() onBackClick = new EventEmitter<boolean>();
   @Output() onSuccess = new EventEmitter<boolean>();
   myFiles:File [] = [];
+  fileUrls: string[] = []
   user_id: number;
   editMode: boolean = false;
-  constructor(private auth: AuthService, private service: DocumentService, private dataService: DataService , private route: Router) { }
+  constructor(private auth: AuthService, private service: DocumentService) { }
 
-  onFileChange(event) {
-    for (var i = 0; i < event.target.files.length; i++) {
-      this.myFiles.push(event.target.files[i]);
-    }
-  }
+  // onFileChange(event) {
+  //   for (var i = 0; i < event.target.files.length; i++) {
+  //     this.myFiles.push(event.target.files[i]);
+
+  //   }
+  // }
 
   ngAfterViewInit() {
     if(this.data) {
       this.editMode = true;
-      let tags = this.data.tags.split(',');
+      let tags = this.data.data.tags.split(',');
+
 
       setTimeout(() => {
         this.form.setValue({
-          title: this.data.title,
+          title: this.data.data.title,
           tags: tags,
-          description: this.data.description
+          description: this.data.data.description
         })
+        this.fileUrls = JSON.parse(this.data.data.blog_photo).map( p => p.url ) as string[];
       },200);
     }
   }
 
 
   ngOnInit(): void {
-    this.auth.peekAuthentication()
-    .pipe(take(1)).subscribe(auth => {
-      if(auth && auth.isAuthenticated){
-        this.user_id = auth.user.id
-        }
-    });
+    // this.auth.peekAuthentication()
+    // .pipe(take(1)).subscribe(auth => {
+    //   if(auth && auth.isAuthenticated){
+    //     this.user_id = auth.user.id
+    //     }
+    // });
+    this.user_id = this.auth.userInfo.id;
 
   }
 
@@ -63,12 +68,13 @@ export class AddBlogComponent implements OnInit {
       formData.append("blog_photo[]", this.myFiles[i]);
     }
       if(this.editMode) {
-        formData.append('id', this.data.id.toString());
+        formData.append('id', this.data.data.id.toString());
       }
       formData.append('title', form.control.get('title').value)
       formData.append('description', form.control.get('description').value)
       formData.append('tags', form.control.get('tags').value)
       this.saveForm(formData);
+      // console.log(this.myFiles);
   }
 
   saveForm(payload) {
@@ -93,6 +99,33 @@ export class AddBlogComponent implements OnInit {
 
   back(){
     this.onBackClick.emit(false);
+  }
+
+  onFileChange(event) {
+    let allFiles = event.target.files;
+    // const preview = document.querySelector('img');
+    // const file = document.querySelector('input[type=file]').files[0];
+    let currentFile = allFiles[allFiles.length - 1];
+    // push all files to myFiles arr
+    for (var i = 0; i < allFiles.length; i++) {
+      this.myFiles.push(allFiles[i]);
+
+    }
+    const context = this;
+    const reader = new FileReader();
+
+    reader.addEventListener("load", () => {
+      // convert image file to base64 string
+      // preview.src = reader.result;
+      if(typeof reader.result === 'string') {
+        context.fileUrls.push(reader.result);
+      }
+
+    }, false);
+
+    if (currentFile) {
+      reader.readAsDataURL(currentFile);
+    }
   }
 
 }

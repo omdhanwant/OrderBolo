@@ -58,9 +58,12 @@
                         </div>
                         <div class="row">
                           <div style="display: flex;">
-                           <div *ngFor="let file of myFiles;let i=index;" class="pill">
+                           <!-- <div *ngFor="let file of myFiles;let i=index;" class="pill">
                              {{ file.name }}
                              <mat-icon class="close-icon" (click)="myFiles.splice(i,1)" aria-hidden="false" aria-label="Example close icon">close</mat-icon>
+                           </div> -->
+                           <div *ngFor="let url of fileUrls">
+                            <img [src]="url" width="100" height="100" class="m-2" style="object-fit: cover;">
                            </div>
                           </div>
                         </div>

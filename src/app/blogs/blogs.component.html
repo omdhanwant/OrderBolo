@@ -1,31 +1,31 @@
 <div style="margin: auto 50px;">
 
-    <div @fadeInTopTrigger *ngIf="Blogs?.length" class="jumbotron p-4 p-md-5 text-white rounded bg-dark main_blog_container" [style.background-image]="'url(' + getImage(Blogs[0].blog_photo) +')'" >
+    <div @fadeInTopTrigger *ngIf="Blogs?.length" class="jumbotron p-4 p-md-5 text-white rounded bg-dark main_blog_container" [style.background-image]="'url(' + getImage(Blogs[0].data.blog_photo) +')'" >
       <div class="text_container">
-        <h1 class="display-4 font-italic">{{ latestBlog.title }}</h1>
+        <h1 class="display-4 font-italic">{{ latestBlog.data.title }}</h1>
         <!-- <p class="lead my-3">{{ latestBlog.description }}</p> -->
-        <p class="lead mb-0"><a routerLink="/blogs/blog/{{latestBlog.id}}" class="text-white font-weight-bold">Continue reading...</a></p>
+        <p class="lead mb-0"><a routerLink="/blogs/blog/{{latestBlog.data.id}}" class="text-white font-weight-bold">Continue reading...</a></p>
       </div>
     </div>
 
     <div class="row mb-2">
         <div @fadeInLeftTrigger class="col-12 col-sm-8 col-md-6 col-lg-3 mb-3" *ngFor="let blog of Blogs">
             <div class="card">
-              <img class="card-img" [src]="getImage(blog.blog_photo)" alt="Bologna">
+              <img class="card-img" [src]="getImage(blog.data.blog_photo)" alt="Bologna">
               <div>
                 <a class="btn btn-light btn-sm">Trending</a>
               </div>
               <div class="card-body">
-                <h4 class="card-title card-text">{{blog.title}}</h4>
+                <h4 class="card-title card-text">{{blog.data.title}}</h4>
                 <small class="text-muted cat">
                   <i class="far fa-clock text-info"></i> 5 Min Reading
                   <!-- <i class="fas fa-users text-info"></i> 4 portions -->
                 </small>
-                <p class="card-text">{{blog.description | slice:0:100}}....</p>
-                <a routerLink="/blogs/blog/{{blog.id}}" class="btn btn-info" style="cursor: pointer;">Read More...</a>
+                <p class="card-text">{{blog.data.description | slice:0:100}}....</p>
+                <a routerLink="/blogs/blog/{{blog.data.id}}" class="btn btn-info" style="cursor: pointer;">Read More...</a>
               </div>
               <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
-                <div class="views">{{blog.created_at | date:'mediumDate'}}
+                <div class="views">{{blog.data.created_at | date:'mediumDate'}}
                 </div>
                 <!-- <div class="stats">
                      <i class="far fa-eye"></i> 1347

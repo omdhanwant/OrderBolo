@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { MyAccountService } from 'src/app/service/myaccount.service';
 import { take } from 'rxjs/operators';
 import { Blogs } from 'src/app/models/blogs';
+import { Lightbox } from 'ngx-lightbox';
 @Component({
   selector: 'app-blog-detail',
   templateUrl: './blog-detail.component.html',
@@ -10,9 +11,10 @@ import { Blogs } from 'src/app/models/blogs';
 })
 export class BlogDetailComponent implements OnInit {
   paramId: string;
-  Blog:Blogs;
+  Blog:Blogs[] = [];
+  private _lightBoxAlbums:any[]= [];
 
-  constructor(private activatedRoute: ActivatedRoute, private service: MyAccountService) {
+  constructor(private activatedRoute: ActivatedRoute, private service: MyAccountService, private _lightbox: Lightbox) {
     this.paramId = this.activatedRoute.snapshot.paramMap.get('id');
   }
 
@@ -23,15 +25,45 @@ export class BlogDetailComponent implements OnInit {
   getBlogById(id){
     this.service.getBlogById(id)
     .pipe(take(1))
-    .subscribe((blogs:Blogs) => {
+    .subscribe((blogs) => {
       console.log(blogs)
       this.Blog = blogs;
+
+      this.fetchLightBoxAlbums(this.Blog[0].data.blog_photo)
     })
   }
-  getImage(image){
-    if(image){
-      return JSON.parse(image);
-    }else null;
+  getImages(photos){
+    if(photos){
+      return JSON.parse(photos);
+    }
+    return [];
+  }
+
+  fetchLightBoxAlbums(photos){
+    let urls = this.getImages(photos);
+    urls.forEach( (url, i) => {
+      const src = url.url;
+      const caption = i + 1
+      const thumb = url.url;
+      const album = {
+         src: src,
+         caption: caption,
+         thumb: thumb
+      };
+
+      this._lightBoxAlbums.push(album);
+      console.log(this._lightBoxAlbums);
+    })
+  }
+
+  open(index: number): void {
+    // open lightbox
+    this._lightbox.open(this._lightBoxAlbums, index);
+  }
+
+  close(): void {
+    // close lightbox programmatically
+    this._lightbox.close();
   }
 
 }

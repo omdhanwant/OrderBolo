@@ -279,6 +279,9 @@ export class DocumentService extends DataService{
   saveBlog(data){
     return this.postData(`${environment.base_url}/v1/blog`, data)
   }
+  updateBlog(data){
+    return this.postData(`${environment.base_url}/v1/blog-update`, data)
+  }
 
   getRequstedDouments(user_id){
     return this.getData(`${environment.base_url}/v1/suggested-documents/${user_id}`)

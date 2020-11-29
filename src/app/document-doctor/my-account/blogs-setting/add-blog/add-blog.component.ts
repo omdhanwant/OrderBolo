@@ -62,6 +62,9 @@ export class AddBlogComponent implements OnInit {
     for (var i = 0; i < this.myFiles.length; i++) {
       formData.append("blog_photo[]", this.myFiles[i]);
     }
+      if(this.editMode) {
+        formData.append('id', this.data.id.toString());
+      }
       formData.append('title', form.control.get('title').value)
       formData.append('description', form.control.get('description').value)
       formData.append('tags', form.control.get('tags').value)
@@ -69,13 +72,24 @@ export class AddBlogComponent implements OnInit {
   }
 
   saveForm(payload) {
-    this.service.saveBlog(payload)
+    if(this.editMode) {
+      this.service.updateBlog(payload)
       .subscribe((response) => {
         // this.route.navigateByUrl('/my-account/blogs-setting')
         this.onSuccess.emit(true);
         this.back()
       })
-  }
+
+    } else {
+      this.service.saveBlog(payload)
+      .subscribe((response) => {
+        // this.route.navigateByUrl('/my-account/blogs-setting')
+        this.onSuccess.emit(true);
+        this.back()
+      })
+
+    }
+     }
 
   back(){
     this.onBackClick.emit(false);

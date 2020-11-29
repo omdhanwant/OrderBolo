@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MyAccountService } from 'src/app/service/myaccount.service';
 import { take } from 'rxjs/operators';
-import { Blogs } from 'src/app/models/blogs';
+import { BlogById, Blogs } from 'src/app/models/blogs';
 import { Lightbox } from 'ngx-lightbox';
 @Component({
   selector: 'app-blog-detail',
@@ -11,7 +11,7 @@ import { Lightbox } from 'ngx-lightbox';
 })
 export class BlogDetailComponent implements OnInit {
   paramId: string;
-  Blog:Blogs[] = [];
+  Blog:BlogById[] = [];
   private _lightBoxAlbums:any[]= [];
 
   constructor(private activatedRoute: ActivatedRoute, private service: MyAccountService, private _lightbox: Lightbox) {

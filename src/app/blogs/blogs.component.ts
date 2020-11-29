@@ -34,8 +34,8 @@ export class BlogsComponent implements OnInit {
 
   getLatestBlog() {
     return this.Blogs.sort((a,b) => {
-      if(a.data.created_at > b.data.created_at) return 1;
-      if(a.data.created_at < b.data.created_at) return -1;
+      if(a.created_at > b.created_at) return 1;
+      if(a.created_at < b.created_at) return -1;
     })[0]
   }
 

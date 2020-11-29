@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
 
     this.blogs.forEach(blog => {
       this.documentsBlogsList.push(
-        {"name": blog.data.title, "redirectUrl" : "/blogs/blog/" + blog.data.id, "category": "Blog"}
+        {"name": blog.title, "redirectUrl" : "/blogs/blog/" + blog.id, "category": "Blog"}
       )
     })
     })

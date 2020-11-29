@@ -3,12 +3,12 @@ import { Injectable } from "@angular/core";
 import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { Blogs } from '../models/blogs';
+import { BlogById, Blogs } from '../models/blogs';
 
 @Injectable()
 export class MyAccountService {
   private blogsData$ = new BehaviorSubject<Blogs[]>(null);
-  private blogData$ = new BehaviorSubject<Blogs[]>(null);
+  private blogData$ = new BehaviorSubject<BlogById[]>(null);
 constructor(private http: HttpClient){}
 
   getBlogs() {
@@ -24,7 +24,7 @@ constructor(private http: HttpClient){}
 
   getBlogById(id) {
     return this.http.get(`${environment.base_url}/v1/blog/${id}`)
-      .pipe(map((response: Blogs[]) => {
+      .pipe(map((response: BlogById[]) => {
           this.blogData$.next(response);
           return response;
       }))

@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { take } from 'rxjs/operators';
-import { Blogs } from 'src/app/models/blogs';
+import { BlogById, Blogs } from 'src/app/models/blogs';
 import { AuthService } from 'src/app/service/auth.service';
 import { DataService } from 'src/app/service/data.service';
 import { DocumentService } from 'src/app/service/document.service';
@@ -36,16 +36,16 @@ export class AddBlogComponent implements OnInit {
   ngAfterViewInit() {
     if(this.data) {
       this.editMode = true;
-      let tags = this.data.data.tags.split(',');
+      let tags = this.data.tags.split(',');
 
 
       setTimeout(() => {
         this.form.setValue({
-          title: this.data.data.title,
+          title: this.data.title,
           tags: tags,
-          description: this.data.data.description
+          description: this.data.description
         })
-        this.fileUrls = JSON.parse(this.data.data.blog_photo).map( p => p.url ) as string[];
+        this.fileUrls = JSON.parse(this.data.blog_photo).map( p => p.url ) as string[];
       },200);
     }
   }
@@ -68,7 +68,7 @@ export class AddBlogComponent implements OnInit {
       formData.append("blog_photo[]", this.myFiles[i]);
     }
       if(this.editMode) {
-        formData.append('id', this.data.data.id.toString());
+        formData.append('id', this.data.id.toString());
       }
       formData.append('title', form.control.get('title').value)
       formData.append('description', form.control.get('description').value)

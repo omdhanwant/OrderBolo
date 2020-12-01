@@ -248,6 +248,9 @@ export class DocumentService extends DataService{
   saveTrademarkRegistration(data){
     return this.postData(`${environment.base_url}/v1/trademark-registration-add`, data);
   }
+  saveITR(data){
+    return this.postData(`${environment.base_url}/v1/itr-add`, data);
+  }
 
   saveUdhyogAadharDocument(data){
     return this.postData(`${environment.base_url}/v1/udyog-adhar-add`, data)

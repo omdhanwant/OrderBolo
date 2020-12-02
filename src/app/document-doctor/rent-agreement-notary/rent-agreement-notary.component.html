@@ -1,3 +1,244 @@
-<p>rent-agreement-notary works!</p>
+<div class="container mb-2">
+    <div class="row">
+        <div class="col-md-12">
+            <nav aria-label="breadcrumb no-bg">
+                <ol class="breadcrumb no-bg">
+                    <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+                    <li class="breadcrumb-item"><a routerLink="/document-doctor">Document Doctor</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Rent Agreement (NOTARY)
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="container-fluid p-0 text-center mb-2">
+    <img src="https://www.indiafilings.com/learn/wp-content/uploads/2020/07/Partnership-Deed-Format-in-India.jpg"
+        class="mark text-center p-0">
+</div>
+<div class="form_container">
+    <div class="row">
+        <div class="col-md-12 mb-2">
+            <section class="feature-category">
+                <div class="row pb-3">
+                    <div class="col-md-12">
+                        <h1 class="feature_h1 text-center">Rent Agreement (NOTARY)</h1>
+                        <hr>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="col-md-6">
+            <section class="feature-category description-section box-shadow">
+                <div class="row">
+                    <div class="col-md-12 registration-label">
+                        <h1>Rent Agreement (NOTARY)</h1>
+                    </div>
+                    <div class="col-md-12">
+                        <form #form="ngForm" (ngSubmit)="save(form)">
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label>Full Name</label>
+                                    <input type="text" name="applicant_name" ngModel #applicant_name="ngModel"
+                                        class="form-control" placeholder="Full Name" required autocomplete="off">
+                                    <div *ngIf="applicant_name.touched && applicant_name.hasError('required')"
+                                        class="invalid-feedback" style="display: inline-block;">
+                                        Full Name is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label>Email</label>
+                                    <input type="email" name="email" ngModel #email="ngModel" class="form-control"
+                                        placeholder="Email" required autocomplete="off">
+                                    <div *ngIf="email.touched && email.hasError('required')" class="invalid-feedback"
+                                        style="display: inline-block;">
+                                        Email is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label>Rent In Rupees</label>
+                                    <input type="text" name="text" ngModel #rent_in_rs="ngModel" class="form-control"
+                                        placeholder="ex 12000" required autocomplete="off">
+                                    <div *ngIf="rent_in_rs.touched && rent_in_rs.hasError('required')"
+                                        class="invalid-feedback" style="display: inline-block;">
+                                        Rent in Rs. is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label>Deposit In Rupees</label>
+                                    <input type="text" name="text" ngModel #deposite_in_rs="ngModel"
+                                        class="form-control" placeholder="ex 40000" required autocomplete="off">
+                                    <div *ngIf="deposite_in_rs.touched && deposite_in_rs.hasError('required')"
+                                        class="invalid-feedback" style="display: inline-block;">
+                                        Deposite in Rs. is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label>Duration (Month)</label>
+                                    <input type="text" name="text" ngModel #duration_in_month="ngModel"
+                                        class="form-control" placeholder="ex 11" required autocomplete="off">
+                                    <div *ngIf="duration_in_month.touched && duration_in_month.hasError('required')"
+                                        class="invalid-feedback" style="display: inline-block;">
+                                        Duration in month is required
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label for="mobile">Mobile Number</label>
+                                    <input type="text" maxlength="10" name="mobile" ngModel #mobile="ngModel"
+                                        class="form-control" placeholder="Mobile Number" required autocomplete="off">
+                                    <div *ngIf="mobile.touched && mobile.hasError('required')" class="invalid-feedback"
+                                        style="display: inline-block;">
+                                        Mobile number is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="mobile">State</label>
+                                    <select class="form-control" name="state" ngModel #state="ngModel" required>
+                                        <option value="">Select State</option>
+                                        <option mytag="1" value="ANDHRA PRADESH">ANDHRA PRADESH</option>
+                                        <option mytag="2" value="ARUNACHAL PRADESH">ARUNACHAL PRADESH</option>
+                                        <option mytag="3" value="ASSAM">ASSAM</option>
+                                        <option mytag="4" value="BIHAR">BIHAR</option>
+                                        <option mytag="5" value="CHANDIGARH">CHANDIGARH</option>
+                                        <option mytag="6" value="CHHATISGARH">CHHATISGARH</option>
+                                        <option mytag="7" value="DADRA AND NAGAR HAVELI">DADRA AND NAGAR HAVELI</option>
+                                        <option mytag="8" value="DAMAN AND DIU">DAMAN AND DIU</option>
+                                        <option mytag="9" value="DELHI">DELHI</option>
+                                        <option mytag="10" value="GOA">GOA</option>
+                                        <option mytag="11" value="GUJARAT">GUJARAT</option>
+                                        <option mytag="12" value="HARYANA">HARYANA</option>
+                                        <option mytag="13" value="HIMACHAL PRADESH">HIMACHAL PRADESH</option>
+                                        <option mytag="14" value="JAMMU AND KASHMIR">JAMMU AND KASHMIR</option>
+                                        <option mytag="15" value="JHARKHAND">JHARKHAND</option>
+                                        <option mytag="16" value="KARNATAKA">KARNATAKA</option>
+                                        <option mytag="17" value="KERALA">KERALA</option>
+                                        <option mytag="18" value="LADAKH">LADAKH</option>
+                                        <option mytag="19" value="LAKSHADWEEP">LAKSHADWEEP</option>
+                                        <option mytag="20" value="MADHYA PRADESH">MADHYA PRADESH</option>
+                                        <option mytag="21" value="MAHARASHTRA">MAHARASHTRA</option>
+                                        <option mytag="22" value="MANIPUR">MANIPUR</option>
+                                        <option mytag="23" value="MEGHALAYA">MEGHALAYA</option>
+                                        <option mytag="24" value="MIZORAM">MIZORAM</option>
+                                        <option mytag="25" value="NAGALAND">NAGALAND</option>
+                                        <option mytag="26" value="ODISHA">ODISHA</option>
+                                        <option mytag="27" value="PONDICHERRY">PONDICHERRY</option>
+                                        <option mytag="28" value="PUNJAB">PUNJAB</option>
+                                        <option mytag="29" value="RAJASTHAN">RAJASTHAN</option>
+                                        <option mytag="30" value="SIKKIM">SIKKIM</option>
+                                        <option mytag="31" value="TAMIL NADU">TAMIL NADU</option>
+                                        <option mytag="32" value="TELANGANA">TELANGANA</option>
+                                        <option mytag="33" value="TRIPURA">TRIPURA</option>
+                                        <option mytag="34" value="UTTAR PRADESH">UTTAR PRADESH</option>
+                                        <option mytag="35" value="UTTARAKHAND">UTTARAKHAND</option>
+                                        <option mytag="36" value="WEST BENGAL">WEST BENGAL</option>
+                                    </select>
+                                    <div *ngIf="state.touched && state.hasError('required')" class="invalid-feedback"
+                                        style="display: inline-block;">
+                                        state is required
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+
+                                <div class="form-group col-md-12" style="display: flex; flex-direction: column;">
+                                    <label for="date">Upload Required Documents</label>
+                                    <input multiple (change)="onFileChange($event)" #upload type="file"
+                                        class="custom-file-input" id="customFile" style="display: none;">
+                                    <button (click)="upload.click()" class="btn upload_button">Browse</button>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div style="display: flex;">
+                                    <div *ngFor="let file of myFiles;let i=index;" class="pill">
+                                        {{ file.name }}
+                                        <mat-icon class="close-icon" (click)="myFiles.splice(i,1)" aria-hidden="false"
+                                            aria-label="Example close icon">close</mat-icon>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button *ngIf="!isVeiwMode" type="submit"
+                                    class="btn btn-primary btn_save">Continue</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <div class="col-md-6">
+            <div class="bd-example" data-example-id="">
+                <div id="accordion" role="tablist" aria-multiselectable="true">
+
+                    <div class="card">
+                        <div class="card-header" role="tab" id="headingOne">
+                            <div class="mb-0">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                                    data-port="collapseOne" aria-expanded="true" aria-controls="collapseOne" class="">
+                                    <h3>WHAT IS A RENTAL AGREEMENT?</h3>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="collapseOne" class="custom_close p-4 show collapse show" role="tabpanel"
+                            aria-labelledby="headingOne" aria-expanded="true" style="">
+                            <div class="card-block">
+                                <p>An owner or a tenant needs to understand what is a rental agreement before giving any
+                                    property on lease.
+                                    A rental agreement which is also known as leave and license agreement, is a type of
+                                    contract which is usually written between the owner of a property and the tenant who
+                                    desires to own the property on temporary possession as distinguished in the
+                                    agreement.
+                                    Usually, the terms and conditions in the lease agreement are similar it may vary as
+                                    per the tenants and owners conditions. The registered rent agreement includes the
+                                    details of the parties, the property, the term of the rental, and the amount of rent
+                                    for the term.
+                                    The owner of the property may be referred to as the “lessor” and the tenant as the
+                                    “lessee”. It is necessary to print the Rental Agreement on the Legal paper, in case
+                                    it is a notarized agreement then it should be printed on the Rs 100/- or Rs 500/-
+                                    stamp paper.
+                                    Online rent agreement has to be paid on the green-colored legal paper.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" role="tab" id="headingtwo">
+                            <div class="mb-0">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                                    data-port="collapseOne" aria-expanded="true" aria-controls="collapseOne" class="">
+                                    <h3>RENTAL AGREEMENT FORM</h3>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="collapseOne" class="custom_close p-4 show collapse show" role="tabpanel"
+                            aria-labelledby="headingtwo" aria-expanded="true" style="">
+                            <div class="card-block">
+                                <p>A rental agreement form includes details of landlord, tenant, rent amount duration
+                                    and rent agreement clauses. One can create the rental agreement from easily on legal
+                                    docs platform if required complex clauses like notice period, lock-in period,
+                                    landlord and tenant responsibilities can be added in the basic house rent agreement
+                                    format. Along with this basic information below mentioned are terms included in the
+                                    rental agreement format.<br>✓ The term of the tenant's occupancy.<br>✓ The rent
+                                    amount the tenant will pay.<br>✓ The amount of the security deposit.<br>✓ Whether
+                                    the tenant may have pets.<br>✓ Whether the parking is available.<br>✓ Whether the
+                                    landlord or the tenant pays for utilities.<br>✓ Whether subletting is allowed.<br>✓
+                                    How many people may live in the rental unit.<br>✓ The reasons the landlord may enter
+                                    the unit.<br>✓ The party responsible for paying the legal fees when a dispute
+                                    arises.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
 
 <app-footer></app-footer>

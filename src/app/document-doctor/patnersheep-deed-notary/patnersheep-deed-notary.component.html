@@ -1,1 +1,214 @@
-<p>patnersheep-deed-notary works!</p>
+<div class="container mb-2">
+    <div class="row">
+        <div class="col-md-12">
+            <nav aria-label="breadcrumb no-bg">
+                <ol class="breadcrumb no-bg">
+                    <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+                    <li class="breadcrumb-item"><a routerLink="/document-doctor">Document Doctor</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">PARTNERSHEEP DEED (NOTARY)
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="container-fluid p-0 text-center mb-2">
+    <img src="https://www.indiafilings.com/learn/wp-content/uploads/2020/07/Partnership-Deed-Format-in-India.jpg"
+        class="mark text-center p-0">
+</div>
+<div class="form_container">
+    <div class="row">
+        <div class="col-md-12 mb-2">
+            <section class="feature-category">
+                <div class="row pb-3">
+                    <div class="col-md-12">
+                        <h1 class="feature_h1 text-center">Partnership Deed</h1>
+                        <p class="text-center">A partnership deed is a written legal document to avoid unnecessary
+                            misunderstanding, harassment and unpleasantness among the partners in the event of any
+                            dispute. For mutual benefit, the registration of Deed of Partnership is made under the
+                            Indian Registration Act, 1908 so as to avoid apprehension of the Deed of partnership being
+                            destroyed or mutilated in the possession of the partners. However, a partnership firm can
+                            also be created without registration under the Indian Registration Act, by just entering
+                            into a deep of Partnership. An instrument of partnership may be constituted by more than one
+                            document, meaning an amendment agreement can be added to a partnership deed at anytime to
+                            change the terms of a Partnership Firm</p>
+                        <hr>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="col-md-6">
+            <section class="feature-category description-section box-shadow">
+                <div class="row">
+                    <div class="col-md-12 registration-label">
+                        <h1>Partnership Deed Form</h1>
+                    </div>
+                    <div class="col-md-12">
+                        <form #form="ngForm" (ngSubmit)="save(form)">
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label>Full Name</label>
+                                    <input type="text" name="applicant_name" ngModel #applicant_name="ngModel"
+                                        class="form-control" placeholder="Full Name" required autocomplete="off">
+                                    <div *ngIf="applicant_name.touched && applicant_name.hasError('required')"
+                                        class="invalid-feedback" style="display: inline-block;">
+                                        Full Name is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label>Email</label>
+                                    <input type="email" name="email" ngModel #email="ngModel" class="form-control"
+                                        placeholder="Email" required autocomplete="off">
+                                    <div *ngIf="email.touched && email.hasError('required')" class="invalid-feedback"
+                                        style="display: inline-block;">
+                                        Email is required
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label for="mobile">Mobile Number</label>
+                                    <input type="text" maxlength="10" name="mobile" ngModel #mobile="ngModel"
+                                        class="form-control" placeholder="Mobile Number" required autocomplete="off">
+                                    <div *ngIf="mobile.touched && mobile.hasError('required')" class="invalid-feedback"
+                                        style="display: inline-block;">
+                                        Mobile number is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="mobile">State</label>
+                                    <select class="form-control" name="state" ngModel #state="ngModel" required>
+                                        <option value="">Select State</option>
+                                        <option mytag="1" value="ANDHRA PRADESH">ANDHRA PRADESH</option>
+                                        <option mytag="2" value="ARUNACHAL PRADESH">ARUNACHAL PRADESH</option>
+                                        <option mytag="3" value="ASSAM">ASSAM</option>
+                                        <option mytag="4" value="BIHAR">BIHAR</option>
+                                        <option mytag="5" value="CHANDIGARH">CHANDIGARH</option>
+                                        <option mytag="6" value="CHHATISGARH">CHHATISGARH</option>
+                                        <option mytag="7" value="DADRA AND NAGAR HAVELI">DADRA AND NAGAR HAVELI</option>
+                                        <option mytag="8" value="DAMAN AND DIU">DAMAN AND DIU</option>
+                                        <option mytag="9" value="DELHI">DELHI</option>
+                                        <option mytag="10" value="GOA">GOA</option>
+                                        <option mytag="11" value="GUJARAT">GUJARAT</option>
+                                        <option mytag="12" value="HARYANA">HARYANA</option>
+                                        <option mytag="13" value="HIMACHAL PRADESH">HIMACHAL PRADESH</option>
+                                        <option mytag="14" value="JAMMU AND KASHMIR">JAMMU AND KASHMIR</option>
+                                        <option mytag="15" value="JHARKHAND">JHARKHAND</option>
+                                        <option mytag="16" value="KARNATAKA">KARNATAKA</option>
+                                        <option mytag="17" value="KERALA">KERALA</option>
+                                        <option mytag="18" value="LADAKH">LADAKH</option>
+                                        <option mytag="19" value="LAKSHADWEEP">LAKSHADWEEP</option>
+                                        <option mytag="20" value="MADHYA PRADESH">MADHYA PRADESH</option>
+                                        <option mytag="21" value="MAHARASHTRA">MAHARASHTRA</option>
+                                        <option mytag="22" value="MANIPUR">MANIPUR</option>
+                                        <option mytag="23" value="MEGHALAYA">MEGHALAYA</option>
+                                        <option mytag="24" value="MIZORAM">MIZORAM</option>
+                                        <option mytag="25" value="NAGALAND">NAGALAND</option>
+                                        <option mytag="26" value="ODISHA">ODISHA</option>
+                                        <option mytag="27" value="PONDICHERRY">PONDICHERRY</option>
+                                        <option mytag="28" value="PUNJAB">PUNJAB</option>
+                                        <option mytag="29" value="RAJASTHAN">RAJASTHAN</option>
+                                        <option mytag="30" value="SIKKIM">SIKKIM</option>
+                                        <option mytag="31" value="TAMIL NADU">TAMIL NADU</option>
+                                        <option mytag="32" value="TELANGANA">TELANGANA</option>
+                                        <option mytag="33" value="TRIPURA">TRIPURA</option>
+                                        <option mytag="34" value="UTTAR PRADESH">UTTAR PRADESH</option>
+                                        <option mytag="35" value="UTTARAKHAND">UTTARAKHAND</option>
+                                        <option mytag="36" value="WEST BENGAL">WEST BENGAL</option>
+                                    </select>
+                                    <div *ngIf="state.touched && state.hasError('required')" class="invalid-feedback"
+                                        style="display: inline-block;">
+                                        state is required
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+
+                                <div class="form-group col-md-12" style="display: flex; flex-direction: column;">
+                                    <label for="date">Upload Required Documents</label>
+                                    <input multiple (change)="onFileChange($event)" #upload type="file"
+                                        class="custom-file-input" id="customFile" style="display: none;">
+                                    <button (click)="upload.click()" class="btn upload_button">Browse</button>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div style="display: flex;">
+                                    <div *ngFor="let file of myFiles;let i=index;" class="pill">
+                                        {{ file.name }}
+                                        <mat-icon class="close-icon" (click)="myFiles.splice(i,1)" aria-hidden="false"
+                                            aria-label="Example close icon">close</mat-icon>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button *ngIf="!isVeiwMode" type="submit"
+                                    class="btn btn-primary btn_save">Continue</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <div class="col-md-6">
+            <div class="bd-example" data-example-id="">
+                <div id="accordion" role="tablist" aria-multiselectable="true">
+
+                    <div class="card">
+                        <div class="card-header" role="tab" id="headingOne">
+                            <div class="mb-0">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                                    data-port="collapseOne" aria-expanded="true" aria-controls="collapseOne" class="">
+                                    <h3>Why Create a Partnership Deed?</h3>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="collapseOne" class="custom_close p-4 show collapse show" role="tabpanel"
+                            aria-labelledby="headingOne" aria-expanded="true" style="">
+                            <div class="card-block">
+                                <p>Partnership Agreements are be used by Partners wishing to form a partnership for
+                                    doing business together. It is strongly recommended or encouraged for partnerships
+                                    to have some kind of agreement among themselves, in case future disputes prove
+                                    difficult to arbitrate. It is meant to promote mutual understanding and avoid
+                                    mistrust. It indicates the terms on which the business corporation is founded.
+
+                                    Also, registration of a Partnership will make the firm eligible for obtaining PAN,
+                                    applying for bank loan, opening bank account in Partnership Firm name, obtaining GST
+                                    registration or IE Code or FSSAI license in partnership firm name and more</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" role="tab" id="headingtwo">
+                            <div class="mb-0">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                                    data-port="collapseOne" aria-expanded="true" aria-controls="collapseOne" class="">
+                                    <h3>Executing a Partnership Deed</h3>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="collapseOne" class="custom_close p-4 show collapse show" role="tabpanel"
+                            aria-labelledby="headingtwo" aria-expanded="true" style="">
+                            <div class="card-block">
+                                <p>Partnership agreement must be printed on a Non-Judicial Stamp Paper with a value of
+                                    Rs.100/- or more based on the value of properties held in the partnership firm. The
+                                    partnership agreement is usually signed in the presence of all the partners and each
+                                    of the partners would retain a signed original for his/her records. Once the
+                                    document is signed by the Partners, the document is witnessed and the signed
+                                    partnership deed is held by each of the Partners is duplicate or triplicate.</p>
+                            </div>
+                        </div>
+                    </div>
+              
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<app-footer></app-footer>

@@ -251,6 +251,18 @@ export class DocumentService extends DataService{
   saveITR(data){
     return this.postData(`${environment.base_url}/v1/itr-add`, data);
   }
+  savePartnershippdeedreg(data){
+    return this.postData(`${environment.base_url}/v1/partnership-deed-reg-add`, data);
+  }
+  savePartnershippdeednotaray(data){
+    return this.postData(`${environment.base_url}/v1/partnership-deed-notary-add`, data);
+  }
+  saveRentAgreementnotaray(data){
+    return this.postData(`${environment.base_url}/v1/rent-agreement-notary-add`, data);
+  }
+  saveRentAgreementRegistered(data){
+    return this.postData(`${environment.base_url}/v1/rent-agreement-reg-add`, data);
+  }
 
   saveUdhyogAadharDocument(data){
     return this.postData(`${environment.base_url}/v1/udyog-adhar-add`, data)

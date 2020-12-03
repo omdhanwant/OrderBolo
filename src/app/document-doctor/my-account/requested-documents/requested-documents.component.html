@@ -37,7 +37,8 @@
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Mobile</th>
-                <th scope="col"></th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -47,9 +48,12 @@
                 <td>{{ doc.name_of_owner }}</td>
                 <td> {{ doc.email }}</td>
                 <td> {{ doc.mobile }}</td>
+                <td>{{ doc.status }}</td>
                 <td>
-                  <div class="row-actions">
-                  <i (click)="showDetails(doc)" class="pi pi-eye"></i>
+                  <div class="row-actions action_column">
+                  <i (click)="showDetails(doc)" class="pi pi-eye mr_5p"></i>
+                  <button (click)="updateStatus(doc, 'COMPLETED')" class='btn btn_action btn-success mr_5p'>Complete</button>
+                  <button (click)="updateStatus(doc, 'CANCELLED')" class='btn btn_action btn-danger mr_5p'>Cancel</button>
                   </div>
                 </td>
               </tr>
@@ -68,7 +72,8 @@
                 <th scope="col">Email</th>
                 <th scope="col">Mobile</th>
                 <th scope="col">Village/City</th>
-                <th scope="col"></th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -79,9 +84,12 @@
                 <td>{{ doc.email }}</td>
                 <td> {{ doc.mobile }}</td>
                 <td> {{ doc.village_or_city }}</td>
+                <td>{{doc.status}}</td>
                 <td>
-                  <div class="row-actions">
-                  <i (click)="showDetails(doc)" class="pi pi-eye"></i>
+                  <div class="row-actions action_column">
+                  <i (click)="showDetails(doc)" class="pi pi-eye mr_5p"></i>
+                  <button (click)="updateStatus(doc, 'COMPLETED')" class='btn btn_action btn-success mr_5p'>Complete</button>
+                  <button (click)="updateStatus(doc, 'CANCELLED')" class='btn btn_action btn-danger mr_5p'>Cancel</button>
                   </div>
                 </td>
               </tr>
@@ -99,7 +107,8 @@
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Mobile</th>
-                <th scope="col"></th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -109,9 +118,12 @@
                 <td>{{ doc.applicant_name }}</td>
                 <td> {{ doc.email }}</td>
                 <td> {{ doc.mobile }}</td>
+                <td>{{doc.status}}</td>
                 <td>
-                  <div class="row-actions">
-                  <i (click)="showDetails(doc)" class="pi pi-eye"></i>
+                  <div class="row-actions action_column">
+                  <i (click)="showDetails(doc)" class="pi pi-eye mr_5p"></i>
+                  <button (click)="updateStatus(doc, 'COMPLETED')" class='btn btn_action btn-success mr_5p'>Complete</button>
+                  <button (click)="updateStatus(doc, 'CANCELLED')" class='btn btn_action btn-danger mr_5p'>Cancel</button>
                   </div>
                 </td>
               </tr>
@@ -129,7 +141,8 @@
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Mobile</th>
-                <th scope="col"></th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -139,9 +152,12 @@
                 <td>{{ doc.applicant_name }}</td>
                 <td>{{ doc.email }}</td>
                 <td> {{ doc.mobile }}</td>
+                <td>{{doc.status}}</td>
                 <td>
-                  <div class="row-actions">
-                  <i (click)="showDetails(doc)" class="pi pi-eye"></i>
+                  <div class="row-actions action_column">
+                  <i (click)="showDetails(doc)" class="pi pi-eye mr_5p"></i>
+                  <button (click)="updateStatus(doc, 'COMPLETED')" class='btn btn_action btn-success mr_5p'>Complete</button>
+                  <button (click)="updateStatus(doc, 'CANCELLED')" class='btn btn_action btn-danger mr_5p'>Cancel</button>
                   </div>
                 </td>
               </tr>
@@ -163,7 +179,8 @@
                 <th scope="col">City</th>
                 <th scope="col">State</th>
                 <th scope="col">No. Of Employee</th>
-                <th scope="col"></th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -176,9 +193,12 @@
                 <td> {{ doc.city }}</td>
                 <td> {{ doc.state }}</td>
                 <td> {{ doc.number_of_employees }}</td>
+                <td> {{ doc.status }} </td>
                 <td>
-                  <div class="row-actions">
-                  <i (click)="showDetails(doc)" class="pi pi-eye"></i>
+                  <div class="row-actions action_column">
+                  <i (click)="showDetails(doc)" class="pi pi-eye mr_5p"></i>
+                  <button (click)="updateStatus(doc, 'COMPLETED')" class='btn btn_action btn-success mr_5p'>Complete</button>
+                  <button (click)="updateStatus(doc, 'CANCELLED')" class='btn btn_action btn-danger mr_5p'>Cancel</button>
                   </div>
                 </td>
               </tr>
@@ -196,7 +216,8 @@
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Mobile</th>
-                <th scope="col"></th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -206,9 +227,12 @@
                 <td>{{ doc.applicant_name }}</td>
                 <td>{{ doc.applicant_email }}</td>
                 <td> {{ doc.mobile }}</td>
+                <td>{{doc.status}}</td>
                 <td>
-                  <div class="row-actions">
-                  <i (click)="showDetails(doc)" class="pi pi-eye"></i>
+                  <div class="row-actions action_column">
+                  <i (click)="showDetails(doc)" class="pi pi-eye mr_5p"></i>
+                  <button (click)="updateStatus(doc, 'COMPLETED')" class='btn btn_action btn-success mr_5p'>Complete</button>
+                  <button (click)="updateStatus(doc, 'CANCELLED')" class='btn btn_action btn-danger mr_5p'>Cancel</button>
                   </div>
                 </td>
               </tr>
@@ -227,7 +251,8 @@
                 <th scope="col">Email</th>
                 <th scope="col">Mobile</th>
                 <th scope="col">City</th>
-                <th scope="col"></th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -238,9 +263,12 @@
                 <td>{{ doc.email }}</td>
                 <td> {{ doc.mobile }}</td>
                 <td> {{ doc.city }}</td>
+                <td>{{doc.status}}</td>
                 <td>
-                  <div class="row-actions">
-                  <i (click)="showDetails(doc)" class="pi pi-eye"></i>
+                  <div class="row-actions action_column">
+                  <i (click)="showDetails(doc)" class="pi pi-eye mr_5p"></i>
+                  <button (click)="updateStatus(doc, 'COMPLETED')" class='btn btn_action btn-success mr_5p'>Complete</button>
+                  <button (click)="updateStatus(doc, 'CANCELLED')" class='btn btn_action btn-danger mr_5p'>Cancel</button>
                   </div>
                 </td>
               </tr>
@@ -261,7 +289,8 @@
                 <th scope="col">Address</th>
                 <th scope="col">City</th>
                 <th scope="col">State</th>
-                <th scope="col"></th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -274,9 +303,12 @@
                 <td> {{ doc.address_line_2 }}</td>
                 <td> {{ doc.city }}</td>
                 <td> {{ doc.state }}</td>
+                <td>{{doc.status}}</td>
                 <td>
-                  <div class="row-actions">
-                  <i (click)="showDetails(doc)" class="pi pi-eye"></i>
+                  <div class="row-actions action_column">
+                  <i (click)="showDetails(doc)" class="pi pi-eye mr_5p"></i>
+                  <button (click)="updateStatus(doc, 'COMPLETED')" class='btn btn_action btn-success mr_5p'>Complete</button>
+                  <button (click)="updateStatus(doc, 'CANCELLED')" class='btn btn_action btn-danger mr_5p'>Cancel</button>
                   </div>
                 </td>
               </tr>
@@ -296,7 +328,8 @@
                 <th scope="col">Mobile</th>
                 <th scope="col">State</th>
                 <th scope="col">Annual Income</th>
-                <th scope="col"></th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -308,9 +341,12 @@
                 <td> {{ doc.mobile }}</td>
                 <td> {{ doc.state }}</td>
                 <td> {{ doc.annual_income }}</td>
+                <td>{{doc.status}}</td>
                 <td>
-                  <div class="row-actions">
-                  <i (click)="showDetails(doc)" class="pi pi-eye"></i>
+                  <div class="row-actions action_column">
+                    <i (click)="showDetails(doc)" class="pi pi-eye mr_5p"></i>
+                    <button (click)="updateStatus(doc, 'COMPLETED')" class='btn btn_action btn-success mr_5p'>Complete</button>
+                    <button (click)="updateStatus(doc, 'CANCELLED')" class='btn btn_action btn-danger mr_5p'>Cancel</button>
                   </div>
                 </td>
               </tr>

@@ -51,6 +51,10 @@ constructor(private http: HttpClient){}
     return this.http.delete(`${environment.base_url}/v1/deleteBlog/${id}`);
   }
 
+  updateDocumentStatus(data) {
+    return this.http.post(`${environment.base_url}/v1/updateStatus`, data);
+  }
+
   refreshBlogsData(){
     this.blogsData$.next(null);
   }

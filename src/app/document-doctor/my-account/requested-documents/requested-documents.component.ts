@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
+import { pipe } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { Users } from 'src/app/models/users';
 import { AuthService } from 'src/app/service/auth.service';
@@ -172,6 +173,28 @@ export class RequestedDocumentsComponent implements OnInit {
           $('#assign_vendor').modal('hide');
           this.reload();
       })
+  }
+
+  updateStatus(doc, status){
+    let document_id = doc.document_id;
+    let document_name = this.selectedDocument;
+    console.log("document_id" + document_id + '  ' + "document_name" + document_name);
+
+    let formData = new FormData();
+    formData.append('form_name', document_name );
+    formData.append('document_id', document_id);
+    formData.append('status', status);
+
+    // formData.forEach(value => {
+    //   console.log(value);
+    // })
+
+
+    this.accountService.updateDocumentStatus(formData)
+    .pipe(take(1))
+    .subscribe( () => {
+      this.reload();
+    })
   }
 
   reload() {

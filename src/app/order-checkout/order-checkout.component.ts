@@ -84,9 +84,9 @@ export class OrderCheckoutComponent implements OnInit {
       key: this.__key,
       amount: this.amount, // amount should be in paise format to display Rs 1255 without decimal point
       currency: 'INR',
-      name: 'vit solutions', // company name or product name
+      name: 'INI8 Group', // company name or product name
       description: '',  // product description
-      image: './assets/logo.png', // company logo or product image
+      image: 'http://documentdoctor.in/assets/logo/logo.png', // company logo or product image
       order_id: orderId, // order_id created by you in backend
       modal: {
         // We should prevent closing of the form when esc key is pressed.

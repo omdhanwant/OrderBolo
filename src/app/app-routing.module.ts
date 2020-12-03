@@ -102,151 +102,151 @@ const routes: Routes = [
         path: 'aadhar-card',
         data: { breadcrumb: 'Aadhar Card' },
         component: AadharCardComponent,
-        canActivate: [AuthGuard]
+
       },
       {
         path: 'gumasta',
         data: { breadcrumb: 'Gumasta' },
         component: GumastaComponent,
-        canActivate: [AuthGuard]
+
       },
       {
         path: 'gst',
         data: { breadcrumb: 'GST' },
         component: GstComponent,
-        canActivate: [AuthGuard]
+
       },
       {
         path: 'udhyog-aadhar',
         data: { breadcrumb: 'Udhyog Aadhar' },
         component: UdyogAadharComponent,
-        canActivate: [AuthGuard]
+
       },
       {
         path: 'ration-card',
         data: { breadcrumb: 'Ration Card' },
         component: RationCardComponent,
-        canActivate: [AuthGuard]
+
       },
       {
         path: 'gazette-certificate',
         data: { breadcrumb: 'Gazette Certificate' },
         component: GazetteCertificateComponent,
-        canActivate: [AuthGuard]
+
       },
       {
         path: 'caste-validity',
         data: { breadcrumb: 'Caste Validity' },
         component: CasteValidityComponent,
-        canActivate: [AuthGuard]
+
       },
       {
         path: 'pan-card',
         data: { breadcrumb: 'Pan Card' },
         component: PanCardComponent,
-        canActivate: [AuthGuard]
+
       },
       {
         path: 'food-licience',
         data: { breadcrumb: 'Food Licience' },
         component: FoodLicienceComponent,
-        canActivate: [AuthGuard]
+
       },
       {
         path: 'others',
         data: { breadcrumb: 'Others' },
         component: OthersComponent,
-        canActivate: [AuthGuard]
+
       },
       {
         path: 'police-verification',
         data: { breadcrumb: 'Police Verification' },
         component: PoliceVerificationComponent,
-        canActivate: [AuthGuard]
+
       },
       {
         path: 'pf-registration',
         data: { breadcrumb: 'PF Registration' },
         component: PfComponent,
-        canActivate: [AuthGuard]
+
       },
       {
         path: 'iec-registration',
         data: { breadcrumb: 'IEC Registration' },
         component: IecComponent,
-        canActivate: [AuthGuard]
+
       },
       {
         path: 'iso-registration',
         data: { breadcrumb: 'ISO Registration' },
         component: IsoComponent,
-        canActivate: [AuthGuard]
+
       },
       {
         path: 'dsc-application',
         data: { breadcrumb: 'DSC Application' },
         component: DscComponent,
-        canActivate: [AuthGuard]
+
       },
       {
         path: 'private-company-registration',
         data: { breadcrumb: 'Pvt. Ltd. Company Registration' },
         component: PrivateCompanyRegistrationComponent,
-        canActivate: [AuthGuard]
+
       },
       {
         path: 'limitted-liability-partnersheep',
         data: { breadcrumb: 'Fast LLP Registration ServicePvt. Ltd. Company Registration' },
         component: LimittedLiabilityPartnersheepComponent,
-        canActivate: [AuthGuard]
+
       },
       {
         path: 'one-person-company',
         data: { breadcrumb: 'One Person Company' },
         component: OnePersonCompanyComponent,
-        canActivate: [AuthGuard]
+
       },
       {
         path: 'nidhi-company-registration',
         data: { breadcrumb: 'NIDHI COMPANY REGISTRATION' },
         component: NidhiCompanyRegistrationComponent,
-        canActivate: [AuthGuard]
+
       },
       {
         path: 'trademark-registration',
         data: { breadcrumb: 'TRADE MARK REGISTRATION' },
         component: TrademarkRegistrationComponent,
-        canActivate: [AuthGuard]
+
       },
       {
         path: 'incometax-return',
         data: { breadcrumb: 'INCOME TAX RETURN' },
         component: IncometaxReturnComponent,
-        canActivate: [AuthGuard]
+
       },
       {
         path: 'patnersheep-deed-notary',
         data: { breadcrumb: 'PARTNERSHEEP DEED (NOTARY)' },
         component: PatnersheepDeedNotaryComponent,
-        canActivate: [AuthGuard]
+
       },
       {
         path: 'patnersheep-deed-registered',
         data: { breadcrumb: 'PARTNERSHEEP DEED (REGISTERED)' },
         component: PatnersheepDeedRegisteredComponent,
-        canActivate: [AuthGuard]
+
       },
       {
         path: 'rent-agreement-registered',
         data: { breadcrumb: 'RENT AGREEMENT (REGISTERED)' },
         component: RentAgreementRegisteredComponent,
-        canActivate: [AuthGuard]
+
       },
       {
         path: 'rent-agreement-notary',
         data: { breadcrumb: 'RENT AGREEMENT (NOTARY)' },
         component: RentAgreementNotaryComponent,
-        canActivate: [AuthGuard]
+
       },
     ]
   },

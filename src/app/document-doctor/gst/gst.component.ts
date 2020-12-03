@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DocumentService } from 'src/app/service/document.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
 import { take } from 'rxjs/operators';
 import { WindowRefService } from 'src/app/rozorpay-service/window-ref.service';
@@ -22,7 +22,7 @@ export class GstComponent implements OnInit {
   user_id: number;
   message: string;
   isVeiwMode = false;
-  constructor(private service: DocumentService, private dataService: DataService, private route: Router, private auth: AuthService, private alert: AlertService) { }
+  constructor(private service: DocumentService, private dataService: DataService, private route: Router, private auth: AuthService, private _route: ActivatedRoute, private alert: AlertService) { }
 
   ngOnInit(): void {
     if(this.service.document) {
@@ -46,13 +46,29 @@ export class GstComponent implements OnInit {
       },1000);
 
     } else {
-      this.auth.peekAuthentication()
-      .pipe(take(1)).subscribe(auth => {
-        if (auth && auth.isAuthenticated) {
-          this.user_id = auth.user.id
-        }
-      });
+      // this.auth.peekAuthentication()
+      // .pipe(take(1)).subscribe(auth => {
+      //   if (auth && auth.isAuthenticated) {
+      //     this.user_id = auth.user.id
+      //   }
+      // });
     }
+
+    this.auth.peekAuthentication()
+    .pipe().subscribe(auth => {
+      if (auth && auth.isAuthenticated) {
+        this.user_id = auth.user.id
+      } else {
+        this.route.navigate([], {
+          relativeTo: this._route,
+          queryParams: {
+            returnUrl: this.route.url
+          },
+          // queryParamsHandling: 'preserve'
+          // skipLocationChange: false
+        });
+      }
+    });
 
   }
 

@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DocumentService } from 'src/app/service/document.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
 import { take } from 'rxjs/operators';
 import { v4 as uuid } from 'uuid';
@@ -22,36 +22,45 @@ export class PatnersheepDeedNotaryComponent implements OnInit {
   message: string;
   isVeiwMode = false;
 
-  constructor(private service: DocumentService, private dataService: DataService, private route: Router, private auth: AuthService, private alert: AlertService) {
-   
+  constructor(private service: DocumentService, private dataService: DataService, private route: Router, private _route: ActivatedRoute, private auth: AuthService, private alert: AlertService) {
+
   }
 
   ngOnInit(): void {
 
-    if(this.service.document) {
-      this.isVeiwMode = true;
-      // this.form.form.disable();
-      const data = {
-      'applicant_name':this.service.document.applicant_name,
-      'mobile':this.service.document.mobile,
-      'email':this.service.document.email,
-      'state':this.service.document.state,
-      }
+    // if(this.service.document) {
+    //   this.isVeiwMode = true;
+    //   // this.form.form.disable();
+    //   const data = {
+    //   'applicant_name':this.service.document.applicant_name,
+    //   'mobile':this.service.document.mobile,
+    //   'email':this.service.document.email,
+    //   'state':this.service.document.state,
+    //   }
 
 
-      setTimeout(() => {
-        this.form.setValue(data);
-        this.form.form.disable();
-      },1000);
+    //   setTimeout(() => {
+    //     this.form.setValue(data);
+    //     this.form.form.disable();
+    //   },1000);
 
-    } else {
+    // } else {
 
-    }
+    // }
 
     this.auth.peekAuthentication()
-      .pipe(take(1)).subscribe(auth => {
+      .pipe().subscribe(auth => {
         if (auth && auth.isAuthenticated) {
           this.user_id = auth.user.id
+        } else {
+          this.route.navigate([], {
+            relativeTo: this._route,
+            queryParams: {
+              returnUrl: this.route.url
+            },
+            // queryParamsHandling: 'preserve'
+            // skipLocationChange: false
+          });
         }
       });
   }

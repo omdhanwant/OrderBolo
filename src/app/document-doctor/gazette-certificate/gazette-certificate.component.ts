@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { GazetteCertificate } from 'src/app/models/documents';
 import { DocumentService } from 'src/app/service/document.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
 import { take } from 'rxjs/operators';
 
@@ -15,13 +15,22 @@ export class GazetteCertificateComponent implements OnInit {
   formData: GazetteCertificate
   user_id:number;
   myFiles: File[] = [];
-  constructor(private service: DocumentService, private route: Router, private auth: AuthService) { }
+  constructor(private service: DocumentService, private route: Router, private _route: ActivatedRoute, private auth: AuthService) { }
 
   ngOnInit(): void {
     this.auth.peekAuthentication()
-    .pipe(take(1)).subscribe(auth => {
-      if(auth && auth.isAuthenticated){
+    .pipe().subscribe(auth => {
+      if (auth && auth.isAuthenticated) {
         this.user_id = auth.user.id
+      } else {
+        this.route.navigate([], {
+          relativeTo: this._route,
+          queryParams: {
+            returnUrl: this.route.url
+          },
+          // queryParamsHandling: 'preserve'
+          // skipLocationChange: false
+        });
       }
     });
   }

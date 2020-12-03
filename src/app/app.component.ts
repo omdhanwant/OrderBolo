@@ -43,14 +43,23 @@ export class AppComponent implements OnInit, OnDestroy {
         this.isRedirectUrl = false;
       }
     })
+
+    // $('#loginmodal').on('hide.bs.modal', function (e) {
+    //   context.isRedirectUrl = false;
+    //   context.router.navigate([], {
+    //     relativeTo: context.activatedRoute,
+    //     queryParams: null,
+    //     skipLocationChange: false
+    //   });
+    // })
   }
 
   openModal(){
-    $('#login-modal').modal('show');
+    $('#loginmodal').modal({backdrop: "static"});
   }
 
   closeModal() {
-    $('#login-modal').modal('hide');
+    $('#loginmodal').modal('hide');
   }
 
 }

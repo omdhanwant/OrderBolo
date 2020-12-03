@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
-import { pipe } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { Users } from 'src/app/models/users';
 import { AuthService } from 'src/app/service/auth.service';
 import { DocumentService } from 'src/app/service/document.service';
 import { MyAccountService } from 'src/app/service/myaccount.service';
 import { UtilService } from 'src/app/service/util.service';
+import * as constant from 'src/app/service/constants';
+
 declare var $;
 
 @Component({
@@ -37,6 +38,7 @@ export class RequestedDocumentsComponent implements OnInit {
   selectedDocumentIds: string[] = [];
   vendorsOptions = [];
   selectedVendor;
+  isCommon = true;
   constructor(private service: DocumentService, private accountService: MyAccountService, private auth: AuthService, private router: Router, private utilService: UtilService) {}
 
   ngOnInit(): void {
@@ -48,6 +50,14 @@ export class RequestedDocumentsComponent implements OnInit {
     this.selectedDocumentIds = [];
     this.vendorsOptions = [];
     this.selectedVendor = null;
+
+    if(this.auth.isAuthenticated()) {
+      if(this.auth.userInfo.userType != constant.VENDOR && this.auth.userInfo.userType != constant.SUPER_ADMIN) {
+        this.isCommon = true;
+      } else {
+        this.isCommon = false;
+      }
+    }
 
     this.service.getRequstedDouments(this.auth.userInfo.id)
       .pipe(take(1))

@@ -58,7 +58,7 @@
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label>Rent In Rupees</label>
-                                    <input type="text" name="text" ngModel #rent_in_rs="ngModel" class="form-control"
+                                    <input type="text" name="rent_in_rs" ngModel #rent_in_rs="ngModel" class="form-control"
                                         placeholder="ex 12000" required autocomplete="off">
                                     <div *ngIf="rent_in_rs.touched && rent_in_rs.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
@@ -67,7 +67,7 @@
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label>Deposit In Rupees</label>
-                                    <input type="text" name="text" ngModel #deposite_in_rs="ngModel"
+                                    <input type="text" name="deposite_in_rs" ngModel #deposite_in_rs="ngModel"
                                         class="form-control" placeholder="ex 40000" required autocomplete="off">
                                     <div *ngIf="deposite_in_rs.touched && deposite_in_rs.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">
@@ -76,7 +76,7 @@
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label>Duration (Month)</label>
-                                    <input type="text" name="text" ngModel #duration_in_month="ngModel"
+                                    <input type="text" name="duration_in_month" ngModel #duration_in_month="ngModel"
                                         class="form-control" placeholder="ex 11" required autocomplete="off">
                                     <div *ngIf="duration_in_month.touched && duration_in_month.hasError('required')"
                                         class="invalid-feedback" style="display: inline-block;">

@@ -1,5 +1,5 @@
 <div style="margin: auto 50px;">
-
+  
     <div @fadeInTopTrigger *ngIf="Blogs?.length" class="jumbotron p-4 p-md-5 text-white rounded bg-dark main_blog_container" [style.background-image]="'url(' + getImage(Blogs[0].blog_photo) +')'" >
       <div class="text_container">
         <h1 class="display-4 font-italic">{{ latestBlog.title }}</h1>

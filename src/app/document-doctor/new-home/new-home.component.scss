@@ -38,3 +38,73 @@
   font-size: 45px!important;
 }
 
+.ui-carousel-content{
+  padding: 0 !important;
+}
+
+.pt-20 {
+  padding-top: 20px;
+}
+.bg_color2 {
+  background: #eff2f7;
+}
+.call_do_action{
+  background-image: url('../../../assets/vendor-home-bg.png');
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.section_sub_title h6 {
+    letter-spacing: 5px;
+    color: var(--main-bg-color);
+    font-size: 16px;
+}
+.text_left .section_main_title h1 {
+  margin: 0;
+  letter-spacing: -1px;
+}
+.section_main_title h1, .section_main_title h2 {
+  font-weight: 800;
+  margin: 0;
+}
+h1 {
+  font-size: 42px;
+}
+.section_main_title h1 span {
+  color: #FF9916;
+  font-size: 42px;
+}
+
+p {
+  font-weight: 400;
+  font-style: normal;
+}
+
+.call_do_action .button.two a {
+  padding: 14px 35px;
+}
+.call_do_action .button a {
+  background: #FF9916;
+  padding: 16px 32px;
+  font-size: 18px;
+  font-weight: 500;
+  display: inline-block;
+  transition: .5s;
+  position: relative;
+  overflow: hidden;
+  z-index: 44;
+  border-radius: 5px;
+  color: #fff;
+}
+.call_do_action .button a:before {
+  position: absolute;
+  content: "";
+  top: 0px;
+  height: 100%;
+  left: -25%;
+  width: 0%;
+  background: #00247E;
+  transform: skew(50deg);
+  transition-duration: .6s;
+  z-index: -1;
+}

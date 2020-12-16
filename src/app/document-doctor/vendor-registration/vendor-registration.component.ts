@@ -31,6 +31,12 @@ export class VendorRegistrationComponent implements OnInit {
     formData.append('pin_code', form.control.get('pin_code').value)
     formData.append('address', form.control.get('address').value)
     formData.append('mobile', form.control.get('mobile').value)
+    formData.append('location', form.control.get('location').value)
+    formData.append('block', form.control.get('block').value)
+    formData.append('state', form.control.get('state').value)
+    formData.append('shop_name', form.control.get('shop_name').value)
+    formData.append('aadhar_number', form.control.get('aadhar_number').value)
+    formData.append('pan_number', form.control.get('pan_number').value)
     formData.append('user_type', 'vendor')
 
     this.saveForm(formData,form);

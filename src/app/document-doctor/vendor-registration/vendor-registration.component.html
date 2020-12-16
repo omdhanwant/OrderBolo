@@ -1,90 +1,150 @@
 <div class="row p-4">
   <p class="text-center font-weight-bold">VENDOR REGISTRATION
     <!-- <span (click)="closeModal(form)" class="close">X</span> -->
-    <mat-icon aria-hidden="false" aria-label="Example close icon" (click)="closeModal(form)" class="close">close</mat-icon>
+    <mat-icon aria-hidden="false" aria-label="Example close icon" (click)="closeModal(form)" class="close">close
+    </mat-icon>
   </p>
 
   <div class="col-md-12">
     <section class="feature-category">
-        <div class="row">
-            <div class="col-md-12">
-                <form #form="ngForm" (ngSubmit)="save(form)">
-                  <div class="">
-                  <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label>Full Name</label>
-                            <input type="text" name="name" ngModel #name="ngModel" class="form-control" placeholder="Full Name" required autocomplete="off">
-                            <div *ngIf="name.touched && name.hasError('required')" class="invalid-feedback" style="display: inline-block;">
-                              Full Name is required
-                            </div>
-                        </div>
-
-                        <div class="form-group col-md-6">
-                          <label for="inputEmail4">Email</label>
-                          <input name="email" ngModel #email="ngModel"  type="email" class="form-control"  placeholder="Email" required autocomplete="off">
-                          <div *ngIf="email.touched && email.hasError('required')" class="invalid-feedback" style="display: inline-block;">
-                            Email is required
-                          </div>
-                      </div>
-
-                    </div>
-                    <div class="form-row">
-                      <div class="form-group col-md-6">
-                        <label for="date">Birth Date</label>
-                        <input type="text" name="dob" ngModel #dob="ngModel" placeholder="Select Birth Date" class="form-control" bsDatepicker [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY', containerClass: 'theme-default' }" required autocomplete="off">
-                        <div *ngIf="dob.touched && dob.hasError('required')" class="invalid-feedback" style="display: inline-block;">
-                          Birth Date is required
-                        </div>
-                    </div>
-
-                        <div class="form-group col-md-6">
-                            <label for="mobile">Mobile Number</label>
-                            <input type="text" maxlength="10" name="mobile" ngModel #mobile="ngModel" class="form-control" placeholder="Mobile Number" required autocomplete="off">
-                            <div *ngIf="mobile.touched && mobile.hasError('required')" class="invalid-feedback" style="display: inline-block;">
-                              Mobile number is required
-                            </div>
-                        </div>
-
-
-                        <div class="form-group col-md-6">
-                          <label for="address">Full Address</label>
-                          <!-- <input type="text" name="address" ngModel #address="ngModel"  class="form-control" id="inputZip" placeholder="Apartment, studio, or floor" required autocomplete="off"> -->
-                          <!-- <textarea name="address" style="height: 100px!important;" ngModel #address="ngModel" class="form-control"  maxlength="255" placeholder="Apartment, studio, or floor" required></textarea> -->
-                          <input type="text" name="address" ngModel #address="ngModel" maxlength="255" class="form-control" id="inputZip" placeholder="Apartment, studio, or floor" required autocomplete="off">
-                          <!-- <textarea name="address" style="height: 100px!important;" ngModel #address="ngModel" class="form-control"  maxlength="255" placeholder="Apartment, studio, or floor" required></textarea> -->
-                          <div *ngIf="address.touched && address.hasError('required')" class="invalid-feedback" style="display: inline-block;">
-                            Address is required
-                          </div>
-                      </div>
-                        <div class="form-group col-md-6">
-                          <label for="pin">Pin Code</label>
-                          <input type="text" name="pin_code" ngModel #pin_code="ngModel" maxlength="6" class="form-control" id="inputZip" placeholder="Pin Code" required autocomplete="off">
-                          <div *ngIf="pin_code.touched && pin_code.hasError('required')" class="invalid-feedback" style="display: inline-block;">
-                            Pincode is required
-                          </div>
-                      </div>
-                      <!-- <div class="form-group col-md-6">
-                        <label for="pin">City</label>
-                        <input type="text" name="city" ngModel #city="ngModel" class="form-control" id="inputZip" placeholder="City" required autocomplete="off">
-                        <div *ngIf="city.touched && city.hasError('required')" class="invalid-feedback" style="display: inline-block;">
-                          City is required
-                        </div>
-                    </div>
-                    <div class="form-group col-md-6">
-                      <label for="pin">State</label>
-                      <input type="text" name="state" ngModel #state="ngModel" maxlength="6" class="form-control" id="inputZip" placeholder="State" required autocomplete="off">
-                      <div *ngIf="state.touched && state.hasError('required')" class="invalid-feedback" style="display: inline-block;">
-                        State is required
-                      </div>
-                  </div> -->
-                    </div>
+      <div class="row">
+        <div class="col-md-12">
+          <form #form="ngForm" (ngSubmit)="save(form)">
+            <div class="">
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  <label>Full Name</label>
+                  <input type="text" name="name" ngModel #name="ngModel" class="form-control" placeholder="Full Name"
+                    required autocomplete="off">
+                  <div *ngIf="name.touched && name.hasError('required')" class="invalid-feedback"
+                    style="display: inline-block;">
+                    Full Name is required
                   </div>
-                    <div class="text-center">
-                      <button type="submit" class="btn btn-primary btn-black w-25">Register</button>
-                    </div>
-                </form>
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label for="inputEmail4">Email</label>
+                  <input name="email" ngModel #email="ngModel" type="email" class="form-control" placeholder="Email"
+                    required autocomplete="off">
+                  <div *ngIf="email.touched && email.hasError('required')" class="invalid-feedback"
+                    style="display: inline-block;">
+                    Email is required
+                  </div>
+                </div>
+                
+                <div class="form-group col-md-4">
+                  <label for="pin">Pin Code</label>
+                  <input type="text" name="pin_code" ngModel #pin_code="ngModel" maxlength="6" class="form-control"
+                    id="inputZip" placeholder="Pin Code" required autocomplete="off">
+                  <div *ngIf="pin_code.touched && pin_code.hasError('required')" class="invalid-feedback"
+                    style="display: inline-block;">
+                    Pincode is required
+                  </div>
+                </div>
+
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  <label for="date">Birth Date</label>
+                  <input type="text" name="dob" ngModel #dob="ngModel" placeholder="Select Birth Date"
+                    class="form-control" bsDatepicker
+                    [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY', containerClass: 'theme-default' }" required
+                    autocomplete="off">
+                  <div *ngIf="dob.touched && dob.hasError('required')" class="invalid-feedback"
+                    style="display: inline-block;">
+                    Birth Date is required
+                  </div>
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label for="mobile">Mobile Number</label>
+                  <input type="text" maxlength="10" name="mobile" ngModel #mobile="ngModel" class="form-control"
+                    placeholder="Mobile Number" required autocomplete="off">
+                  <div *ngIf="mobile.touched && mobile.hasError('required')" class="invalid-feedback"
+                    style="display: inline-block;">
+                    Mobile number is required
+                  </div>
+                </div>
+
+
+                <div class="form-group col-md-4">
+                  <label for="address">Full Address</label>
+                  <input type="text" name="address" ngModel #address="ngModel" maxlength="255" class="form-control"
+                    id="inputZip" placeholder="Apartment, studio, or floor" required autocomplete="off">
+                  <div *ngIf="address.touched && address.hasError('required')" class="invalid-feedback"
+                    style="display: inline-block;">
+                    Address is required
+                  </div>
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label for="address">Location</label>
+                  <input type="text" name="location" ngModel #location="ngModel" maxlength="255" class="form-control"
+                    id="inputZip" placeholder="Apartment, studio, or floor" required autocomplete="off">
+                  <div *ngIf="location.touched && location.hasError('required')" class="invalid-feedback"
+                    style="display: inline-block;">
+                    location is required
+                  </div>
+                </div>
+                
+                <div class="form-group col-md-4">
+                  <label for="address">Block</label>
+                  <input type="text" name="block" ngModel #block="ngModel" maxlength="255" class="form-control"
+                    id="inputZip" placeholder="Apartment, studio, or floor" required autocomplete="off">
+                  <div *ngIf="block.touched && block.hasError('required')" class="invalid-feedback"
+                    style="display: inline-block;">
+                    block is required
+                  </div>
+                </div>
+                
+                <div class="form-group col-md-4">
+                  <label for="address">State</label>
+                  <input type="text" name="state" ngModel #state="ngModel" maxlength="255" class="form-control"
+                    id="inputZip" placeholder="Apartment, studio, or floor" required autocomplete="off">
+                  <div *ngIf="state.touched && state.hasError('required')" class="invalid-feedback"
+                    style="display: inline-block;">
+                    state is required
+                  </div>
+                </div>
+                
+                <div class="form-group col-md-4">
+                  <label for="address">Shop Name</label>
+                  <input type="text" name="shop_name" ngModel #shop_name="ngModel" maxlength="255" class="form-control"
+                    id="inputZip" placeholder="Apartment, studio, or floor" required autocomplete="off">
+                  <div *ngIf="shop_name.touched && shop_name.hasError('required')" class="invalid-feedback"
+                    style="display: inline-block;">
+                    Shop Name is required
+                  </div>
+                </div>
+               
+                <div class="form-group col-md-4">
+                  <label for="address">Aadhar Number</label>
+                  <input type="text" name="aadhar_number" ngModel #aadhar_number="ngModel" maxlength="255" class="form-control"
+                    id="inputZip" placeholder="Apartment, studio, or floor" required autocomplete="off">
+                  <div *ngIf="aadhar_number.touched && aadhar_number.hasError('required')" class="invalid-feedback"
+                    style="display: inline-block;">
+                    Aadhar Number is required
+                  </div>
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label for="address">Pan Number</label>
+                  <input type="text" name="pan_number" ngModel #pan_number="ngModel" maxlength="255" class="form-control"
+                    id="inputZip" placeholder="Apartment, studio, or floor" required autocomplete="off">
+                  <div *ngIf="pan_number.touched && pan_number.hasError('required')" class="invalid-feedback"
+                    style="display: inline-block;">
+                    pan Number is required
+                  </div>
+                </div>
+                
+              </div>
             </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary btn-black w-25">Register</button>
+            </div>
+          </form>
         </div>
+      </div>
     </section>
-</div>
+  </div>
 </div>

@@ -43,6 +43,7 @@ import { PatnersheepDeedNotaryComponent } from './document-doctor/patnersheep-de
 import { PatnersheepDeedRegisteredComponent } from './document-doctor/patnersheep-deed-registered/patnersheep-deed-registered.component';
 import { RentAgreementRegisteredComponent } from './document-doctor/rent-agreement-registered/rent-agreement-registered.component';
 import { RentAgreementNotaryComponent } from './document-doctor/rent-agreement-notary/rent-agreement-notary.component';
+import { SettingsComponent } from './document-doctor/my-account/settings/settings.component';
 
 
 // const routes: Routes = [];
@@ -283,6 +284,11 @@ const routes: Routes = [
       {
         path: 'my-orders',
         component: MyOrdersComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'settings',
+        component: SettingsComponent,
         canActivate: [AuthGuard]
       }
     ]

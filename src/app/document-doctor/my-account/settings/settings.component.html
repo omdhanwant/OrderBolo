@@ -1,0 +1,108 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form #form="ngForm" (ngSubmit)="save(form)">
+                <section class="feature-category">
+                    <div class="row myacc_form_container">
+                        <div class="col-md-12">
+                            <h2>Basic Data</h2>
+                            <button type="submit" class="btn btn-primary mt-n5 pull-right">Update</button>
+                            <hr>
+                        </div>
+                        <div class="col-md-12 p-3">
+                            <div class="form-row">
+                                <div class="form-group col-md-4 p-0" style="display: flex; flex-direction: column;">
+                                    <label for="date">Logo</label>
+                                    <input (change)="onFileSelect($event)" #upload type="file" class="custom-file-input"
+                                        id="customFile" style="display: none;">
+                                    <button type="button" (click)="upload.click()"
+                                        class="btn upload_button">Browse</button>
+                                </div>
+                                <div class="form-group col-md-8">
+                                    <div *ngIf="imageUrl" class="mb-3" style="display: flex;">
+                                        <img [src]="imageUrl" alt="Avatar" class="avatar" width="50">
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="mobile">Mobile Number</label>
+                                    <input type="text" maxlength="10" name="mobile" ngModel #mobile="ngModel"
+                                        class="form-control" placeholder="Mobile Number" required autocomplete="off">
+                                    <div *ngIf="mobile.touched && mobile.hasError('required')" class="invalid-feedback"
+                                        style="display: inline-block;">
+                                        Mobile number is required
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label for="inputEmail4">Email</label>
+                                    <input name="email" ngModel #email="ngModel" type="email" class="form-control"
+                                        placeholder="Email" required autocomplete="off">
+                                    <div *ngIf="email.touched && email.hasError('required')" class="invalid-feedback"
+                                        style="display: inline-block;">
+                                        Email is required
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6 p-0" style="display: flex; flex-direction: column;">
+                                <label for="date">Banner Images</label>
+                                <input (change)="onFileSelect($event)" #upload type="file" class="custom-file-input"
+                                    id="customFile" style="display: none;">
+                                <button type="button" (click)="upload.click()" class="btn upload_button">Browse</button>
+                            </div>
+
+                            <div *ngIf="imageFile" class="row">
+                                <div style="display: flex;">
+                                    <div class="pill">
+                                        {{ imageFile.name }}
+                                        <mat-icon class="close-icon" (click)="imageFile = null;" aria-hidden="false"
+                                            aria-label="Example close icon">close</mat-icon>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                        <div class="col-md-12">
+                            <h2>Services Fees</h2>
+                            <hr>
+                        </div>
+                        
+                        <div class="col-md-12 p-3">
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="mobile">Udyog Aadhar</label>
+                                    <input type="text" maxlength="10" name="mobile" ngModel #mobile="ngModel"
+                                        class="form-control" placeholder="Udyog Aadhar" required autocomplete="off">
+                                    <div *ngIf="mobile.touched && mobile.hasError('required')" class="invalid-feedback"
+                                        style="display: inline-block;">
+                                        Udyog Aadhar is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="Food Licience">Food Licience</label>
+                                    <input type="text" name="foodlicience" ngModel #mobile="ngModel"
+                                        class="form-control" placeholder="Food Licience" required autocomplete="off">
+                                    <div *ngIf="foodlicience.touched && foodlicience.hasError('required')" class="invalid-feedback"
+                                        style="display: inline-block;">
+                                        Food Licience is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="Food Licience">Food Licience</label>
+                                    <input type="text" name="foodlicience" ngModel #mobile="ngModel"
+                                        class="form-control" placeholder="Food Licience" required autocomplete="off">
+                                    <div *ngIf="foodlicience.touched && foodlicience.hasError('required')" class="invalid-feedback"
+                                        style="display: inline-block;">
+                                        Food Licience is required
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+            </form>
+        </div>
+    </div>
+</div>

@@ -107,6 +107,7 @@ import { LoaderComponent } from './common/loader/loader.component';
 import { ServiceCardComponent } from './common/service-card/service-card.component';
 
 import { LightboxModule } from 'ngx-lightbox';
+import { SettingsComponent } from './document-doctor/my-account/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -163,7 +164,8 @@ import { LightboxModule } from 'ngx-lightbox';
     RentAgreementNotaryComponent,
     RentAgreementRegisteredComponent,
     LoaderComponent,
-    ServiceCardComponent
+    ServiceCardComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserAnimationsModule,

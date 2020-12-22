@@ -19,8 +19,8 @@
                                         class="btn upload_button">Browse</button>
                                 </div>
                                 <div class="form-group col-md-8">
-                                    <div *ngIf="imageUrl" class="mb-3" style="display: flex;">
-                                        <img [src]="imageUrl" alt="Avatar" class="avatar" width="50">
+                                    <div *ngIf="logoFile" class="mb-3" style="display: flex;">
+                                        <img [src]="logoFile" alt="Avatar" class="avatar" width="50">
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
@@ -46,16 +46,16 @@
 
                             <div class="form-group col-md-6 p-0" style="display: flex; flex-direction: column;">
                                 <label for="date">Banner Images</label>
-                                <input (change)="onFileSelect($event)" #upload type="file" class="custom-file-input"
-                                    id="customFile" style="display: none;">
-                                <button type="button" (click)="upload.click()" class="btn upload_button">Browse</button>
+                                <input (change)="onBannerFileSelect($event)" #upload2 type="file" class="custom-file-input"
+                                    id="customFile2" style="display: none;">
+                                <button type="button" (click)="upload2.click()" class="btn upload_button">Browse</button>
                             </div>
 
-                            <div *ngIf="imageFile" class="row">
+                            <div *ngIf="bannerFile" class="row">
                                 <div style="display: flex;">
                                     <div class="pill">
-                                        {{ imageFile.name }}
-                                        <mat-icon class="close-icon" (click)="imageFile = null;" aria-hidden="false"
+                                        {{ bannerFile.name }}
+                                        <mat-icon class="close-icon" (click)="bannerFile = null;" aria-hidden="false"
                                             aria-label="Example close icon">close</mat-icon>
                                     </div>
                                 </div>
@@ -72,162 +72,162 @@
                             <div class="form-row">
                                 <div class="form-group col-md-3">
                                     <label for="mobile">Udyog Aadhar</label>
-                                    <input type="text" maxlength="10" name="mobile" ngModel #mobile="ngModel"
+                                    <input type="text" name="udyog_aadhar_fee" ngModel #udyog_aadhar_fee="ngModel"
                                         class="form-control" placeholder="Udyog Aadhar" required autocomplete="off">
-                                    <div *ngIf="mobile.touched && mobile.hasError('required')" class="invalid-feedback"
+                                    <div *ngIf="udyog_aadhar_fee.touched && udyog_aadhar_fee.hasError('required')" class="invalid-feedback"
                                         style="display: inline-block;">
                                         Udyog Aadhar is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="mobile">Food Licience</label>
-                                    <input type="text" maxlength="10" name="mobile" ngModel #mobile="ngModel"
+                                    <input type="text" name="food_licience_fee" ngModel #food_licience_fee="ngModel"
                                         class="form-control" placeholder="Food Licience" required autocomplete="off">
-                                    <div *ngIf="mobile.touched && mobile.hasError('required')" class="invalid-feedback"
+                                    <div *ngIf="food_licience_fee.touched && food_licience_fee.hasError('required')" class="invalid-feedback"
                                         style="display: inline-block;">
                                         Food Licience is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="mobile">Gumasta</label>
-                                    <input type="text" maxlength="10" name="mobile" ngModel #mobile="ngModel"
+                                    <input type="text" name="gumasta_fee" ngModel #gumasta_fee="ngModel"
                                         class="form-control" placeholder="Gumasta" required autocomplete="off">
-                                    <div *ngIf="mobile.touched && mobile.hasError('required')" class="invalid-feedback"
+                                    <div *ngIf="gumasta_fee.touched && gumasta_fee.hasError('required')" class="invalid-feedback"
                                         style="display: inline-block;">
                                         Gumasta is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="mobile">GST</label>
-                                    <input type="text" maxlength="10" name="mobile" ngModel #mobile="ngModel"
+                                    <input type="text" name="gst_fee" ngModel #gst_fee="ngModel"
                                         class="form-control" placeholder="GST" required autocomplete="off">
-                                    <div *ngIf="mobile.touched && mobile.hasError('required')" class="invalid-feedback"
+                                    <div *ngIf="gst_fee.touched && gst_fee.hasError('required')" class="invalid-feedback"
                                         style="display: inline-block;">
                                         GST is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="mobile">Digital Signature</label>
-                                    <input type="text" maxlength="10" name="mobile" ngModel #mobile="ngModel"
+                                    <input type="text" name="digital_signature_fee" ngModel #digital_signature_fee="ngModel"
                                         class="form-control" placeholder="Digital Signature" required autocomplete="off">
-                                    <div *ngIf="mobile.touched && mobile.hasError('required')" class="invalid-feedback"
+                                    <div *ngIf="digital_signature_fee.touched && digital_signature_fee.hasError('required')" class="invalid-feedback"
                                         style="display: inline-block;">
                                         Digital Signature is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="mobile">ISP Registration</label>
-                                    <input type="text" maxlength="10" name="mobile" ngModel #mobile="ngModel"
-                                        class="form-control" placeholder="ISP Registration" required autocomplete="off">
-                                    <div *ngIf="mobile.touched && mobile.hasError('required')" class="invalid-feedback"
+                                    <label for="mobile">ISO Registration</label>
+                                    <input type="text" name="iso_fee" ngModel #iso_fee="ngModel"
+                                        class="form-control" placeholder="ISO Registration" required autocomplete="off">
+                                    <div *ngIf="iso_fee.touched && iso_fee.hasError('required')" class="invalid-feedback"
                                         style="display: inline-block;">
-                                        ISP Registration is required
+                                        ISO Registration is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="mobile">PF</label>
-                                    <input type="text" maxlength="10" name="mobile" ngModel #mobile="ngModel"
+                                    <input type="text" name="pf_fee" ngModel #pf_fee="ngModel"
                                         class="form-control" placeholder="PF" required autocomplete="off">
-                                    <div *ngIf="mobile.touched && mobile.hasError('required')" class="invalid-feedback"
+                                    <div *ngIf="pf_fee.touched && pf_fee.hasError('required')" class="invalid-feedback"
                                         style="display: inline-block;">
                                         PF is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="mobile">IEC</label>
-                                    <input type="text" maxlength="10" name="mobile" ngModel #mobile="ngModel"
+                                    <input type="text" name="iec_fee" ngModel #iec_fee="ngModel"
                                         class="form-control" placeholder="IEC" required autocomplete="off">
-                                    <div *ngIf="mobile.touched && mobile.hasError('required')" class="invalid-feedback"
+                                    <div *ngIf="iec_fee.touched && iec_fee.hasError('required')" class="invalid-feedback"
                                         style="display: inline-block;">
                                         IEC is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="mobile">Private Limmitted Company</label>
-                                    <input type="text" maxlength="10" name="mobile" ngModel #mobile="ngModel"
+                                    <input type="text" name="private_limitted_company_fee" ngModel #private_limitted_company_fee="ngModel"
                                         class="form-control" placeholder="Private Limmitted Company" required autocomplete="off">
-                                    <div *ngIf="mobile.touched && mobile.hasError('required')" class="invalid-feedback"
+                                    <div *ngIf="private_limitted_company_fee.touched && private_limitted_company_fee.hasError('required')" class="invalid-feedback"
                                         style="display: inline-block;">
                                         Private Limmitted Company is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="mobile">LLP</label>
-                                    <input type="text" maxlength="10" name="mobile" ngModel #mobile="ngModel"
+                                    <input type="text" name="llp_fee" ngModel #llp_fee="ngModel"
                                         class="form-control" placeholder="LLP" required autocomplete="off">
-                                    <div *ngIf="mobile.touched && mobile.hasError('required')" class="invalid-feedback"
+                                    <div *ngIf="llp_fee.touched && llp_fee.hasError('required')" class="invalid-feedback"
                                         style="display: inline-block;">
                                         LLP is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="mobile">One Person Company</label>
-                                    <input type="text" maxlength="10" name="mobile" ngModel #mobile="ngModel"
+                                    <input type="text" name="one_person_company_fee" ngModel #one_person_company_fee="ngModel"
                                         class="form-control" placeholder="One Person Company" required autocomplete="off">
-                                    <div *ngIf="mobile.touched && mobile.hasError('required')" class="invalid-feedback"
+                                    <div *ngIf="one_person_company_fee.touched && one_person_company_fee.hasError('required')" class="invalid-feedback"
                                         style="display: inline-block;">
                                         One Person Company is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="mobile">Nidhi Company Registration</label>
-                                    <input type="text" maxlength="10" name="mobile" ngModel #mobile="ngModel"
+                                    <input type="text" name="nidhi_company_registration_fee" ngModel #nidhi_company_registration_fee="ngModel"
                                         class="form-control" placeholder="Nidhi Company Registration" required autocomplete="off">
-                                    <div *ngIf="mobile.touched && mobile.hasError('required')" class="invalid-feedback"
+                                    <div *ngIf="nidhi_company_registration_fee.touched && nidhi_company_registration_fee.hasError('required')" class="invalid-feedback"
                                         style="display: inline-block;">
                                         Nidhi Company Registration is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="mobile">Trademark Registration</label>
-                                    <input type="text" maxlength="10" name="mobile" ngModel #mobile="ngModel"
+                                    <input type="text" name="trademark_registration_fee" ngModel #trademark_registration_fee="ngModel"
                                         class="form-control" placeholder="Trademark Registration" required autocomplete="off">
-                                    <div *ngIf="mobile.touched && mobile.hasError('required')" class="invalid-feedback"
+                                    <div *ngIf="trademark_registration_fee.touched && trademark_registration_fee.hasError('required')" class="invalid-feedback"
                                         style="display: inline-block;">
                                         Trademark Registration is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="mobile">Income Tax Return</label>
-                                    <input type="text" maxlength="10" name="mobile" ngModel #mobile="ngModel"
+                                    <input type="text" name="income_tax_fee" ngModel #income_tax_fee="ngModel"
                                         class="form-control" placeholder="Income Tax Return" required autocomplete="off">
-                                    <div *ngIf="mobile.touched && mobile.hasError('required')" class="invalid-feedback"
+                                    <div *ngIf="income_tax_fee.touched && income_tax_fee.hasError('required')" class="invalid-feedback"
                                         style="display: inline-block;">
                                         Income Tax Return is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="mobile">Partnership Deed Notary</label>
-                                    <input type="text" maxlength="10" name="mobile" ngModel #mobile="ngModel"
+                                    <input type="text" name="partnership_deed_notary_fee" ngModel #partnership_deed_notary_fee="ngModel"
                                         class="form-control" placeholder="Partnership Deed Notary" required autocomplete="off">
-                                    <div *ngIf="mobile.touched && mobile.hasError('required')" class="invalid-feedback"
+                                    <div *ngIf="partnership_deed_notary_fee.touched && partnership_deed_notary_fee.hasError('required')" class="invalid-feedback"
                                         style="display: inline-block;">
                                         Partnership Deed Notary is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="mobile">Partnership Deed Registered</label>
-                                    <input type="text" maxlength="10" name="mobile" ngModel #mobile="ngModel"
+                                    <input type="text" name="partnership_deed_registered_fee" ngModel #partnership_deed_registered_fee="ngModel"
                                         class="form-control" placeholder="Partnership Deed Registered" required autocomplete="off">
-                                    <div *ngIf="mobile.touched && mobile.hasError('required')" class="invalid-feedback"
+                                    <div *ngIf="partnership_deed_registered_fee.touched && partnership_deed_registered_fee.hasError('required')" class="invalid-feedback"
                                         style="display: inline-block;">
                                         Partnership Deed Registered is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="mobile">Rent Agreement Notary</label>
-                                    <input type="text" maxlength="10" name="mobile" ngModel #mobile="ngModel"
+                                    <input type="text" name="rent_agreement_notary_fee" ngModel #rent_agreement_notary_fee="ngModel"
                                         class="form-control" placeholder="Rent Agreement Notary" required autocomplete="off">
-                                    <div *ngIf="mobile.touched && mobile.hasError('required')" class="invalid-feedback"
+                                    <div *ngIf="rent_agreement_notary_fee.touched && rent_agreement_notary_fee.hasError('required')" class="invalid-feedback"
                                         style="display: inline-block;">
                                         Rent Agreement Notary is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="mobile">Rent Agreement Registered</label>
-                                    <input type="text" maxlength="10" name="mobile" ngModel #mobile="ngModel"
+                                    <input type="text" name="rent_agreement_registered_fee" ngModel #rent_agreement_registered_fee="ngModel"
                                         class="form-control" placeholder="Rent Agreement Registered" required autocomplete="off">
-                                    <div *ngIf="mobile.touched && mobile.hasError('required')" class="invalid-feedback"
+                                    <div *ngIf="rent_agreement_registered_fee.touched && rent_agreement_registered_fee.hasError('required')" class="invalid-feedback"
                                         style="display: inline-block;">
                                         Rent Agreement Registered is required
                                     </div>

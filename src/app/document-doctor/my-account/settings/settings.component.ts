@@ -14,7 +14,8 @@ import { DocumentService } from 'src/app/service/document.service';
 export class SettingsComponent implements OnInit {
   @ViewChild('form') form : NgForm
   imageUrl: string;
-  imageFile: File;
+  logoFile: File;
+  bannerFile: File;
   user_id: number;
   constructor(private auth: AuthService, private service: DocumentService, private dataService: DataService , private route: Router) { }
 
@@ -48,7 +49,10 @@ export class SettingsComponent implements OnInit {
 
 
   onFileSelect(event){
-    this.imageFile = event.target.files[0];
+    this.logoFile = event.target.files[0];
+  }
+  onBannerFileSelect(event){
+    this.bannerFile = event.target.files[0];
   }
 
   getDate(value){
@@ -62,7 +66,7 @@ export class SettingsComponent implements OnInit {
       // form.control.get('birth_date').setValue(birth_date_format)
 
     let formData = new FormData();
-      formData.append("profile_photo", this.imageFile);
+      formData.append("profile_photo", this.logoFile);
       formData.append('user_id', this.user_id.toString())
       formData.append('name', form.control.get('name').value)
       formData.append('email', form.control.get('email').value)
